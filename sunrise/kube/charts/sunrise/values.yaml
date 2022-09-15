@@ -1,0 +1,131 @@
+# Default values for scholarships.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+app: sunrise
+updateStrategy:
+  type: RollingUpdate
+replicaCount: 2
+# Oauth keys
+secretKeysName: sunrise-oauth-keys
+secretKeysNamePath: /var/run/secrets/sunrise/passport-keys
+# Service account Key
+secretServiceAccountName: sunrise-service-account-key
+secretServiceAccountNamePath: /var/run/secrets/sunrise/sa
+# Oauth Google cloud keys
+secretServiceAccountGCName: sunrise-gc-oauth-key
+secretServiceAccountGCNamePath: /var/run/secrets/sunrise/gc_sa
+
+livenessProbe:
+  exec:
+    command:
+    - cat
+    - /var/www/html/healthy
+  initialDelaySeconds: 180
+  timeoutSeconds: 10
+  failureThreshold: 5
+readinessProbe:
+  exec:
+    command:
+    - cat
+    - /var/www/html/healthy
+  initialDelaySeconds: 180
+  timeoutSeconds: 10
+  failureThreshold: 5
+
+containers:
+  nginx:
+    name: nginx
+    repository: gcr.io/sowl-tech/sunrise/nginx
+    tag: latest
+    pullPolicy: IfNotPresent
+    port: 80
+  phpfpm:
+    name: php-fpm
+    repository: gcr.io/sowl-tech/sunrise/php-fpm
+    tag: latest
+    pullPolicy: IfNotPresent
+    port: 9000
+  queue:
+    name: queue-server
+    repository: gcr.io/sowl-tech/sunrise-dev/queue/queue
+    tag: latest
+    pullPolicy: IfNotPresent
+service:
+  name: lb
+  type: NodePort
+  externalPort: 8080
+  internalPort: 80
+ingress:
+    enabled: true
+    # Used to create an Ingress record.
+    hosts:
+      - app.scholarship.app
+      - app.sunrising.io
+    annotations:
+      kubernetes.io/ingress.class: "nginx"
+      nginx.ingress.kubernetes.io/ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    tls:
+      # Secrets must be manually created in the namespace.
+    - secretName: app.scholarship.app
+      hosts:
+        - app.scholarship.app
+    - secretName: sunrising.io
+      hosts:
+        - app.sunrising.io
+
+# Resources
+resources:
+  phpfpm:
+    requests:
+      memory: 700Mi
+      cpu: 100m
+    limits:
+      memory: 1.5Gi
+      cpu: 100m
+  nginx:
+    requests:
+      memory: 15Mi
+      cpu: 100m
+    limits:
+      memory: 50Mi
+      cpu: 100m
+  queue:
+    requests:
+      memory: 300Mi
+      cpu: 100m
+    limits:
+      memory: 1Gi
+      cpu: 100m
+
+volume:
+  name: sunsrise-volume
+  path: /var/www/html
+  size: 100Gi
+
+nodeSelector:
+  node: prod
+
+# GCloud Sql proxy
+gcloud-sqlproxy:
+  replicasCount: 2
+  nodeSelector:
+    node: prod
+  cloudsql:
+    instances:
+    - instance: "sunrise-prod"
+      project: "sowl-tech"
+      region: "us-central1"
+      port: 3306
+
+# Redis
+redis:
+  password: maeviZ1m
+  cluster:
+    enabled: false
+  master:
+    nodeSelector:
+      node: prod
+    persistence:
+      size: 100Gi

@@ -1,0 +1,18 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: jenkins.scholarshipowl.tech
+  namespace: jenkins
+spec:
+  secretName: jenkins.scholarshipowl.tech
+  issuerRef:
+    name: sowl-tech-prod
+    kind: ClusterIssuer
+  dnsNames:
+    - jenkins.scholarshipowl.tech
+  acme:
+    config:
+    - dns01:
+        provider: prod-dns
+      domains:
+      - jenkins.scholarshipowl.tech

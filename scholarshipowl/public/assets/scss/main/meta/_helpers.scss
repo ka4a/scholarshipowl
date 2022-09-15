@@ -1,0 +1,487 @@
+@import './variables';
+@import './palette';
+// @import './../../icon-font';
+
+.row, .relative {
+  position: relative;
+}
+
+.left, .fl {
+  float: left;
+}
+
+.right, .fr {
+  float: right;
+}
+
+// typography
+// font weight
+.fwb, .t-bold {
+  font-weight: 700;
+}
+
+.fwub {
+  font-weight: 800;
+}
+
+// transformation
+%uppercase,
+.uppercase,
+.tu,
+.ttu {
+  text-transform: uppercase;
+}
+
+%capitalize,
+.ttc {
+  text-transform: capitalize;
+}
+
+// text align
+.center-text,
+.text-center,
+.tac {
+  text-align: center;
+}
+
+// letter spacing
+.ls04 {
+  letter-spacing: 0.4px;
+}
+.ls22 {
+  letter-spacing: 2.2px;
+}
+
+// font weight
+.fw300 {
+  font-weight: 300;
+}
+
+.fw900 {
+  font-weight: 900;
+}
+
+.fw800, b {
+  font-weight: 800;
+}
+
+// line height
+.lh13 {
+  line-height: 1.3em;
+}
+
+.lh15 {
+  line-height: 1.5em;
+}
+
+.lh16 {
+  line-height: 1.6em;
+}
+
+// font size
+// fixed size
+@each $font-size in (9, 10, 12, 13, 14, 16, 18, 20, 24, 26, 28) {
+  .f_#{$font-size} {
+    font-size: $font-size+px;
+  }
+}
+
+// adaptive font-size single file
+// reduce in mobile breakpoint by coefficient 0.67
+// class name look like .f_16m in mobile will be 10.72px
+@mixin font-size-class($font-size) {
+  .f_#{$font-size}m {
+    font-size: ($font-size * $font-size-increase-coefficient)+px;
+
+    @include breakpoint($mobile) {
+      font-size: $font-size+px;
+    }
+  }
+}
+
+@each $number in (12, 13, 18, 28, 50, 52) {
+  @include font-size-class($number);
+}
+
+.center-margin {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+// metaclases
+%transition {
+  transition: $transition-property $transition-duration $transition-timing-function;
+}
+
+%content-element {
+  position: absolute;
+  content: '';
+}
+
+// max width
+.mw460 {
+  max-width: 460px;
+  @extend .center-margin;
+}
+
+.mw780 {
+  max-width: 780px;
+  @extend .center-margin;
+}
+
+// clear fix
+%group {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+//images
+.fluid-img {
+  display: block;
+  width: 100%;
+}
+
+.center-text {
+  text-align: center;
+}
+
+%contur {
+  left: 0; right: 0;
+  top: 0; bottom: 0;
+}
+
+%center-absolute {
+  position: absolute;
+  margin: auto;
+  @extend %contur;
+}
+
+%center-fixed {
+  position: fixed;
+  margin: auto;
+  @extend %contur;
+}
+
+// displays
+.dib {
+  display: inline-block;
+}
+
+.df {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+}
+
+.dif {
+  display: inline-flex;
+}
+
+.db {
+  display: block;
+}
+
+.ovh {
+  overflow: hidden;
+}
+
+// resets
+%padding-reset {
+  padding: 0;
+}
+
+%margin-reset {
+  margin: 0;
+}
+
+// animations
+%collapse-animation {
+  max-height: 0;
+  overflow: hidden;
+  height: auto;
+  @extend %transition;
+
+  &.collapse-open {
+    max-height: 500px;
+  }
+}
+
+%rotate-animation {
+  display: inline-block;
+  transform: rotate(0deg);
+  @extend %transition;
+
+  &.rotate-torned {
+    transform: rotate(180deg);
+  }
+}
+
+%translate-top-animation {
+  transform: translate(0, -100%);
+  opacity: 0;
+  @extend %transition;
+
+  &.translate-active {
+    transform: translate(0, 0);
+  }
+}
+
+// indents
+@each $i in (5, 10, 15, 20, 25, 30, 35, 50, 90) {
+  @each $prefix in ('top', 'bottom') {
+    .#{$prefix}-#{$i} {
+      margin-#{$prefix}: #{$i}px;
+    }
+  }
+}
+
+// line breakp
+.break-from-xs {
+  @include breakpoint($mobile) {
+    display: block;
+    text-align: center;
+  }
+}
+
+.break-xs {
+  @include breakpoint(max-width $mobile) {
+    display: block;
+    text-align: center;
+  }
+}
+// position
+.absolute {
+  position: absolute;
+}
+
+.pr,
+.relative {
+  position: relative;
+}
+
+// z-index
+.z1 {
+  @extend .relative;
+  z-index: 1;
+}
+
+.z2 {
+  @extend .relative;
+  z-index: 2;
+}
+
+@mixin placeholder-color($color) {
+  //placeholder color
+  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: $color;
+  }
+  &::-moz-placeholder { /* Firefox 19+ */
+    color: $color;
+  }
+  &:-ms-input-placeholder { /* IE 10+ */
+    color: $color;
+  }
+  &:-moz-placeholder { /* Firefox 18- */
+    color: $color;
+  }
+}
+
+// mixins
+// input field
+@mixin input($color, $placeholder-color, $border-color, $font-family) {
+    @include placeholder-color($placeholder-color);
+
+    border-radius: 2px;
+    border: solid 1px $border-color;
+    height: 52px;
+    padding: 13px 16px 15px 16px;
+    box-sizing: border-box;
+    width: 100%;
+
+    // field text
+    font-family: $font-family;
+    font-size: 14px;
+    color: $color;
+
+    &:focus {
+      outline: none;
+      border: 1px solid darken($border-color, 10%) !important;
+    }
+
+    @at-root {
+      .field__error {
+        @include placeholder-color($orange);
+
+        background-color: rgba(248, 123, 74, 0.1);
+        border-color: $orange !important;
+        color: $orange;
+      }
+    }
+  }
+
+// checkbox
+
+@mixin checkbox(
+  $color: #8ba4ec,
+  $border-color: #8ba4ec,
+  $size: 22px,
+  $icon-color:#50e3c2,
+  $text-font-size: 10px,
+  $color-disable: #e2eaff,
+  $bg-color-disable: #f5f9ff) {
+  & {
+    text-align: left;
+
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    label {
+      cursor: pointer;
+      @extend %padding-reset;
+      @extend %margin-reset;
+    }
+
+    &__item {
+      // reset will remove when project will be revrited
+      // according new stylegide
+      padding: 0;
+
+      // styles
+      transition: all 600ms cubic-bezier(0.4, 0.0, 0.2, 1);
+      width: $size;
+      height: $size;
+      display: inline-block;
+      border-radius: 1.5px;
+      border: solid 0.5px $border-color;
+      cursor: pointer;
+      vertical-align: middle;
+      position: absolute;
+
+      &:before {
+        @extend .icon;
+        @extend .icon-checked;
+        position: absolute;
+        width:0;
+        font-size: $size * 1.5;
+        font-weight: bold;
+        top: -3px; left: -4px;
+        transition: all 600ms cubic-bezier(0.4, 0.0, 0.2, 1);
+        overflow: hidden;
+        color: $icon-color;
+      }
+    }
+
+    &__text {
+      color: $color;
+      font-family: Helvetica;
+      font-size: $text-font-size;
+      margin-left: 10px;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    input:checked + &__item:before {
+      width: 30px !important;
+    }
+
+    input[disabled] + &__item {
+      background-color: $bg-color-disable;
+      border-color: $color-disable;
+    }
+
+    input[disabled] ~ &__text {
+      color: $color-disable;
+    }
+  }
+}
+
+// phone top
+
+%phone {
+  $primary-color: $blue-lighter;
+  $secondary-color: $dark;
+
+  &__value {
+    font-family: $open-sans;
+    font-size: 12px;
+    font-weight: 300;
+    color: $secondary-color;
+  }
+  & .icon {
+    color: $primary-color;
+    border: 1px solid $primary-color;
+    border-radius: 50%;
+    padding: 0px 3px 0px 2px;
+    font-size: 14px;
+    margin-right: 3px;
+
+    &:before {
+      vertical-align: bottom;
+    }
+  }
+}
+
+// delimeter line
+@mixin delimeter-line($width: 200px,
+$height: 2px,
+$color: lighten($dark-more-lighter, 20%),
+$margin-top: 25px,
+$margin-bottom: 30px) {
+  max-width: $width;
+  height: $height;
+  background-color: $color;
+  @extend .center-margin;
+
+  margin-top: $margin-top;
+  margin-bottom: $margin-bottom;
+}
+
+// mixins
+
+@mixin icon-triangle($width, $height, $color) {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: $height $width/2 0 $width/2;
+  border-color: $color transparent transparent transparent;
+}
+
+// actions
+.rotated {
+  transform: rotated(-180deg);
+}
+
+// animations
+@keyframes debounce {
+	0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+	40% {
+    transform: translateY(-30px);
+  }
+	60% {
+    transform: translateY(-15px);
+  }
+}
+
+.debounce-anim {
+  animation: 2s debounce infinite;
+}
+
+// modal windows
+%bc-modal {
+  max-width: 590px;
+  background-color: $white;
+  position: relative;
+  border-radius: 5px;
+}
+
+// persentage font size
+@function font-size-persent($font-size, $basic-size: 16px) {
+  @return $font-size / $basic-size * 100%;
+}

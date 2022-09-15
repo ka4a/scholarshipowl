@@ -1,0 +1,83 @@
+type: object
+properties:
+  id:
+    type: integer
+    enum:
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      - '5'
+      - '6'
+      - '7'
+      - '8'
+      - '9'
+      - '10'
+      - '11'
+      - '12'
+      - '13'
+      - '14'
+      - '15'
+      - '16'
+      - '17'
+      - '18'
+      - '19'
+      - '20'
+      - '21'
+      - '22'
+      - '23'
+      - '24'
+      - '25'
+      - '26'
+      - '27'
+      - '28'
+      - '29'
+      - '30'
+      - '31'
+      - '32'
+      - '33'
+      - '34'
+      - '35'
+      - '36'
+      - '37'
+  name:
+    type: string
+    enum:
+      - Agriculture and Related Sciences
+      - Architecture and Related Services
+      - 'Area, Ethnic, Cultural and Gender Studies'
+      - Biological and Biomedical Sciences
+      - 'Business, Management and Marketing'
+      - Communication and Journalism
+      - Computer and Information Sciences
+      - Construction Trades
+      - Education
+      - Engineering
+      - English Language and Literature
+      - Family and Consumer Sciences
+      - 'Foreign Languages, Literature and Linguistics'
+      - Health Professions and Clinical Sciences
+      - History
+      - Legal Professions and Law Studies
+      - 'Liberal Arts / General Studies'
+      - Library Science
+      - Mathematics and Statistics
+      - 'Mechanic and Repair Tech / Technicians'
+      - Military Technologies
+      - 'Multi / Interdisciplinary Studies'
+      - Natural Resources and Conservation
+      - 'Parks, Recreation, and Fitness Studies'
+      - Personal and Culinary Services
+      - Philosophy and Religious Studies
+      - Physical Sciences
+      - Precision Production
+      - Psychology
+      - Public Administration and Social Service
+      - Security and Protective Services
+      - Social Sciences
+      - 'Technology Education / Industrial Arts'
+      - Theology and Religious Vocations
+      - Transportation and Materials Moving
+      - Visual and Performing Arts
+      - 'Not Listed / Other'
+

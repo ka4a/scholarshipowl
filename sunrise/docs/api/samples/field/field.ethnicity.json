@@ -1,0 +1,21 @@
+{
+  "data": {
+    "type": "field",
+    "id": "ethnicity",
+    "attributes": {
+      "name": "Ethnicity",
+      "type": "option",
+      "options": {
+        "1": "Caucasian",
+        "2": "African American",
+        "3": "Hispanic / Latino",
+        "4": "Asian / Pacific Islander",
+        "5": "American Indian / Native Alaskan",
+        "6": "Other"
+      }
+    },
+    "links": {
+      "self": "/field/ethnicity"
+    }
+  }
+}

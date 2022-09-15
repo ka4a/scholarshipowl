@@ -1,0 +1,23 @@
+type: object
+properties:
+  id:
+    type: integer
+    enum:
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      - '5'
+      - '6'
+      - '7'
+  name:
+    type: string
+    enum:
+      - Certificate
+      - Associate's Degree
+      - Bachelor's Degree
+      - Graduate Certificate
+      - Master's Degree
+      - Doctoral (Ph.D.)
+      - Undecided
+

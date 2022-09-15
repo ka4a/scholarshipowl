@@ -1,0 +1,29 @@
+
+User-agent: *
+Crawl-delay: 10
+
+# Directories
+Disallow: /backup/
+Disallow: /bootstrap/
+Disallow: /public/_assets/
+Disallow: /public/packages/
+Disallow: /vendor/
+Disallow: /.git/
+# Files
+Disallow: /composer.json
+Disallow: /composer.lock
+Disallow: /CONTRIBUTING.mg
+Disallow: /drops.sql
+Disallow: /mysql
+Disallow: /phpunit.xml
+Disallow: /readme.md
+Disallow: /server.php
+Disallow: /upgrade.md
+Disallow: /.gitattributes
+Disallow: /.gitignore
+# Paths (clean URLs)
+Disallow: /my-account/
+# Paths (no clean URLs)
+Disallow: /?q=admin/
+
+Sitemap: https://scholarshipowl.com/sitemap.xml

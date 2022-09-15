@@ -1,0 +1,17 @@
+type: object
+properties:
+  id:
+    type: integer
+  accountId:
+    type: integer
+  accountFile:
+    $ref: "AccountFile.yml"
+  requirementImageId:
+    type: integer
+  fromCamera:
+    type: integer
+  scholarshipId:
+    type: integer
+
+
+

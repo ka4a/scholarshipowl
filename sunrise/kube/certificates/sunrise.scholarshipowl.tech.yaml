@@ -1,0 +1,21 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: sunrise-dev-crt
+  namespace: sunrise-dev
+spec:
+  secretName: sunrise.scholarshipowl.tech
+  issuerRef:
+    name: sowl-tech-prod
+    kind: ClusterIssuer
+  commonName: ""
+  dnsNames:
+  - "*.sunrise.scholarshipowl.tech"
+  - sunrise.scholarshipowl.tech
+  acme:
+    config:
+    - dns01:
+        provider: prod-dns-scholarshipowl-1244
+      domains:
+    - "*.sunrise.scholarshipowl.tech"
+    - sunrise.scholarshipowl.tech

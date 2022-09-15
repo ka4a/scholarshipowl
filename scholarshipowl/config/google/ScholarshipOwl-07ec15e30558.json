@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "scholarshipowl-1244",
+  "private_key_id": "07ec15e305583683b7db0440ba3e94853f762155",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDWBolLXGn0eMQE\ntPFgytb7p11/RORgg2Z96PlpAEfz5YkyYyvRXHYbWrhwV56bcGZtxavWdXYAhsQK\nPEsK5AwOYhImtS1UlC56r4eyY/ECSe+M47po5QryJQqvvdHIVTRBM5u/taATuV36\n5zDifzS+BBodFdzfyEdSZ+HFVBttQssFM1jZg4A01mPNuoSqePwId6RKYyug61PS\n31jziJ6wgWeehp/b0/WRMPWWf4UjwC+KVFH8UcWWg/sM06xd0PjWIEfNoEH97tbB\nnes1dYvt+BBoKW75p5S/mQ+WpiAUGiNQmV0vdEBZ9pkrV8zifEmmT6NJOvkcvRGK\nrbYKa6/ZAgMBAAECggEAGDJQes/lnbE6jgKr6GK+R+Ct0hnmjN/GKlV4vw18VP9e\nEa+DEG4Y3zJUOEU7pfyg4+eta/dHIjuaNcMHw+Ew2L5vKWehypZfI9ks6PbiFD1q\nIv5LAJlmcaZM7T3zVegGGpn8UYH16Uzzak6RaQXzH0lk72VdnYItyAv9CxtdZ25p\nBsk4oE7qX4kbYd67zZcKeVddCWkyy1cjbsHNILkaXcFuK45Ix8Z+IBYT2gioFfer\niKVBIiEPUGN3fjBLjWTsdPlvM4JWUnPAaHeC+sxhOrFL7QzK7Gzz0qLCU83l8WqS\n88QFJTMsgh2uSJlPVQALf5vQVkd8T5shiiJpvA3EIQKBgQDvv/TnGHQolO5lKbjz\nVt+sp25a4tW7cK8MF1iyoupOl0/vrvH+dnxEPUp8h7lHG7Bw+nBYj0TpqWd7/33Z\ncxM2U9jFNYNmsfqBX450XDoolPOXaV4jlG3e9WbUbq8fRXGPCSAUnqhT1M3heE/U\nGePELqqhqWyr3HcDm85VLz19iQKBgQDkiDjOjuYDNWb3Hi0HAY/bqW1VpLwi0V5H\nKoFx7O38Pz3J5GwL/lgRSqIs7+cE0ZdMUwBA7yNjeSE74y5kdU1GMkvtOMaChi38\nxLdRG5NWdSH+IsNiFpCW9VJ6Oj5PB4ePrkYXCYaC9tgLI9RhXCbdU4cNWeoczoy5\na3mnpzTb0QKBgQDcsL9YJttuK8HSn3hfjx1wSeM8iEekNhL8N1VvgqXaWFC92jVq\nPlkfW6gAP9NeUG+3X+EgtCkESes3ajTHgLUzsjT9O8hMNRLaGkMAe5ERoCMmwlhk\nuhH1RcI1U/mh+IOS3hyIvo9GM8KchOo+3OIbybVKALJG9TccvERPh5+7uQKBgEGS\nJFp//dcl12lIKzs7Y39vWYOdRK3ozNg2hfWeOZqKurvW4nl+fN5ZP7cNDof/ax3n\nIsd+1fSQqMx6HrGMRqPBgq+J/sssnL1N5BtNgjToXtyANPdL6iimMwgG9iHO00KS\nimHJxeKF2O85VJKq0ivm73URO28QhKgfAkTsYOpBAoGAXINn3vw8keTLxt7vF3qu\n6ZjbjPjWUuVsplVzXZBwUJxQ8vIDZkZJgxE+87Al0khVMD9wt6Fh81SKx97vsF77\nwU3hxjbBica8M6gY686gLmC2P1T+Fatn6to1V0Qv79IVCkn4ykaNo5z4xIOZtb6Z\nFYClgAxsiDKaqg81M0GdRu4=\n-----END PRIVATE KEY-----\n",
+  "client_email": "scholarshipowl-storage@scholarshipowl-1244.iam.gserviceaccount.com",
+  "client_id": "100078405435270036041",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/scholarshipowl-storage%40scholarshipowl-1244.iam.gserviceaccount.com"
+}

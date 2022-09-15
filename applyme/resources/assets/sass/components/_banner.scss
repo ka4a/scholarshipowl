@@ -1,0 +1,50 @@
+// <768px
+.Banner {
+    position: relative;
+    color: $brand-light-primary;
+    background-color: $brand-primary;
+    // padding: 60px 0 35px 0;
+
+    .Banner__content {
+        padding: 60px 0 35px 0;
+
+        h1 {
+            font-size: 30px;
+            position: relative;
+            font-family: $font-family-sans-serif;
+            z-index: 2;
+            margin-top: 0;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .Banner__text {
+            position: relative;
+            font-size: 18px;
+            z-index: 2;
+        }
+    }
+}
+
+// >= 768px
+@media(min-width:768px) {
+    .Banner {
+        .Banner__content {
+            h1 {
+                font-size: 42px;
+            }
+
+            .Banner__text {
+                font-size: inherit;
+            }
+        }
+    }
+}
+
+// >= 992px
+@media(min-width:992px) {
+}
+
+// >= 1200px
+@media(min-width:1200px) {
+}

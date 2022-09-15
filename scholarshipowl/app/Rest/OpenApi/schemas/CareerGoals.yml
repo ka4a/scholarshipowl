@@ -1,0 +1,29 @@
+type: object
+properties:
+  id:
+    type: integer
+    enum:
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      - '5'
+      - '6'
+      - '7'
+      - '8'
+      - '9'
+      - '10'
+  name:
+    type: string
+    enum:
+      - 'Art, Design or Fashion'
+      - Beauty or Cosmetology
+      - 'Business / Marketing / Management'
+      - 'Computers / IT / Technology'
+      - Culinary Arts
+      - 'Health Care / Nursing'
+      - 'Law / Criminal Justice'
+      - 'Teaching / Education'
+      - 'Vocational / Technical'
+      - Other
+

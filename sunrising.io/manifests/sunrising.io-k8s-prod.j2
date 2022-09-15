@@ -1,0 +1,76 @@
+#v.1.0.5
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ KUBE_NAMESPACE }}
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: sunrising-app-{{ BRANCH }}
+  namespace: {{ KUBE_NAMESPACE }}
+spec:
+  selector:
+    app: sunrising-app-{{ BRANCH }}
+  ports:
+  - name: "apache"
+    protocol: TCP
+    port: 80
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+ annotations:
+   kubernetes.io/ingress.class: nginx
+   nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+   nginx.ingress.kubernetes.io/ssl-redirect: 'true'
+   nginx.ingress.kubernetes.io/lb-method: round_robin
+#   nginx.ingress.kubernetes.io/websocket-services: {{ CI_PROJECT_NAME }}-{{ BRANCH }}
+ name: sunrising-app-{{ BRANCH }}
+ namespace: {{ KUBE_NAMESPACE }}
+spec:
+ tls:
+   - secretName: {{ KUBE_INGRESS_HTTPS_SECRET_NAME }}
+ rules:
+   - host: {{ KUBE_INGRESS_DOMAIN }} # Replace with correct cluster FQDN
+     http:
+       paths:
+         - path: /
+           backend:
+             serviceName: sunrising-app-{{ BRANCH }}
+             servicePort: 80
+         - path: /blog/
+           backend:
+             serviceName: wordpress
+             servicePort: 80
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: sunrising-app-{{ BRANCH }}
+  namespace: {{ KUBE_NAMESPACE }}
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: sunrising-app-{{ BRANCH }}
+    spec:
+      containers:
+###############################################################---sunrising-app---######################################################
+      - name: apache
+        image: {{ CONTAINER_RELEASE_IMAGE }}
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: SUNRISE_URL
+          value: "{{ SUNRISE_URL }}"
+        ports:
+        - containerPort: 80     
+        # resources:
+        #   limits:
+        #     cpu: "0.5"
+        #     memory: "512Mi"
+        #   requests:
+        #     cpu: "0.25"
+        #     memory: "64Mi"
+      restartPolicy: Always

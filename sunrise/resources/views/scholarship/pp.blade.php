@@ -1,0 +1,237 @@
+<h1>Privacy Policy</h1>
+<p>
+    {{ $business['name'] }} respects your privacy and is committed to protecting
+    and preserving it through our compliance with this policy.  Please read
+    below to learn how we collect, use, protect and share personal information
+    you provide to us.
+</p>
+
+<p>
+    This Privacy Policy (“Policy”) governs this website
+    <a href="//{{ $business['website'] }}" target="_blank">{{ $business['website'] }}</a>
+    and all websites owned and operated by {{ $business['name'] }}, a Delaware limited
+    liability company (herein known as “Company” or “We” or “Us”)  including
+    @for ($i = 0; $i < count($scholarshipWebsites); $i++)
+        @if($i === count($scholarshipWebsites) - 1) and @endif
+        <a href="//{{ $scholarshipWebsites[$i] }}" target="_blank">{{ $scholarshipWebsites[$i] }}</a>@if($i < count($scholarshipWebsites) - 2),@endif
+    @endfor
+    ( “Website(s)”) and on which this privacy policy is displayed.
+</p>
+
+<h2>Information We Collect About You</h2>
+<p>
+    <u>Personal Information</u> (i.e. Information You Provide to Us)
+</p>
+<p>
+    We collect personal information you provide to Us on our Website(s) such
+    as your name, email address, telephone number, and State of Residence.
+</p>
+<p>
+    <u>Non-Personal Information </u>
+</p>
+<p>
+    We also collect non-personal information that does not individually
+    identify you such as data about your online activity ("Usage Details") as described below.
+</p>
+
+<h2>Usage Details, IP Addresses, Cookies and Other Technologies</h2>
+<p>
+    Like many websites, we use cookies, web beacons and other technologies to automatically
+    collect certain information about your equipment, browsing actions, and patterns (“Usage Details”).
+    The information we automatically collect helps us to improve our Website(s) and to deliver a better
+    and more personalized service.  This information may include internet protocol (IP) address,
+    browser type, internet service provider (ISP), operating system, traffic data, location data, and logs.
+    We aggregate such Usage Details (“Aggregated Data”) in a manner that does not allow for the
+    identification of any specific individual.
+</p>
+<p>
+    <strong>Cookies.</strong>
+    We may obtain information about your general internet usage and/or smartphone usage by using cookies.
+    A cookie is a small file passed from our Website(s) to your computer or smart device that is stored
+    on the hard drive of your computer or smart device. Cookies allow the Website(s) to understand your
+    use of the Website. You may choose to set your web browser to refuse cookies, or to alert you when
+    cookies are being sent. If you do so, please note that some parts of our Site may not function properly.
+</p>
+<p>
+    <strong>Web Beacons.</strong>
+    Our Website(s) may contain small electronic files known as web beacons (also known as clear gfs or
+    single pixel gifs) that permit us, for example, to count users who have visited those pages or opened
+    an email, and to gather other related Website Statistics (for example, recording the popularity of
+    certain Website content and verifying the integrity of systems and servers We operate.
+</p>
+<p>
+    <strong>Third-Party Advertiser Use of Cookies and Other Tracking Technologies.</strong>
+    We may feature advertisements served by third-party advertising companies on the Website(s).
+    Third-party advertisers may use cookies alone or in conjunction with web beacons or other tracking
+    technologies to collect information about our users. We do not control third-party advertisers’
+    cookies or how they may be used by such third-party.  If you have any questions about a third-party
+    advertisement, you should directly contact the third-party advertiser.
+</p>
+<p>
+    <strong>Browser Do Not Track Signals.</strong>
+    Although our Website currently does not have a mechanism to recognize the various web browser Do Not
+    Track signals, We do offer our visitors choices to manage their preferences that are provided in
+    this Policy. To learn more about browser tracking signals and Do Not Track please visit
+    <a href="http://www.allaboutdnt.org/." target="_blank">http://www.allaboutdnt.org</a>
+</p>
+
+<h2>How We Use Your Information</h2>
+<p>We use information that We collect about you or that you provide to Us, to:</p>
+<ul>
+	<li>
+		Deliver the products and services you requested;
+	</li>
+	<li>
+        Present our Website(s) and its contents in a suitable and effective manner 	for you and your computer;
+	</li>
+	<li>
+		Notify you about changes to our service(s), product(s), and Website(s);
+	</li>
+	<li>
+        Improve our products, services, and Website(s);
+	</li>
+	<li>
+        Personalize your user experience;
+	</li>
+	<li>
+		Communicate information about products, services, special offers and other information that may be of interest to you.
+	</li>
+</ul>
+
+<h2>How We Disclose Your Information</h2>
+<p>We may disclose your personal information to:</p>
+<ul>
+	<li>
+        Comply with any court order, or lawfully issued subpoena;
+	</li>
+	<li>
+        Comply with any request from state, local or federal law enforcement;
+	</li>
+	<li>
+        Investigate suspected fraud, harassment or other violation of law;
+	</li>
+	<li>
+        Investigate any violation of the Website(s) policy or other agreements;
+	</li>
+	<li>
+        Investigate violations of the rights of third parties;
+	</li>
+	<li>
+        Investigate any suspected conduct which We deem improper or likely to cause harm to Us or any other visitor or person;
+	</li>
+	<li>
+        When we believe that such disclosure is necessary to identify, contact, or bring legal action
+        against someone who may be causing injury to or interference with the Company’s rights or property
+        or the rights or property of others;
+	</li>
+	<li>
+        Allow third parties to market their products or services to you.
+	</li>
+</ul>
+
+<h2>Opt-Out</h2>
+<h3><u>Third-Party Sharing</u></h3>
+<p>
+    If you would like to opt-out of having your Personal Information disclosed to third parties
+    for their direct marketing purposes, please let us know by sending us an email at
+    <a href="mailto:{{ $business['email'] }}">{{ $business['email'] }}</a>.
+</p>
+<p>
+    Please include your full name, email address, mailing address, and specifically state that
+    you do not want your Personal Information shared with third parties for their direct marketing purposes.
+</p>
+
+<h3><u>Email Marketing</u></h3>
+<p>
+    With respect to communications from Us, you may opt-out of our non-transactional emails via a link
+    in the footer of all non-transactional email messages.  Alternatively, you may email
+    <a href="mailto:{{ $business['email'] }}">{{ $business['email'] }}</a> at any time and ask to be removed.
+</p>
+<p>
+    We may continue to send you certain transactional email communications such as emails regarding
+    customer support and similar information regarding your use of our Website(s).
+</p>
+
+<h3>Links to Third-Party Websites</h3>
+<p>
+    The Website(s) contain links to other websites or applications. The Company is not responsible for
+    the privacy practices or the content of these other websites or applications.  Visitors to other websites
+    should review the privacy statement on such websites to understand their policies.  While We strive to
+    protect our visitors' personal information and privacy, We cannot guarantee the security and privacy of
+    any information you disclose on at other websites or on other applications, and you do so at your own risk.
+</p>
+
+<h3>Your California Privacy Rights</h3>
+<p>
+    California Civil Code Section § 1798.83 permits users of our Website that are California residents to
+    request certain information regarding our disclosure of personal information to third parties for their
+    direct marketing purposes. To make such a request, please send an email to
+    <a href="mailto:{{ $business['email'] }}">{{ $business['email'] }}</a>.
+</p>
+
+<h3>Data Security</h3>
+<p>
+    We recognize the importance of safeguarding the confidentiality of your Personal Information. Accordingly,
+    we employ reasonable measures designed t protect your information from unauthorized access, disclosure,
+    and use. However, no data transmission over the internet or other network can be guaranteed to be completely
+    secure. As a result, while we strive to protect information transmitted on or through the Website(s), we
+    cannot and do not guarantee the security of any information you transmit on or through the Website(s) and
+    you do so at your own risk.
+</p>
+
+<h3>Visiting Our Website(s) From Outside the United States</h3>
+<p>
+    This Website is governed by the laws of the United States and is intended only for residents of the United States.
+</p>
+
+<h3>Children's Privacy</h3>
+<p>
+    Our website(s) are not intended for persons under 16 years of age. If you are under the age of 16 you are not
+    authorized to use the website(s) or to provide any of your Personal Information on such website(s). We do not
+    knowingly collect Personal Information from persons under the age of 16.   If we learn that we have collected
+    Personal Information from a person under age 16 without verification of parental consent, we will use all
+    reasonable efforts to remove Personal Information related to persons under 16 from our database. If you believe
+    that we might have any information from or about a child under 16, please contact use at <a href="mailto:{{ $business['email'] }}">{{ $business['email'] }}</a>.
+</p>
+
+<h3>Changes to Our Privacy Policy</h3>
+<p>
+    This Policy may change from time to time, and your continued use of the Website(s) is deemed to be acceptance
+    of such changes.  As such, please check this Policy periodically for updates.
+</p>
+<p>
+    <strong>
+        If you have questions regarding this Policy, please contact Us via email at
+        <a href="mailto:{{ $business['email'] }}">{{ $business['email'] }}</a> or by writing to:
+    </strong>
+</p>
+<p>
+	<span>{{ $business['name'] }}</span><br/>
+    <span>{{ $business['address'] }}</span>&nbsp;<span>{{ $business['address2'] }}</span><br/>
+    <span>{{ $business['city'] }}, {{ $business['region'] }} {{ $business['zip'] }}</span><br/>
+</p>
+
+<h4>LAST UPDATED:  August 10, 2018</h4>
+<h4>Update Summary:</h4>
+<table cellpadding="10">
+	<thead>
+        <tr>
+            <th>
+                <u>Date</u>
+            </th>
+            <th>
+                <u>Summary of change</u>
+            </th>
+        </tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				August 10, 2018
+			</td>
+			<td>
+				Privacy Policy Created
+			</td>
+		</tr>
+	</tbody>
+</table>

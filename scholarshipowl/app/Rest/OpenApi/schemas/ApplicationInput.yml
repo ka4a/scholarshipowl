@@ -1,0 +1,13 @@
+type: object
+properties:
+  id:
+    type: integer
+  accountId:
+    type: integer
+  text:
+    type: string
+  requirementInputId:
+    type: integer
+  scholarshipId:
+    type: integer
+

@@ -1,0 +1,119 @@
+.section--faqs .container {
+    padding: 1em 2em;
+}
+
+.section--faqs .panel-group {
+    margin-bottom:0;
+}
+
+.section--faqs .button-wrapper {
+    padding-bottom:0;
+    padding-top: 3em;
+}
+
+.section--faqs .panel-title {
+    position: relative;
+    font-size: 1em;
+}
+
+.section--faqs .panel-title a {
+    display: block;
+    outline: none;
+    text-decoration: none;
+    padding: 1em 3em 1em 1em;
+}
+
+.section--faqs .panel-heading {
+    background-color: #fff;
+    position: relative;
+    padding: 0;
+}
+
+.section--faqs a.collapsed > .plus-minus::before,
+.section--faqs a > .plus-minus::before {
+    color: #d8e8ff;
+    top: 1.4em;
+    right: 1.4em;
+}
+
+.section--faqs a.collapsed > .plus-minus::before {
+    content: '+';
+}
+
+.section--faqs a > .plus-minus::before {
+    content: '−';
+}
+
+.section--faqs .panel-body {
+    line-height: 1.5;
+    font-size: .82em;
+    margin: 0 2em 2em;
+    border-top: 1px solid #d8e8ff;
+}
+
+.section--faqs .in .panel-body {
+    border-top: transparent;
+}
+
+.section--faqs .panel-default > .panel-heading + .panel-collapse > .panel-body {
+    border-top-color: transparent;
+}
+
+/*==========  min 768  ==========*/
+
+
+@media (min-width: 768px) {
+    .section--faqs .container {
+        padding: 2.5em 5em;
+    }
+    .section--faqs .panel-title {
+        font-size: 1.2em;
+    }
+    .section--faqs .panel-title a {
+        padding: 2em 4.5em 2em 2em;
+    }
+    .section--faqs a.collapsed > .plus-minus::before,
+    .section--faqs a > .plus-minus::before {
+        top: 2em;
+        right: 2em;
+    }
+    .section--faqs .panel-body {
+        line-height: 150%;
+        font-size: 1em;
+        margin: 0 2.5em 2em;
+        border-top: 1px solid #d8e8ff;
+    }
+}
+
+/*==========  min 992  ==========*/
+
+@media (min-width: 992px) {
+    .section--faqs .container {
+        padding: 4em 8em;
+    }
+}
+
+/*=============================================
+=            Quick Answers to FAQs            =
+=============================================*/
+
+.section--faqs .mod-container,
+.section--faqs .mod-text-container {
+    padding-top: 0;
+}
+
+.fade {
+    opacity:0;
+    -webkit-transition:opacity .15s 
+    linear;-o-transition:opacity .15s 
+    linear;transition:opacity .15s linear
+}
+
+.fade.in{opacity:1}
+.collapse{display:none}
+.collapse.in{display:block}
+tr.collapse.in{display:table-row}
+tbody.collapse.in{display:table-row-group}
+.collapsing{height:0;overflow:hidden;-webkit-transition-property:height,visibility;-o-transition-property:height,visibility;transition-property:height,visibility;-webkit-transition-duration:.35s;-o-transition-duration:.35s;transition-duration:.35s;-webkit-transition-timing-function:ease;-o-transition-timing-function:ease;transition-timing-function:ease}
+
+/*-----  End of Quick Answers to FAQs  ------*/

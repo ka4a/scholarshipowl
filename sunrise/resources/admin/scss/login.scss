@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran');
+
+$radius-rounded: 50%;
+@import "node_modules/bulma/sass/utilities/initial-variables";
+$family-primary: "Catamaran", sans-serif;
+
+// Set your colors
+$primary: #D73148;
+$body-size: 18px;
+
+@import "node_modules/bulma/sass/utilities/_all";
+@import "node_modules/bulma/sass/base/_all";
+@import "node_modules/bulma/sass/elements/_all";
+@import "node_modules/bulma/sass/components/_all";
+@import "node_modules/bulma/sass/grid/_all";
+@import "node_modules/bulma/sass/layout/_all";
+@import "node_modules/buefy/src/scss/buefy";
+
+.modal {
+  .modal-background {
+    background: rgba(236, 236, 236, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  .modal-content {
+    font-size: 15px;
+
+    > .box {
+      padding: 40px;
+      border-radius: 20px;
+      background-color: white;
+    }
+
+    .modal-title {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &.is-small {
+    .modal-content {
+      width: 413px;
+    }
+  }
+
+  .boxclose {
+    cursor: pointer;
+    position: absolute;
+    right: 22px;
+    top: 22px;
+    background: #CE818C;
+    display: inline-block;
+    overflow: hidden;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    &:hover {
+      background: #b76e79;
+    }
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      height: 2px;
+      width: 40%;
+      top: 50%;
+      left: 30%;
+      margin-top: -1px;
+      background: #fff;
+    }
+    &::before {
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+}

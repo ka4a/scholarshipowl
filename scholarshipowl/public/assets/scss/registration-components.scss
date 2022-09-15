@@ -1,0 +1,114 @@
+// extend main styles
+// breakpoint sass lib
+// http://breakpoint-sass.com/
+@import '../../../node_modules/breakpoint-sass/stylesheets/breakpoint';
+@import './main/meta/variables';
+@import './../../../node_modules/intl-tel-input/src/css/sprite';
+@import './../../../node_modules/intl-tel-input/src/css/intlTelInput';
+@import './current/components/switch';
+
+// style gide components
+@import './style-gide/buttons';
+
+// switch
+.switch {
+  @include switch();
+}
+
+// apply custom styles mutators
+.intl-tel-input {
+  font-size: 14px;
+  width: 100%;
+
+  .country-list {
+    z-index: 12;
+    @include breakpoint(max-width $mini-tablet) {
+      width: 270px;
+    }
+    @include breakpoint($mini-tablet) {
+      width: 344px;
+    }
+    width: 217px;
+    @include breakpoint($tablet) {
+    }
+
+    @at-root {
+      .iti-mobile .intl-tel-input.iti-container {
+        width: auto;
+        top: 85px;
+      }
+    }
+
+    width: 217px;
+
+    .country {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.study-country {
+  $primary-color: #9bb0d2;
+
+  text-align: center;
+
+  &__title {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: $primary-color;
+  }
+
+  &__switch {
+    display: inline-block;
+  }
+
+  &__list {
+    font-size: 14px;
+    text-align: left;
+
+    .tooltip-trigger {
+      font-size: 0;
+    }
+
+    .select2-selection--multiple .select2-selection__choice {
+      font-size: 14px;
+      color: #61737e;
+      background-color: #b1c8e8;
+      padding: 0.4em 3em 0.4em 0.8em;
+      border-radius: 0;
+      border: none;
+      position: relative;
+    }
+
+    .select2-selection__choice__remove {
+      position: absolute;
+      right: 0.2em;
+      color: #61737e !important;
+      font-size: 20px;
+      font-weight: 400 !important;
+      line-height: 1em;
+    }
+
+    .select2-search__field {
+      font-size: 14px;
+      color: #61737e;
+      font-size: 14px;
+      padding-top: 0.5em;
+    }
+
+    .select2-search.select2-search--inline {
+      width: auto !important;
+      margin-left: 10px;
+    }
+
+    .select2-selection__choice {
+      @include breakpoint(max-width $mini-tablet) {
+        max-width: 260px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}

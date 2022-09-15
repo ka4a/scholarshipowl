@@ -1,0 +1,10 @@
+source 'https://rubygems.org'
+
+gem 'capistrano', '~> 3.5.0'
+gem 'capistrano-scm-gitcopy'
+gem 'capistrano-scm-copy'
+gem 'capistrano-scm-local', '~> 0.1'
+gem 'capistrano-laravel'
+gem 'capistrano-composer'
+gem 'capistrano-bower'
+gem 'slackistrano'

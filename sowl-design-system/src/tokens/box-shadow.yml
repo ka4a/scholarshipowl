@@ -1,0 +1,17 @@
+#
+# BOX SHADOW TOKENS
+# Use these tokens to set a box-shadow.
+#
+
+props:
+  shadow_s:
+    value: "0 0 0 1px rgba(92,106,196,.1)"
+  shadow_m:
+    value: "0px 4px 10px #E3E9EE"
+  shadow_l:
+    value: "6px 20px 18px rgba(0, 0, 0, 0.06)"
+  shadow_xl:
+    value: "0px 20px 50px rgba(212, 219, 225, 0.72)"
+global:
+  type: ...
+  category: box-shadow

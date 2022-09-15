@@ -1,0 +1,28 @@
+type: object
+properties:
+  id:
+    type: integer
+  scholarshipTitle:
+    type: string
+  wonAt:
+    $ref: "DateObject.yml"
+  amountWon:
+    type: integer
+  winnerName:
+    type: string
+  winnerPhoto:
+    type: string
+    description: Img url
+    example: https://storage.googleapis.com/storage.dev.scholarshipowl.com/winners/winner_photo/5ba8e1ea037aa.jpeg
+  testimonialText:
+    type: string
+  testimonialVideo:
+    type: string
+    description: Video url
+    example: https://www.youtube.com/my-video
+
+
+
+
+
+

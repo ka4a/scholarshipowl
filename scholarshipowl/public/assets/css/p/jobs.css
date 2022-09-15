@@ -1,0 +1,175 @@
+ .title_15fz {
+  font-family: "Open Sans";
+  font-weight: bold;
+  line-height: 1.1;
+  color: #2f2f2f; }
+
+.title_15fz {
+  font-size: 30px; }
+
+strong {
+  font-weight: 700; }
+
+.row {
+  position: relative; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+
+.uppercase {
+  text-transform: uppercase; }
+
+
+.text-center {
+  text-align: center; }
+
+ b {
+  font-weight: 800; }
+
+.top-15 {
+  margin-top: 15px; }
+
+.bottom-25 {
+  margin-bottom: 25px; }
+
+.top-30 {
+  margin-top: 30px; }
+
+.absolute {
+  position: absolute; }
+
+@keyframes debounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0); }
+  40% {
+    transform: translateY(-30px); }
+  60% {
+    transform: translateY(-15px); } }
+
+.jobs {
+  overflow: hidden;
+  padding-left: 10px;
+  padding-right: 10px;
+  max-width: 992px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px; }
+  @media (min-width: 640px) {
+    .jobs {
+      padding-left: 15px;
+      padding-right: 15px; } }
+  @media (min-width: 801px) and (max-width: 991px) {
+    .jobs {
+      margin-bottom: 175px; } }
+  .jobs .jobs-banner {
+    display: block;
+    width: 300px;
+    height: 250px;
+    overflow: hidden; }
+    @media (max-width: 640px) {
+      .jobs .jobs-banner {
+        margin-left: auto;
+        margin-right: auto; } }
+    @media (min-width: 640px) and (max-width: 992px) {
+      .jobs .jobs-banner {
+        float: left; } }
+  .jobs .jobs-banner + .jobs-banner {
+    margin-top: 15px; }
+    @media (min-width: 640px) and (max-width: 991px) {
+      .jobs .jobs-banner + .jobs-banner {
+        margin-top: 0;
+        margin-left: 10px; } }
+  .jobs .jobs-left {
+    width: 100%; }
+    @media (min-width: 992px) {
+      .jobs .jobs-left {
+        float: left;
+        width: 630px; } }
+  .jobs .jobs-right {
+    width: 100%;
+    max-width: 610px; }
+    @media (min-width: 640px) and (max-width: 992px) {
+      .jobs .jobs-right {
+        overflow: hidden;
+        margin-left: auto;
+        margin-right: auto; } }
+    @media (min-width: 992px) {
+      .jobs .jobs-right {
+        float: right;
+        width: 300px; } }
+  .jobs #zs_modal_dialog {
+    margin-top: 75px; }
+    .jobs #zs_modal_dialog .zs_search_box {
+      border-color: #a3c3f1; }
+  .jobs .zr_widget {
+    position: relative; }
+    .jobs .zr_widget #zs_search_container {
+      border: none;
+      background-color: #f1f5f8; }
+    @media (min-width: 641px) {
+      .jobs .zr_widget #zs_search_container {
+        padding-bottom: 80px; } }
+    @media (max-width: 640px) {
+      .jobs .zr_widget .zs_search_container {
+        width: 100%;
+        max-width: none; } }
+    .jobs .zr_widget .zs_search_container .zs_search_box {
+      border-radius: 0 !important;
+      border-color: #adc4d6;
+      height: 45px; }
+      @media (max-width: 640px) {
+        .jobs .zr_widget .zs_search_container .zs_search_box {
+          width: 100%;
+          max-width: none; } }
+    .jobs .zr_widget #zs_submit {
+      background-color: #f87b4a;
+      text-transform: uppercase;
+      height: 50px; }
+      @media (max-width: 640px) {
+        .jobs .zr_widget #zs_submit {
+          width: 100%;
+          max-width: none; } }
+      @media (min-width: 641px) {
+        .jobs .zr_widget #zs_submit {
+          width: 150px;
+          max-width: 200px;
+          margin-right: 0; } }
+    @media (min-width: 641px) {
+      .jobs .zr_widget #zr_pro_widget_filter {
+        position: absolute;
+        top: 106px;
+        left: 16px; } }
+    .jobs .zr_widget #zr_pro_widget_filter .filter_wrapper + .filter_wrapper {
+      margin-left: 2%; }
+    @media (min-width: 640px) {
+      .jobs .zr_widget #zr_pro_widget_filter .filter_wrapper + .filter_wrapper {
+        margin-left: 1.5%; } }
+    .jobs .zr_widget #zr_pro_widget_filter .filter_wrapper {
+      color: #323436;
+      float: left; }
+      @media (max-width: 640px) {
+        .jobs .zr_widget #zr_pro_widget_filter .filter_wrapper {
+          width: 49%; } }
+      @media (min-width: 640px) {
+        .jobs .zr_widget #zr_pro_widget_filter .filter_wrapper {
+          width: 200px; } }
+      .jobs .zr_widget #zr_pro_widget_filter .filter_wrapper select {
+        border-radius: 0;
+        width: 100%;
+        color: #323436; }
+        @media (min-width: 640px) {
+          .jobs .zr_widget #zr_pro_widget_filter .filter_wrapper select {
+            background-color: white;
+            border-color: #adc4d6;
+            height: 38px; } }
+      .jobs .zr_widget #zr_pro_widget_filter .filter_wrapper .zs_down_arrow {
+        border-top-color: #323436;
+        left: auto;
+        right: 5%;
+        z-index: 11; }
+    .jobs .zr_widget select {
+      visibility: visible; }

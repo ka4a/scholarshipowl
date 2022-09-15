@@ -1,0 +1,29 @@
+// Modal meta classes
+
+%modal-backdrop-basic {
+  z-index: 20000;
+  overflow-x: hidden;
+  overflow-y: auto;
+  //Edge browser rule
+  @supports (display:-ms-grid) {
+    overflow-y: hidden;
+  }
+  background-color: rgba($san-juan, .4);
+  width: 100%; height: 100%;
+  position: fixed;
+  left: 0; right: 0; top: 0; bottom: 0;
+
+  font-family: $font-family-basic;
+}
+
+%modal-frame-basic {
+  font-family: $font-family-basic;
+  position: relative;
+  max-width: 290px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px 0 rgba(34, 38, 43, 0.5);
+  background-color: $white;
+  padding: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}

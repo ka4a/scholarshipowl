@@ -1,0 +1,18 @@
+mautic:
+  image: sunrise-mautic:latest
+  links:
+    - mauticdb:mysql
+  ports:
+    - 8080:80
+  volumes:
+    - mautic_data:/var/www/html
+  environment:
+    - MAUTIC_DB_NAME=mautic
+    - MAUTIC_DB_USER=root
+    - MAUTIC_DB_PASSWORD=mysecret
+
+mauticdb:
+  image: mysql:5.7
+  environment:
+    - MYSQL_ROOT_PASSWORD=mysecret
+    - MYSQL_DATABASE=mautic

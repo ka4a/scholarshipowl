@@ -1,0 +1,17 @@
+$standard-easing: cubic-bezier(0.4, 0.0, 0.2, 1);
+$decelerate-easing: cubic-bezier(0.0, 0.0, 0.2, 1);
+$accelerate-easing: cubic-bezier(0.4, 0.0, 1, 1);
+
+$duration-outgoing: 90ms;
+$duration-incoming: 210ms;
+
+.notif-bottom-enter-active,
+.notif-bottom-leave-active   {
+  transition: all $duration-incoming $standard-easing;
+}
+
+.notif-bottom-enter,
+.notif-bottom-leave-to {
+  transform: translateY(100%);
+  opacity: 0;
+}

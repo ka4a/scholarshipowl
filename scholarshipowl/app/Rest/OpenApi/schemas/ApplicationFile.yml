@@ -1,0 +1,13 @@
+type: object
+properties:
+  id:
+    type: integer
+  accountId:
+    type: integer
+  accountFile:
+    $ref: "AccountFile.yml"
+  requirementFileId:
+    type: integer
+  scholarshipId:
+    type: integer
+

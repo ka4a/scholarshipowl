@@ -1,0 +1,221 @@
+/* Left Side */
+h1, .title_3, .title-winners {
+    margin-top: 37px;
+    margin-bottom: 45px;
+    font-size: 37px;
+}
+
+.winner-picture {
+  width: 133px;
+  height: 133px;
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.winner-picture img {
+  display: block;
+  width: 100%;
+}
+
+.winnerIntro .section--winners-head {
+    background-image: url("../img/winner.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.winnerIntro .text-container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.winnerIntro .pFirst {
+    font-size: 25px;
+}
+
+.winnerIntro .pSecond {
+    font-size: 18px;
+}
+
+.winnerIntro .pThird {
+    font-size: 20px;
+}
+
+.winnerBlock {
+    font-size: 16px;
+    font-weight: 300;
+    border-top: 1px dashed #404040;
+    padding: 45px 0;
+}
+
+.winnerPerson {
+    display: inline-block;
+    margin-left: 33px;
+}
+
+.winnerName {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.winner-date {
+  font-size: 14px;
+  color: #9ABEED;
+  font-weight: bold;
+  margin: 0;
+}
+
+.winnerPosition {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.winnerInner {
+    margin: 28px 0;
+}
+
+/* Right Side */
+.winnerRightBlock {
+    background-color: #e3effd;
+    padding: 50px 28px;
+    max-width: 356px;
+    float: right;
+}
+
+a#register-tooltip {
+    font-size: 0;
+}
+.nextWinner {
+    float: left;
+    font-size: 80px;
+    font-weight: 900;
+    background-color: #4e8eec;
+    padding: 26px 47px;
+    border-radius: 50%;
+    color: #fff;
+    line-height: 81px;
+}
+
+.registerIntro {
+    font-weight: 400;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.viewMatches, .viewMatches:hover {
+    font-size: 18px;
+}
+
+.winners-video {
+    height: 305px;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .viewMatches {
+        margin-bottom: 30px;
+        font-size: 17px;
+    }
+}
+
+#btnRegister1 {
+    max-width: 300px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+.winnerCont .banner-ad-wrapper > div > div {
+    width: 100%;
+}
+
+#scholarship-description{
+    padding-top: 50px;
+}
+
+@media (max-width: 992px) {
+    .winnerBio {
+        text-align: center;
+    }
+    .nextWinner {
+        float: none;
+        max-width: 133px;
+        margin: 0 auto;
+    }
+
+    .winners-video {
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .winnerPerson {
+        margin-left: 0;
+    }
+    .winnerRightBlock {
+        max-width: none;
+    }
+
+    .winners-video {
+        height: 340px;
+    }
+}
+
+@media (max-width: 480px) {
+    .inputSmall {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .winners-video {
+        height: 210px;
+    }
+}
+
+@media (max-width: 300px) and (max-width: 340px){
+    .winnerCont .banner-ad-wrapper > div > div {
+        width: 100%;
+    }
+}
+@media (max-width: 480px) {
+    .formInputField {
+        width:100%;
+    }
+}
+
+
+.banner-ad-wrapper > div > div > div > div {
+    margin: 0 -17px auto;
+}
+
+#registerForm1 input[type=checkbox]+.lbl.padding-12.mod-checkbox:before {
+    margin-bottom: 0;
+}
+
+.tooltip.top {
+    margin-top: 43px;
+}
+
+.scrollButtonWraper {
+    margin-top: 40px;
+}
+.scrollButtonWraper .viewMatches {
+    padding: 5px 10px;
+    border-radius: 2px;
+    font-weight: 400;
+}
+
+@media (min-width: 768px) {
+    .button-wrapper.wide, .button-wrapper {
+        max-width: 300px;
+    }
+}
+.tooltip-trigger{
+    height: 0;
+    overflow: hidden;
+    position: relative;
+    top:-20px;
+}

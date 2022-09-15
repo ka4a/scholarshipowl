@@ -1,0 +1,136 @@
+# Default values for scholarships.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+app: sunrise
+updateStrategy:
+  type: RollingUpdate
+replicaCount: 1
+
+# Oauth keys
+secretKeysName: sunrise-dev-oauth-keys
+secretKeysNamePath: /var/run/secrets/sunrise/passport-keys
+# Service account Key
+secretServiceAccountName: sunrise-service-account-key
+secretServiceAccountNamePath: /var/run/secrets/sunrise/sa
+# Oauth Google cloud keys
+secretServiceAccountGCName: sunrise-dev-gc-oauth-key
+secretServiceAccountGCNamePath: /var/run/secrets/sunrise/gc_sa
+
+livenessProbe:
+  exec:
+    command:
+    - cat
+    - /var/www/html/healthy
+  initialDelaySeconds: 120
+  timeoutSeconds: 25
+  failureThreshold: 10
+readinessProbe:
+  exec:
+    command:
+    - cat
+    - /var/www/html/healthy
+  initialDelaySeconds: 120
+  timeoutSeconds: 25
+  failureThreshold: 10
+
+containers:
+  nginx:
+    name: nginx
+    repository: gcr.io/sowl-tech/sunrise-dev/nginx
+    tag: latest
+    pullPolicy: Always
+    port: 80
+  phpfpm:
+    name: php-fpm
+    repository: gcr.io/sowl-tech/sunrise-dev/develop/php-fpm
+    tag: latest
+    pullPolicy: Always
+    port: 9000
+  queue:
+    name: queue-server
+    repository: gcr.io/sowl-tech/sunrise-dev/queue/queue
+    tag: latest
+    pullPolicy: Always
+service:
+  name: lb
+  type: NodePort
+  externalPort: 8080
+  internalPort: 80
+ingress:
+  enabled: true
+  # Used to create an Ingress record.
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    certmanager.k8s.io/cluster-issuer: sowl-tech-prod
+    certmanager.k8s.io/acme-challenge-type: dns01
+    certmanager.k8s.io/acme-dns01-provider: prod-dns
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+  hosts:
+    - app.sunrising.tech
+    - '*.app.sunrising.tech'
+  tls:
+    - secretName: app.sunrising.tech
+      hosts:
+        - app.sunrising.tech
+        - '*.app.sunrising.tech'
+
+# Resources
+resources:
+  phpfpm:
+    requests:
+      memory: 1Gi
+      cpu: 100m
+    limits:
+      memory: 2Gi
+      cpu: 200m
+  nginx:
+    requests:
+      memory: 15Mi
+      cpu: 100m
+    limits:
+      memory: 25Mi
+      cpu: 100m
+  queue:
+    requests:
+      memory: 300Mi
+      cpu: 100m
+    limits:
+      memory: 600Mi
+      cpu: 100m
+
+volume:
+  name: sunsrise-dev-volume
+  path: /var/www/html
+  size: 100Gi
+
+nodeSelector:
+  node: stable
+
+# MYSQL
+mysql:
+  mysqlDatabase: sunrise
+  mysqlUser: sunrise
+  mysqlPassword: secret
+  mysqlRootPassword: ydbAS4SVlP0ZZdk
+  nodeSelector:
+    node: stable
+  persistence:
+    enabled: false
+    # existingClaim: sunrise-mysql-dev
+  configurationFiles:
+    mysql.cnf: |-
+      [mysqld]
+      sql-mode=""
+
+# Redis
+redis:
+  password: maeviZ1m
+  cluster:
+    enabled: false
+  master:
+    nodeSelector:
+      node: stable
+    persistence:
+      size: 100Gi

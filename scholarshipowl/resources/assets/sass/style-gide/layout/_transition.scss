@@ -1,0 +1,80 @@
+// modal transitions
+
+// fade effect for modal backdrop
+// transition animation
+.fade-enter-active,
+.fade-leave-active {
+  transition: all .3s ease;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+// slide and fade effect for modal frame
+// wrapper transition animation
+.slide-enter-active,
+.slide-leave-active {
+  transition: all .2s ease;
+}
+
+.slide-enter, .slide-leave-to {
+  transform: translateY(-100%) !important;
+  opacity: 0;
+}
+
+// rebound effect from top to down
+// and back
+.bounceappear-enter-active {
+  animation: bounceappear .4s;
+}
+
+.bounceappear-leave-active {
+  animation: bounceappear .4s reverse;
+}
+
+// rebound animaiton
+@keyframes bounceappear {
+  0% {
+    opacity: .01;
+    margin-top: -1rem; }
+  50% {
+    opacity: 1;
+    margin-top: .5rem; }
+  100% {
+    opacity: 1;
+    margin-top: 0; }
+}
+
+.slide-left-right-enter-active,
+.slide-left-right-leave-active {
+  transition: all .2s ease;
+}
+
+.slide-left-right-enter,
+.slide-left-right-leave-to {
+  transform: translateX(-20%) !important;
+  opacity: 0;
+}
+
+
+.slide-top-down-enter-active,
+.slide-top-down-leave-active {
+  transition: all .2s ease;
+}
+
+.slide-top-down-enter,
+.slide-top-down-leave-to {
+  transform: translateY(-30%) !important;
+  opacity: 0;
+}
+
+.slide-right-left-enter-active,
+.slide-right-left-leave-active {
+  transition: all .2s ease;
+}
+
+.slide-right-left-enter,
+.slide-right-left-leave-to {
+  right: 0 !important;
+  opacity: 0;
+}

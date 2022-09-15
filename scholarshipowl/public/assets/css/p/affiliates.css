@@ -1,0 +1,50 @@
+.list-your-scholarship-header .text-small-caps {
+	font-size: 1.1em;
+}
+
+.scholarship-listing-wrapper {
+	-webkit-border-radius: 15px;
+	        border-radius: 15px;
+	background-color: #f8fafc;
+	padding: 30px;
+	margin-bottom: 40px;
+}
+
+.scholarship-listing-form .form-wrapper {
+	padding: 35px 0 0;
+}
+
+.scholarship-listing-form textarea {
+  height: 300px;
+  border-color: #9bb4d9 #b8ceee #b8ceee;
+}
+
+.scholarship-listing-form .input-group {
+	margin: 0 auto 13px;
+}
+
+.scholarship-listing-form .contact-submit {
+	margin-top: 20px;
+}
+
+/*
+@media (min-width:992px) {
+
+.scholarship-listing-form .mod-btn-wrapper {
+	padding: 3% 0;
+}
+}
+*/
+
+@media (max-width: 768px) {
+	.scholarship-listing-form .contact-submit {
+		position: relative;
+		bottom: -330px;
+	}
+
+	.message {
+		position: relative;
+    top: -65px;
+	}
+}
+

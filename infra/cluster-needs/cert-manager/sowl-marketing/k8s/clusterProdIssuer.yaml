@@ -1,0 +1,39 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: ClusterIssuer
+metadata:
+  name: sowl-marketing-prod
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: andreyt@scholarshipowl.com
+    # Name of a secret used to store the ACME account private key
+    privateKeySecretRef:
+      name: sowl-marketing-prod
+    solvers:
+    # An empty 'selector' means that this solver matches all domains
+    - selector: {}
+      http01:
+        ingress:
+          class: nginx
+    dns01:
+      providers:
+      - name: prod-cloudflare
+        cloudflare:
+          email: davidt@scholarshipowl.com
+          apiKeySecretRef:
+            name: cloudflare
+            key: api-key.txt
+      - name: prod-dns
+        clouddns:
+          # A secretKeyRef to a google cloud json service account
+          serviceAccountSecretRef:
+            name: 1244-dns
+            key: scholarshipowl-1244-1afac3fa82dd.json
+          project: scholarshipowl-1244
+      - name: tech-dns
+        clouddns:
+          # A secretKeyRef to a google cloud json service account
+          serviceAccountSecretRef:
+            name: sowl-tech-dns
+            key: sowl-tech-81761284afcd.json
+          project: sowl-tech

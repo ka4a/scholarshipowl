@@ -1,0 +1,74 @@
+# Default values for scholarships.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+app: applyme
+updateStrategy:
+  type: RollingUpdate
+replicaCount: 1
+productionBuild: true
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: 80
+  initialDelaySeconds: 30
+  timeoutSeconds: 10
+  failureThreshold: 3
+readinessProbe:
+  httpGet:
+    path: /
+    port: 80
+  initialDelaySeconds: 30
+  timeoutSeconds: 10
+  failureThreshold: 3
+
+containers:
+  nginx:
+    name: nginx
+    repository: gcr.io/sowl-marketing/applyme-nginx
+    tag: v6
+    pullPolicy: IfNotPresent
+    httpPort: 80
+  phpfpm:
+    name: php-fpm
+    repository: gcr.io/sowl-marketing/applyme/php-fpm
+    tag: v4.6
+    pullPolicy: IfNotPresent
+    port: 9000
+service:
+  name: lb
+  type: NodePort
+  externalPort: 8080
+  internalPort: 80
+
+ingress:
+  enabled: true
+  hosts:
+    - @REPLACE_HOST
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  tls:
+    # Secrets must be manually created in the namespace.
+  - secretName: apply.me
+    #   hosts:
+    #     - chart-example.local
+resources:
+  requests:
+    cpu: 100m
+    memory: 400Mi
+  limits:
+    memory: 400Mi
+    cpu: 100m
+
+volume:
+  name: applyme-volume
+  path: /var/www/html
+
+
+nodeSelector:
+  prod:
+    node: stable
+  dev:
+    node: preemptible

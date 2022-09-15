@@ -1,0 +1,254 @@
+// imports
+@import './mixins';
+@import './breakpoints';
+@import '../../../node_modules/breakpoint-sass/stylesheets/breakpoint';
+
+// stylegide buttons
+// source
+// https://www.figma.com/file/Nfr2ulhPuhLfhaZo1Aa0qxXV/Style-guide-Scholarshipowl?node-id=36%3A6
+
+// arrow btn
+// html structure
+%btn-reset {
+  border: none;
+}
+
+%btn-font {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+}
+
+%btn-cover {
+  position: relative;
+  background-color: #FE774A;
+  border-radius: 4px;
+  display: inline-block;
+  position: relative;
+
+  &:hover {
+    background-color: #FF6633;
+  }
+}
+
+%btn-tail {
+  position: absolute;
+  top: 0; bottom: 0; right: 0;
+  border-radius: 0 4px 4px 0;
+  background-color: #F94B11;
+}
+
+// apply | register | submit buttons with arrow
+// html structure
+// <button class="btn-arrow">
+//   <span class="btn-arrow__arrow"><i></i></span>
+//   <span class="btn-arrow__text">text</span>
+// </button>
+
+.btn-arrow {
+  @extend %btn-reset;
+  @extend %btn-font;
+  font-size: 18px;
+
+  @extend %btn-cover;
+  padding: 0.94em 3.76em 0.94em 1.88em;
+  min-width: 290px;
+
+  &:hover {
+    background-color: #FF6633;
+  }
+
+  .btn__arrow {
+    @extend %btn-tail;
+    width: 52px;
+
+    i {
+      top: 0.94em;
+      @include arrow(right, 16px, 1px, white);
+    }
+  }
+
+  .btn__loader {
+    @extend %btn-tail;
+    width: 52px;
+
+    i {
+      @include loader-lines(
+        $size: 6px,
+        $color: white,
+        $line-width: 3px,
+        $line-indent: 6px
+      );
+    }
+
+    i {
+      display: inline-block;
+      position: absolute;
+      top: 15px;
+    }
+  }
+
+  &__old {
+    .btn__loader {
+      i {
+        top: 18px;
+      }
+    }
+  }
+
+  @include breakpoint($s) {
+    // font-size: 20px; Apply after style gide approve
+    // padding: 1.5em 5.2em 1.5em 1.2em; Apply after stylegide approve
+    // min-width: auto;
+
+    //will remove after style gide approve
+    font-size: 28px;
+    padding: 0;
+    padding-right: 2.8em;
+    height: 85px; line-height: 85px;
+    text-align: center;
+    min-width: 310px;
+    background-color: #f86f41;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: #f36137; // remove after style gide approve
+    }
+
+    .btn__text {
+      font-family: 'Raleway';
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .btn__arrow {
+      width: 80px;
+
+      i {
+        @include arrow(right, 24px, 2px, white);
+        top: 3px;
+      }
+    }
+
+    .btn__loader {
+      width: 80px;
+      i {
+        top: 30px;
+      }
+    }
+  }
+
+  // modificators
+  &__wide {
+    width: 100%;
+  }
+
+  &__old {
+    .btn__loader {
+      display: none;
+    }
+  }
+}
+
+.btn-l-arrow {
+  @extend %btn-reset;
+  @extend %btn-font;
+  font-size: 18px;
+
+  @extend %btn-cover;
+  padding: 0.94em 3.76em 0.94em 1.88em;
+  min-width: 300px;
+
+  &:hover {
+    background-color: #FF6633;
+  }
+
+  .btn__arrow {
+    @extend %btn-tail;
+    width: 52px;
+
+    i {
+      top: 0.94em;
+      @include arrow(right, 16px, 1px, white);
+    }
+  }
+
+  .btn__loader {
+    @extend %btn-tail;
+    width: 80px;
+
+    i {
+      @include loader-lines(
+        $size: 6px,
+        $color: white,
+        $line-width: 3px,
+        $line-indent: 6px
+      );
+    }
+
+    i {
+      display: inline-block;
+      position: absolute;
+      top: 30px;
+    }
+  }
+}
+
+.btn-m-arrow {
+  @extend %btn-reset;
+  @extend %btn-font;
+  font-size: 18px;
+
+  @extend %btn-cover;
+  padding: 0.94em 3.76em 0.94em 1.88em;
+  min-width: 300px;
+
+  &:hover {
+    background-color: #FF6633;
+  }
+
+  .btn__arrow {
+    @extend %btn-tail;
+    width: 52px;
+
+    i {
+      top: 0.94em;
+      @include arrow(right, 16px, 1px, white);
+    }
+  }
+
+  .btn__loader {
+    @extend %btn-tail;
+    width: 52px;
+
+    i {
+      @include loader-lines(
+        $size: 6px,
+        $color: white,
+        $line-width: 3px,
+        $line-indent: 6px
+      );
+    }
+
+    i {
+      display: inline-block;
+      position: absolute;
+      top: 20px;
+    }
+  }
+
+  // modificators
+  &__wide {
+    width: 100%;
+  }
+
+  &__old {
+    .btn__loader {
+      i {
+        top: 15px !important;
+      }
+    }
+  }
+}

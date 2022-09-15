@@ -1,0 +1,171 @@
+/*==========  max 480  ==========*/
+
+/*==========  min 992  ==========*/
+
+
+/*==========================================
+=			Applications table			=
+==========================================*/
+
+a.sort {
+	display: block;
+}
+a.sort:hover,
+a.sort:active,
+a.sort:focus {
+	outline: none;
+	text-decoration: none;
+}
+
+.status {
+	color: #fff;
+	display: inline-block;
+	vertical-align: top;
+	padding: 1px 4px 2px;
+	font: 400 11px/1 'Open Sans', sans-serif;
+	font-variant: small-caps;
+
+
+
+
+
+}
+.pending {
+	background-color: blue;
+}
+.success {
+	background-color: #80C432;
+}
+/*
+.tablesorter-header-inner .checkAllWrapper {
+	margin:0;
+}
+*/
+/*
+.myAppsTable table input[type="checkbox"] {
+	opacity: 0;
+	width: 62px;
+	position: relative;
+	margin: 0 auto;
+	cursor: pointer;
+	top: 12px;
+}
+*/
+
+
+
+/*==========  min 360  ==========*/
+
+/*==========  min 480  ==========*/
+
+
+/*==========  max 480  ==========*/
+
+/*==========  min 640px  ==========*/
+
+
+/*==========  min 768  ==========*/
+
+/*==========  min 992  ==========*/
+
+/* todo */
+
+/* /todo */
+
+/*-----  End of Applications table  ------*/
+
+
+/*==============================
+=			Modals			=
+==============================*/
+
+#step3 {
+	background-color:#fff;
+}
+
+/* min 480px */
+
+/* min 768px */
+
+/* min 992px */
+
+/*==========  Congratulations on upgradin popup  ==========*/
+
+/*==========  Payment membership popup  ==========*/
+
+
+/* max 768px */
+
+
+/* min 768px */
+
+
+/* min 992px */
+
+/*==========  Checkout popup  ==========*/
+
+/*-----  End of Modals  ------*/
+
+.survey {
+	background-color:#fff;
+	border:4px solid #c6d8f1;
+	padding:22px 27px;
+}
+
+.survey .btn-block {
+	width: auto;
+}
+
+.survey p {
+	font-size:12px;
+	font-weight:300;
+	text-align:center;
+	margin-bottom: 18px;
+	min-height: 70px;
+}
+
+
+/*==========  scrollmagic apply now button   ==========*/
+
+@media (max-width:991px) {
+	#registered .text-container {
+		padding-top: 14px;
+		padding-bottom: 14px;
+	}
+	#registered .text-large {
+		font-size: 2em;
+	}
+}
+
+@-webkit-keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, 100%, 0);
+				transform: translate3d(0, 100%, 0);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: none;
+				transform: none;
+	}
+}
+
+@keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, 100%, 0);
+				transform: translate3d(0, 100%, 0);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: none;
+				transform: none;
+	}
+}
+
+.modal .close span {
+	line-height: 30px !important;
+}
+/* MULTIPLE SIZES ADS */

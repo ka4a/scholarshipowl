@@ -1,0 +1,139 @@
+$font-family-basic: "Open Sans";
+
+%input-text-basic {
+  font-family: $font-family-basic;
+  font-size: 16px;
+  line-height: 1.3em;
+  color: $mine-shaft;
+}
+
+%input-title {
+  font-family: $font-family-basic;
+  font-size: 16px;
+  line-height: 1.2em;
+  font-weight: bold;
+  color: $blue-bayoux;
+}
+
+%input-text-error {
+  font-family: $font-family-basic;
+  font-size: 11px;
+  color: $carnation;
+  line-height: 1.2em;
+}
+
+// Plans page
+// Header
+%title-header-plans-page {
+  font-family: $font-family-basic;
+  font-weight: 700;
+  font-size: 25px;
+  letter-spacing: -0.02em;
+  color: $mine-shaft;
+  line-height: 32px;
+
+  @include breakpoint($m) {
+    font-size: 42.63px;
+    line-height: 58px;
+  }
+}
+
+%sub-title-header-plans-page {
+  font-family: $font-family-basic;
+  color: $mine-shaft;
+  font-size: 14px;
+  line-height: 158.5%;
+
+  @include breakpoint($m) {
+    font-size: 18px;
+  }
+
+  @include breakpoint($l) {
+    font-size: 24px;
+  }
+}
+
+%header-btn-text-explanation {
+  font-family: $font-family-basic;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.53em;
+  letter-spacing: 0.03px;
+  color: $bali-hai;
+
+  @include breakpoint($m) {
+    font-size: 18px;
+    line-height: 1.27em;
+  }
+}
+
+%title-table-plans-page {
+  font-family: $font-family-basic;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.12em;
+  color: $mine-shaft;
+
+  @include breakpoint($m) {
+    font-size: 24px;
+    line-height: 1.16em;
+  }
+}
+
+%plans-basic-text {
+  color: $mine-shaft;
+  font-family: $font-family-basic;
+}
+
+%plans-basic-title-text {
+  @extend %plans-basic-text;
+  font-weight: 700;
+  line-height: 1.35em;
+}
+
+%plans-basic-paragraph-text {
+  @extend %plans-basic-text;
+  line-height: 1.46em;
+}
+
+%style-formating-tags {
+  b, strong {
+    font-weight: 700;
+  }
+
+  em, i {
+    font-style: italic;
+  }
+
+  u {
+    text-decoration: underline;
+  }
+}
+
+%default-list-styles {
+  ul {
+    list-style-type: disc;
+    list-style-position: inside;
+  }
+  ol {
+    list-style-type: decimal;
+    list-style-position: inside;
+  }
+  ul ul, ol ul {
+    list-style-type: circle;
+    list-style-position: inside;
+    margin-left: 15px;
+  }
+  ol ol, ul ol {
+    list-style-type: lower-latin;
+    list-style-position: inside;
+    margin-left: 15px;
+  }
+}
+
+%tap-reset {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-user-select: none;
+  -webkit-touch-callout:none;
+}

@@ -1,0 +1,230 @@
+apiVersion: v1
+items:
+- apiVersion: cert-manager.io/v1alpha2
+  kind: ClusterIssuer
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"cert-manager.io/v1alpha2","kind":"ClusterIssuer","metadata":{"annotations":{},"creationTimestamp":"2019-11-17T14:40:46Z","generation":1,"name":"sowl-tech-prod","resourceVersion":"233716000","selfLink":"/apis/cert-manager.io/v1alpha2/clusterissuers/sowl-tech-prod","uid":"3d7d403e-0948-11ea-9951-42010a840234"},"spec":{"acme":{"dns01":{"providers":[{"clouddns":{"project":"sowl-tech","serviceAccountSecretRef":{"key":"sowl-tech-1ebd33f004f5.json","name":"sowl-tech-key"}},"name":"prod-dns"},{"cloudflare":{"apiKeySecretRef":{"key":"key","name":"cloudflare"},"email":"davidt@scholarshipowl.com"},"name":"prod-cloudflare"},{"clouddns":{"project":"scholarshipowl-1244","serviceAccountSecretRef":{"key":"scholarshipowl-1244-0f3ee9eed7b9.json","name":"jenkins-gcsu"}},"name":"prod-dns-scholarshipowl-1244"}]},"email":"andreyt@scholarshipowl.com"},"solvers":[{"http01":{"ingress":{"class":"nginx"}},"privateKeySecretRef":{"name":"sowl-tech-prod"},"selector":{},"server":"https://acme-v02.api.letsencrypt.org/directory"}]},"status":{"acme":{"lastRegisteredEmail":"andreyt@scholarshipowl.com","uri":"https://acme-v02.api.letsencrypt.org/acme/acct/36955056"},"conditions":[{"lastTransitionTime":"2019-11-17T14:40:47Z","message":"The ACME account was registered with the ACME server","reason":"ACMEAccountRegistered","status":"True","type":"Ready"}]}}
+    creationTimestamp: "2019-11-17T14:40:46Z"
+    generation: 4
+    name: sowl-tech-prod
+    resourceVersion: "240509288"
+    selfLink: /apis/cert-manager.io/v1alpha2/clusterissuers/sowl-tech-prod
+    uid: 3d7d403e-0948-11ea-9951-42010a840234
+  spec:
+    acme:
+      email: andreyt@scholarshipowl.com
+      privateKeySecretRef:
+        name: sowl-tech-prod
+      server: https://acme-v02.api.letsencrypt.org/directory
+      solvers:
+      - http01:
+          ingress:
+            class: nginx
+        selector: {}
+  status:
+    acme:
+      lastRegisteredEmail: andreyt@scholarshipowl.com
+      uri: https://acme-v02.api.letsencrypt.org/acme/acct/36955056
+    conditions:
+    - lastTransitionTime: "2019-12-01T06:29:19Z"
+      message: The ACME account was registered with the ACME server
+      reason: ACMEAccountRegistered
+      status: "True"
+      type: Ready
+- apiVersion: cert-manager.io/v1alpha2
+  kind: ClusterIssuer
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"cert-manager.io/v1alpha2","kind":"ClusterIssuer","metadata":{"annotations":{},"creationTimestamp":"2019-11-17T14:40:54Z","generation":1,"name":"sowl-tech-staging","resourceVersion":"233716045","selfLink":"/apis/cert-manager.io/v1alpha2/clusterissuers/sowl-tech-staging","uid":"4237256f-0948-11ea-9951-42010a840234"},"spec":{"acme":{"dns01":{"providers":[{"clouddns":{"project":"sowl-tech","serviceAccountSecretRef":{"key":"sowl-tech-1ebd33f004f5.json","name":"sowl-tech-key"}},"name":"stage-dns"},{"clouddns":{"project":"scholarshipowl-1244","serviceAccountSecretRef":{"key":"scholarshipowl-1244-0f3ee9eed7b9.json","name":"jenkins-gcsu"}},"name":"stage-dns-scholarshipowl-1244"}]},"email":"andreyt@scholarshipowl.com"},"solvers":[{"http01":{"ingress":{"class":"nginx"}},"privateKeySecretRef":{"name":"sowl-tech-staging"},"selector":{},"server":"https://acme-staging-v02.api.letsencrypt.org/directory"}]},"status":{"acme":{"lastRegisteredEmail":"andreyt@scholarshipowl.com","uri":"https://acme-staging-v02.api.letsencrypt.org/acme/acct/6325251"},"conditions":[{"lastTransitionTime":"2019-11-17T14:40:55Z","message":"The ACME account was registered with the ACME server","reason":"ACMEAccountRegistered","status":"True","type":"Ready"}]}}
+    creationTimestamp: "2019-11-17T14:40:54Z"
+    generation: 4
+    name: sowl-tech-staging
+    resourceVersion: "240509442"
+    selfLink: /apis/cert-manager.io/v1alpha2/clusterissuers/sowl-tech-staging
+    uid: 4237256f-0948-11ea-9951-42010a840234
+  spec:
+    acme:
+      email: andreyt@scholarshipowl.com
+      privateKeySecretRef:
+        name: sowl-tech-staging
+      server: https://acme-v02.api.letsencrypt.org/directory
+      solvers:
+      - http01:
+          ingress:
+            class: nginx
+        selector: {}
+  status:
+    acme:
+      lastRegisteredEmail: andreyt@scholarshipowl.com
+      uri: https://acme-v02.api.letsencrypt.org/acme/acct/36954974
+    conditions:
+    - lastTransitionTime: "2019-12-01T06:30:04Z"
+      message: The ACME account was registered with the ACME server
+      reason: ACMEAccountRegistered
+      status: "True"
+      type: Ready
+- apiVersion: cert-manager.io/v1alpha2
+  kind: Certificate
+  metadata:
+    creationTimestamp: "2019-12-01T10:08:10Z"
+    generation: 1
+    labels:
+      app: grafana
+      chart: grafana-1.16.0
+      heritage: Tiller
+      release: grafana
+    name: analytics.scholarshipowl.tech
+    namespace: grafana
+    ownerReferences:
+    - apiVersion: extensions/v1beta1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Ingress
+      name: grafana
+      uid: fa28d922-ab79-11e8-aab9-42010a840160
+    resourceVersion: "240509554"
+    selfLink: /apis/cert-manager.io/v1alpha2/namespaces/grafana/certificates/analytics.scholarshipowl.tech
+    uid: 7a37734c-1422-11ea-9951-42010a840234
+  spec:
+    dnsNames:
+    - analytics.scholarshipowl.tech
+    issuerRef:
+      group: cert-manager.io
+      kind: ClusterIssuer
+      name: sowl-tech-prod
+    secretName: analytics.scholarshipowl.tech
+  status:
+    conditions:
+    - lastTransitionTime: "2019-12-01T10:08:10Z"
+      message: Certificate is up to date and has not expired
+      reason: Ready
+      status: "True"
+      type: Ready
+    notAfter: "2020-02-29T09:14:50Z"
+- apiVersion: cert-manager.io/v1alpha2
+  kind: Certificate
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"cert-manager.io/v1alpha2","kind":"Certificate","metadata":{"annotations":{},"creationTimestamp":"2019-11-17T14:40:10Z","generation":1,"labels":{"app":"prometheus","chart":"prometheus-7.3.0","component":"server","heritage":"Tiller","release":"prometheus"},"name":"sowl-tech.prometheus.scholarshipowl.tech.tls","namespace":"monitoring","ownerReferences":[{"apiVersion":"extensions/v1beta1","blockOwnerDeletion":true,"controller":true,"kind":"Ingress","name":"prometheus-server","uid":"f5f2cda2-dc31-11e8-970a-42010a840273"}],"resourceVersion":"233715774","selfLink":"/apis/cert-manager.io/v1alpha2/namespaces/monitoring/certificates/sowl-tech.prometheus.scholarshipowl.tech.tls","uid":"2822a935-0948-11ea-9951-42010a840234"},"spec":{"dnsNames":["sowl-tech.prometheus.scholarshipowl.tech"],"issuerRef":{"group":"cert-manager.io","kind":"ClusterIssuer","name":"sowl-tech-prod"},"secretName":"sowl-tech.prometheus.scholarshipowl.tech.tls"},"status":{"conditions":[{"lastTransitionTime":"2019-11-17T14:40:10Z","message":"Waiting for CertificateRequest \"sowl-tech.prometheus.scholarshipowl.tech.tls-2329909458\" to complete","reason":"InProgress","status":"False","type":"Ready"}]}}
+    creationTimestamp: "2019-11-17T14:40:10Z"
+    generation: 2
+    labels:
+      app: prometheus
+      chart: prometheus-7.3.0
+      component: server
+      heritage: Tiller
+      release: prometheus
+    name: sowl-tech.prometheus.scholarshipowl.tech.tls
+    namespace: monitoring
+    ownerReferences:
+    - apiVersion: extensions/v1beta1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Ingress
+      name: prometheus-server
+      uid: f5f2cda2-dc31-11e8-970a-42010a840273
+    resourceVersion: "240429474"
+    selfLink: /apis/cert-manager.io/v1alpha2/namespaces/monitoring/certificates/sowl-tech.prometheus.scholarshipowl.tech.tls
+    uid: 2822a935-0948-11ea-9951-42010a840234
+  spec:
+    dnsNames:
+    - sowl-tech.prometheus.scholarshipowl.tech
+    issuerRef:
+      group: cert-manager.io
+      kind: ClusterIssuer
+      name: sowl-tech-prod
+    secretName: sowl-tech.prometheus.scholarshipowl.tech.tls
+  status:
+    conditions:
+    - lastTransitionTime: "2019-12-01T06:20:40Z"
+      message: Certificate is up to date and has not expired
+      reason: Ready
+      status: "True"
+      type: Ready
+    notAfter: "2020-02-14T12:06:34Z"
+- apiVersion: cert-manager.io/v1alpha2
+  kind: Certificate
+  metadata:
+    creationTimestamp: "2019-12-01T06:20:40Z"
+    generation: 1
+    labels:
+      app: sunrise-dev
+      chart: sunrise-dev-0.1.0
+      heritage: Tiller
+      release: sunrise-dev-develop
+    name: app.sunrising.tech
+    namespace: sunrise-dev
+    ownerReferences:
+    - apiVersion: extensions/v1beta1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Ingress
+      name: sunrise-dev-develop-sunrise-dev
+      uid: c8937cb4-7579-11e9-96bb-42010a8402bd
+    resourceVersion: "240429475"
+    selfLink: /apis/cert-manager.io/v1alpha2/namespaces/sunrise-dev/certificates/app.sunrising.tech
+    uid: b2a53e1a-1402-11ea-9951-42010a840234
+  spec:
+    dnsNames:
+    - app.sunrising.tech
+    - '*.app.sunrising.tech'
+    issuerRef:
+      group: cert-manager.io
+      kind: ClusterIssuer
+      name: sowl-tech-prod
+    secretName: app.sunrising.tech
+  status:
+    conditions:
+    - lastTransitionTime: "2019-12-01T06:20:40Z"
+      message: Certificate is up to date and has not expired
+      reason: Ready
+      status: "True"
+      type: Ready
+    notAfter: "2020-02-14T12:10:45Z"
+- apiVersion: cert-manager.io/v1alpha2
+  kind: CertificateRequest
+  metadata:
+    annotations:
+      cert-manager.io/certificate-name: analytics.scholarshipowl.tech
+      cert-manager.io/private-key-secret-name: analytics.scholarshipowl.tech
+    creationTimestamp: "2019-12-01T10:08:10Z"
+    generation: 1
+    labels:
+      app: grafana
+      chart: grafana-1.16.0
+      heritage: Tiller
+      release: grafana
+    name: analytics.scholarshipowl.tech-1554412004
+    namespace: grafana
+    ownerReferences:
+    - apiVersion: cert-manager.io/v1alpha2
+      blockOwnerDeletion: true
+      controller: true
+      kind: Certificate
+      name: analytics.scholarshipowl.tech
+      uid: 7a37734c-1422-11ea-9951-42010a840234
+    resourceVersion: "240509550"
+    selfLink: /apis/cert-manager.io/v1alpha2/namespaces/grafana/certificaterequests/analytics.scholarshipowl.tech-1554412004
+    uid: 7a3f12ea-1422-11ea-9951-42010a840234
+  spec:
+    csr: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0KTUlJQ2x6Q0NBWDhDQVFBd0Z6RVZNQk1HQTFVRUNoTU1ZMlZ5ZEMxdFlXNWhaMlZ5TUlJQklqQU5CZ2txaGtpRwo5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBc2M2dlBrbEZReUlkZmR2ZE5PVTVnakE4MlRYWER1M1FvbXplCldURVVRK0srVnlNOHpoanZwMWZVcUZlM1NEMjVLZ29NcWdWbDcvU3lnTGJWRHhlT2ZGZmpELzUzNEpiaG9kancKcGF5WFpPNW5qb2lDQ3N2aDFadHFLVFhaekQxUkNKdVdLNGlLZ0lzZ3lybzJrT2FNU0pYZVNKL0p5VFpvUnM2QgpEOEZaczkyc3NhUFErWG0yZ0YwMEJQeWM1dE9OQjZNK1Bjamp2MzczZFNaSEV1RU0xSUtFMHFlejVzZkU3dk04CmhDY1VRNzF0eUxNOUt1UXl4MWc2Q202WXhRNVNxVHAvTlRyWWhKN2pQUytob2g5d0JWOFVvL2o0R3k5U0MvN0wKeGZlZzJOUXJIRGhpME5DVkwyZ1MvSmtDcUdEK1pqVUV3UDlSYzluZ2FIS3NMTi8ycVFJREFRQUJvRHN3T1FZSgpLb1pJaHZjTkFRa09NU3d3S2pBb0JnTlZIUkVFSVRBZmdoMWhibUZzZVhScFkzTXVjMk5vYjJ4aGNuTm9hWEJ2CmQyd3VkR1ZqYURBTkJna3Foa2lHOXcwQkFRc0ZBQU9DQVFFQVhlZkdXM05BTjhIK1A3b2phK0VXb2lUZndJLzkKUmV5MjBWV3dDK1FPLzZ3MTh5VElCbGpLcityVklEOHhyOWV2T3hPRE1ENHFJTzhTeHdSRzRDWlpzVGRQZnlSWgpYRUEvbm5LMnBzSHhlYy9sREdaYm5sSGVwOUtPSlBXeWNaTVdGUUVPa0NUMUJqeXJrMThNVWZjejI1OFYwVkJTCjE1c1pVK0JhNVpPQUk4OEZXTjFHajB4dk93aTVQa2xMQU5wbWtmTkdIblFKWlF3WkRma3V4K1RvRXRjd202ekYKYld1Q2RyaUxMNmhpL1lGaHRRQzRRazM5UlRVN3dCTVdHbjUrK3hIN3dGSktIZUx5QkFvb2JTSFRzSjdMNnNIQwovdXVKcURxN0RhdDlIT0wyeVhDMVV2RWZZRnlrN0w0N1o4T0hSSEhmNzY1YUZEMzAzdHB2Q0xVOHhnPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUgUkVRVUVTVC0tLS0tCg==
+    issuerRef:
+      group: cert-manager.io
+      kind: ClusterIssuer
+      name: sowl-tech-prod
+  status:
+    certificate: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUZjVENDQkZtZ0F3SUJBZ0lTQTdqVDROcUF0Qi8zNDJiQkoxRXRRTndwTUEwR0NTcUdTSWIzRFFFQkN3VUEKTUVveEN6QUpCZ05WQkFZVEFsVlRNUll3RkFZRFZRUUtFdzFNWlhRbmN5QkZibU55ZVhCME1TTXdJUVlEVlFRRApFeHBNWlhRbmN5QkZibU55ZVhCMElFRjFkR2h2Y21sMGVTQllNekFlRncweE9URXlNREV3T1RFME5UQmFGdzB5Ck1EQXlNamt3T1RFME5UQmFNQ2d4SmpBa0JnTlZCQU1USFdGdVlXeDVkR2xqY3k1elkyaHZiR0Z5YzJocGNHOTMKYkM1MFpXTm9NSUlCSWpBTkJna3Foa2lHOXcwQkFRRUZBQU9DQVE4QU1JSUJDZ0tDQVFFQXNjNnZQa2xGUXlJZApmZHZkTk9VNWdqQTgyVFhYRHUzUW9temVXVEVVUStLK1Z5TTh6aGp2cDFmVXFGZTNTRDI1S2dvTXFnVmw3L1N5CmdMYlZEeGVPZkZmakQvNTM0SmJob2Rqd3BheVhaTzVuam9pQ0NzdmgxWnRxS1RYWnpEMVJDSnVXSzRpS2dJc2cKeXJvMmtPYU1TSlhlU0ovSnlUWm9SczZCRDhGWnM5MnNzYVBRK1htMmdGMDBCUHljNXRPTkI2TStQY2pqdjM3MwpkU1pIRXVFTTFJS0UwcWV6NXNmRTd2TThoQ2NVUTcxdHlMTTlLdVF5eDFnNkNtNll4UTVTcVRwL05UclloSjdqClBTK2hvaDl3QlY4VW8vajRHeTlTQy83THhmZWcyTlFySERoaTBOQ1ZMMmdTL0prQ3FHRCtaalVFd1A5UmM5bmcKYUhLc0xOLzJxUUlEQVFBQm80SUNjVENDQW0wd0RnWURWUjBQQVFIL0JBUURBZ1dnTUIwR0ExVWRKUVFXTUJRRwpDQ3NHQVFVRkJ3TUJCZ2dyQmdFRkJRY0RBakFNQmdOVkhSTUJBZjhFQWpBQU1CMEdBMVVkRGdRV0JCUjVKanRXClQ0UTg2dXB5bmJsV3l0SVNNRFl0Q1RBZkJnTlZIU01FR0RBV2dCU29TbXBqQkgzZHV1YlJPYmVtUldYdjg2anMKb1RCdkJnZ3JCZ0VGQlFjQkFRUmpNR0V3TGdZSUt3WUJCUVVITUFHR0ltaDBkSEE2THk5dlkzTndMbWx1ZEMxNApNeTVzWlhSelpXNWpjbmx3ZEM1dmNtY3dMd1lJS3dZQkJRVUhNQUtHSTJoMGRIQTZMeTlqWlhKMExtbHVkQzE0Ck15NXNaWFJ6Wlc1amNubHdkQzV2Y21jdk1DZ0dBMVVkRVFRaE1CK0NIV0Z1WVd4NWRHbGpjeTV6WTJodmJHRnkKYzJocGNHOTNiQzUwWldOb01Fd0dBMVVkSUFSRk1FTXdDQVlHWjRFTUFRSUJNRGNHQ3lzR0FRUUJndDhUQVFFQgpNQ2d3SmdZSUt3WUJCUVVIQWdFV0dtaDBkSEE2THk5amNITXViR1YwYzJWdVkzSjVjSFF1YjNKbk1JSUJBd1lLCkt3WUJCQUhXZVFJRUFnU0I5QVNCOFFEdkFIWUFiMU4yckRId01SblltUUNrVVJYL2R4VWNFZGtDd1FBcEJvMnkKQ0pvMzJSTUFBQUZ1d1BTcmdBQUFCQU1BUnpCRkFpQXdOSitKbnlGUjFvdnRUWmZReWZPVDYwcmt2cjlsaWRuUgpGdGRwRHRxcEFnSWhBTWthZHFORnZiclI0RWFkd2tYK1lSUTNtOHp1eVVzcWg4Q2VxcHJNTmxnUEFIVUFzaDRGCnpJdWl6WW9nVG9kbStTdTVpaVVnWjJ2YStuRG5za2xUTGUrTGtGNEFBQUZ1d1BTcldBQUFCQU1BUmpCRUFpQmcKamZvV0JlRkd0TERkdkNmWHoraFkrT2pzVEszNmxsMG5hazZjTXM2aG9RSWdEUkI0Q0xKMm9peWRNUzNVYnplSApjcjcvaWV2aG1mZmdwMmxXbzVoSmJKb3dEUVlKS29aSWh2Y05BUUVMQlFBRGdnRUJBRWxIaXBjODJWMGpnRmh0ClRUL0RhSmg2NDFFdXkxdnBNa0dySC9zZmNDYXdNckJrSWdEakR1SWhqMStYWTgrZkZUdmVqOWRTTElLWWlBeHgKZVhOUTh3ekVlWTFkUnNjQXlvanhoRUF6MC9aY0xuSmMrblpjS2FqbHBhNFMxRjF6cXpNbGlMTCtkMGRtM2QxNQoxSng3c29NUUxlVzF6cWFOZ291OHdwNkJsS0JiWG5UazBaSURXWmx4cnRqQTYwVWpXclorUUxMZ0hwMG94azhGCldUSmxYVHJTdC9zL2h1WjF3QmpVYVFOWVl5aUp3YVI3b1RlbXpaOE1OeFRDOU1uaWlJeEJlWU0rSXdvaHN0WXoKOC9tMDJXRWFnQlBjdXdYRFRYS0ZsN200RGhvaWRBb0VqQXRKQXhVaHYrUXowemhVVU1hYWhSQnZHWlJLcERqeQpuUFc5S2hVPQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCi0tLS0tQkVHSU4gQ0VSVElGSUNBVEUtLS0tLQpNSUlFa2pDQ0EzcWdBd0lCQWdJUUNnRkJRZ0FBQVZPRmMyb0xoZXluQ0RBTkJna3Foa2lHOXcwQkFRc0ZBREEvCk1TUXdJZ1lEVlFRS0V4dEVhV2RwZEdGc0lGTnBaMjVoZEhWeVpTQlVjblZ6ZENCRGJ5NHhGekFWQmdOVkJBTVQKRGtSVFZDQlNiMjkwSUVOQklGZ3pNQjRYRFRFMk1ETXhOekUyTkRBME5sb1hEVEl4TURNeE56RTJOREEwTmxvdwpTakVMTUFrR0ExVUVCaE1DVlZNeEZqQVVCZ05WQkFvVERVeGxkQ2R6SUVWdVkzSjVjSFF4SXpBaEJnTlZCQU1UCkdreGxkQ2R6SUVWdVkzSjVjSFFnUVhWMGFHOXlhWFI1SUZnek1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0MKQVE4QU1JSUJDZ0tDQVFFQW5OTU04RnJsTGtlM2NsMDNnN05vWXpEcTF6VW1HU1hodmI0MThYQ1NMN2U0UzBFRgpxNm1lTlFoWTdMRXF4R2lIQzZQamRlVG04NmRpY2JwNWdXQWYxNUdhbi9QUWVHZHh5R2tPbFpIUC91YVo2V0E4ClNNeCt5azEzRWlTZFJ4dGE2N25zSGpjQUhKeXNlNmNGNnM1SzY3MUI1VGFZdWN2OWJUeVdhTjhqS2tLUURJWjAKWjhoL3BacTRVbUVVRXo5bDZZS0h5OXY2RGxiMmhvbnpoVCtYaHErdzNCcnZhdzJWRm4zRUs2QmxzcGtFTm5XQQphNnhLOHh1UVNYZ3ZvcFpQS2lBbEtRVEdkTURRTWMyUE1UaVZGcnFvTTdoRDhiRWZ3ekIvb25reEV6MHROdmpqCi9QSXphcms1TWNXdnhJME5IV1FXTTZyNmhDbTIxQXZBMkgzRGt3SURBUUFCbzRJQmZUQ0NBWGt3RWdZRFZSMFQKQVFIL0JBZ3dCZ0VCL3dJQkFEQU9CZ05WSFE4QkFmOEVCQU1DQVlZd2Z3WUlLd1lCQlFVSEFRRUVjekJ4TURJRwpDQ3NHQVFVRkJ6QUJoaVpvZEhSd09pOHZhWE55Wnk1MGNuVnpkR2xrTG05amMzQXVhV1JsYm5SeWRYTjBMbU52CmJUQTdCZ2dyQmdFRkJRY3dBb1l2YUhSMGNEb3ZMMkZ3Y0hNdWFXUmxiblJ5ZFhOMExtTnZiUzl5YjI5MGN5OWsKYzNSeWIyOTBZMkY0TXk1d04yTXdId1lEVlIwakJCZ3dGb0FVeEtleHBIc3NjZnJiNFV1UWRmL0VGV0NGaVJBdwpWQVlEVlIwZ0JFMHdTekFJQmdabmdRd0JBZ0V3UHdZTEt3WUJCQUdDM3hNQkFRRXdNREF1QmdnckJnRUZCUWNDCkFSWWlhSFIwY0RvdkwyTndjeTV5YjI5MExYZ3hMbXhsZEhObGJtTnllWEIwTG05eVp6QThCZ05WSFI4RU5UQXoKTURHZ0w2QXRoaXRvZEhSd09pOHZZM0pzTG1sa1pXNTBjblZ6ZEM1amIyMHZSRk5VVWs5UFZFTkJXRE5EVWt3dQpZM0pzTUIwR0ExVWREZ1FXQkJTb1NtcGpCSDNkdXViUk9iZW1SV1h2ODZqc29UQU5CZ2txaGtpRzl3MEJBUXNGCkFBT0NBUUVBM1RQWEVmTmpXRGpkR0JYN0NWVytkbGE1Y0VpbGFVY25lOElrQ0pMeFdoOUtFaWszSkhSUkhHSm8KdU0yVmNHZmw5NlM4VGloUnpadm9yb2VkNnRpNldxRUJtdHp3M1dvZGF0ZytWeU9lcGg0RVlwci8xd1hLdHg4Lwp3QXBJdkpTd3RtVmk0TUZVNWFNcXJTREU2ZWE3M01qMnRjTXlvNWpNZDZqbWVXVUhLOHNvL2pvV1VvSE9VZ3d1Clg0UG8xUVl6KzNkc3prRHFNcDRma2x4QndYUnNXMTBLWHpQTVRaK3NPUEF2ZXl4aW5kbWprVzhsR3krUXNSbEcKUGZaK0c2WjZoN21qZW0wWStpV2xrWWNWNFBJV0wxaXdCaThzYUNiR1M1ak4ycDhNK1grUTdVTktFa1JPYjNONgpLT3FrcW01N1RIMkgzZURKQWtTbmg2L0RORnUwUWc9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+    conditions:
+    - lastTransitionTime: "2019-12-01T10:14:51Z"
+      message: Certificate fetched from issuer successfully
+      reason: Issued
+      status: "True"
+      type: Ready
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

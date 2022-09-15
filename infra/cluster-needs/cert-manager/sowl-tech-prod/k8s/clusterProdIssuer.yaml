@@ -1,0 +1,27 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: ClusterIssuer
+metadata:
+  name: sowl-tech-prod
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: ilyaf@scholarshipowl.com
+    # Name of a secret used to store the ACME account private key
+    privateKeySecretRef:
+      name: sowl-tech-prod
+    solvers:
+    - selector: {}
+      dns01:
+        clouddns:
+          # A secretKeyRef to a google cloud json service account
+          serviceAccountSecretRef:
+            name: sowl-tech-key
+            key: sowl-tech-1ebd33f004f5.json
+          project: sowl-tech
+    - selector: {}
+      dns01:
+        cloudflare:
+          email: davidt@scholarshipowl.com
+          apiKeySecretRef:
+            name: cloudflare
+            key: key

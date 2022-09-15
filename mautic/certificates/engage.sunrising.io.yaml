@@ -1,0 +1,18 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: engage.sunrising.io
+  namespace: sunrise-mautic
+spec:
+  secretName: engage.sunrising.io
+  issuerRef:
+    name: sowl-tech-prod
+    kind: ClusterIssuer
+  dnsNames:
+    - engage.sunrising.io
+  acme:
+    config:
+    - http01:
+        ingressClass: nginx
+      domains:
+      - engage.sunrising.io

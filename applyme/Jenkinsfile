@@ -1,0 +1,39 @@
+@Library("jenkins-lib") _
+
+def AppName     = "${BRANCH_NAME == 'master' ? 'applyme' : 'applyme-dev'}"
+def Namespace   = "${BRANCH_NAME == 'master' ? 'applyme' : 'applyme-dev'}"
+def NginxRepo   = "${BRANCH_NAME == 'master' ? 'gcr.io/sowl-marketing/applyme/nginx' : 'gcr.io/sowl-marketing/applyme/nginx-dev'}"
+def NginxTag    = "${BRANCH_NAME == 'master' ? 'v1.3' : 'v7.1'}"
+def domain      = "${BRANCH_NAME == 'master' ? 'apply.me' : 'dev.stg.apply.me'}"
+
+standardPipeline {
+    node                             = "docker"
+    cluster                          = "sowl-marketing"
+    appName                          = "${AppName}"
+    zone                             = "europe-west1-b"
+    project                          = "sowl-marketing"
+    imageName                        = "php-fpm"
+    namespace                        = "${Namespace}"
+    chartName                        = "applyme"
+    probeStaging                     = false
+    nginx                            = false
+    replacements                     = [
+                                            "ingDomain":   ["@REPLACE_HOST", "${domain}", "@WORKSPACE/kube/charts/applyme/values.yaml"],
+                                       ]
+    helmParams                       = [
+                                            "containers.phpfpm.tag"        : null,
+                                            "containers.phpfpm.repository" : null,
+                                            "containers.nginx.tag"         : "${NginxTag}",
+                                            "containers.nginx.repository"  : "${NginxRepo}",
+                                            "app"                          : "${AppName}"
+                                       ]
+    serviceAccount                   = "jenkins@sowl-marketing.iam.gserviceaccount.com"
+    service_account_key_id           = "sowl-marketing-kube-admin"
+    waitTime                         = "1m"
+    slack                            = true
+    slackChannel                     = "#applyme-elite"
+    slackMsg                         = ":applyme: Build `STARTED`"
+    slackSuccessProdMsg              = ":applyme: Build `SUCCESS`. Deployed to https://apply.me"
+    slackSuccessDevMsg               = ":applyme: Build `SUCCESS`. Deployed to https://dev.stg.apply.me"
+    slackFailedMsg                   = ":applyme: Build `FAIL`"
+}

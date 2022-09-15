@@ -1,0 +1,2103 @@
+openapi: 3.0.0
+servers:
+  - url: 'https://scholarshipowl.com/rest-mobile/v1/'
+  - url: 'http://localhost:8080/rest-mobile/v1/'
+info:
+  title: Rest Mobile API
+  description: ScholarshipOWL Mobile Api Documentation
+  version: '1.0'
+paths:
+  /auth:
+    post:
+      tags:
+        - Auth
+      summary: Authenticate user
+      operationId: auth
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                email:
+                  description: User Email
+                  type: string
+                password:
+                  description: User Password
+                  type: string
+              required:
+                - email
+                - password
+      responses:
+        '200':
+          $ref: '#/components/responses/200.auth'
+        '400':
+          description: Bad request.
+        '401':
+          description: Invalid credentials.
+  /auth/one-time-auth-token:
+    post:
+      tags:
+        - Auth
+      summary: Authenticate a user. Exchange one-time token to JWT one.
+      description: One-time token has eperation time 2 minute.
+      operationId: authByOneTimeToken
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                token:
+                  description: 8 characters hash string
+                  type: string
+              required:
+                - token
+      responses:
+        '200':
+          $ref: '#/components/responses/200.auth'
+        '400':
+          description: Bad request.
+        '401':
+          description: One-time token not valid or expired.
+  /auth/authenticate-and-redirect:
+    get:
+      tags:
+        - Auth
+      summary: Authenticate a user by JWT token (create session). Make redirect to specified url.
+      description: If redirect parameter is not provided a user will be redirected to homepage.
+        JWT token must be provided with headers as usual bearer authentication.
+      operationId: authenticateAndRedirect
+      parameters:
+        - name: redirect
+          in: query
+          description: url to redirect a user after session is created
+          required: false
+          schema:
+            type: string
+          example: /my-account
+  /auth/facebook:
+    post:
+      tags:
+        - Auth
+      summary: Authenticate and register a user via facebook
+      operationId: auth.facebook
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                facebookToken:
+                  description: Facebook Bearer (Oauth) access token
+                  type: string
+              required:
+                - facebookToken
+      responses:
+        '200':
+          $ref: '#/components/responses/200.auth'
+        '400':
+          description: Bad request. Invalid token.
+        '424':
+            description: Account matching facebook credentials is not found on SOWL side.
+  /auth/magic-link:
+    post:
+      tags:
+        - Auth
+      summary: Authenticate a user by Magic Link. Return JWT token.
+      description: Magic Link token has expiration of 1 day
+      operationId: authByMagicLink
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                token:
+                  description: hash string
+                  type: string
+              required:
+                - token
+      responses:
+        '200':
+          $ref: '#/components/responses/200.auth'
+        '400':
+          description: Failed to create JWT token
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    default: 400
+                    example: 400
+                  error:
+                    type: string
+                    default: Failed to create JWT token
+                    example: Failed to create JWT token
+        '401':
+          description: Token invalid or expired
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    default: 401
+                    example: 401
+                  error:
+                    type: string
+                    default: Token invalid or expired
+                    example: Token invalid or expired
+  /account-info:
+    get:
+      tags:
+        - Account Info
+      description: Get account related info, membership, profile etc. Without the fields parameter returns all the data.
+      operationId: accountInfo
+      parameters:
+        - name: fields
+          in: query
+          description: 'A comma separated string of fields to return. Supported fields are: scholarship, application, mailbox, account, profile, socialAccount, marketing, membership'
+          required: false
+          schema:
+            type: string
+          example: 'scholarship,application,mailbox'
+      produces:
+      - "application/json"
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: "schemas/AccountInfo.yml"
+        '401':
+          description: Unauthorized.
+
+  /account:
+    post:
+      tags:
+        - Account
+      summary: Create an account
+      description: Create new user
+      operationId: account.create
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          $ref: '#/components/responses/200.put.account'
+        '400':
+          description: 400 Bad Request.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                email:
+                  description: User email
+                  type: string
+                  example: jonh_doe@gmail.com
+                firstname:
+                  description: User first name
+                  type: string
+                  example: John
+                lastname:
+                  description: User last name
+                  type: string
+                  example: Doe
+                password:
+                  description: Password for the account being created. REQUIRED if facebookToken is not submitted.
+                  type: string
+                  example: secret123
+                facebookToken:
+                  description: REQUIRED if password is not submitted.
+                  type: string
+                  example: 403ab82177a5f5127c13f63b819b10ed
+              required:
+                - firstname
+                - lastname
+                - email
+                - password
+                - facebookToken
+    get:
+      tags:
+        - Account
+      summary: Get an account according to JWT token
+      description: Return user information data
+      operationId: account.show
+      produces:
+      - "application/json"
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          $ref: '#/components/responses/200.get.account'
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Entity not found.
+    put:
+      tags:
+        - Account
+      summary: Update an account according to JWT token
+      description: Update user account
+      operationId: account.update
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Account|Profile information.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  data:
+                    $ref: "#/components/schemas/Account"
+        '400':
+          description: Bad request.
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Entity not found.
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                firstname:
+                  description: User first name
+                  type: string
+                lastname:
+                  description: User last name
+                  type: string
+                phone:
+                  description: User phone
+                  type: integer
+                dateOfBirth:
+                  description: User dateOfBirth
+                  type: string
+                enrollmentMonth:
+                  description: User enrollment Month
+                  type: integer
+                enrollmentYear:
+                  description: User enrollment Year
+                  type: integer
+                graduationYear:
+                  description: User graduation Year
+                  type: integer
+                graduationMonth:
+                  description: User graduation Month
+                  type: integer
+                gpa:
+                  description: User gpa
+                  type: string
+                password:
+                  description: User password
+                  type: string
+                studyOnline:
+                  description: User study online
+                  type: string
+                address:
+                  description: User address
+                  type: string
+                zip:
+                  description: User zip
+                  type: integer
+                enrolled:
+                  description: User is enrolled
+                  type: boolean
+                city:
+                  description: User city
+                  type: string
+                highschool:
+                  description: User Highschool
+                  type: string
+                university:
+                  description: User university
+                  type: string
+                university1:
+                  description: User university1
+                  type: string
+                university2:
+                  description: User university2
+                  type: string
+                university3:
+                  description: User university3
+                  type: string
+                university4:
+                  description: User university4
+                  type: string
+    delete:
+      tags:
+        - Account
+      summary: Delete an account according to JWT token
+      operationId: account.delete
+      produces:
+      - "application/json"
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Account successfully deleted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    value: 200
+                    example: 200
+        '401':
+          description: Unauthorized.
+
+  /account/password/change:
+    put:
+      tags:
+        - Account
+      summary: Change account password (without mailing)
+      operationId: account.password.change
+      produces:
+      - "application/json"
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                passwordCurrent:
+                  description: Current password
+                  type: string
+                passwordNew:
+                  description: New password
+                  type: string
+                  minLength: 6
+              required:
+                - passwordCurrent
+                - passwordNew
+      responses:
+        '200':
+          description: Password successfully changed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    value: 200
+                    example: 200
+                  data:
+                    type: array
+        '400':
+          description: Bad Request. Validation errors.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Current password is incorrect.
+  /account/password/reset:
+    put:
+      tags:
+        - Account
+      summary: Password reset by token
+      operationId: account.password.reset
+      produces:
+      - "application/json"
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                passwordNew:
+                  description: New password
+                  type: string
+                  minLength: 6
+                token:
+                  description: Password reset token
+                  type: string
+              required:
+                - token
+                - passwordNew
+      responses:
+        '200':
+          description: Password successfully reset
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    value: 200
+                    example: 200
+                  data:
+                    type: array
+        '400':
+          description: Bad Request. Validation errors.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: 400
+                  error:
+                    type: object
+                    properties:
+                      token:
+                        type: string
+                        example: Password reset token is expired or invalid.
+  /account/form-options:
+    get:
+      tags:
+        - Account
+      summary: Return registration parameters and its options
+      operationId: account.register-options
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Predefined information.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    status:
+                      type: integer
+                      default: 200
+                    data:
+                      type: object
+                      properties:
+                        genders:
+                          type: object
+                        citizenships:
+                          type: object
+                        ethnicities:
+                          type: object
+                        gpas:
+                          type: object
+                        degrees:
+                          type: object
+                        degreeTypes:
+                          type: object
+                        careerGoals:
+                          type: object
+                        schoolLevels:
+                          type: object
+                        studyOnline:
+                          type: object
+                        states:
+                          type: object
+        '401':
+          description: Unauthorized.
+  /account/app-installed:
+    put:
+      tags:
+        - Account
+      summary: Update an account app-installed status according to JWT token. Set status to true
+      operationId: account.app-installed
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Account information.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  data:
+                    $ref: "#/components/schemas/Account"
+        '401':
+          description: Unauthorized.
+
+  /account/app-uninstalled:
+    put:
+      tags:
+        - Account
+      summary: Update an account app-installed status according to JWT token. Set status to false
+      operationId: account.app-uninstalled
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Account information.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  data:
+                    $ref: "#/components/schemas/Account"
+        '401':
+          description: Unauthorized.
+  /application:
+    post:
+      tags:
+        - Application
+      summary: Save user's application
+      description: Add application for specified scholarship
+      operationId: application.store
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          $ref: '#/components/responses/200.application'
+        '400':
+          description: Bad request.
+        '401':
+          description: Unauthorized.
+        '409':
+          description: Error.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    default: 409
+                  error:
+                    type: string
+                    enum:
+                      - 'Scholarship missing text requirement: id.'
+                      - The selected scholarship id is invalid.
+                      - Scholarship not active or expired.
+                      - Scholarship not eligible for the user.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                scholarshipId:
+                  description: User's eligible scholarshipId
+                  type: integer
+              required:
+                - scholarshipId
+    get:
+      tags:
+        - Application
+      summary: Return user's application list
+      operationId: application.index
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Application list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    status:
+                      type: integer
+                      default: 200
+                    data:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          scholarshipId:
+                            type: integer
+                          scholarship:
+                            $ref: "schemas/Scholarship.yml"
+                          dateApplied:
+                            $ref: "schemas/DateObject.yml"
+                          accountId:
+                            type: integer
+                          status:
+                            type: string
+                            example: Success
+                          externalStatusUpdatedAt:
+                            $ref: "schemas/DateObject.yml"
+                    meta:
+                      $ref: 'schemas/meta.yml'
+
+  '/application/{scholarshipId}':
+    get:
+      tags:
+        - Application
+      summary: Show user's application for specified scholarship
+      operationId: application.show
+      parameters:
+        - name: scholarshipId
+          in: path
+          description: Scholarship id to get an application for
+          required: true
+          schema:
+            type: integer
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Application data, scholarship data.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    status:
+                      type: integer
+                      default: 200
+                    data:
+                      type: object
+                      properties:
+                        scholarshipId:
+                          type: integer
+                        scholarship:
+                            allOf:
+                            - $ref: '#/components/schemas/Scholarship'
+                            - type: object
+                              properties:
+                                application:
+                                  $ref: '#/components/schemas/Application'
+                        dateApplied:
+                          $ref: "schemas/DateObject.yml"
+                        accountId:
+                          type: integer
+                        status:
+                          type: string
+                          example: Success
+                        externalStatusUpdatedAt:
+                          $ref: "schemas/DateObject.yml"
+                    meta:
+                      type: object
+                      properties:
+                        credits:
+                          type: integer
+                          description: Number of scholarships left a user allowed to apply
+
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Entity not found.
+  /application/file:
+    post:
+      tags:
+        - Application.File
+      summary: Add application file. Must be used for adding new files as well as for updating existing ones.
+      operationId: application.file.store
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          $ref: '#/components/responses/200.application.file'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                requirementFileId:
+                  description: Requirement file id
+                  type: integer
+                accountFileId:
+                  type: integer
+                  description: REQUIRED if [file,fileBase64] not presented. Id of already existing file.
+                file:
+                  type: string
+                  format: binary
+                  description: REQUIRED if [accountFileId,fileBase64] not presented. Binary File.
+                fileBase64:
+                  description: REQUIRED if [accountFileId,file] not presented.
+                  type: string
+                  format: byte
+              required:
+                - requirementFileId
+  '/application/file/{applicatioFileId}':
+    get:
+      tags:
+        - Application.File
+      summary: Show application file
+      operationId: application.file.show
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: applicatioFileId
+          in: path
+          description: Id of the application file, added to a scholarship under particular requirement
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          $ref: '#/components/responses/200.application.file'
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbiden. This action is unauthorized.
+        '404':
+          description: Entity not found.
+    delete:
+      tags:
+        - Application.File
+      summary: Delete an appliction file
+      operationId: application.file.delete
+      parameters:
+        - name: applicatioFileId
+          in: path
+          description: Id of the application file, added to a scholarship under particular requirement
+          required: true
+          schema:
+            type: integer
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          $ref: '#/components/responses/200.application.requirement.delete'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbiden. This action is unauthorized.
+        '404':
+          description: Entity not found.
+  /application/image:
+    post:
+      tags:
+        - Application.Image
+      summary: Add an application image. Must be used for adding new files as well as for updating existing ones.
+      operationId: application.image.store
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          $ref: '#/components/responses/200.application.image'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                requirementImageId:
+                  description: Requirement image id.
+                  type: integer
+                accountFileId:
+                  description: REQUIRED if [file,fileBase64] not presented. Id of already existing file.
+                  type: integer
+                file:
+                  description: Binary File. REQUIRED if [accountFileId] not presented.
+                  type: string
+                  format: binary
+                fileBase64:
+                  description: REQUIRED if [accountFileId,text,file] not presented.
+                  type: string
+                  format: byte
+                fromCamera:
+                  description: Flag about is it photo from camera or not
+                  type: integer
+              required:
+                - requirementImageId
+  '/application/image/{applicationImageId}':
+    get:
+      tags:
+        - Application.Image
+      summary: Show an application image
+      operationId: application.image.show
+      parameters:
+        - name: applicationImageId
+          in: path
+          description: Id of an application image, added to a scholarship under particular requirement
+          required: true
+          schema:
+            type: integer
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          $ref: '#/components/responses/200.application.image'
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbiden. This action is unauthorized.
+        '404':
+          description: Entity not found.
+    delete:
+      tags:
+        - Application.Image
+      summary: Delete an appliction image
+      operationId: application.image.delete
+      parameters:
+        - name: applicationImageId
+          in: path
+          description: Id of an application image, added to a scholarship under particular requirement
+          required: true
+          schema:
+            type: integer
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          $ref: '#/components/responses/200.application.requirement.delete'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbiden. This action is unauthorized.
+        '404':
+          description: Entity not found.
+  /application/essay:
+    post:
+      tags:
+        - Application.Text
+      summary: Add an application essay. Must be used for adding new files as well as for updating existing ones.
+      operationId: application.essay.store
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+           $ref: '#/components/responses/200.application.essay'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                requirementTextId:
+                  description: Requirement text id.
+                  type: integer
+                accountFileId:
+                  description: REQUIRED if [file,fileBase64] not presented. Id of already existing file.
+                  type: integer
+                file:
+                  description: REQUIRED if [accountFileId,fileBase64] not presented. Binary file.
+                  type: string
+                  format: binary
+                fileBase64:
+                  description: REQUIRED if [accountFileId,file] not presented.
+                  type: string
+                  format: byte
+              required:
+                - requirementTextId
+  '/application/essay/{applicationTextId}':
+    get:
+      tags:
+        - Application.Text
+      summary: Show an application essay
+      operationId: application.essay.show
+      parameters:
+        - name: applicationTextId
+          in: path
+          description: Id of an application essay, added to a scholarship under particular requirement
+          required: true
+          schema:
+            type: integer
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+           $ref: '#/components/responses/200.application.essay'
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbiden. This action is unauthorized.
+        '404':
+          description: Entity not found.
+    delete:
+      tags:
+        - Application.Text
+      summary: Delete an appliction essay
+      operationId: application.essay.delete
+      parameters:
+        - name: applicationTextId
+          in: path
+          description: Id if an application essay, added to a scholarship under particular requirement
+          required: true
+          schema:
+            type: integer
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          $ref: '#/components/responses/200.application.requirement.delete'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbiden. This action is unauthorized.
+        '404':
+          description: Entity not found.
+
+
+  /application/input:
+    post:
+      tags:
+        - Application.Input
+      summary: Add an application input. Must be used for adding new inputs as well as for updating existing ones.
+      operationId: application.input.store
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+           $ref: '#/components/responses/200.application.input'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                requirementInputId:
+                  description: Requirement input id.
+                  type: integer
+                text:
+                  description: YouTube video link, etc.
+                  type: string
+              required:
+                - requirementInputId
+                - text
+  '/application/input/{applicationInputId}':
+    get:
+      tags:
+        - Application.Input
+      summary: Show an application input
+      operationId: application.input.show
+      parameters:
+        - name: applicationInputId
+          in: path
+          description: Id of an application input, added to a scholarship under particular requirement
+          required: true
+          schema:
+            type: integer
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          $ref: '#/components/responses/200.application.input'
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbiden. This action is unauthorized.
+        '404':
+          description: Entity not found.
+    delete:
+      tags:
+        - Application.Input
+      summary: Delete an appliction essay
+      operationId: application.input.delete
+      parameters:
+        - name: applicationInputId
+          in: path
+          description: Id of an application input, added to a scholarship under particular requirement
+          required: true
+          schema:
+            type: integer
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          $ref: '#/components/responses/200.application.requirement.delete'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbiden. This action is unauthorized.
+        '404':
+          description: Entity not found.
+
+  /application/special-eligibility:
+    post:
+      tags:
+        - Application.SpecialEligibility
+      summary: Add or update an application special eligibility requirement.
+      operationId: application.special-eligibility.store
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+           $ref: '#/components/responses/200.application.special-eligibility'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                requirementId:
+                  description: Id of the special eligibility requirement.
+                  type: integer
+                val:
+                  description: If checkbox ticked then 1 otherwise 0.
+                  type: integer
+              required:
+                - requirementId
+                - val
+  '/application/special-eligibility/{applicationSpecialEligibilityId}':
+    get:
+      tags:
+        - Application.SpecialEligibility
+      summary: Show an application SpecialEligibility
+      operationId: application.special-eligibility.show
+      parameters:
+        - name: applicationSpecialEligibilityId
+          in: path
+          description: Id of an application SpecialEligibility, added to a scholarship under particular requirement
+          required: true
+          schema:
+            type: integer
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          $ref: '#/components/responses/200.application.special-eligibility'
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbiden. This action is unauthorized.
+        '404':
+          description: Entity not found.
+    delete:
+      tags:
+        - Application.SpecialEligibility
+      summary: Delete an appliction special eligibility
+      operationId: application.special-eligibility.delete
+      parameters:
+        - name: applicationSpecialEligibilityId
+          in: path
+          description: Id of an application SpecialEligibility, added to a scholarship under particular requirement
+          required: true
+          schema:
+            type: integer
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          $ref: '#/components/responses/200.application.requirement.delete'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbiden. This action is unauthorized.
+        '404':
+          description: Entity not found.
+
+  /application/survey:
+    post:
+      tags:
+        - Application.Survey
+      summary: Add or update an application survey requirement.
+      operationId: application.surveyy.store
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+           $ref: '#/components/responses/200.application.survey'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                requirementId:
+                  description: Id of the survey requirement.
+                  type: integer
+                survey[1198854c][1]:
+                  description: Answers indexed by question ids.
+                  type: string
+                  example: "Red"
+                survey[f8dc7da7][1]:
+                  description: Answers indexed by question ids.
+                  type: string
+                  example: "Sun"
+                survey[f8dc7da7][2]:
+                  description: Answers indexed by question ids.
+                  type: string
+                  example: "Sat"
+              required:
+                - requirementId
+                - survey
+  '/application/survey/{applicationSurveyId}':
+    get:
+      tags:
+        - Application.Survey
+      summary: Show an application survey data
+      operationId: application.survey.show
+      parameters:
+        - name: applicationSurveyId
+          in: path
+          description: Id of an application Survey added to a scholarship under particular requirement
+          required: true
+          schema:
+            type: integer
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          $ref: '#/components/responses/200.application.survey'
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbiden. This action is unauthorized.
+        '404':
+          description: Entity not found.
+    delete:
+      tags:
+        - Application.Survey
+      summary: Delete an appliction survey data
+      operationId: application.special-eligibility.delete
+      parameters:
+        - name: applicationSurveyId
+          in: path
+          description: Id of an application Survey added to a scholarship under particular requirement
+          required: true
+          schema:
+            type: integer
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          $ref: '#/components/responses/200.application.requirement.delete'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbiden. This action is unauthorized.
+        '404':
+          description: Entity not found.
+
+  '/file/{accountFileId}/show':
+    get:
+      tags:
+        - Files
+      summary: Get a content of one file by accountFileId ID
+      operationId: file.show
+      parameters:
+        - name: accountFileId
+          in: path
+          description: File's ID from URL /application/file/{applicatioFileId}
+          required: true
+          schema:
+            type: integer
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: A file content
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+            image/png:
+              schema:
+                type: string
+                format: binary
+            image/jpg:
+              schema:
+                type: string
+                format: binary
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+
+
+  '/file/{accountFileId}/download':
+    get:
+      tags:
+        - Files
+      summary: Download one file by accountFileId ID
+      operationId: file.download
+      parameters:
+        - name: accountFileId
+          in: path
+          description: File's ID from URL /application/file/{applicatioFileId}
+          required: true
+          schema:
+            type: integer
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: A file content
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+
+  /scholarship/eligible:
+    get:
+      tags:
+        - Scholarship
+      summary: Return user's eligible scholarships
+      operationId: scholarship.eligible
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Eligible Scholarships.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    default: 200
+                  data:
+                    type: array
+                    items:
+                      allOf:
+                      - $ref: '#/components/schemas/Scholarship'
+                      - type: object
+                        properties:
+                          application:
+                            $ref: '#/components/schemas/Application'
+                  meta:
+                    $ref: "schemas/meta.yml"
+
+        '401':
+          description: Unauthorized.
+  /scholarship/sent:
+    get:
+      tags:
+        - Scholarship
+      summary: List of applyed scholarships
+      description: 'As sent applications we assume once with statuses: in progress, pending, success'
+      operationId: scholarship.sent
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Applied Scholarships.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    default: 200
+                  data:
+                    type: array
+                    items:
+                      allOf:
+                      - $ref: '#/components/schemas/Scholarship'
+                      - type: object
+                        properties:
+                          application:
+                            allOf:
+                            - $ref: '#/components/schemas/Application'
+                            - type: object
+                              properties:
+                                submitedDate:
+                                  $ref: "schemas/DateObject.yml"
+                                externalStatusUpdatedAt:
+                                  $ref: "schemas/DateObject.yml"
+                  meta:
+                    $ref: "schemas/meta.yml"
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Scholarship not found.
+  /scholarship/favorite/{id}:
+    put:
+      tags:
+        - Scholarship
+      summary: Mark scholaship as favorite
+      operationId: scholarship.favorite
+      parameters:
+        - name: id
+          in: path
+          description: Id of a scholarship
+          required: true
+          schema:
+            type: integer
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Returns http status. 200 - successfull operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    default: 200
+                  data:
+                    type: array
+                    example: []
+
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Scholarship not found.
+  /scholarship/unfavorite/{id}:
+    put:
+      tags:
+        - Scholarship
+      summary: Remove favorite mark from a scholaship
+      operationId: scholarship.unfavorite
+      parameters:
+        - name: id
+          in: path
+          description: Id of a scholarship
+          required: true
+          schema:
+            type: integer
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Returns http status. 200 - successfull operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    default: 200
+                  data:
+                    type: array
+                    example: []
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Scholarship not found.
+  /mailbox:
+    get:
+      tags:
+        - Mailbox
+      summary: User's mailbox items
+      description: List of sent and received emails for a user according to JWT token
+      operationId: mailbox.index
+      parameters:
+        - name: folder
+          in: query
+          description: 'One of: Inbox, Sent'
+          required: false
+          schema:
+            type: string
+          example: 'Inbox'
+        - name: page
+          in: query
+          description: page number
+          required: false
+          default: 1
+          schema:
+            type: integer
+        - name: perPage
+          in: query
+          description: number of items on a page
+          required: false
+          default: 100
+          schema:
+            type: integer
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          $ref: '#/components/responses/200.mailbox'
+        '401':
+          description: Unauthorized.
+  '/mailbox/{emailId}':
+    put:
+      tags:
+        - Mailbox
+      summary: Mark message as read
+      description: Mark message as read
+      operationId: mailbox.update
+      parameters:
+        - name: emailId
+          in: path
+          description: Email id
+          required: true
+          schema:
+            type: integer
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          $ref: '#/components/responses/200.mailbox'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Entity not found.
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                isRead:
+                  description: isRead flag
+                  type: boolean
+  /transactional-emails/app-membership-invite:
+    get:
+      tags:
+        - Transactional emails
+      summary: Send email with an invite
+      description: Triggers transactional email on Mautic
+      operationId: transactional-emails.invite
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Email triggered
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    default: 200
+                  data:
+                    type: array
+        '401':
+          description: Unauthorized.
+  /transactional-emails/magic-link/{email}:
+    get:
+      tags:
+      - Transactional emails
+      summary: Send email with a Magic Link
+      description: Triggers transactional email with magic link  on Mautic
+      operationId: transactional-emails.magic-link
+      parameters:
+      - name: email
+        in: path
+        description: Email to generate magic link for
+        required: true
+        schema:
+          type: string
+          format: email
+      responses:
+        '200':
+          description: Email triggered
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    default: 200
+                    example: 200
+                  data:
+                    type: array
+        '400':
+          description: Bad request. Account with specified email is not found.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    default: 400
+                    example: 400
+                  error:
+                    type: string
+                    default: Account with specified email is not found.
+                    example: Account with specified email is not found.
+  /transactional-emails/password-reset/{email}:
+    get:
+      tags:
+      - Transactional emails
+      summary: Send email with password reset link
+      operationId: transactional-emails.password-reset
+      parameters:
+      - name: email
+        in: path
+        description: Email to generate password-reset link for
+        required: true
+        schema:
+          type: string
+          format: email
+      responses:
+        '200':
+          description: Email triggered
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    default: 200
+                    example: 200
+                  data:
+                    type: array
+        '400':
+          description: Bad request. Account with specified email is not found.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    default: 400
+                    example: 400
+                  error:
+                    type: string
+                    default: Account with specified email is not found.
+                    example: Account with specified email is not found.
+  '/winner/{winnerId}':
+    get:
+      tags:
+        - Winner
+      summary: Information about one particular winner
+      operationId: winner.show
+      parameters:
+        - name: winnerId
+          in: path
+          description: Id of a winner
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Winner's information.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    default: 200
+                  data:
+                    $ref: '#/components/schemas/Winner'
+        '404':
+          description: Winner not found.
+  '/winner':
+    get:
+      tags:
+        - Winner
+      summary: List of winners
+      operationId: winner.list
+      parameters:
+        - name: page
+          in: query
+          description: page number
+          required: false
+          default: 1
+          schema:
+            type: integer
+        - name: perPage
+          in: query
+          description: number of items on a page
+          required: false
+          default: 100
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: List of winners.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    default: 200
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Winner'
+                  meta:
+                    $ref: "schemas/meta.yml"
+  /eligibility_cache:
+    put:
+      tags:
+        - Eligibilite Cache
+      description: Use this endpoint when a user clicked on a badge with scholarships count or visited the /scholarships page.
+        Update last_shown_scholarship_ids field in EligibilyCache.
+      operationId: eligibility_cache.put
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                last_shown_scholarship_ids:
+                  type: array
+                  items:
+                    type: integer
+      responses:
+        '200':
+          description: Chache scuccesfully updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    default: 200
+                  data:
+                    type: array
+        '400':
+          description: Bad request. Validation errors.
+        '401':
+          description: Unauthorized.
+
+    get:
+      tags:
+      - Eligibilite Cache
+      description: Return eligibility data
+      operationId: eligibility_cache.get
+      security:
+        - bearerAuth: []
+      parameters:
+      - name: fields
+        in: query
+        description: 'A comma separated string of fields to return'
+        required: false
+        schema:
+          type: string
+        example: 'eligibleScholarshipIds,notSeenScholarshipIds,notSeenScholarshipAmount'
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    default: 200
+                    example: 200
+                  data:
+                    $ref: "#/components/schemas/EligibilityCache"
+          '401':
+            description: Unauthorized.
+
+components:
+  securitySchemes:
+    bearerAuth:
+      in: header
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+    application.essay.store:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              requirementTextId:
+                description: Requirement text id
+                type: integer
+              accountFileId:
+                description: 'REQUIRED if [file,text,fileBase64] not presented. Id of already existing file.'
+                type: integer
+              file:
+                description: 'REQUIRED if [accountFileId,text,fileBase64] not presented. Binary file.'
+                type: string
+                format: binary
+              fileBase64:
+                description: 'REQUIRED if [accountFileId,text,file] not presented.'
+                type: string
+                format: byte
+              text:
+                description: 'REQUIRED if [file,accountFileId,fileBase64] not presented.'
+                type: string
+            required:
+              - requirementTextId
+  schemas:
+    Account:
+      $ref: "schemas/Account.yml"
+    AccountFile:
+      $ref: "schemas/AccountFile.yml"
+    Application:
+      $ref: "schemas/Application.yml"
+    ApplicationFile:
+      $ref: "schemas/ApplicationFile.yml"
+    ApplicationImage:
+        $ref: "schemas/ApplicationImage.yml"
+    ApplicationInput:
+        $ref: "schemas/ApplicationInput.yml"
+    ApplicationText:
+        $ref: "schemas/ApplicationText.yml"
+    ApplicationSpecialEligibility:
+        $ref: "schemas/ApplicationSpecialEligibility.yml"
+    ApplicationSurvey:
+        $ref: "schemas/ApplicationSurvey.yml"
+    CareerGoals:
+      $ref: "schemas/CareerGoals.yml"
+    Citizenship:
+      $ref: "schemas/Citizenship.yml"
+    Country:
+      $ref: "schemas/Country.yml"
+    Degrees:
+      $ref: "schemas/Degrees.yml"
+    DegreeTypes:
+      $ref: "schemas/DegreeTypes.yml"
+    Ethnicity:
+      $ref: "schemas/Ethnicity.yml"
+    Gender:
+      $ref: "schemas/Gender.yml"
+    JwtToken:
+      $ref: "schemas/JwtToken.yml"
+    MailBox:
+      $ref: "schemas/MailBox.yml"
+    MilitaryAffiliation:
+      $ref: "schemas/MilitaryAffiliation.yml"
+    Profile:
+      $ref: "schemas/Profile.yml"
+    Provider:
+      type: object
+      properties:
+        provider:
+          type: string
+          enum:
+            - iOS
+            - android
+    RequirementText:
+      $ref: "schemas/RequirementText.yml"
+    RequirementFile:
+      $ref: "schemas/RequirementFile.yml"
+    RequirementImage:
+      $ref: "schemas/RequirementImage.yml"
+    RequirementInput:
+      $ref: "schemas/RequirementInput.yml"
+    RequirementSpecialEligibility:
+      $ref: "schemas/RequirementSpecialEligibility.yml"
+    RequirementSurvey:
+      $ref: "schemas/RequirementSurvey.yml"
+    Scholarship:
+      $ref: "schemas/Scholarship.yml"
+    SchoolLevel:
+      $ref: "schemas/SchoolLevel.yml"
+    States:
+      $ref: "schemas/States.yml"
+    Winner:
+      $ref: "schemas/Winner.yml"
+    AccountInfo:
+      $ref: "schemas/AccountInfo.yml"
+    EligibilityCache:
+      $ref: "schemas/EligibilityCache.yml"
+
+
+  responses:
+    200.auth:
+      description: Auth information.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 200
+              data:
+                type: object
+                properties:
+                  accountId:
+                    type: integer
+                  token:
+                    type: string
+                    description: JWT token
+                    example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvcmVzdC1tb2JpbGUvdjEvYWNjb3VudCIsImlhdCI6MTUzMTMwNzIxOCwiZXhwIjoxNTMxOTEyMDE4LCJuYmYiOjE1MzEzMDcyMTgsImp0aSI6IlBVVFdzV3NLdnM5NGgwZ0oiLCJzdWIiOjIxNzg5ODZ9.x-_iWfE38J_dIW3yWHAGXvzet2rCwt5E_cA2gsqdRHA
+    200.get.account:
+      description: Account|Profile information.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 200
+              data:
+                $ref: "#/components/schemas/Account"
+    200.put.account:
+      description: Account|Profile information.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 200
+              data:
+                $ref: "#/components/schemas/Account"
+              meta:
+                type: object
+                properties:
+                  token:
+                    type: string
+                    description: JWT token
+                    example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvcmVzdC1tb2JpbGUvdjEvYWNjb3VudCIsImlhdCI6MTUzMTMwNzIxOCwiZXhwIjoxNTMxOTEyMDE4LCJuYmYiOjE1MzEzMDcyMTgsImp0aSI6IlBVVFdzV3NLdnM5NGgwZ0oiLCJzdWIiOjIxNzg5ODZ9.x-_iWfE38J_dIW3yWHAGXvzet2rCwt5E_cA2gsqdRHA
+    200.application:
+      description: Application information.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                status:
+                  type: integer
+                  default: 200
+                data:
+                  type: object
+                  properties:
+                    scholarshipId:
+                      type: integer
+                    accountId:
+                      type: integer
+                    status:
+                      type: string
+                      example: Success
+                    scholarship:
+                      $ref: "schemas/Scholarship.yml"
+                    dateApplied:
+                      $ref: "schemas/DateObject.yml"
+                meta:
+                  type: object
+                  properties:
+                    credits:
+                      type: integer
+                      description: Number of scholarships left a user allowed to apply
+    200.application.image:
+      description: Scholarship with applications to which the image belong.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                default: 200
+              data:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    accountId:
+                      type: integer
+                    accountFile:
+                      type: array
+                      items:
+                        $ref: "schemas/AccountFile.yml"
+                    requirementImageId:
+                      type: integer
+                    scholarship:
+                        allOf:
+                        - $ref: '#/components/schemas/Scholarship'
+                        - type: object
+                          properties:
+                            application:
+                              $ref: '#/components/schemas/Application'
+    200.application.file:
+      description: Scholarship with applications to which the file belong.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                default: 200
+              data:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  accountId:
+                    type: integer
+                  accountFile:
+                    type: array
+                    items:
+                      $ref: "schemas/AccountFile.yml"
+                  requirementFileId:
+                    type: integer
+                  scholarship:
+                      allOf:
+                      - $ref: '#/components/schemas/Scholarship'
+                      - type: object
+                        properties:
+                          application:
+                            $ref: '#/components/schemas/Application'
+    200.application.essay:
+      description: Scholarship with applications to which the essay belong.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                default: 200
+              data:
+                $ref: '#/components/schemas/ApplicationText'
+
+    200.application.input:
+        description: Input requirement data along with a scholarship.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: integer
+                  default: 200
+                data:
+                  allOf:
+                  - $ref: '#/components/schemas/ApplicationInput'
+                  - type: object
+                    properties:
+                      scholarship:
+                        allOf:
+                        - $ref: '#/components/schemas/Scholarship'
+    200.application.special-eligibility:
+        description: Special eligibility requirement data along with a scholarship.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: integer
+                  default: 200
+                data:
+                  allOf:
+                  - $ref: '#/components/schemas/ApplicationSpecialEligibility'
+                  - type: object
+                    properties:
+                      scholarship:
+                          allOf:
+                          - $ref: '#/components/schemas/Scholarship'
+                          - type: object
+                            properties:
+                              application:
+                                $ref: '#/components/schemas/Application'
+    200.application.survey:
+        description: Survey requirement data along with a scholarship.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: integer
+                  default: 200
+                data:
+                  allOf:
+                  - $ref: '#/components/schemas/ApplicationSurvey'
+                  - type: object
+                    properties:
+                      scholarship:
+                          allOf:
+                          - $ref: '#/components/schemas/Scholarship'
+                          - type: object
+                            properties:
+                              application:
+                                $ref: '#/components/schemas/Application'
+    200.application.requirement.delete:
+      description: Scholarship that deleted requirement data was related to.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                default: 200
+              data:
+                $ref: '#/components/schemas/Scholarship'
+    200.mailbox:
+      description: Mailbox result.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                status:
+                  type: integer
+                  default: 200
+                data:
+                  type: array
+                  items:
+                    $ref: "schemas/Mailbox.yml"
+                meta:
+                  $ref: "schemas/meta.yml"
+

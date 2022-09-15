@@ -1,0 +1,419 @@
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+#pinboard-head h2.title {
+	font-weight: 500;
+	font-variant: small-caps;
+	line-height: 1;
+	font-family: 'Open Sans';
+	margin-top: 42px;
+	font-size:42px;
+}
+
+#pinboard-head .text {
+    padding: 0;
+}
+
+#pinboard-head .text div[class^='col-']:first-child {
+    height: 134px;
+}
+
+#pinboard-head .text div[class^='col-'] {
+    z-index: 1666;
+}
+
+#pinboard-head .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+	width: 220px;
+}
+
+#pinboard-head .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+	margin-top: 42px;
+	float: right;
+	margin-right: -15px;
+}
+
+#pinboard-head .btn-default:focus {
+    background-color: #fff;
+}
+
+#pinboard-head .dropdown-menu .mCustomScrollbar > div > div > li > a:hover,
+#pinboard-head .dropdown-menu .mCustomScrollbar > div > div > li > a:hover:focus {
+    background-color: #ebf3ff;
+    color: #4e8eec;
+}
+
+#pinboard-head .dropdown-menu .mCustomScrollbar > div > div > li > a:focus {
+	color: #014cba;
+	background-color: #d9e9ff;
+	border: none;
+}
+
+.bootstrap-select.btn-group .dropdown-menu li a {
+	display: block;
+	padding: 8px 0 8px 14px;
+}
+
+#pinboard-head .bootstrap-select.open .btn.dropdown-toggle .filter-option {
+	color: #2d6ecf;
+}
+
+#pinboard .skyBlue-bg {
+	min-height:43px;
+}
+
+#pinboard-main h2 {
+	font-weight:300;
+}
+
+#pinboard-main .container {
+	text-align:center;
+}
+
+#pinboard-main .container .row [class*=col-] {
+	padding-top:76px;
+	padding-bottom:76px;
+}
+
+#pinboard-main .container div.semi-sub em,
+#college .container div.semi-sub em {
+	font-weight:600;
+}
+
+#pinboard-main .container div.semi-sub p {
+	font-size:18px;
+}
+
+#pinboard-main .container p {
+	font-size:13px;
+}
+
+#pinboard-main .container hr {
+	width:29px;
+	border-color:#4e8eec;
+	margin-top:32px;
+	margin-bottom:32px;
+}
+
+.textbook {
+	background-image:url(../img/pinboard/textbooks-bckg.png);
+	background-position:center 233px;
+	background-repeat:no-repeat;
+}
+
+.loans {
+	background-image:url(../img/pinboard/loans-bckg.png);
+	background-position:center 293px;
+	background-repeat:no-repeat;
+}
+
+.college {
+	background-image:url(../img/pinboard/college-bckg.png);
+	background-position:center 233px;
+	background-repeat:no-repeat;
+}
+
+#pinboard-head .nav-tabs {
+	border-bottom: none;
+	background: #fff;
+	width: 210px;
+	float: right;
+	margin-right: -15px;
+	margin-top: 42px;
+}
+
+#pinboard-head .nav .open>a, .nav .open>a:hover, #pinboard-head .nav .open>a:focus {
+	background-color: #fff;
+	border-color: #337ab7;
+	color: #2d6ecf;
+	border-bottom: 2px solid #4e8eec;	
+}
+
+#pinboard-head .nav-tabs>li>a:hover {
+	border: none;
+	background-color:#fff;
+	color:#2d6ecf;
+}
+
+#pinboard-head .nav-pills>li>a {
+	border-radius: 0;
+}
+
+#pinboard-head .nav-tabs>li {
+	float: left;
+	margin-bottom: 0;
+	width:100%;
+	border-bottom: 2px solid #4e8eec;	
+}
+
+
+#pinboard-head .nav-pills>li.active>a, #pinboard-head .nav-pills>li.active>a:hover, #pinboard-head .nav-pills>li.active>a:focus {
+  color: #337ab7;
+  background-color: #fff;
+}
+
+#pinboard-head .nav-tabs>li>a {
+	margin-right: 0;
+	border: none;
+}
+#pinboard-head .nav-tabs li ul.dropdown-menu {
+	width: 100%;
+	font-size: 12px;
+	border: none;
+}
+
+#pinboard-head .nav-tabs li ul.dropdown-menu li a {
+	display: block;
+	padding: 10px 15px;
+}
+
+#pinboard-head .caret {
+	position: absolute;
+	top: 50%;
+	right: 12px;
+	margin-top: -2px;
+	vertical-align: middle;
+}
+
+#pinboard-head .dropdown-menu>li>a:hover, #pinboard-head .dropdown-menu>li>a:focus {
+	text-decoration: none;
+	color: #014cba;
+	background-color: #ebf3ff;
+}
+
+#textbooks ul.list-inline {
+    text-align: center;
+	margin:0 auto;
+}
+
+#textbooks .list-inline>li {
+	padding: 11px 23px;
+	border-right: 1px solid #9fc5ff;
+}
+
+#textbooks .list-inline>li:first-child {
+	border-left:1px solid #9fc5ff;
+	font-size:13px;
+}
+
+#textbooks .semi-sub {
+	font-size: 24px;
+
+	text-align: center;
+	color: #333;
+	cursor: text;
+	margin-bottom:39px;
+}
+
+#textbooks .container .row center {
+	padding-top: 76px;
+	padding-bottom: 76px;
+}
+
+#textbooks .semi-sub em {
+	font-weight:600;
+}
+
+#textbooks h2,
+#loans h2,
+#college h2,
+#textbooks h2 a,
+#loans h2 a,
+#college h2 a {
+	font-weight:300;
+	font-size:42px;
+	text-align:center;
+	color:#4e8eec;	
+}
+
+#college h2 {
+	margin-bottom:54px;
+}
+
+.glyphicon-search {
+	position: absolute;
+	right: 15px;
+	z-index: 11;
+	top: 14px;
+	font-size: 19px;
+	color: #788597;
+}
+
+#textbooks .input-group {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 432px;
+	margin-bottom:10px;
+}
+
+#textbooks .input-group .form-control {
+	border-radius: 0 !important;
+	border: 2px solid #f86f41;
+	-webkit-box-shadow: inset 1px 2px 5px 0px rgba(156, 156, 156, 0.3);
+	-moz-box-shadow:    inset 1px 2px 5px 0px rgba(156, 156, 156, 0.3);
+	box-shadow:         inset 1px 2px 5px 0px rgba(156, 156, 156, 0.3);
+}
+
+#textbooks .input-group .form-control::-webkit-input-placeholder {
+	color:    #cbd1d7;
+	font-size:16px;
+	opacity: 1;
+}
+
+#textbooks .input-group .form-control:-moz-placeholder { /* Firefox 18- */
+	color:    #cbd1d7;
+	font-size:16px;
+	opacity: 1;
+}
+
+#textbooks .input-group .form-control::-moz-placeholder {  /* Firefox 19+ */
+	color:    #cbd1d7;
+	font-size:16px;
+	opacity: 1;
+}
+
+#textbooks .input-group .form-control:-ms-input-placeholder {  
+	color:    #cbd1d7;
+	font-size:16px;
+	opacity: 1;
+}
+
+#textbooks center p {
+	color:#b0d0ff;
+	cursor:pointer;
+}
+
+#textbooks center img {
+	margin-top:66px;
+}
+
+.popover-content{
+	color:#fff;
+	font-size:12px;
+}
+
+.popover {
+	width:262px;
+}
+
+.popover-title {
+	background-color: #f67447;
+	border-bottom: none;
+	background-image:url(../img/pinboard/isbn.png);
+	background-repeat:no-repeat;
+	background-position:center center;
+	height:55px;
+	margin-top:10px;
+}
+
+label {
+    color: #94abce;
+    line-height: 1;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.send-me {
+	float:right;
+}
+
+#loans h2 {
+	margin-bottom:24px;
+	margin-top:0;
+}
+
+#loans {
+	margin:44px 0;
+}
+
+#loans .form-group {
+	max-width:330px;
+  	margin-bottom: 0;
+	text-align:left;
+}
+
+.form-group-check {
+	max-width:330px;
+	margin-bottom:15px;
+}
+
+#loans input[type=checkbox] + .lbl, #loans input[type=radio] + .lbl {
+	min-width: 20px;
+}
+
+#loans .btn-warning.btn-lg, #college .btn-warning.btn-lg {
+	max-width:233px;
+	margin:0 auto;
+}
+
+#loans .over-title p {
+	font-size:28px;
+	font-weight:800;
+	margin-bottom:0;
+}
+
+#loans .under-title p {
+	font-size:18px;
+	margin-bottom: 70px;
+	color:#878787;
+}
+
+#loans .find-loan {
+	padding-top:0;
+	margin-top: 20px;
+}
+
+.tab-content .form-group {
+  height: 90px;
+}
+
+#college .container div.semi-sub {
+	font-size:24px;
+	margin-bottom:24px;
+}
+
+#college {
+	padding-top:114px;
+	background-image:url(../img/pinboard/college-lg.png);
+	background-repeat:no-repeat;
+	background-position:center center;
+}
+
+@media (min-width: 992px) {
+    .mail-menu header li[class^='col-']:nth-child(2) {
+        margin-top: 7px;
+    }
+    .mail-menu header li[class^='col-']:nth-child(2) a {
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+    .mail-list .date {
+        font-size: 1em;
+    }
+	.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+		margin-left: 0;
+	}
+	#loans .find-loan {
+		padding-top:64px;
+		background-image:url(../img/pinboard/loans-under.png);
+		background-position:center top;
+		background-repeat: no-repeat;
+		margin-top: 70px;
+	}
+}
+
+@media (max-width: 768px){
+	#pinboard-head .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+		padding-top: 0;
+		margin-top:0;
+		margin-right:0;
+	}	
+}
+
+@media (max-width: 992px){
+	#pinboard-head .nav-tabs {
+		margin-right: 0;
+	}
+}

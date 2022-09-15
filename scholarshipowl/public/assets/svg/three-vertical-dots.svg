@@ -1,0 +1,16 @@
+<svg width="4" height="20" viewBox="0 0 4 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>icon more</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-1692 5766)">
+<g id="icon more">
+<use xlink:href="#path0_fill" transform="matrix(-1 0 0 1 1696 -5766)" fill="#2F2F2F"/>
+<use xlink:href="#path1_fill" transform="matrix(-1 0 0 1 1696 -5766)" fill="#2F2F2F"/>
+<use xlink:href="#path2_fill" transform="matrix(-1 0 0 1 1696 -5766)" fill="#2F2F2F"/>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 1.57895 0C 2.45098 0 3.15789 0.715122 3.15789 1.59727C 3.15789 2.47942 2.45098 3.19454 1.57895 3.19454C 0.706919 3.19454 0 2.47942 0 1.59727C 0 0.715122 0.706919 0 1.57895 0Z"/>
+<path id="path1_fill" d="M 1.57895 8.40275C 2.45098 8.40275 3.15789 9.11788 3.15789 10C 3.15789 10.8822 2.45098 11.5973 1.57895 11.5973C 0.706919 11.5973 0 10.8822 0 10C 0 9.11788 0.706919 8.40275 1.57895 8.40275Z"/>
+<path id="path2_fill" d="M 1.57895 16.8055C 2.45098 16.8055 3.15789 17.5206 3.15789 18.4027C 3.15789 19.2849 2.45098 20 1.57895 20C 0.706919 20 0 19.2849 0 18.4027C 0 17.5206 0.706919 16.8055 1.57895 16.8055Z"/>
+</defs>
+</svg>

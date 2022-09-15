@@ -1,0 +1,4 @@
+Dockerfile
+node_modules
+.gitlab-ci.yml
+kube

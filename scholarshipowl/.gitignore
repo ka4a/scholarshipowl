@@ -1,0 +1,61 @@
+
+# IDE Files
+nbproject
+._*
+.~lock.*
+.buildpath
+.DS_Store
+.idea
+.bundle
+.project
+.settings
+_ide_helper.php
+.vscode
+
+# Composer Files
+composer.phar
+composer.lock
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.vagrant
+
+# App environment
+.env
+
+# Application Based Files
+/bootstrap/compiled.php
+/files
+/public/system
+/vendor
+/storage/proxies
+/storage/mysql
+/log
+/node_modules
+/builds
+
+# Test reports
+/tests/report
+
+# Happy pack
+.happypack
+# Yarn error log
+yarn-error.log
+## icon font generation
+/public/assets/fonts
+public/assets/scss/icon-font.scss
+## css automaticaly compiled
+## TODO will be moved to component compilation
+public/assets/css/icon-font.css
+public/assets/css/layout-vue.css
+public/assets/css/scholarships.css
+public/assets/css/styles_.css
+public/assets/css/upgrade-mobile.css
+public/assets/css/jobs.css
+webpack-assets.json
+
+# Phpunit test results cache
+.phpunit.result.cache

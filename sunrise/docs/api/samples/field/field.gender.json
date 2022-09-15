@@ -1,0 +1,18 @@
+{
+  "data": {
+    "type": "field",
+    "id": "gender",
+    "attributes": {
+      "name": "Gender",
+      "type": "option",
+      "options": {
+        "1": "Female",
+        "2": "Male",
+        "3": "Other"
+      }
+    },
+    "links": {
+      "self": "/field/gender"
+    }
+  }
+}

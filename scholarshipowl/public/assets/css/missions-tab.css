@@ -1,0 +1,53 @@
+#missions-tab h5 {
+	font-size: 2.15em;
+	margin-top: 0;
+	margin-bottom: .5em;
+}
+.missionAccountTable{
+    height: 531px;
+}
+
+#missions-tab table {
+	width: 100%;
+}
+
+#missions-tab .table-responsive {
+	border: none;
+}
+
+#missions-tab th,
+#missions-tab td {
+	font-size: .8em;
+	padding: 1em;
+}
+
+#missions-tab tr {
+	border-bottom: solid 1px #9dbbe6;
+}
+#missions-tab .table-striped > tbody > tr:nth-of-type(odd) {
+	background-color: rgba(157, 187, 230, .11);
+}
+
+th.no-break,
+td.no-break {
+	white-space: nowrap;
+}
+
+#missions-tab .btn {
+	line-height: 2;
+	padding: 2px;
+	font-size: 1em;
+	width: 100%;
+}
+
+
+#missions-tab .membership-info h5 {
+	margin-top: 25px;
+}
+
+@media (max-width: 480px) {
+	th.no-break,
+	td.no-break {
+		white-space: normal;
+	}
+}

@@ -1,0 +1,132 @@
+.bootstrap-filestyle label.btn {
+    background-color: #4381e8;
+    color:#fff;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1;
+    border: none;
+}
+
+.bootstrap-filestyle label.btn:hover {
+    line-height: 1;
+    outline: none;
+    border: none;
+}
+
+.bootstrap-filestyle input[type=text] {
+    line-height: 1;
+    height: auto;
+    padding: 8px 10px 1px;
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border: none;
+    background-color: transparent;
+    font-size: 14px;
+
+}
+
+.buttonText {
+    margin-left: 6px;
+}
+
+.bootstrap-filestyle.input-group {
+    max-width: 314px;
+    float: left;
+}
+
+ul.uploadFileList li {
+    text-align: left;
+    background-color: #f3f8ff;
+}
+
+.deleteFileLink, .editFileLink {
+    display: inline-block;
+    float: right;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.uploadFile {
+    margin-top: 20px;
+    float: right;
+    background-color: #ff8961;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#uploadEssay .uploadFile {
+    margin-top: 0;
+}
+
+.saveDescription {
+    margin-top: 0;
+}
+
+.fileDescription {
+    font-size: 12px;
+    overflow: auto;
+}
+
+.inputFileDescription {
+    text-align: left;
+}
+
+.inputFileDescription::-webkit-input-placeholder {
+    color: #999999;
+}
+
+.inputFileDescription:-moz-placeholder { /* Firefox 18- */
+    color: #999999;
+}
+
+.inputFileDescription::-moz-placeholder {  /* Firefox 19+ */
+    color: #999999;
+}
+
+.inputFileDescription:-ms-input-placeholder {
+    color: #999999;
+}
+
+.addGrid .list-group-item {
+
+}
+
+.addGrid .list-group-item:first-child {
+
+}
+
+.fileIconCont {
+
+}
+.inputFileDescription input {
+    width: 100%;
+}
+
+.bar.progress-bar {
+    margin-bottom: 20px;
+    background-color: #2263D1;
+    height: 10px;
+}
+.nameOfFile {
+    float: left;
+}
+
+.fileUploadLabel {
+    background-color: #4381e8;
+    display: inline;
+    padding: 5px 10px;
+    border-radius: 2px;
+    float: left;
+    color: #fff;
+    cursor: pointer;
+}
+
+.fileUploadLabel [class^="icon-"]:before{
+    font-family: "Glyphicons Halflings";
+}
+
+#progress {
+    margin: 0;
+}

@@ -1,0 +1,107 @@
+# use command 'kubectl get secret --namespace scholarshipapp-tech mysql-strapi -o jsonpath="{.data.mysql-root-password}" | base64 --decode; echo' for getting root password for mysql
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: strapi-configmap
+data:
+  DATABASE_CLIENT: mysql
+  DATABASE_NAME: strapi
+  DATABASE_HOST: mysql-strapi
+  DATABASE_PORT: "3306"
+  NODE_ENV: production # or development
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: strapi-secrets
+type: Opaque
+data:
+  DATABASE_USERNAME: c3RyYXBp #Base64 encoded username
+  DATABASE_PASSWORD: T3M2MkpzOEhub1pl #Base64 encoded password
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: strapi
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: "standard"
+  resources:
+    requests:
+      storage: 10Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: strapi
+spec:
+  selector:
+    app: strapi
+  ports:
+  - name: "strapi"
+    protocol: TCP
+    port: 1337
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: sowl-tech-prod
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: 'true'
+  name: strapi
+spec:
+  tls:
+    - hosts:
+        - strapi.sunrising.tech
+      secretName: strapi.sunrising.tech
+  rules:
+    - host: strapi.sunrising.tech # Replace with correct cluster FQDN
+      http:
+       paths:
+         - path: /
+           backend:
+             serviceName: strapi
+             servicePort: 1337
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: strapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: strapi
+  template:
+    metadata:
+      labels:
+        app: strapi
+    spec:
+      volumes:
+      - name: strapi
+        persistentVolumeClaim:
+          claimName: strapi 
+      containers:
+      - name: strapi
+        image: strapi/strapi:3.0.0-beta.18.7-node12-alpine
+        imagePullPolicy: IfNotPresent
+        envFrom:
+        - configMapRef:
+            name: strapi-configmap
+        - secretRef:
+            name: strapi-secrets
+        resources:
+          limits:
+            cpu: "1"
+            memory: "1Gi"
+        ports:
+        - containerPort: 1337
+        volumeMounts:
+        - name: strapi
+          mountPath: /srv/app
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      restartPolicy: Always

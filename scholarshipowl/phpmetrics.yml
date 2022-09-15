@@ -1,0 +1,17 @@
+# file <my-config.yml>
+myconfig:
+    # paths to explore
+    path:
+        extensions: php
+        exclude: tests|vendor|resource|storage|public|database|bootstrap|_ide_helper.php
+
+    # report and violations files
+    logging:
+        report:
+            html:   ./tests/report/phpmetrics.html
+
+    # condition of failure
+    # failure: average.maintainabilityIndex < 50 or sum.loc > 10000
+    # rules:
+      # cyclomaticComplexity: [ 10, 6, 2 ]
+      # maintainabilityIndex: [ 0, 69, 85 ]

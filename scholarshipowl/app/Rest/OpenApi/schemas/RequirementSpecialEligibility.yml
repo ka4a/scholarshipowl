@@ -1,0 +1,21 @@
+type: object
+properties:
+  id:
+    type: integer
+  scholarshipId:
+    type: integer
+  name:
+    type: string
+    default: Special eligibility
+  type:
+    type: string
+    default: special-eligibility
+  title:
+    type: string
+  description:
+    type: string
+  text:
+    type: string
+  isOptional:
+    type: boolean
+    default: false

@@ -1,0 +1,27 @@
+{
+    "data": [
+        {
+            "type": "scholarship",
+            "id": "2c742be9-3adf-11e9-993c-7824afb64838",
+            "attributes": {
+                "title": "Test scholarship",
+                "description": "Scholarship description",
+                "amount": 400,
+                "awards": 1,
+                "start": "2019-02-18T00:00:00+00:00",
+                "deadline": "2019-03-22T23:59:59+00:00",
+                "timezone": "America/New_York",
+                "recurringValue": null,
+                "recurringType": null,
+                "isFree": false,
+                "expiredAt": null
+            },
+            "meta": {
+                "next": null
+            },
+            "links": {
+                "self": "/scholarship/2c742be9-3adf-11e9-993c-7824afb64838"
+            }
+        }
+    ]
+}

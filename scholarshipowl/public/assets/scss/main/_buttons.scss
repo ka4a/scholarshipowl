@@ -1,0 +1,392 @@
+// imports
+@import 'meta/variables';
+@import 'meta/palette';
+
+// buttons
+
+// meta classes
+// skins
+%btn-transition {
+  transition: background-color 600ms;
+}
+
+%btn-skin_orange {
+    @extend %btn-transition;
+    background-color: $orange;
+
+    &:hover {
+      background-color: $orange-darker;
+    }
+    &:active {
+      background-color: $orange-dark;
+    }
+}
+
+%btn-skin_blue {
+  @extend %btn-transition;
+  background-color: $blue;
+
+  &:hover {
+    background-color: #597ce1; // not in palette
+  }
+  &:active {
+    background-color: $blue-more-darker;
+  }
+}
+
+%btn-skin_grey {
+  $grey: #f0f0f1;
+
+  @extend %btn-transition;
+  background-color: $grey;
+
+  &:hover {
+    background-color: $grey; // not in palette
+  }
+  &:active {
+    background-color: darken($grey, 10);
+  }
+}
+
+// button default reset
+%btn-reset {
+  border: none;
+}
+
+// button text
+%btn-text {
+  @extend %uppercase;
+  font-family: $open-sans;
+  text-align: center;
+  font-weight: 800;
+  color: $white;
+}
+
+%btn-text_s {
+  @extend %btn-text;
+  font-size: 8px;
+}
+
+%btn-text_m {
+  @extend %btn-text;
+  font-size: 18px;
+}
+
+%btn-text_l {
+  @extend %btn-text;
+  font-size: 26px;
+}
+
+
+// borders
+%btn-border_s {
+  border-radius: 3px;
+}
+
+%btn-border_m {
+  border-radius: 4px;
+}
+
+%btn-border_l {
+  border-radius: 5px;
+}
+
+// height
+%btn-height_s {
+  height: 34px;
+  line-height: 34px;
+}
+
+%btn-height_m {
+  height: 52px;
+  line-height: 52px;
+}
+
+%btn-height_l {
+  height: 84px;
+  line-height: 84px;
+}
+
+// sizes
+%btn_s {
+  width: 68;
+  @extend %btn-height_s;
+}
+
+%btn_m {
+  width: 164px;
+  @extend %btn-height_m;
+}
+
+%btn_l {
+  width: 360px;
+  @extend %btn-height_l;
+}
+
+// btn fluid width
+%btn-fluid_s {
+  @extend %btn-height_s;
+  width: 100%;
+}
+
+%btn-fluid_m {
+  @extend %btn-height_m;
+  width: 100%;
+}
+
+%btn-fluid_l {
+  @extend %btn-height_l;
+  width: 100%;
+}
+
+%btn-mobile {
+  @include breakpoint(max-width $mobile) {
+    height: 52px;
+    width: 100%;
+    line-height: 52px;
+    font-size: 18px;
+  }
+}
+
+// button classes
+.btn-blue-s {
+  @extend %btn-transition;
+  @extend %btn-skin_blue;
+  @extend %btn-text_s;
+  @extend %btn-border_s;
+  @extend %btn_s;
+}
+
+.btn-blue-m {
+  @extend %btn-transition;
+  @extend %btn-skin_blue;
+  @extend %btn-text_m;
+  @extend %btn-border_m;
+  @extend %btn_m;
+}
+
+.btn-blue-l {
+  @extend %btn-transition;
+  @extend %btn-skin_blue;
+  @extend %btn-text_l;
+  @extend %btn-border_l;
+  @extend %btn_l;
+  @extend %btn-mobile;
+}
+
+.btn-orange-s {
+  @extend %btn-reset;
+  @extend %btn-transition;
+  @extend %btn-skin_orange;
+  @extend %btn-text_s;
+  @extend %btn-border_s;
+  @extend %btn_s;
+}
+
+.btn-orange-m {
+  @extend %btn-reset;
+  @extend %btn-transition;
+  @extend %btn-skin_orange;
+  @extend %btn-text_m;
+  @extend %btn-border_m;
+  @extend %btn_m;
+}
+
+.btn-orange-l {
+  @extend %btn-transition;
+  @extend %btn-skin_orange;
+  @extend %btn-text_l;
+  @extend %btn-border_l;
+  @extend %btn_l;
+  @extend %btn-mobile;
+}
+
+// custom styles
+
+.btn-blue-m-fluid {
+  @extend %btn-reset;
+  @extend .btn-blue-m;
+  width: 100%;
+}
+
+.btn-blue-s-fluid {
+  @extend .btn-blue-s;
+  width: 100%;
+}
+
+// TODO move to funnel mobile styles
+.arrow-button {
+  position: absolute;
+  top: 0; bottom: 0; right: 0;
+  width: 53px;
+  margin-top: auto; margin-bottom: auto;
+  background-color: $orange-light;
+
+  &__wrp {
+    width: 20px;
+    height: 20px;
+    @extend %center-absolute;
+  }
+
+  .pixel {
+    display: block;
+    height: 2px;
+    width: 2px;
+    background-color: #fff;
+    position: absolute;
+
+    &_1 {
+      left: 9px;
+      top: 0;
+    }
+    &_2 {
+      left: 12px;
+      top: 3px;
+    }
+    &_3 {
+      left: 15px;
+      top: 6px;
+    }
+    &_4 {
+      left: 0;
+      top: 9px;
+    }
+    &_5 {
+      left: 4px;
+      top: 9px;
+    }
+    &_6 {
+      left: 8px;
+      top: 9px;
+    }
+    &_7 {
+      left: 12px;
+      top: 9px;
+    }
+    &_8 {
+      left: 18px;
+      top: 9px;
+    }
+    &_9 {
+      left: 15px;
+      top: 12px;
+    }
+    &_10 {
+      left: 12px;
+      top: 15px;
+    }
+    &_11 {
+      left: 9px;
+      top: 18px;
+    }
+  }
+}
+
+.btn-orange-arrow-fm {
+  @extend %btn-transition;
+  @extend %btn-skin_orange;
+  @extend %btn-text_m;
+  @extend %btn-border_m;
+  @extend %btn-reset;
+  @extend %btn-fluid_m;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn_email {
+  $grey-darken: #636363;
+
+  @extend %btn-text_m;
+  @extend %btn-skin_grey;
+  @extend %btn-fluid_m;
+  @extend %btn-border_m;
+  color: $grey-darken;
+  position: relative;
+
+  & .icon-mailbox {
+    position: absolute;
+    right: 0; top: 15%;
+    height: 70%;
+    border-left: 1px dashed $grey-darken;
+    line-height: 2.6em;
+    padding: 0 10px 0 12px;
+
+    @include breakpoint($mobile) {
+      line-height: 2.1em;
+      padding: 0px 20px 0px 25px;
+    }
+
+    &:before {
+      font-size: 16px;
+    }
+  }
+}
+
+
+// facebook button
+.btn_facebook {
+  $primary-color: #3b5998;
+
+  @extend %btn-reset;
+  @extend %btn-transition;
+  box-sizing: border-box;
+
+  height: 52px;
+  border-radius: 4px;
+  background-color: $primary-color;
+
+  font-family: $open-sans;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 800;
+  text-align: center;
+  color: #ffffff;
+
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+
+  & .icon-facebook {
+    position: absolute;
+    right: 0; top: 15%;
+    height: 70%;
+
+    @include breakpoint($mobile) {
+      padding: 0 10px;
+    }
+
+    border-left: 1px dashed $white;
+    &:before {
+      font-size: 50px;
+      line-height: 0.8em;
+    }
+  }
+}
+
+// top buttons (login and apply)
+
+.btn-apply {
+  // font
+  @extend %btn-skin_orange;
+  @extend %btn-text;
+  @extend %btn-border_s;
+  font-size: 14px;
+  line-height: 34px;
+  @extend .dib;
+  @extend %capitalize;
+
+  // button
+  width: 96px;
+  height: 34px;
+}
+
+.btn-login {
+  font-family: $open-sans;
+  font-size: 14px;
+  font-weight: bold;
+  color: $dark;
+  @extend %capitalize;
+}

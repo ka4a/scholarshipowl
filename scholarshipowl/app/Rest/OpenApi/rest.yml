@@ -1,0 +1,547 @@
+openapi: 3.0.0
+servers:
+  - url: 'https://scholarshipowl.com/rest/v1/'
+  - url: 'http://localhost:8080/rest/v1/'
+info:
+  title: Rest API
+  description: ScholarshipOWL Api Documentation
+  version: '1.0'
+paths:
+  /auth:
+    post:
+      tags:
+        - Auth
+      summary: Authenticate user
+      operationId: auth
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                email:
+                  description: User Email
+                  type: string
+                password:
+                  description: User Password
+                  type: string
+              required:
+                - email
+                - password
+      responses:
+        '200':
+          $ref: '#/components/responses/200.auth'
+        '400':
+          description: Bad request.
+        '401':
+          description: Invalid credentials.
+  /auth/magic-link/{token}:
+    get:
+      tags:
+        - Auth
+      summary: Authenticate a user by Magic Link. Redirect to specified redirect url or to /my-account page by default.
+      description: |
+        Magic Link token has expiration of 1 day. In case of success a user redirected to /my-account page.
+        If token validation failed a user redirected to homepage with corresponding error message.
+      operationId: authByMagicLink
+      parameters:
+        - name: token
+          in: path
+          description: Hash string. Magic link token.
+          required: true
+          schema:
+            type: string
+        - name: redirect
+          in: query
+          type: string
+          description: Might be null if no redirect specified.
+          example: /my-account
+
+  /coregs/{path}/{accountId}:
+    get:
+      tags:
+      - Coregs
+      summary: Get coregs allocatied for particular path which meet the requirement rules
+      operationId: coregs
+      parameters:
+        - name: path
+          in: path
+          description: 'A page path to get coregs for'
+          required: true
+          schema:
+            type: string
+          example: 'register3'
+        - name: accountId
+          in: path
+          description: 'Account id to get coregs for'
+          required: false
+          schema:
+            type: string
+          example: '2178926'
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    default: 200
+                  data:
+                    type: array
+                    items:
+                      allOf:
+                      - $ref: "schemas/Coreg.yml"
+          '401':
+            description: Unauthorized.
+
+  /fset:
+    get:
+      tags:
+        - Feature set
+      description: Get a feature set based on cookies.
+      operationId: fset
+      parameters:
+        - name: fields
+          in: query
+          description: 'A comma separated string of fields to return. Supported fields are: desktopPaymentSet, mobilePaymentSet, contentSet'
+          required: false
+          schema:
+            type: string
+          example: 'desktopPaymentSet,contentSet'
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: "schemas/Fset.yml"
+  /payment_set/plans-page:
+    get:
+      tags:
+        - Feature payment set PlansPage
+      description: Get a PlansPage payment set
+      operationId: payment_set
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: "schemas/PaymentSet.yml"
+
+  /account/link-facebook:
+    get:
+      tags:
+        - Account
+      summary: Link facebook account to current SOWL account
+      description: |
+        Entering this endpoind a user going to be redirected to Facebook oauth server, where they give their concent for
+        facebook account being used by SOWL application. Then user redirected to SOWL server (/rest/v1/callback-facebook),
+        where SOWL creates SocialAccount and redirects a user to a page specified in redirect parameter.
+        If there are any errors a redirect url will contain a query string ?error=message.
+      operationId: account.link-facebook
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: redirect
+          in: query
+          description: |
+            SOWL page where to redirect after user visited Facebook oauth server and SOWL social account created (or not created).
+            Url mast be encoded, so if you want to pass /my-account#general actual redirect parameter is: %2Fmy-account%23general
+          required: false
+          schema:
+            type: string
+          example: '/my-account#general'
+      responses:
+        '302':
+          description: Redirect to Faceebook oauth
+        '401':
+          description: Unauthorized.
+  /account/unlink-facebook:
+    delete:
+      tags:
+        - Account
+      summary: Unlink facebook account.
+      description: Unlink facebook account from current SOWL account, flush FB permissions granted by a user SOWL APP.
+      operationId: account.unlink-facebook
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful unlink
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    default: 200
+                    example: 200
+                  data:
+                    type: array
+                    example: []
+        '401':
+          description: Unauthorized.
+        '424':
+          'description': Failed to flush FB permissions
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    default: 424
+                    example: 424
+                  error:
+                    type: string
+                    example: Failed to flush FB permissions while unlinking an account
+  /subscription/cancel/{subscriptionId}:
+    put:
+      tags:
+        - Subscription
+      summary: Cancel a subscription
+      operationId: subscription.cancel
+      parameters:
+        - name: subscriptiionId
+          in: path
+          description: Id of a subscription
+          required: true
+          schema:
+            type: integer
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Canceled succesfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    default: 200
+                  data:
+                    type: array
+        '403':
+          description: Action is not authorized.
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Subscription not found.
+
+  /contact-form/{location}:
+    post:
+      tags:
+        - Contact form
+      summary: Send an email to contact
+      operationId: contactform.send
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  description: User's name
+                  type: string
+                  example: John
+                email:
+                  description: User's email
+                  type: string
+                  example: test@example.com
+                content:
+                  description: User's message
+                  type: string
+                  example: Test content
+                phone:
+                  description: User's phone number. Not required
+                  type: string
+                  example: 09310333221
+                required:
+                  - name
+                  - email
+                  - content
+      parameters:
+        - name: location
+          in: path
+          description:  The place the form was sent from
+          required: true
+          schema:
+            type: string
+
+        - in: header
+          description:  Do not modified and do not use in real request. Needs only for disable sending real email on testing in Swagger docs
+          name: X-SWAGGER-REQUEST
+          value: true
+          schema:
+            type: bool
+
+      responses:
+        '200':
+          description: Canceled succesfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    default: 200
+
+        '500':
+          description:  If required fields are missed.
+
+  /autocomplete/state_and_city/{zipCode}:
+    get:
+      tags:
+        - Autocomplete
+      summary: Resolve zip code to state and city.
+      description: data.city and data.state might be NULL if zip is non-existent
+      operationId: autocomplete.state_and_city
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful result (no metter if zip code was resolved or not)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    default: 200
+                    example: 200
+                  data:
+                    type: object
+                    properties:
+                      city:
+                        type: string
+                        example: Cambridge
+                      state:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 22
+                          abbreviation:
+                            type: string
+                            example: MA
+                          name:
+                            type: string
+                            example: Massachusetts
+
+
+        '401':
+          description: Unauthorized.
+  /settings-private:
+    get:
+      tags:
+      - Site private setting
+      description: Return private setting value that setted up in admin side. Without the fields parameter returns all the data.
+      operationId: settings
+      security:
+        - bearerAuth: []
+      parameters:
+      - name: fields
+        in: query
+        description: 'A comma separated string of fields to return. Supported fields are: memberships.active_text, memberships.cancelled_text, memberships.free_trial_active_text, memberships.free_trial_cancelled_text, memberships.cancel_subscription_text, memberships.freeTrial.cancel_subscription. Can be managed in setting page at admin side'
+        required: false
+        schema:
+          type: string
+        example: 'memberships.active_text,memberships.cancelled_text'
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    default: 200
+                  data:
+                    type: array
+                    items:
+                      allOf:
+                      - $ref: "schemas/Settings.yml"
+          '401':
+            description: Unauthorized.
+
+  /settings-public:
+    get:
+      tags:
+      - Site public setting
+      description: Return public setting value that setted up in admin side. Without the fields parameter returns all the data.
+      operationId: settings
+      parameters:
+      - name: fields
+        in: query
+        description: 'A comma separated string of fields to return. Supported fields are: packages.number
+                                                                                          content.phone
+                                                                                          security.ip_whitelist
+                                                                                          missions.general_message
+                                                                                          scholarships.visibility
+                                                                                          scholarships.pretick
+                                                                                          missions.tab_link_visible
+                                                                                          missions.tab_link_text
+                                                                                          missions.tab_mission_id
+                                                                                          register.inboxdollars
+                                                                                          register.inboxdollars_text
+                                                                                          refer_a_friend.tab_above_message
+                                                                                          refer_a_friend.tab_below_message
+                                                                                          referral.channels
+                                                                                          register.toluna
+                                                                                          register.toluna_text
+                                                                                          register.checkbox.terms
+                                                                                          register.redirect_page
+                                                                                          register.redirect_page_mobile
+                                                                                          payment.braintree.register_billing_address
+                                                                                          scholarships.redirect_members
+                                                                                          scholarships.redirect_free
+                                                                                          content.phone.show
+                                                                                          marketing.select_banner
+                                                                                          register.login_token_validity
+                                                                                          payment.braintree.default
+                                                                                          disclaimer.enabled
+                                                                                          disclaimer.text
+                                                                                          register.checkbox.call_visible
+                                                                                          register.checkbox.call
+                                                                                          register.checkbox.call_text
+                                                                                          zendesk.payment-popup.timeout
+                                                                                          marketing.account_banner
+                                                                                          scholarships.offer_wall_after_apply
+                                                                                          paymentpopup.bottomTextEnabled
+                                                                                          paymentpopup.bottomText
+                                                                                          freeTrial.redirectAfterCancel
+                                                                                          scholarships.offer_wall_after_apply_empty
+                                                                                          paymentpopup.defaultPaymentMethod
+                                                                                          payment.braintree.enabled
+                                                                                          marketing.free-trial-fset
+                                                                                          scholarships.mobile_app_ad
+. Can be managed in setting page at admin side'
+        required: false
+        schema:
+          type: string
+        example: 'packages.number,content.phone'
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    default: 200
+                  data:
+                    type: array
+                    items:
+                      allOf:
+                      - $ref: "schemas/Settings.yml"
+          '401':
+            description: Unauthorized.
+
+  /eligibility-initial:
+    get:
+      tags:
+        - Initial Eligibility data
+      description: Use this endpoint to obtain eligible count and amount for a user when profile does not exists eye.
+      operationId: eligibility-initial.get
+      parameters:
+        - name: age
+          in: query
+          description: Integer, user's age
+          required: true
+          schema:
+            type: integer
+          example: 18
+        - name: school_level
+          in: query
+          required: true
+          schema:
+            type: integer
+          example: 3
+        - name: degree
+          in: query
+          required: true
+          schema:
+            type: integer
+          example: 5
+        - name: gender
+          in: query
+          required: true
+          schema:
+            type: string
+          example: male
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    default: 200
+                  data:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                        example: 25
+                      amount:
+                        type: integer
+                        example: 120000
+        '400':
+          description: Bad request. Validation errors.
+
+components:
+  securitySchemes:
+    bearerAuth:
+      in: header
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    Coreg:
+      $ref: "schemas/Coreg.yml"
+
+  responses:
+    200.auth:
+      description: Auth information.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 200
+              data:
+                type: object
+                properties:
+                  accountId:
+                    type: integer
+                  token:
+                    type: string
+                    description: JWT token
+                    example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvcmVzdC1tb2JpbGUvdjEvYWNjb3VudCIsImlhdCI6MTUzMTMwNzIxOCwiZXhwIjoxNTMxOTEyMDE4LCJuYmYiOjE1MzEzMDcyMTgsImp0aSI6IlBVVFdzV3NLdnM5NGgwZ0oiLCJzdWIiOjIxNzg5ODZ9.x-_iWfE38J_dIW3yWHAGXvzet2rCwt5E_cA2gsqdRHA
+
+

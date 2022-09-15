@@ -1,0 +1,18 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: sowl-tech-nginx-stats-cert
+  namespace: ingress-nginx
+spec:
+  secretName: sowl-tech-nginx-stats-cert.tls
+  issuerRef:
+    name: sowl-tech-prod
+    kind: ClusterIssuer
+  dnsNames:
+  - sowl-tech.ingress.stats.scholarshipowl.tech
+  acme:
+    config:
+    - dns01:
+        provider: prod-dns
+      domains:
+      - sowl-tech.ingress.stats.scholarshipowl.tech

@@ -1,0 +1,18 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: redash.scholarshipowl.tech
+  namespace: redash
+spec:
+  secretName: redash.scholarshipowl.tech
+  issuerRef:
+    name: sowl-tech-prod
+    kind: ClusterIssuer
+  dnsNames:
+  - redash.scholarshipowl.tech
+  acme:
+    config:
+    - dns01:
+        provider: prod-dns
+      domains:
+      - redash.scholarshipowl.tech

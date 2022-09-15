@@ -1,0 +1,29 @@
+type: object
+properties:
+  id:
+    type: integer
+    example: 1
+  accountId:
+    type: integer
+    example: 1
+  lastShownScholarshipIds:
+    type:  json
+    example: [3,4]
+  eligibleScholarshipIds:
+    type:  json
+    example: [3,4,5]
+  notSeenScholarshipCount:
+    type: integer
+    example: 1
+  notSeenScholarshipAmount:
+    type: integer
+    example: 2000
+  notSeenScholarshipIds:
+    type:  json
+    example: [5]
+  eligibleScholarshipAmount:
+    type: integer
+    example: 7500
+  eligibleScholarshipCount:
+    type: integer
+    example: 3

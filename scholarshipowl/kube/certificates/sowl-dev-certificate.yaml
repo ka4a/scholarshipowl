@@ -1,0 +1,21 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: dev.scholarshipowl.tech
+  namespace: sowl-dev
+spec:
+  secretName: dev.scholarshipowl.tech
+  issuerRef:
+    name: sowl-tech-prod
+    kind: ClusterIssuer
+  commonName: '*.dev.scholarshipowl.tech'
+  dnsNames:
+    - '*.dev.scholarshipowl.tech'
+    - dev.scholarshipowl.tech
+  acme:
+    config:
+    - dns01:
+        provider: prod-dns
+      domains:
+      - '*.dev.scholarshipowl.tech'
+      - dev.scholarshipowl.tech

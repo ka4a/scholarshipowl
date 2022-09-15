@@ -1,0 +1,73 @@
+
+#essays .container {
+    padding: 30px 0;
+}
+
+#essays .help-text {
+    padding-left: 13px;
+    font-size: 85%;
+}
+
+.essaysButtons input.btn-lg {
+    top: 0;
+    border-radius: 5px !important;
+}
+
+#EssayTextParsed {
+    color: #b8ceee;
+    font: 10px/1.4 'OpenSansRegular';
+    margin-bottom: 0;
+    padding: 2px 4px;
+}
+
+#essays .bootstrap-select:not([class*='col-']):not([class*='form-control']):not(.input-group-btn) {
+    width: 100%;
+}
+
+.essaysButtons .button-wrapper {
+    padding: 0;
+    margin: 10px auto 40px;
+    width: 100%;
+    height: 68px;
+}
+
+.essaysButtons .btn-lg {
+    padding: 10px;
+}
+
+#EssayEdit .selectpicker.btn,
+#EssayEdit .btn-group {
+    font-size: 100%;
+    width: 100%;
+    height: 50px;
+}
+
+/*==========  min 768  ==========*/
+
+@media (min-width: 768px) {
+    #essays .container {
+        padding: 30px;
+    }
+    .essaysButtons .btn-lg {
+        font-size: 2.3em;
+        line-height: 1.5em;
+    }
+    .essaysButtons .button-wrapper {
+        padding: 0;
+        margin: 10px auto 30px;
+        width: 100%;
+/*        height: 85px;*/
+    }
+}
+
+/*==========  min 992  ==========*/
+
+@media (min-width: 992px) {
+    textarea#EssayText {
+        min-height: 380px;
+    }
+    #essays .col-md-offset-1,
+    .formRegister2 .col-md-offset-1 {
+        margin-left: 3.3333333%;
+    }
+}

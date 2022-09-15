@@ -1,0 +1,38 @@
+type: object
+properties:
+  id:
+    type: integer
+  scholarshipId:
+    type: integer
+  name:
+    type: string
+    enum: [
+      "ProfilePic",
+      "Generic Picture"
+    ]
+  type:
+    type: string
+    default: image
+  title:
+    type: string
+  description:
+    type: string
+  fileExtension:
+    type: string
+  maxFileSize:
+    type: integer
+  minWidth:
+    type: integer
+  maxWidth:
+    type: integer
+  minHeight:
+    type: integer
+  maxHeight:
+    type: integer
+  createdAt:
+    $ref: "DateObject.yml"
+  updatedAt:
+    $ref: "DateObject.yml"
+  isOptional:
+    type: boolean
+    default: false

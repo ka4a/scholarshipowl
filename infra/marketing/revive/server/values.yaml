@@ -1,0 +1,99 @@
+# Default values for revive.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+app: revive
+updateStrategy:
+  type: RollingUpdate
+volume:
+  revive:
+    name: revive-volume
+    path: /var/www/html
+    size: 8Gi
+    accessMode: ReadWriteOnce
+
+livenessProbe:
+  httpGet:
+    path: /admin/index.php
+    port: 443
+    scheme: HTTPS
+  timeoutSeconds: 15
+  initialDelaySeconds: 30
+readinessProbe:
+  httpGet:
+    path: /admin/index.php
+    port: 443
+    scheme: HTTPS
+  timeoutSeconds: 15
+  initialDelaySeconds: 30
+
+# CONTAINERS
+containers:
+# Nginx container
+  nginx:
+    name: nginx
+    replicaCount: 1
+    httpPort: 80
+    httpsPort: 443
+    image:
+      repository: gcr.io/sowl-marketing/revive/nginx
+      tag: v1.7
+      pullPolicy: IfNotPresent
+# Php-fpm container
+  phpfpm:
+    name: php-fpm
+    replicaCount: 1
+    port: 9000
+    image:
+      repository: gcr.io/sowl-marketing/revive/php-fpm
+      tag: v0.1
+      pullPolicy: IfNotPresent
+
+# SERVICES
+services:
+# Nginx service
+  nginx:
+    name: revive-lb
+    type: LoadBalancer
+    ports:
+      http:
+        name: http
+        port: 80
+      https:
+        name: https
+        port: 443
+# Php-fpm service
+  phpfpm:
+    name: revive-php-fpm
+    type: NodePort
+    ports:
+      port: 9000
+# Ingress service
+  ingress:
+    name: ingress
+    enabled: false
+    # Used to create an Ingress record.
+    hosts:
+      - revive.local
+      - revive.scholarshipowl.com
+    #annotations:
+    #  kubernetes.io/ingress.class: gce
+    #  kubernetes.io/tls-acme: "true"
+    #  ingress.kubernetes.io/enable-cors: "true"
+    #  ingress.kubernetes.io/cors-origins: "https://scholarshipowl.com http://stg.dev.scholarshipowl.com https://stg.dev.scholarshipowl.com http://blog.scholarshipowl.com"
+    #  ingress.kubernetes.io/cors-credentials: "true"
+    tls:
+      # Secrets must be manually created in the namespace.
+      # - secretName: chart-example-tls
+      #   hosts:
+      #     - chart-example.local
+
+mysql:
+  imageTag: 5.7
+  mysqlDatabase: revive
+  mysqlUser: revive
+  mysqlPassword: t0QfRjhIk3sPTXF
+  persistence:
+    enabled: true
+    existingClaim: revive-mysql
+resources: {}

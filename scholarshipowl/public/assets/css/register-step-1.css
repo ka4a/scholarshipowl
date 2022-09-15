@@ -1,0 +1,334 @@
+
+.congratulations.mod-text-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.congratulations .table {
+    width: initial;
+    max-width: initial;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.congratulations .table>thead>tr>th,
+.congratulations .table>tbody>tr>td {
+    border: none;
+}
+
+/*
+@media (max-width:767px) {
+    .congratulations .table .text-large {
+        font-size: 1.86em;
+    }
+}
+*/
+
+.congratulations .table span {
+    display: block;
+    line-height: 1;
+}
+
+.congratulations .table .h2 {
+    margin-bottom: .14em;
+}
+
+.congratulations .table .h4 {
+    margin-bottom: 0;
+    font-size: 1.286em;
+}
+
+
+.congratulations .scholarships {
+    background: url('../img/register_dots.png') right top repeat-y;
+    letter-spacing: 0;
+}
+
+
+.congratulations .scholarships .number {
+    font-size: 2.86em;
+    margin: 8px 0 0;
+}
+
+.register-step1-form {
+    background-color: #d8e8ff;
+    border-bottom: 1px solid #cdddf6;
+    border-top: 1px solid #e6f0ff;
+    font-size: 0;
+    padding: 30px 0 0;
+    margin: 0 auto;
+    position: relative;
+}
+
+.register-step1-form label {
+    font: 400 12px/120% 'Open Sans';
+    color: #94abce;
+    text-align: left;
+    width: 100%;
+    padding-left: 5px;
+}
+
+.register-step1-form input[name='dob'],
+.register-step1-form input[name='zip'] {
+    border: 2px solid #fbb29a;
+    width: 202px;
+}
+
+.register-step1-form input[name='dob'],
+.register-step1-form input[name='zip']:hover {
+    border-color: #fc7f55;
+}
+
+.register-step1-form .checkboxes {
+    font-size: 12px;
+    text-align: left;
+    line-height: 25px;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.register-step1-form .checkboxes .form-group {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.register-step1-form .checkboxes .input-group {
+    width: 100%;
+    margin: 0;
+}
+
+.register-step1-form .has-error .help-block {
+    margin: 0 0 0 45px;
+}
+
+#registerForm1 label > .checkbox-text,
+#registerForm1 label > .label-checkbox {
+    font-weight: 300;
+    font-size: 12px;
+    color: #333;
+}
+
+.register-step1-form .form-wrapper {
+    padding-top: 34px;
+    max-width: 300px;
+}
+
+.register-step1-form .input-group {
+    width: 232px;
+    margin: 0 auto 30px;
+}
+
+.register-step1-form .input-group {
+    width: 100%; /* 232px;*/
+    margin: 0 auto 10px;
+}
+
+.register-step1-form form input[type=text]:focus {
+    border-color: #85b6fe;
+}
+
+.register-step1-form .button-wrapper {
+    padding: 10px 0 30px;
+}
+
+
+.register-step1-form input.register-btn {
+    border: 0;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 8px !important;
+    -webkit-border-radius: 8px !important;
+    display: block;
+    width: 100%;
+    height: 65px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 20;
+}
+
+.register-step1-form button {
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+}
+
+
+#registerForm1 .has-error .form-control-feedback {
+    width: 100%;
+    height: 15px;
+    /*    pointer-events: none;*/
+}
+
+#registerForm1 .checkboxes .has-feedback label.sr-only ~ .form-control-feedback {
+    right: 10px;
+    top: -3px;
+}
+
+#registerForm1 .has-success .form-control-feedback {
+    display: none;
+}
+
+#registerForm1 .checkboxes .has-error .form-control-feedback {
+    width: auto;
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+#registerForm1 .form-group .popover {
+    background-color: #ff6a6a !important;
+}
+
+.register-step1-form .popover-step1-firstname {
+    width: 207px;
+    top: -13px !important;
+}
+
+.register-step1-form .popover-step1-firstname .popover-content {
+    padding: 9px 0;
+}
+
+.register-step1-form .popover-step1-lastname {
+    width: 207px;
+    top: -13px !important;
+}
+
+.register-step1-form .popover-step1-email {
+    width: 207px;
+    top: -13px !important;
+}
+
+.register-step1-form .popover-step1-phone {
+    width: 207px;
+    top: -13px !important;
+}
+
+.register-step1-form [name='first_name']:hover,
+.register-step1-form [name='first_name']:focus {
+    border-color: #fc7f55;
+}
+
+aside#testimonial {
+    margin-bottom: 0;
+}
+
+.you-deserve-it .btn.btn-warning {
+    width: 50%;
+    display: inline-block;
+}
+.button-wrapper span {
+  font-size: 12px;
+  width: 30%;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+}
+.button-wrapper p {
+    display: block;
+    width: 100%;
+    font-size: 11px;
+    text-align: center;
+    margin-top: 20px;
+    color: #94abce;
+}
+
+.value-proposition {
+    font-size: 11px;
+    color: #94abce;
+}
+
+.value-proposition p {
+    margin-bottom: 20px;
+}
+
+.winnerRightBlock .value-proposition {
+    text-align: center;
+}
+
+.register-step1-form .lbl-sl{
+    padding-top: 7px;
+}
+
+/*==========  max 340  ==========*/
+
+@media (max-width: 340px) {
+    .lbl-sl{
+    .register-step1-form padding-top: 0px;
+    }
+}
+
+/*==========  min 640  ==========*/
+
+@media (min-width: 640px) {
+    .register-step1-form .form-group.last {
+        margin-right: 0;
+    }
+}
+
+/*==========  max 767  ==========*/
+
+@media (max-width: 767px) {
+    .register-step1-form .checkboxes input[type='checkbox'] + .lbl::before {
+        float: left;
+        margin-right: 16px;
+    }
+    .register-step1-form .checkboxes input[type=checkbox] + .lbl {
+        line-height: 1.4;
+        font-size: 90%;
+    }
+    .register-step1-form .btn.btn-warning {
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .register-step1-form .button-wrapper span {
+      display: block;
+      width: 100%;
+      font-size: 16px;
+    }
+    .register-step1-form .value-proposition {
+        margin: 0 20px;
+        text-align: center;
+    }
+}
+/*==========  min 768  ==========*/
+
+
+@media (min-width: 768px) {
+    .register-step1-form .form-wrapper {
+        max-width: 100%;
+        padding-top: 0;
+    }
+    .congratulations .table > tbody > tr > td {
+        padding: .3em 2em .6em 2em;
+    }
+    .congratulations .h4 {
+        font-size: 1.286em;
+    }
+}
+
+@media (max-width: 768px) {
+    .value-proposition {
+        text-align: center;
+    }
+}
+
+/*==========  min 992  ==========*/
+
+@media (min-width: 992px) {
+    .register-step1-form .input-group {
+        margin-bottom: 0;
+    }
+    .register-step1-form .checkboxes .form-group {
+        margin-top: 0;
+    }
+}
+
+#registerForm1 input[type=checkbox]+.lbl.padding-12.mod-checkbox:before {
+    float: left;
+    margin-top: 4px;
+}

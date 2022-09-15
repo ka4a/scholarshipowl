@@ -1,0 +1,124 @@
+.dane-media-form .page {
+    padding-top: 54px;
+}
+
+.dane-media-form .form-wrapper {
+    padding: 20px 0;
+    max-width: 300px;
+}
+
+.dane-media-form .input-group,
+.dane-media-form .form-group {
+    margin: 0;
+    width: 100%;
+}
+.dane-media-form .form-group {
+    margin-bottom: 10px;
+}
+
+
+.dane-media-form {
+    background-color: #d8e8ff;
+    border-bottom: 1px solid #fbfdff;
+}
+
+
+.dane-media-form .form-group {
+    height: 100%;
+}
+
+.dane-media-form .col {
+    margin: 0;
+    height: 286px;
+}
+
+.dane-media-form .colleft {
+    width: 289px !important;
+    border-right: 1px solid #bcd1f0;
+}
+
+.dane-media-form .colright {
+    margin-top: 21px;
+}
+
+.dane-media-form .colmiddle {
+    margin: -21px 45px 0 37px;
+}
+
+.dane-media-form .col label:first-child{
+    padding: 0;
+}
+
+.dane-media-form input[type=text],
+.dane-media-form input[type=number],
+.dane-media-form input[type=tel],
+.dane-media-form input[type=email] {
+    border: 1px solid #b8ceee;
+    border-top-color: #9bb4d9;
+}
+
+.dane-media-form input[type=text]:focus,
+.dane-media-form input[type=number]:focus,
+.dane-media-form input[type=tel]:focus,
+.dane-media-form input[type=email]:focus {
+    border-color: #80b3ff;
+}
+
+.dane-media-form .col:first-child {
+    margin-left: 0;
+}
+
+.dane-media-form .col input[type=text],
+.dane-media-form .col .bootstrap-select,
+.dane-media-form .col label {
+    position: relative;
+}
+
+.dane-media-form .col.colmiddle label {
+    top: -24px;
+}
+
+.dane-media-form .bootstrap-select .caret {
+    border-top-color: #9eb7db;
+}
+
+.dane-media-form label {
+    font: 400 12px/120% 'Open Sans';
+    color: #94abce;
+    text-align: left;
+    padding-left: 5px;
+    white-space: normal;
+}
+
+.dane-media-form .btn-lg button{
+    padding:0;
+}
+
+.dane-media-form input[type=checkbox]+.lbl.padding-12.mod-checkbox:before{
+    margin-bottom: 50px;
+}
+.dane-media-form .btn-gray{
+    max-width: 200px;
+    color: #AAA;
+}
+.dane-media-form .col textarea {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    overflow: auto;
+    resize: none;
+}
+
+/*==========  min 768  ==========*/
+
+@media (min-width: 768px) {
+    .dane-media-form .form-wrapper {
+        max-width: 670px;
+    }
+}
+
+/*==========  min 992  ==========*/
+
+.dane-media-form label.parent-container {
+    text-align: center;
+}

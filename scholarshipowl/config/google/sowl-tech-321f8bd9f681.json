@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "sowl-tech",
+  "private_key_id": "321f8bd9f681b73833c24d576fa05e44480fbaa1",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDQpNa3f6z5r4i1\n0DrsE00p6tOMn9ImIw6UzRyeoH6FPXuau4YBJ/eA1dMckqjzAiSoESa5QyXULDeN\nnO/kqyXCIjQgyNKKuDBY8ibL+u0nekw5MjUbtDUBeWZuQrmvjPuia1VQ9ySsy8Wf\nKZ33DvhAytZO7fMwu6N8AQ4AG5n0hvsp6ru2mxa39Zxr74FNNhvYyP+/bIiKrkb5\nj462VTw8Knv2T+p7kOvQrXzhyQLveMhX+HHIjFWo+AMmIXDmfTNiTgLzgvCtQjW3\nxQadmrGQrpEHHgE/q85MAaIgzWBvuINlq21IehcX9B7xc3/7aTNS2qiim/aOh9fP\n1hSoekk7AgMBAAECggEABay+FE6aL05ZawyHVb1up1m2OEhuiFACyQRNJ3lZB5m0\n/2/jRKvIHQ5zx/6rLrTbt2CEC5zqbftn5Wej1LXc+ItCnLOpmlFJK1omuPyRr7Wx\nVgrqC99aY7hgE1aoQ0CT5YaC0wlty29daCdTHxGeqfB6ZLovF5+64hgLP/CAPvjS\nSTRH9OEnQk99o1tQgCW/I8XffR2L6VQsmqtW7ToVgwY1gzUzArv9ub/+5xhYc1xJ\nMSUTNuzDA9yZ85SsBVdAEDmcgc5gSIivSAJi32/KtRO5VU4VJXyNO6W+xZJmMVMs\nQxJZquW2MzRVMy5ZbTg508rr8dWEw2bY/Jw7f7oScQKBgQD3TguVApBg9plyHWb5\nlLJJOKe/ooi9VmzbhB1az785pJknxJUbubQGMt5GdGs/nZOGnWSI8B7bDcmd4YtO\npBY1exq+a15G0Dc9tCOcXwdw6vJ1OqhLVhqFMGLbab/j2so8rJwzDIF0gX9ymE4y\n0oXGrFmpEHJ943Tl9oPCj+vjcQKBgQDX+s/VLT11kCKCgqx0jZv7Mead01ohrizk\nVhLThe3e0MSYbMxemcsFrjjSdKe4TbJWIfHbM6D5jBWl8SBaIAnedEfFlbtg2KrF\nXFzapr8t2ipZQ2NVmzH2kglssUiMNDkWyn410X7VJ0pRy3V/M2wkerx+fjRM8qbj\nRxYg+/dJawKBgD2/8wxl838ClBX2WXwAMPQvfVNQVixQpCW7u0itjuXpv4Q6hbDC\nkbzqfq3A6/aadfeq3SuEKXAw5SLS6mHcft8jue3KCWRNIT36+NlWsRj00U2MM/F7\nsmuHRWfb49oVC2JTBz2H5dsdaqFGfmAaSOTurASW4r+kR9AT2Zp/LTtBAoGANZ5Q\npm26ykrkJl5mjfDx/mSfCiOERsRE5NLxjY28RgqyI90ux3WKz3g3JxhK4xh246c9\nsduZZRp/7Vh1XaqCiLV5c/X+NMbVbnXFn4qx/6IfzVVLfd8vgjUzHcbNafE1ExFm\nT9oYkLZWXwQRwWh0uoG19flC5q9++wGU3s9uzs0CgYBTw40a+oshskkIr14uIhgT\nJt5HQYI57lT45k220mNmRR1SZDktBfjkhKsPa48p842FrXUQABDR+Pe4XhssPJfN\neGQjwxFdrZqR8dD7RrMxSPW95bnRfmfyXf23Kq8PSOGSHReGoYKr6Lddo0niIZkt\nPLVzGDWXyNGcChmZZHd7mg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "scholarshipowl-1244-sowl-tech@sowl-tech.iam.gserviceaccount.com",
+  "client_id": "112002388725611219509",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/scholarshipowl-1244-sowl-tech%40sowl-tech.iam.gserviceaccount.com"
+}

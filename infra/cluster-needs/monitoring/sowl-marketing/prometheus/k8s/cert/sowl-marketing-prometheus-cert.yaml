@@ -1,0 +1,18 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: sowl-marketing-prometheus-cert
+  namespace: monitoring
+spec:
+  secretName: sowl-marketing.prometheus.scholarshipowl.tech
+  issuerRef:
+    name: sowl-marketing-prod
+    kind: ClusterIssuer
+  dnsNames:
+  - sowl-marketing.prometheus.scholarshipowl.tech
+  acme:
+    config:
+    - dns01:
+        provider: tech-dns
+      domains:
+      - sowl-marketing.prometheus.scholarshipowl.tech

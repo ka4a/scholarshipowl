@@ -1,0 +1,27 @@
+{{- if .Values.services.ingress.enabled -}}
+{{- $serviceName := include "fullname" . -}}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+ name: {{ .Values.services.ingress.name }}
+ labels:
+    app: {{ .Values.app }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+spec:
+  rules:
+    {{- range $host := .Values.services.ingress.hosts }}
+    - host: {{ $host }}
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: {{ $serviceName }}
+              servicePort: 80
+    {{- end -}}
+{{- if .Values.services.ingress.tls }}
+  tls:
+{{ toYaml .Values.services.ingress.tls | indent 4 }}
+{{- end -}}
+{{- end -}}

@@ -1,0 +1,156 @@
+// imports
+@import 'node_modules/breakpoint-sass/stylesheets/breakpoint';
+@import 'variables';
+@import 'palette';
+
+// titles
+$font-family: $open-sans;
+
+%title {
+  font-family: $font-family;
+  font-weight: bold;
+  line-height: 1.1;
+  color: $dark;
+}
+
+.title_1 {
+  @extend %title;
+  font-size: 20px;
+}
+
+.title_2 {
+  @extend %title;
+  font-size: 16px;
+}
+
+.title_3 {
+  @extend %title;
+  font-size: 14px;
+}
+
+.title_4 {
+  @extend %title;
+  font-size: 12px;
+}
+
+.title_5 {
+  @extend %title;
+  font-size: 10.5px;
+}
+
+.title_6 {
+  @extend %title;
+  font-size: 8px;
+}
+
+// other titles
+.title_15fz {
+  @extend %title;
+  font-size: 30px;
+}
+
+// paragraph
+%paragraph {
+  @extend %margin-reset;
+  font-family: $font-family;
+  color: $dark;
+}
+
+.paragraph_3 {
+  @extend %paragraph;
+  line-height: 1.5em;
+  font-size: 14px;
+}
+
+.paragraph_2 {
+  @extend %paragraph;
+  line-height: 1.7em;
+  font-size: 16px;
+  @include breakpoint(max-width $mobile) {
+    line-height: 1.25em;
+  }
+}
+
+.paragraph_1 {
+  @extend %paragraph;
+  line-height: 1.5em;
+  font-weight: 300;
+  font-size: 24px;
+}
+
+// bold
+strong {
+  font-weight: 700;
+}
+
+// pull quote text
+.quote-text {
+  font-family: $georgia;
+  color: $dark;
+  font-size: 11.5px;
+  line-height: 1.6em;
+}
+
+// display headings
+%display {
+  font-family: $raleway;
+  font-weight: 900;
+  line-height: 1.1;
+  color: $dark;
+}
+
+.display_1 {
+  @extend %display;
+  font-size: 96px;
+}
+
+.display_2 {
+  @extend %display;
+  font-size: 66px;
+}
+
+.display_3 {
+  @extend %display;
+  font-size: 46px;
+
+  @include breakpoint(max-width $mobile) {
+    font-size: 36px;
+  }
+}
+
+.display_4 {
+  @extend %display;
+  font-size: 36px;
+}
+
+.display_5 {
+  @extend %display;
+  font-size: 28px;
+}
+
+// text newline break
+.newline-s {
+  @include breakpoint(max-width $mobile) {
+    display: block;
+  }
+}
+
+// serif title
+%title-serif {
+  $font-family: 'Georgia' !default;
+
+  font-family: $font-family;
+  color: #2f2f2f;
+  @extend %capitalize;
+  @extend %margin-reset;
+}
+
+.title-serif-22 {
+  @extend %title-serif;
+  font-size: 22px;
+}
+
+.title-serif-24 {
+  @extend %title-serif;
+  font-size: 24px;
+}

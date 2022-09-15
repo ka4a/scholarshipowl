@@ -1,0 +1,21 @@
+type: object
+properties:
+  id:
+    type: integer
+  name:
+    type: string
+    example: Toluna
+  position:
+    type: string
+    example: coreg1
+  isVisible:
+    type: boolean
+  text:
+    type: string
+    example: "Send me information to enter Toluna's $4,500 cash draw! TOLUNA"
+  html:
+    type: string
+  js:
+    type: string
+  extra:
+    type: array

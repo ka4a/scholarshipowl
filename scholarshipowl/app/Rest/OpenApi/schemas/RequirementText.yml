@@ -1,0 +1,54 @@
+type: object
+properties:
+  id:
+    type: integer
+  scholarshipId:
+    type: integer
+  name:
+    type: string
+    enum: [
+      "Essay",
+      "Transcript",
+      "Resume",
+      "Recommendation Letter",
+      "CV",
+      "Cover Letter",
+      "Bio"
+    ]
+  type:
+    type: string
+    default: text
+  title:
+    type: string
+  description:
+    type: string
+  sendType:
+    type: string
+  attachmentFormat:
+    type: string
+  allowFile:
+    type: boolean
+  fileExtension:
+    type: string
+    enum: [
+      "doc",
+      "docx",
+      "pdf"
+    ]
+  maxFileSize:
+    type: integer
+  minWords:
+    type: integer
+  maxWords:
+    type: integer
+  minCharacters:
+    type: integer
+  maxCharacters:
+    type: integer
+  createdAt:
+    $ref: "DateObject.yml"
+  updatedAt:
+    $ref: "DateObject.yml"
+  isOptional:
+    type: boolean
+    default: false

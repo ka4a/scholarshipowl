@@ -1,0 +1,22 @@
+// breackpoints
+$mobile: 480px;
+$mini-tablet: 769px;
+$tablet: 993px;
+$desktop: 1200px;
+
+// compatibility
+$miniTablet: $mini-tablet;
+
+// fonts
+$georgia: 'Georgia';
+$open-sans: 'Open Sans';
+$futura: 'Futura';
+$raleway: 'Raleway';
+
+// transition default
+$transition-property: all;
+$transition-duration: 300ms;
+$transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+$transition-deley: 0;
+
+$font-size-increase-coefficient: 0.68;

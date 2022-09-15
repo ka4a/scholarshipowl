@@ -1,0 +1,11 @@
+type: object
+properties:
+  id:
+    type: integer
+    enum:
+      - 1
+  name:
+    type: string
+    enum:
+      - USA
+

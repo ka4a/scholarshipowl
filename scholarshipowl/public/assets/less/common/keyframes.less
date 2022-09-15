@@ -1,0 +1,37 @@
+@import "mixins";
+
+.keyframes(shake; {
+  10%, 90% {
+    transform: translate(-1px, 0);
+  }
+
+  20%, 80% {
+    transform: translate(2px, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate(-4px, 0);
+  }
+
+  40%, 60% {
+    transform: translate(4px, 0);
+  }
+});
+
+.keyframes(spin; {
+  from { transform: scale(1) rotate(0deg);}
+  to { transform: scale(1) rotate(360deg);}
+});
+
+.keyframes(invalid-border; {
+  0% {
+    height: 1px;
+  }
+  50% {
+    height: 3px;
+  }
+  100% {
+    height: 1px;
+  }
+});
+

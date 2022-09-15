@@ -1,0 +1,53 @@
+.admin-types {
+	padding-top: 25px;
+}
+.fixed {
+	background-color: #cecece !important;
+}
+.missing {
+	background-color: #ff0000 !important;
+}
+.fields {
+	margin-top: 20px;
+	border-bottom: 1px solid #efefef;
+}
+.essay {
+	font-style: italic;
+}
+.collapse-holder {
+	padding: 0 !important;
+}
+.collapse-wrapper {
+	background-color: #d9edf7;
+}
+.collapse-holder .collapse.in {
+	margin: 8px;
+	padding: 8px;
+}
+.collapse-holder .collapse {
+	background-color: #ffffff;
+}
+.admin-actions .btn {
+	min-width: 2.5em;
+}
+.admin-heading {
+	padding: 25px 0;
+	background-color: #4e8eec;
+	color: #ffffff;
+}
+.admin-heading .btn.active {
+	background-color: #ffffff;
+}
+.form-signin {
+	padding: 7px;
+	margin: 20px auto;
+	border: thin solid #efefef;
+}
+.add-scholarship-toggle {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.field-add-form,
+.scholarship-create-form {
+	background-color: #f9f9f9;
+}

@@ -1,0 +1,391 @@
+.testimonials h2{
+    text-align: center;
+}
+.section--testimonials .carousel-caption {
+    position: static;
+    text-shadow: none;
+    padding-bottom: 0;
+}
+
+/* linebreak */
+.section--testimonials .carousel-caption .linebreak {
+    display: inline;
+}
+
+.section--testimonials .carousel-indicators {
+    top: 40px;
+    margin: 0;
+    cursor: pointer;
+    width: 100%;
+    padding-left: 0;
+    left: 0;
+    text-align: center;
+    position: static;
+}
+
+.section--testimonials .carousel-indicators li {
+    width: 10px;
+    height: 10px;
+            border-radius: 100px;
+    -webkit-border-radius: 100px;
+    background-color: #eaedf2;
+    margin-right: 10px;
+    border-color: transparent;
+}
+
+.section--testimonials .carousel-indicators .active {
+    background-color: #80ace6 !important;
+}
+
+.section--testimonials .carousel-content .title {
+    color: #333;
+    font-size: 1.286em;
+    position: static;
+    text-align: center;
+}
+
+.section--testimonials .mod-item .carousel-content .title {
+    font-size: .9em;
+}
+
+.section--testimonials .carousel-caption .user,
+.static-testimonial .user {
+    margin: 12px 0;
+    padding: 30px 0 0;
+    font-weight: 600;
+    font-size: 1.15em;
+    line-height: 1;
+    color: #333;
+    position: static;
+    background: transparent url('../img/sprite-main.png') no-repeat;
+    text-align: center;
+    width: 198px;
+    height: 37px;
+    background-position: -10px -602px;
+}
+
+.section--testimonials .carousel-caption .text-left,
+.static-testimonial .text-left {
+    margin-top: 10px;
+}
+
+/*
+.section--testimonials .user .testimonial-name {
+    font: 600 16px/20px 'Open Sans';
+    text-transform: uppercase;
+    color: #4e8eec;
+    letter-spacing: 2px;
+    display: block;
+    display: none;
+}
+
+.section--testimonials .carousel-caption .name {
+    color: #4e8eec;
+    letter-spacing: 3px;
+}
+
+.section--testimonials .carousel-caption .user .won {
+    color: #f1693b;
+}*/
+
+.section--testimonials .item {
+    opacity: 0;
+    -webkit-transition: opacity 1s;
+       -moz-transition: opacity 1s;
+        -ms-transition: opacity 1s;
+         -o-transition: opacity 1s;
+            transition: opacity 1s;
+}
+
+.section--testimonials .active {
+    opacity: 1;
+}
+
+.section--testimonials .active.left,
+.section--testimonials .active.right {
+    left: 0;
+    opacity: 0;
+}
+
+.section--testimonials .next.left,
+.section--testimonials .prev.right {
+    opacity: 1;
+}
+
+/*==========  min 480px  ==========*/
+
+@media (min-width:640px) {
+    .section--testimonials .carousel-caption .title {
+        font-size: 1.2em;
+    }
+    .section--testimonials .mod-item .carousel-caption .title {
+        font-size: 1.1em;
+    }
+}
+
+/*==========  min 768px  ==========*/
+
+@media (min-width: 768px) {
+    .testimonials-carousel-wrapper {
+        margin-bottom: 1em;
+    }
+
+    /* linebreak */
+    .section--testimonials .carousel-caption .linebreak {
+        display: block;
+    }
+    .section--testimonials .carousel-indicators,
+    .section--testimonials .carousel-caption .title {
+        text-align: left;
+    }
+    .section--testimonials .carousel-caption .title:before {
+        content: '\e80e';
+        color: #a6c6f5;
+        font: 1.6em/1 'fontello';
+        position: absolute;
+        left: -1em;
+        width: 100%;
+    }
+    .section--testimonials .carousel-caption .user,
+    .static-testimonial .user {
+        text-align: left;
+        font-size: 1.429em;
+        line-height: 1;
+    }
+    .section--testimonials .carousel-caption .title {
+        font-size: 1.4em;
+    }
+    .section--testimonials .mod-item .carousel-caption .title {
+        font-size: 1.3em;
+    }
+}
+
+/*==========  min 992  ==========*/
+/*
+@media (min-width: 992px) {
+    #testimonials .container,
+    #congratulations-body .container {
+        width: 872px;
+    }
+}
+*/
+
+/*===========================================
+=            Static Testimonials            =
+===========================================*/
+
+.static-testimonial {
+    padding: 0;
+}
+.static-testimonial img {
+    width: 234px;
+    height: auto;
+}
+
+/*.apply-testimonial */
+.static-testimonial blockquote {
+    border-left: none;
+    display: inline-block;
+    font: 400 16px/1.44 'Open Sans';
+    max-width: 500px;
+    margin-top: 1.5em;
+    padding-top: 0;
+    padding-bottom: 1.5em;
+    position: relative;
+    text-align: center;
+}
+
+.static-testimonial blockquote:before {
+    font: 1.5em/1 fontello;
+    content: '\e80e';
+    color: #4e8eec;
+    position: absolute;
+    left: -12px;
+    width: 40px;
+    top: 2px;
+    opacity: .2;
+}
+
+/*==========  max  640 ==========*/
+
+@media (max-width: 640px) {
+    .static-testimonial img.pull-left {
+        float: none !important;
+    }
+}
+
+/*==========  min 640  ==========*/
+
+@media (min-width: 640px) {
+    .static-testimonial img {
+        position: relative;
+        left: 20px;
+    }
+    .static-testimonial blockquote:before {
+        font-size: 36px;
+    }
+}
+
+/*==========  min 768  ==========*/
+
+@media (min-width:768px) {
+    .static-testimonial blockquote {
+        font-size: 18px;
+        float: none;
+    }
+}
+
+
+/*.apply-testimonial
+.static-testimonial blockquote {
+    padding-top: 0;
+    padding-bottom: 1.5em;
+    background-position: 0 0;
+    max-width: 500px;
+    margin-top: 1.5em;
+}
+*/
+
+
+/*-----  End of Static Testimonials  ------*/
+
+
+/*=====================================
+=            carousel text            =
+=====================================*/
+
+.carousel-content {
+    display: inline;
+}
+
+.section--text-carousel h3.mod-heading,
+.section--text-carousel h4.mod-heading {
+    margin-top: 0;
+}
+
+.carousel-text {
+    /*    padding-top: 35px;*/
+}
+
+
+.carousel-text .carousel-indicators {
+    top: 0;
+    padding: 0 !important;
+    text-align: center;
+    height: 25px;
+    margin-bottom: 15px;
+}
+
+.carousel-text .carousel-indicators li {
+    background-color: transparent !important;
+    color: #eaedf2;
+    -webkit-border-radius: 0;
+            border-radius: 0;
+    line-height: 1.1;
+    width: 25px;
+    text-indent: 0;
+    top: 0;
+}
+@media (min-width:768px) {
+    .carousel-text .carousel-indicators li {
+        width: 40px;
+    }
+}
+
+.carousel-text .carousel-indicators li.active {
+    color: #80ace6;
+    font-size: 1.2em;
+    background-color: transparent !important;
+}
+
+.carousel-text .carousel-inner {
+    top: 0;
+}
+
+.carousel-text .carousel-inner,
+.carousel-text .carousel-inner .item {
+    height: 100%;
+    min-height: 40px;
+}
+
+.carousel-text .carousel-inner p {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.carousel-text.carousel-instructions big {
+    font-size: 2em;
+    padding: 30px;
+}
+
+.testimonials-images {
+    background: url('../img/sprites/sprite-testimonials.4e62de43c87e3ba27873.jpg') no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+    width: 232px;
+    height: 232px;
+}
+
+.user0 {
+    background-position: 0 -232px;
+}
+
+.user1 {
+  background-position: 0px -1392px;
+}
+
+.user2 {
+  background-position: 0px -465px;
+}
+
+.user3 {
+  background-position: 0px -697px;
+}
+
+.user4 {
+  background-position: 0px -929px;
+}
+
+.user5 {
+  background-position: 0px -1161px;
+}
+
+.user6 {
+  background-position: 0px 0px;
+}
+
+.user7 {
+  background-position: 0px -1625px;
+}
+
+.user8 {
+  background-position: 0px -1856px;
+}
+
+
+@media (min-width:768px) {
+    .section--snippets-carousel .carousel-inner,
+    .section--how-to-affiliate .carousel-inner,
+    .section--easy-applications .carousel-inner {
+        width: 70%;
+        margin: 0 auto;
+    }
+    .carousel-text .text-medium,
+    .section--snippets-carousel-heading,
+    .section--how-to-affiliate-carousel-heading,
+    .section--easy-applications-carousel-heading {
+        font-size: 1.5em;
+        margin-top: 0;
+    }
+}
+
+/*-----  End of carousel text  ------*/
+
+@media (max-width:768px) {
+    .text-mobile-center {
+        text-align: center;
+    }
+    .section--testimonials .carousel-caption .user, .static-testimonial .user {
+        margin: 12px auto;
+    }
+}

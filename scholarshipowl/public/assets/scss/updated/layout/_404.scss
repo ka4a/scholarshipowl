@@ -1,0 +1,423 @@
+// blocks / layouts
+@import './header';
+
+// variables
+// colors
+$blue:  #28beff;
+$blue-darken: #4b8bf0;
+$red: #f86f40;
+$grey: #c6c6c6;
+
+$font-family: 'OpenSans';
+
+// main layout
+html, body, .app {
+  height: 100%;
+  font-family: $open-sans;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__wrapper {
+    flex: 1 0 auto;
+    display: flex;
+  }
+
+  &__header {
+    width: 100%;
+
+    position: absolute;
+    top: 0;
+    z-index: 1;
+  }
+
+  &__content {
+    width: 100%;
+  }
+
+  &__footer {
+    flex: 0 0 60px;
+  }
+}
+
+
+
+// sidebar variables
+$primary-color: #9293ef;
+
+// sidebar
+// main layout
+.sb {
+  $width: 240px;
+  $font-family: $open-sans !default;
+
+  width: $width;
+  color: $blue-lighter;
+  background-color: $primary-color;
+  position: relative;
+  flex: 0 0 auto;
+
+  &__ctrl {
+    color: $blue;
+    font-size: 20px;
+    position: absolute;
+    left: 14px; top: 22px;
+    @extend %transition;
+
+    &:hover {
+      color: darken($blue, 10);
+    }
+  }
+
+  &__header {
+    height: 66px;
+    background-color: #ffffff;
+    box-shadow: 0 0.5px 2px 0 rgba(0, 0, 0, 0.33);
+  }
+
+  &__account {
+    margin-top: 58px;
+  }
+
+  &__navigation {
+    margin-top: 30px;
+  }
+
+  &__footer {
+    position: absolute;
+    bottom: 32px;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+}
+
+.user-bar {
+  &__photo {
+    width: 62px;
+    height: 62px;
+    background-color: #bdceff;
+    border: solid 2px #e2eaff;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: 31px;
+  }
+
+  &__name {
+    color: $white;
+    text-transform: uppercase;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  &__account-status {
+    color: $white;
+    text-transform: uppercase;
+    font-size: 12px;
+    text-align: center;
+
+    margin-top: 10px;
+  }
+}
+
+.sb-nav {
+  overflow: hidden;
+
+  &__item {
+    @extend %transition;
+    height: 48px;
+    line-height: 48px;
+    float: left;
+    cursor: pointer;
+    width: 100%;
+
+    &:hover {
+      background-color: $blue-more-lighter;
+
+      .sb-nav__icon {
+        color: $primary-color;
+      }
+
+      .sb-nav__text {
+        color: $primary-color;
+      }
+    }
+  }
+
+  &__icon {
+    @extend %transition;
+    color: $blue-more-lighter;
+    padding-left: 27px;
+    padding-right: 34px;
+    font-size: 20px;
+  }
+
+  &__text {
+    @extend %transition;
+    font-size: 12px;
+    color: $blue-more-lighter;
+    text-transform: uppercase;
+    vertical-align: top;
+  }
+
+  .icon {
+    &-scholarship {
+      font-size: 23px;
+    }
+    &-mailbox {
+      font-size: 16px;
+    }
+    &-smile {
+      padding-right: 30px;
+    }
+  }
+}
+
+.phone-number {
+  color: $blue-more-lighter;
+
+  .icon-phone {
+    font-size: 20px;
+    border: 1px solid $blue-more-lighter;
+    padding: 3px 4px 0px 2px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 25px;
+  }
+
+  &__value {
+    vertical-align: top;
+    font-size: 15px;
+  }
+}
+
+// 404 layout
+%404-paragraph {
+  $font-size: 14px;
+
+  font-family: $open-sans;//Helvetica;
+  font-size: $font-size + 2px;
+  color: $dark-lighter; //#7f7f7f;
+
+  @include breakpoint(max-width $mobile) {
+    font-size: $font-size;
+    line-height: 1.3em;
+  }
+}
+
+
+.layout-404 {
+  @extend .center-text;
+
+  @include breakpoint(max-width $mobile) {
+    text-align: left;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  &__essence {
+    margin-top: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include breakpoint(max-width $mobile) {
+      margin-top: 30px;
+    }
+
+    // essence
+    @at-root {
+      .lemonade-img {
+        max-width: 150px;
+        width: 15%;
+        @extend .dib;
+
+        @include breakpoint(max-width $mini-tablet) {
+          width: 110px;
+        }
+      }
+
+      .text-404 {
+        font-family: $open-sans; //futura
+        font-size: 116px;
+        font-weight: 800;
+        text-align: center;
+        color: $blue-lighter; //#bdceff
+
+        @extend .dib;
+
+        @include breakpoint(max-width $mobile) {
+          font-size: 66px;
+        }
+      }
+    }
+  }
+
+  &__phrace {
+    margin-top: 30px;
+
+    font-family: $open-sans;
+    font-size: 32px;
+    font-weight: bold;
+    color: $blue-lighter; //#bdceff;
+    line-height: 1.1em;
+
+    @include breakpoint(max-width $mobile) {
+      font-size: 21px;
+      line-height: 1.3em;
+
+      margin-top: 25px;
+    }
+  }
+
+  &__paragraph {
+    margin-top: 50px;
+    line-height: 1.7em;
+    @extend %404-paragraph;
+
+    @include breakpoint(max-width $mobile) {
+      margin-top: 15px;
+    }
+  }
+
+  &__btn {
+    margin-top: 80px;
+    @extend .center-margin;
+  }
+
+  &__nav {
+    margin-top: 160px;
+    margin-bottom: 30px;
+
+    @include breakpoint(max-width $mobile) {
+      margin-top: 25px;
+    }
+  }
+}
+
+// bottom navigation
+%404-nav-link {
+  font-family: $open-sans; //Helvetica;
+  font-size: 16px;
+  color: $blue-darker; //#8ba4ec;
+}
+
+.bottom-nav {
+  &__title {
+    @extend %404-paragraph;
+    margin-bottom: 35px;
+
+    @include breakpoint(max-width $mobile) {
+      text-align: center;
+    }
+  }
+
+  &__list {
+    display: flex;
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__item {
+
+  }
+
+  &__link {
+    @extend %404-nav-link;
+    @extend %capitalize;
+    @extend %transition;
+    &:hover {
+      color: darken($blue-darker, 10);
+    }
+  }
+}
+
+// footer
+%text-footer {
+  font-family: $open-sans;//Helvetica;
+  font-size: 12px;
+  color: $white;
+}
+
+.footer {
+  $background-color: #354c6d;
+
+  line-height: 60px;
+  background-color: $background-color;
+
+  @include breakpoint(max-width $mini-tablet) {
+    background-color: $blue-lighter;
+  }
+
+  &__wrp {
+    @extend .dif;
+    justify-content: space-between;
+    flex-direction: row;
+
+    box-sizing: border-box;
+    width: 100%;
+
+    @include breakpoint($mini-tablet) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    @include breakpoint(max-width $mini-tablet) {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  &__text {
+    @include breakpoint(max-width $mini-tablet) {
+      order: 3;
+      background-color: $background-color;
+    }
+  }
+
+  &__nav_left,
+  &__nav_right,
+  &__text {
+    @extend .dib;
+  }
+
+  // footer text elemnts
+  @at-root {
+    .text-footer,
+    .link-footer {
+      @extend %text-footer;
+      cursor: pointer;
+      text-transform: capitalize;
+    }
+  }
+
+  // footer navigation block
+  @at-root {
+    .nav-footer {
+      &__item {
+        @extend .dib;
+        & + & {
+          margin-left: 10px;
+          &:before {
+            color: $white;
+            content: '|';
+            font-size: 0.8em;
+            padding-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}

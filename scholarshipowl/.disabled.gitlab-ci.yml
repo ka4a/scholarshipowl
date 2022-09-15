@@ -1,0 +1,20 @@
+# Select image from https://hub.docker.com/_/php/
+image: ubuntu:xenial
+
+# Select what we should cache
+cache:
+  paths:
+  - vendor/
+
+before_script:
+  - bash tests/scripts/docker-setup.sh > /dev/null
+  - composer install --quiet --no-scripts
+
+variables:
+  APP_ENV: testing
+
+# We test PHP5.6 (the default) with MySQL
+test:
+  script:
+  - bash tests/scripts/testing_sowl.sh
+  - vendor/bin/phpunit --configuration phpunit.xml --coverage-text

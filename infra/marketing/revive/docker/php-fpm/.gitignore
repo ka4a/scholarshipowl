@@ -1,0 +1,8 @@
+# Exclude revive cache
+revive/var/templates_compiled/**
+revive/etc/permanentcache/**
+revive/etc/permanentcache.bak/**
+revive/etc/xmlcache/**
+revive/etc/xmlcache.bak/**
+revive/var/debug.log
+revive/var/cache/**

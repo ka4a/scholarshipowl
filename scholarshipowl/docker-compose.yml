@@ -1,0 +1,70 @@
+version: '3'
+services:
+    # MYSQL
+    mysql:
+      image: mysql:5.7
+      container_name: mysql
+      command: mysqld --sql_mode=""
+      ports:
+        - '3306:3306'
+      environment:
+        - MYSQL_USER=scholarship_owl
+        - MYSQL_PASSWORD=secret
+        - MYSQL_DATABASE=scholarship_owl
+        - MYSQL_ROOT_PASSWORD=secret
+      volumes:
+        - ./storage/mysql:/var/lib/mysql
+      networks:
+        - database
+
+    mysql_testing:
+      image: mysql:5.7
+      container_name: mysql_testing
+      command: mysqld --sql_mode=""
+      ports:
+        - '3307:3306'
+      environment:
+        - MYSQL_USER=testing_sowl
+        - MYSQL_PASSWORD=secret
+        - MYSQL_DATABASE=testing_sowl
+        - MYSQL_ROOT_PASSWORD=secret
+      volumes:
+        - ./storage/mysql_testing:/var/lib/mysql
+      networks:
+        - database
+
+    phpfpm:
+      build: 
+        context: ./kube/docker/php-fpm
+        dockerfile: Dockerfile-local
+        args:
+          - XDEBUG_REMOTE_HOST=${XDEBUG_REMOTE_HOST}
+          - XDEBUG_REMOTE_PORT=${XDEBUG_REMOTE_PORT}
+      container_name: php-fpm
+      ports:
+       - "9000:9000"
+      volumes:
+       - .:/var/www/html:delegated
+      links:
+        - mysql
+      networks:
+        - server
+        - database
+
+    nginx:
+      build:
+        context: ./kube/docker/nginx
+        dockerfile: Dockerfile-local
+      container_name: nginx
+      ports:
+       - "8080:80"
+      volumes:
+       - .:/var/www/html:delegated
+      links:
+        - phpfpm
+      networks:
+        - server
+
+networks:
+   database:
+   server:

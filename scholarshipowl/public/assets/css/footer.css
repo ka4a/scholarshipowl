@@ -1,0 +1,69 @@
+/*----- Ass seen on Footer  ------*/
+.footer-as-seen-on {
+  height: 57px;
+  width: 90px;
+  display: inline-block;
+  background: url('../img/sprites/sprite-logos.png') no-repeat;
+}
+
+.footer-as-seen-on.tnw {
+  background-position: 0px -572px;
+  width: 78px;
+  height: 33px;
+}
+
+.footer-as-seen-on.tech-zulu {
+  background-position: 0px -418px;
+  height: 22px;
+  background-size: 90px;
+}
+
+.footer-as-seen-on.vator-news {
+  background-position: 0px -285px;
+  height: 20px;
+  background-size: 90px;
+}
+
+.footer-as-seen-on.forbes {
+  background-position: 0px -62px;
+  height: 31px;
+  background-size: 90px;
+}
+
+.footer-as-seen-on.gigaom {
+  background-position: 0px -120px;
+  height: 25px;
+  background-size: 90px;
+}
+
+.footer-as-seen-on.redef {
+  background-position: 0px -351px;
+  height: 30px;
+  background-size: 95px;
+}
+
+.footer-as-seen-on.product-hunt {
+  background-position: 0px -496px;
+  height: 25px;
+  background-size: 90px;
+}
+
+.footer-as-seen-on.hello-giggles {
+  background-position: 0px -168px;
+  height: 30px;
+  background-size: 90px;
+}
+
+.footer-as-seen-on.la-biz {
+  background-position: 0px -250px;
+  height: 31px;
+  background-size: 100px;
+}
+
+.footer-as-seen-on.uloop {
+  background-position: 0px -612px;
+  height: 33px;
+  background-size: 100px;
+}
+
+/*-----  End of Footer  ------*/

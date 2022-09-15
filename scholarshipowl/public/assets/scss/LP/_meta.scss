@@ -1,0 +1,77 @@
+// redefined variables
+$mobile: 600px;
+
+// variables
+$font-family-primary: 'Gotham', 'Montserrat', sans-serif;
+$font-family-secondary: 'Helvetica Neue', 'Roboto', sans-serif;
+$font-family-tertiary: 'Lato', sans-serif;
+$font-family-quaternary: 'Georgia', 'Droid Serif', sans-serif;
+
+$dark: #000;
+$dark-light: #1c2e36;
+$dark-lighter: #4a4a4a;
+$dark-more-lighter: #c5c5c5;
+
+$white: #ffffff;
+$white-dark: #787878;
+$white-darker: #646464;
+$white-more-darker: #949494;
+
+$blue: #4983eb;
+$blue-light: #678aff;
+$blue-lighter: #b6d0fe;
+$blue-more-lighter: #caddff;
+$blue-darker: #474e6b;
+$blue-more-darker: #36364f;
+
+$orange: #f5653a;
+$orange-lighter: #f5a623;
+$orange-darker: #fc5720;
+
+$green: #1de4b8;
+
+// orter colors
+$dfa: #dfeafd;
+$green-light: #eefaff;
+$floor: #e0ecff;
+$footer-copyright: #f8f8f8;
+$disclaimer-bg: #1b1b2d;
+
+// typography
+
+// meta classes
+%white-more-darker-10 {
+  color: $white-more-darker;
+  font-size: 10px;
+}
+
+%white-more-darker-20 {
+  color: $white-more-darker;
+  font-size: 20px;
+}
+
+%white-more-darker-20-secondary {
+  @extend %white-more-darker-20;
+  font-family: $font-family-secondary;
+}
+
+%14-secondary {
+  font-family: $font-family-secondary;
+  font-size: 14px;
+}
+
+%20-secondary {
+  font-family: $font-family-secondary;
+  font-size: 20px;
+}
+
+%35-primary {
+  font-family: $font-family-primary;
+  font-size: 35px;
+}
+
+%white-35-primary {
+  font-weight: 700;
+  color: $white;
+  @extend %35-primary;
+}

@@ -1,0 +1,24 @@
+type: object
+properties:
+  id:
+    type: integer
+  scholarshipId:
+    type: integer
+  name:
+    type: string
+    default: Survey
+  type:
+    type: string
+    default: survey
+  title:
+    type: string
+  description:
+    type: string
+  survey:
+    type: array
+    example: [{"id" : "1198854c", "type": "radio", "options": {"2": "Red", "3": "Green", "5": "Blue"}, "question": "Your favorite color ", "description": "Choose one option"}, {"id": "f8dc7da7", "type": "checkbox", "options": {"1": "Mon", "2": "Tue", "3": "Wed", "4": "Thu", "5": "Fri", "6": "Sat", "7": "Sun"}, "question": "Favorite days of week", "description": "Choose as many options as you like"}]
+  isOptional:
+    type: boolean
+    default: false
+
+

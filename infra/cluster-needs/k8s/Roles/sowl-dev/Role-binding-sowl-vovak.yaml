@@ -1,0 +1,13 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: sowl-dev-role-vovak-binding
+  namespace: sowl-dev
+subjects:
+  - kind: ServiceAccount
+    name: vovak
+    namespace: sowl-dev
+roleRef:
+  kind: Role
+  name: sowl-dev
+  apiGroup: rbac.authorization.k8s.io

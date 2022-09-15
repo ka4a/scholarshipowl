@@ -1,0 +1,75 @@
+@Library("jenkins-lib") _
+
+String AppName      = 'sunrise'
+String Namespace    = 'sunrise'
+String Domain       = 'app.scholarship.app'
+
+switch("${BRANCH_NAME}") {
+    case 'master':
+        AppName     = 'sunrise'
+        Namespace   = 'sunrise'
+        Domain      = 'app.scholarship.app'
+        break
+    case 'develop': 
+        AppName     = 'sunrise-dev'
+        Namespace   = 'sunrise-dev'
+        Domain      = 'sunrise.dev.scholarshipowl.com'
+        break
+    default:
+        AppName     = 'sunrise-test'
+        Namespace   = 'sunrise-test'
+        Domain      = 'sunrise.test.dev.scholarshipowl.com'
+        break
+}
+
+def Db          = "${BRANCH_NAME == 'master' ? "${AppName}-gcloud-sqlproxy" : "${AppName}-mysql"}"
+def Redis       = "${AppName}-redis-master"
+def Chart       = "${BRANCH_NAME == 'master' ? 'sunrise' : 'sunrise-dev'}"
+def branchName  = "${BRANCH_NAME.replace("%2F", "_")}"
+def Cluster     = "${BRANCH_NAME == 'master' ? 'prod-cluster' : 'sowl-tech'}"
+def Zone        = "${BRANCH_NAME == 'master' ? 'us-central1-a' : 'europe-west1-b'}"
+def PhpFpmRepo  = "${BRANCH_NAME == 'master' ? 'gcr.io/sowl-tech/sunrise/php-fpm' : 'gcr.io/sowl-tech/sunrise-dev/develop/php-fpm'}"
+def NginxRepo   = "${BRANCH_NAME == 'master' ? 'gcr.io/sowl-tech/sunrise/nginx/nginx' : 'gcr.io/sowl-tech/sunrise-dev/nginx/nginx-dev'}"
+def NginxTag    = "${BRANCH_NAME == 'master' ? 'v1.4' : 'v1.3'}"
+def Env         = "${AppName.replace("sunrise-", "")}"
+
+sunrisePipeline {
+    node                             = "docker"
+    cluster                          = "${Cluster}"
+    appName                          = "${AppName}"
+    zone                             = "${Zone}"
+    project                          = "sowl-tech"
+    imageName                        = "php-fpm"
+    namespace                        = "${Namespace}"
+    chartName                        = "${Chart}"
+    nginx                            = false
+    clusterDiffThenProject           = true
+    replacements                     = [
+                                            "dbHostProd"    : ["DB_HOST=sunrise-host", "DB_HOST=${Db}", "@WORKSPACE/.env.production"],
+                                            "dbHostStg"     : ["DB_HOST=sunrise-host", "DB_HOST=${Db}", "@WORKSPACE/.env.staging"],
+                                            "redisHostProd" : ["REDIS_HOST=sunrise-redis-host", "REDIS_HOST=${Redis}", "@WORKSPACE/.env.production"],
+                                            "redisHostStg"  : ["REDIS_HOST=sunrise-redis-host", "REDIS_HOST=${Redis}", "@WORKSPACE/.env.staging"],
+                                            "mysqlInit"     : ["@DBHOST", "${Db}", "@WORKSPACE/kube/charts/sunrise-dev/templates/deployment.yaml"],
+                                            "host"          : ["@HOST", "${Domain}", "@WORKSPACE/kube/charts/sunrise-dev/values.yaml"],
+                                            "env"           : ["@ENV", "${Env}", "@WORKSPACE/kube/charts/sunrise-dev/values.yaml"],
+                                            "Appenv"        : ["@ENV", "${Env}", "@WORKSPACE/kube/charts/sunrise-dev/Chart.yaml"],
+                                       ]
+    helmParams                       = [
+                                            "app"                               : "${AppName}",
+                                            "containers.phpfpm.tag"             : null,
+                                            "containers.phpfpm.repository"      : null,
+                                            "containers.nginx.tag"              : "${NginxTag}",
+                                            "containers.nginx.repository"       : "${NginxRepo}",
+                                            "ingress.hosts[0]"                  : "${Domain}",
+                                            "gcloud-sqlproxy.serviceAccountKey" : "#serviceAccountKey"
+                                       ]
+    serviceAccount                   = "jenkins-new@sowl-tech.iam.gserviceaccount.com"
+    service_account_key_id           = "sowl-tech-jenkins2"
+    waitTime                         = "1m"
+    slack                            = true
+    slackChannel                     = "#sunrise"
+    slackMsg                         = ":sunrise: STARTED: `${branchName}`"
+    slackSuccessProdMsg              = ":sunrise_over_mountains: Deployed to https://${Domain}"
+    slackSuccessDevMsg               = ":sunrise_over_mountains: Deployed to https://${Domain}"
+    slackFailedMsg                   = ":fire: FAILED: `${branchName}`\n#BUILD_URL"
+}

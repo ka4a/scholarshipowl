@@ -1,0 +1,29 @@
+# Registrants Daily Report
+#30 22 * * * root php /var/www/scholarshipowl/current/artisan registrants:date_report
+
+# Sends Application To Scholarship Providers
+0 * * * * www-data php /var/www/scholarshipowl/current/artisan applications:send >> /var/www/scholarshipowl/logs/crons/applications_send.log 2>&1
+
+# Updates Daily Statistics
+55 23 * * * www-data php /var/www/scholarshipowl/current/artisan statistic:daily >> /var/www/scholarshipowl/logs/crons/statistic_daily.log 2>&1
+
+# Reads all@application-inbox.com and filters incoming mails to username folders
+0 */1 * * * root php /var/www/scholarshipowl/current/artisan mailbox:filter >> /var/www/scholarshipowl/logs/crons/mailbox_filter.log 2>&1
+
+# Accounts Data Cache
+#15 * * * * www-data php /var/www/scholarshipowl/current/artisan accounts:cache >> /var/www/scholarshipowl/logs/crons/accounts:cache.log 2>&1
+
+# Subscriptions Expire
+0 6 * * * www-data php /var/www/scholarshipowl/current/artisan subscriptions:expire >> /var/www/scholarshipowl/logs/crons/subscriptions.log 2>&1
+
+# Subscriptions Renew
+# 0 7 * * * www-data php /var/www/scholarshipowl/current/artisan subscriptions:renew >> /var/www/scholarshipowl/logs/crons/subscriptions.log 2>&1
+
+# Referral Award
+0 7 * * * www-data php /var/www/scholarshipowl/current/artisan referral:award >> /var/www/scholarshipowl/logs/crons/referrals.log 2>&1
+
+# Submission Send (InboxDollars...)
+*/2 * * * * www-data php /var/www/scholarshipowl/current/artisan submission:send >> /var/www/scholarshipowl/logs/crons/submissions.log 2>&1
+
+# College Recruiter data provider
+0 */1 * * * www-data php /var/www/scholarshipowl/current/artisan collegeRecruiter:autoupload >> /var/www/scholarshipowl/logs/crons/college-recruiter.log 2>&1

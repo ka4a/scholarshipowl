@@ -1,0 +1,28 @@
+type: object
+properties:
+  status:
+    type: integer
+  texts:
+    type: array
+    items:
+      $ref: "ApplicationText.yml"
+  files:
+    type: array
+    items:
+      $ref: "ApplicationFile.yml"
+  images:
+    type: array
+    items:
+        $ref: "ApplicationImage.yml"
+  inputs:
+    type: array
+    items:
+      $ref: "ApplicationInput.yml"
+  specialEligibility:
+    type: array
+    items:
+      $ref: "ApplicationSpecialEligibility.yml"
+  survey:
+    type: array
+    items:
+      $ref: "ApplicationSurvey.yml"

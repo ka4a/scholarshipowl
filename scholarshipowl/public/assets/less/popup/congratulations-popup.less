@@ -1,0 +1,94 @@
+.congratulations-popup {
+  .vertical-alignment-helper {
+      display: table;
+      height: 100%;
+      width: 100%;
+      pointer-events: none; /* This makes sure that we can still click outside of the modal to close it */
+  }
+
+  .vertical-align-center {
+      /* To center vertically */
+      display: table-cell;
+      vertical-align: middle;
+      pointer-events: none;
+  }
+
+  .modal-dialog {
+    .modal-content {
+        /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+        width: 400px;
+        height: inherit;
+        /* To center horizontally */
+        margin: 0 auto;
+        pointer-events: all;
+        border: 10px solid #9dbbe6;
+        border-radius: 0;
+        background: #ffffff;
+        box-shadow: none;
+    }
+
+    img {
+      margin-top: 50px;
+    }
+
+    h3 {
+      font-size: 30px;
+      color: #4988F7;
+    }
+
+    h4 {
+      font-size: 15px;
+      color: #4A4A4A;
+      margin: 20px 30px 30px;
+      line-height: 20px;
+    }
+  }
+
+  &.fade.in {
+    padding-left: 0px !important;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 768px) {
+  .congratulations-popup {
+    .modal-dialog {
+      .modal-content {
+        width: 435px;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .congratulations-popup {
+    .modal-dialog {
+      .modal-content {
+        width: 330px;
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .congratulations-popup {
+    .modal-dialog {
+      .modal-content {
+        width: 300px;
+      }
+    }
+  }
+}
+
+@media (max-width: 568px) and (height: 320px) {
+  .congratulations-popup {
+    .modal-dialog {
+      .modal-content {
+        width: 430px;
+      }
+
+      img {
+        margin-top: 20px;
+      }
+    }
+  }
+}

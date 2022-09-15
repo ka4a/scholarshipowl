@@ -1,0 +1,87 @@
+.header-fm {
+  $blue: #4e8eec;
+  $white: #fff;
+
+  $fz-l: 32px;
+  $fz-m: 11px;
+
+  %title-font {
+    font-size: $fz-l;
+    color: $white;
+    @extend .ttu;
+  }
+
+  %text-font {
+    font-size: $fz-m;
+    color: $white;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+    @extend .ttu;
+  }
+
+  %amount-font {
+    font-size: $fz-l;
+    color: $white;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  %amount-sign-font {
+    font-size: $fz-m;
+    color: $white;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  %center-text {
+    text-align: center;
+  }
+
+  // reset some styles
+  h2, p {
+    @extend %margin-reset;
+  }
+  // block
+  background-color: $blue;
+  padding: 15px 0;
+
+  // elements
+  &__title {
+    @extend %title-font;
+    @extend %center-text;
+    padding-bottom: 5px;
+  }
+
+  &__text {
+    @extend %text-font;
+    @extend %center-text;
+    padding-bottom: 10px;
+  }
+
+  &__data {
+    align-items: center;
+    max-width: 310px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+  }
+
+  &__data-item {
+    float: right;
+
+    &:first-child {
+      float: left;
+    }
+  }
+
+  &__amount {
+    @extend %amount-font;
+    @extend .db;
+  }
+
+  &__amount-sign {
+    @extend .db;
+    @extend .top-5;
+    @extend %amount-sign-font;
+  }
+}

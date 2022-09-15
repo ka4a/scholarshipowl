@@ -1,0 +1,427 @@
+services:
+    - docker:19.03-dind
+
+variables:
+  DOCKER_DRIVER: overlay2
+  GIT_STRATEGY: fetch
+  CONTAINER_RELEASE_IMAGE: gcr.io/sowl-tech/$CI_PROJECT_PATH/build:$CI_PIPELINE_ID
+  CONTAINER_LATEST_IMAGE: gcr.io/sowl-tech/$CI_PROJECT_PATH/build
+  DOCKER_HOST: tcp://127.0.0.1:2375
+  # Slack configuration
+  APP_SLACK_WEBHOOK: https://hooks.slack.com/services/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
+  #APP_SLACK_CHANNEL: dev-builds
+  APP_SLACK_USERNAME: Gitlab
+  DOCKER_TLS_CERTDIR: ""
+  REPLICAS_COUNT: 1
+  PROD_REPLICAS_COUNT: 3
+  KUBE_INGRESS_HTTPS_SECRET_NAME: dev.scholarshipowl.tech
+  CLOUDSQL_INSTANCE_CONNECTION_NAME: scholarshipowl-1244:europe-west1:sowl-main-db-eu-2
+  KUBE_NAMESPACE: sowl-dev
+  GCE_PROJECT: sowl-tech
+  GCE_CLUSTER_NAME: sowl-tech
+  GCE_ZONE: europe-west1-b
+  URL: https://$CI_COMMIT_REF_SLUG.$KUBE_INGRESS_DOMAIN/
+stages:
+  - prepare
+  - build
+  - build_image
+  - create_database
+  - deploy
+
+.before_script: &before_script_deploy
+  - echo "$GCE_JSON_KEY" > ${HOME}/gcloud-service-key.json
+  - gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
+  - gcloud container clusters get-credentials ${GCE_CLUSTER_NAME} --zone ${GCE_ZONE} --project ${GCE_PROJECT}
+  - export DBNAME="$(echo "${CI_COMMIT_REF_SLUG}" | tr A-Z a-z | sed -e 's/\//_/g' | sed -e 's/-/_/g' | cut -c 1-31)"
+  - export BRANCH="$(echo "${CI_COMMIT_REF_SLUG}" | tr A-Z a-z | sed -e 's/\//-/g' | sed -e 's/_/-/g' | cut -c 1-50)"
+
+.after_script_deploy: &after_script_deploy
+  - export DBNAME="$(echo "${CI_COMMIT_REF_SLUG}" | tr A-Z a-z | sed -e 's/\//_/g' | sed -e 's/-/_/g' | cut -c 1-31)"
+  - |
+    curl -X POST --data-urlencode "payload={\"mrkdwn\": true, \
+    \"channel\": \"#${APP_SLACK_CHANNEL}\", \
+    \"username\": \"${APP_SLACK_USERNAME}\", \
+    \"text\": \"Sowl deployed (*${CI_COMMIT_REF_NAME}*) (DB: *${DBNAME}*) to https://${CI_COMMIT_REF_SLUG}.${KUBE_INGRESS_DOMAIN}/?fset=Default\", \
+    \"icon_emoji\": \":sowl:\"}" \
+    ${APP_SLACK_WEBHOOK}
+
+.after_script_undeploy: &after_script_undeploy
+  - export DBNAME="$(echo "${CI_COMMIT_REF_SLUG}" | tr A-Z a-z | sed -e 's/\//_/g' | sed -e 's/-/_/g' | cut -c 1-31)"
+  - |
+    curl -X POST --data-urlencode "payload={\"mrkdwn\": true, \
+    \"channel\": \"#${APP_SLACK_CHANNEL}\", \
+    \"username\": \"${APP_SLACK_USERNAME}\", \
+    \"text\": \"Sowl environment from (*${CI_COMMIT_REF_NAME}*) in url https://${CI_COMMIT_REF_SLUG}.${KUBE_INGRESS_DOMAIN} sucessfully removed\", \
+    \"icon_emoji\": \":sowl:\"}" \
+    ${APP_SLACK_WEBHOOK}
+
+.drop_db: &drop_db
+  - kubectl -n $KUBE_NAMESPACE delete -f $CI_PROJECT_NAME-k8s-$CI_PIPELINE_ID.yaml --ignore-not-found=true
+  - echo "DROP DATABASE ${DBNAME};" | mysql -h $MYSQL_DEV -u root --password=$MYSQL_DEV_ROOT_PASSWORD
+  - echo "DROP USER IF EXISTS '${DBNAME}'@'%';" | mysql -h $MYSQL_DEV -u root --password=$MYSQL_DEV_ROOT_PASSWORD
+  - echo "FLUSH PRIVILEGES;" | mysql -h $MYSQL_DEV -u root --password=$MYSQL_DEV_ROOT_PASSWORD
+
+.deploy_prod: &deploy_prod
+  variables:
+    GIT_STRATEGY: none
+    KUBE_NAMESPACE: sowl
+    GCE_PROJECT: sowl-tech
+    GCE_CLUSTER_NAME: prod-cluster
+    GCE_ZONE: us-central1-a
+  image: gcr.io/sowl-tech/sowl-dev/kubectl:v.1.0.2-alpine
+  when: manual
+  retry:
+    max: 2
+    when: 
+      - runner_system_failure
+      - stuck_or_timeout_failure
+  needs: [build_backend_stage, build_frontend_stage, render_manifest, build_release_image_stage, create_database]
+  stage: deploy
+  environment:
+    name: production/$CI_COMMIT_REF_NAME
+    url: https://$CI_COMMIT_REF_SLUG.$KUBE_INGRESS_DOMAIN/?fset=Default
+  # only:
+  #   - master
+  except:
+    # - branches
+    # - develop
+    - tags
+  before_script:
+    - echo "$GCE_JSON_KEY" > ${HOME}/gcloud-service-key.json
+    - gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
+    - gcloud container clusters get-credentials ${GCE_CLUSTER_NAME} --zone ${GCE_ZONE} --project ${GCE_PROJECT}
+  script:
+    - kubectl get nodes
+    - kubectl -n $KUBE_NAMESPACE apply -f $CI_PROJECT_NAME-k8s-$CI_PIPELINE_ID-prod.yaml --dry-run
+    - kubectl -n $KUBE_NAMESPACE apply -f $CI_PROJECT_NAME-k8s-$CI_PIPELINE_ID-prod.yaml
+  after_script:
+    - export DBNAME="$(echo "${CI_COMMIT_REF_SLUG}" | tr A-Z a-z | sed -e 's/\//_/g' | sed -e 's/-/_/g' | cut -c 1-31)"
+    - |
+      curl -X POST --data-urlencode "payload={\"mrkdwn\": true, \
+      \"channel\": \"#${APP_SLACK_CHANNEL}\", \
+      \"username\": \"${APP_SLACK_USERNAME}\", \
+      \"text\": \"Sowl deployed (*${CI_COMMIT_REF_NAME}*) to namespace ${KUBE_NAMESPACE}\", \
+      \"icon_emoji\": \":sowl:\"}" \
+      ${APP_SLACK_WEBHOOK}
+
+unit_test:
+  image: registry.gitlab.com/scholarshipowl/scholarshipowl/sowl_ci_app:latest
+  stage: prepare
+  allow_failure: true
+  except:
+    - tags 
+  services:
+      - name: mysql:5.7
+        alias: mysql_testing
+  variables:
+    DOCKER_DRIVER: overlay2
+    APP_ENV: testing
+    # Configure mysql environment variables (https://hub.docker.com/r/_/mysql/)
+    MYSQL_USER: testing_sowl
+    MYSQL_PASSWORD: secret
+    MYSQL_DATABASE: testing_sowl
+    MYSQL_ROOT_PASSWORD: secret
+    DB_HOST: 127.0.0.1
+  cache: &global_cache
+    untracked: false
+    policy: pull-push
+    key: ${CI_COMMIT_REF_NAME}-${CI_BUILD_NAME}
+    paths:
+    - vendor/  
+  script:
+    - cp .env.testing .env
+    - bash tests/scripts/testing_sowl.sh --host=127.0.0.1
+    - rm -rf bootstrap/cache/*
+    - composer install --no-scripts
+    - vendor/bin/phpunit --configuration phpunit.gitlab.xml --colors
+
+prepare_db:
+  image: gcr.io/sowl-tech/sowl-dev/mysql-dumper:v.1.0.2
+  retry:
+    max: 2
+    when: 
+      - runner_system_failure
+      - stuck_or_timeout_failure
+  stage: prepare
+  environment: Build
+  except:
+    - tags 
+  before_script:
+    - echo "$GCE_JSON_KEY" > ${HOME}/gcloud-service-key.json
+    - gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
+  script:
+    - gsutil cp gs://db-production-dump/productionDump.sql ./dump.sql
+  artifacts:
+    when: always
+    paths:
+    - dump.sql
+    expire_in: 3 month
+
+build_backend_stage: 
+  image: gcr.io/sowl-tech/sowl-dev/php-builder:v.7.3.10
+  retry:
+    max: 2
+    when: 
+      - runner_system_failure
+      - stuck_or_timeout_failure
+  needs: [prepare_db]
+  stage: build
+  services:
+      - name: mysql:5.7
+        alias: mysql_building
+  environment: Build
+  variables:
+    APP_ENV: build
+    MYSQL_USER: build_sowl
+    MYSQL_PASSWORD: secret
+    MYSQL_DATABASE: build_sowl
+    MYSQL_ROOT_PASSWORD: secret
+    DB_HOST: 127.0.0.1
+  except:
+    - tags    
+  before_script:
+    - echo "$ENV_BUILD" > .env
+  script:
+    - echo "CREATE DATABASE IF NOT EXISTS ${MYSQL_DATABASE};" | mysql -h $DB_HOST -u root --password=$MYSQL_ROOT_PASSWORD
+    - mysql -h $DB_HOST  -u root --password=$MYSQL_ROOT_PASSWORD ${MYSQL_DATABASE} < dump.sql  
+    - composer install --no-scripts
+    - composer install
+  artifacts:
+    when: always
+    paths:
+    - vendor/
+    - storage/
+    - bootstrap/
+    expire_in: 1 month
+  cache:
+    # inherit all global cache settings
+    <<: *global_cache 
+
+
+build_frontend_stage:
+  image: node:8.16.2-alpine
+  retry:
+    max: 2
+    when: 
+      - runner_system_failure
+      - stuck_or_timeout_failure
+  needs: [prepare_db]
+  stage: build
+  environment: Build
+  except:
+    - tags
+  script:
+    - yarn
+    - ./node_modules/.bin/gulp icon-font && ./node_modules/.bin/gulp sass && yarn build && yarn assets:all
+  artifacts:
+    when: always
+    paths:
+    - public/
+    - resources/
+    expire_in: 1 month
+  cache:
+    # inherit all global cache settings
+    <<: *global_cache
+    # override the policy
+    paths:
+    - node_modules/
+
+render_manifest:
+  image: gcr.io/sowl-tech/sowl-dev/kubectl:v.1.0.2-alpine
+  retry:
+    max: 2
+    when: 
+      - runner_system_failure
+      - stuck_or_timeout_failure
+  needs: [build_backend_stage, build_frontend_stage, prepare_db]
+  stage: build_image
+  environment: Build
+  except:
+    - tags
+  before_script:
+    - export DBNAME="$(echo "${CI_COMMIT_REF_SLUG}" | tr A-Z a-z | sed -e 's/\//_/g' | sed -e 's/-/_/g' | cut -c 1-31)"
+    - export BRANCH="$(echo "${CI_COMMIT_REF_SLUG}" | tr A-Z a-z | sed -e 's/\//-/g' | sed -e 's/_/-/g' | cut -c 1-50)"
+  script:
+    - j2 --format=env ./kube/manifests/$CI_PROJECT_NAME-k8s.j2 -o $CI_PROJECT_NAME-k8s-$CI_PIPELINE_ID.yaml
+    - j2 --format=env ./kube/manifests/$CI_PROJECT_NAME-k8s-prod.j2 -o $CI_PROJECT_NAME-k8s-$CI_PIPELINE_ID-prod.yaml
+    - j2 --format=env ./kube/manifests/scheduler-cronjob-prod.j2 -o scheduler-cronjob-prod.yaml
+  artifacts:
+    when: always
+    paths:
+    - $CI_PROJECT_NAME-k8s-$CI_PIPELINE_ID.yaml
+    - $CI_PROJECT_NAME-k8s-$CI_PIPELINE_ID-prod.yaml
+    - scheduler-cronjob-prod.yaml
+    expire_in: 3 month
+
+build_release_image_stage:
+  image:
+    name: gcr.io/kaniko-project/executor:debug-v0.16.0
+    entrypoint: [""]
+  stage: build_image
+  needs: [build_backend_stage, build_frontend_stage, prepare_db]
+  environment: Build
+  script:
+    - echo "$GCE_JSON_KEY" > ${CI_PROJECT_DIR}/gcloud-service-key.json
+    - export GOOGLE_APPLICATION_CREDENTIALS="${CI_PROJECT_DIR}/gcloud-service-key.json"
+    - /kaniko/executor --cache=true --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile --destination $CONTAINER_RELEASE_IMAGE --destination $CONTAINER_LATEST_IMAGE
+
+create_database:
+  variables:
+    GIT_STRATEGY: none
+  image: gcr.io/sowl-tech/sowl-dev/mysql-dumper:v.1.0.2
+  retry:
+    max: 2
+    when: 
+      - runner_system_failure
+      - stuck_or_timeout_failure
+  needs: [build_backend_stage, build_frontend_stage, render_manifest, build_release_image_stage, prepare_db]
+  stage: create_database
+  environment: Build
+  except:
+    - tags
+  before_script:
+    - export DBNAME="$(echo "${CI_COMMIT_REF_SLUG}" | tr A-Z a-z | sed -e 's/\//_/g' | sed -e 's/-/_/g' | cut -c 1-31)"
+  script:
+    - |
+      DBEXISTS=$(mysql -h $MYSQL_DEV -u root --password=$MYSQL_DEV_ROOT_PASSWORD --batch --skip-column-names -e "SHOW DATABASES LIKE '"$DBNAME"';" | grep "$DBNAME" > /dev/null; echo "$?")
+      if [ $DBEXISTS -eq 0 ];then
+          echo "A database with the name $DBNAME already exists. Skip creation"
+      else
+          echo " database $DBNAME does not exist. Create DB from dump"
+          echo "CREATE DATABASE IF NOT EXISTS ${DBNAME};" | mysql -h $MYSQL_DEV -u root --password=$MYSQL_DEV_ROOT_PASSWORD
+          mysql -h $MYSQL_DEV -u root --password=$MYSQL_DEV_ROOT_PASSWORD ${DBNAME} < dump.sql
+          echo "GRANT ALL PRIVILEGES ON ${DBNAME}.* TO '${DBNAME}'@'%' IDENTIFIED BY '${MYSQL_UNPRIVILEGED_USER_PASSWORD}';" | mysql -h $MYSQL_DEV -u root --password=$MYSQL_DEV_ROOT_PASSWORD
+          echo "FLUSH PRIVILEGES;" | mysql -h $MYSQL_DEV -u root --password=$MYSQL_DEV_ROOT_PASSWORD
+      fi
+
+deploy_review_develop:
+  variables:
+    GIT_STRATEGY: none
+  retry:
+    max: 2
+    when: 
+      - runner_system_failure
+      - stuck_or_timeout_failure
+  needs: [build_backend_stage, build_frontend_stage, render_manifest, build_release_image_stage, create_database]
+  stage: deploy
+  environment:
+    name: develop/$CI_COMMIT_REF_NAME
+    url: https://$CI_COMMIT_REF_SLUG.$KUBE_INGRESS_DOMAIN/?fset=Default
+    on_stop: remove_env_develop
+  only:
+    - develop
+  except:
+    - tags
+  image: gcr.io/sowl-tech/sowl-dev/kubectl:v.1.0.2-alpine
+  before_script: 
+    - *before_script_deploy
+  script:
+    - kubectl -n $KUBE_NAMESPACE apply -f $CI_PROJECT_NAME-k8s-$CI_PIPELINE_ID.yaml
+    - waitup.sh
+  after_script:
+    - *after_script_deploy
+
+remove_env_develop:
+  variables:
+    GIT_STRATEGY: none
+  image: gcr.io/sowl-tech/sowl-dev/kubectl:v.1.0.2-alpine
+  retry:
+    max: 2
+    when: 
+      - runner_system_failure
+      - stuck_or_timeout_failure
+  needs: [build_backend_stage, build_frontend_stage, render_manifest, build_release_image_stage, create_database]
+  stage: deploy
+  before_script: 
+    - *before_script_deploy
+  script:
+    - kubectl -n $KUBE_NAMESPACE delete -f $CI_PROJECT_NAME-k8s-$CI_PIPELINE_ID.yaml --ignore-not-found=true
+    - echo "DROP DATABASE ${DBNAME};" | mysql -h $MYSQL_DEV -u root --password=$MYSQL_DEV_ROOT_PASSWORD
+    - echo "DROP USER IF EXISTS '${DBNAME}'@'%';" | mysql -h $MYSQL_DEV -u root --password=$MYSQL_DEV_ROOT_PASSWORD
+    - echo "FLUSH PRIVILEGES;" | mysql -h $MYSQL_DEV -u root --password=$MYSQL_DEV_ROOT_PASSWORD
+  after_script:
+    - *after_script_undeploy
+  when: manual
+  only:
+    - develop
+  except:
+    - tags
+  environment:
+    name: develop/$CI_COMMIT_REF_NAME
+    action: stop
+
+deploy_review_branches:
+  variables:
+    GIT_STRATEGY: none
+  image: gcr.io/sowl-tech/sowl-dev/kubectl:v.1.0.2-alpine
+  retry:
+    max: 2
+    when: 
+      - runner_system_failure
+      - stuck_or_timeout_failure
+  needs: [build_backend_stage, build_frontend_stage, render_manifest, build_release_image_stage, create_database]
+  stage: deploy
+  environment:
+    name: review/$CI_COMMIT_REF_NAME
+    url: https://$CI_COMMIT_REF_SLUG.$KUBE_INGRESS_DOMAIN/?fset=Default
+    on_stop: remove_env_branches
+  only:
+    - branches
+  except:
+    - develop
+    - tags
+  before_script: 
+    - *before_script_deploy
+  script:
+    - kubectl -n $KUBE_NAMESPACE apply -f $CI_PROJECT_NAME-k8s-$CI_PIPELINE_ID.yaml
+    - waitup.sh
+  after_script:
+    - *before_script_deploy
+
+remove_env_branches:
+  variables:
+    GIT_STRATEGY: none
+  image: gcr.io/sowl-tech/sowl-dev/kubectl:v.1.0.2-alpine
+  retry:
+    max: 2
+    when: 
+      - runner_system_failure
+      - stuck_or_timeout_failure
+  needs: [build_backend_stage, build_frontend_stage, render_manifest, build_release_image_stage, create_database]
+  stage: deploy
+  before_script: 
+    - *before_script_deploy
+  script:
+    - kubectl -n $KUBE_NAMESPACE delete -f $CI_PROJECT_NAME-k8s-$CI_PIPELINE_ID.yaml --ignore-not-found=true
+    - echo "DROP DATABASE ${DBNAME};" | mysql -h $MYSQL_DEV -u root --password=$MYSQL_DEV_ROOT_PASSWORD
+    - echo "DROP USER IF EXISTS '${DBNAME}'@'%';" | mysql -h $MYSQL_DEV -u root --password=$MYSQL_DEV_ROOT_PASSWORD
+    - echo "FLUSH PRIVILEGES;" | mysql -h $MYSQL_DEV -u root --password=$MYSQL_DEV_ROOT_PASSWORD
+  after_script:
+    - *after_script_undeploy
+  when: manual
+  only:
+    - branches
+  except:
+    - develop
+    - tags
+  environment:
+    name: review/$CI_COMMIT_REF_NAME
+    action: stop
+
+deploy_prod_k8s:
+  <<: *deploy_prod
+
+deploy_canary_k8s:
+  <<: *deploy_prod
+  variables:
+    GIT_STRATEGY: none
+    REPLICAS_COUNT: 1
+    KUBE_NAMESPACE: sowl-canary
+    GCE_PROJECT: sowl-tech
+    GCE_CLUSTER_NAME: prod-cluster
+    GCE_ZONE: us-central1-a
+  script:
+    - kubectl get nodes
+    - kubectl -n $KUBE_NAMESPACE apply -f $CI_PROJECT_NAME-k8s-$CI_PIPELINE_ID-prod.yaml --dry-run
+    - kubectl -n $KUBE_NAMESPACE apply -f $CI_PROJECT_NAME-k8s-$CI_PIPELINE_ID-prod.yaml
+    - kubectl -n $KUBE_NAMESPACE apply -f scheduler-cronjob-prod.yaml

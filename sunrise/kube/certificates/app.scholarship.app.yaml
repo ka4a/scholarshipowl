@@ -1,0 +1,18 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: app.scholarship.app
+  namespace: sunrise
+spec:
+  secretName: app.scholarship.app
+  issuerRef:
+    name: sowl-tech-prod
+    kind: ClusterIssuer
+  dnsNames:
+    - app.scholarship.app
+  acme:
+    config:
+    - http01:
+         ingressClass: nginx
+      domains:
+      - app.scholarship.app

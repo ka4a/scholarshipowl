@@ -1,0 +1,151 @@
+openapi: 3.0.0
+servers:
+  - url: 'https://scholarshipowl.com/rest-external/v1/'
+  - url: 'http://localhost:8080/rest-external/v1/'
+info:
+  title: Rest External API
+  description: ScholarshipOWL API for integration with other SOWL or third party services
+  version: '1.0'
+paths:
+  /account-fields:
+    post:
+      tags:
+        - Account-fields
+      summary: Get/update fields for specified accounts
+      description:
+        This endpoint returns accounts and its fields.<br /><br />
+        If the "login_token" field is requested it triggers generation of a new "login_token" for an account.
+        Account may have up to 5 login tokens, further on the oldest
+        of <b>5</b> tokens gets overrided. Token lifetime is configured in https://scholarshipowl.com/admin/website/settings
+        under the "Register" section.<br /><br />
+        Maximum number of accounts per request - <b>1000</b>.<br /><br />
+        If some of requested accounts were not found the are excluded from the response.
+      operationId: account-fields.get
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accounts:
+                  description: Array of account_id to get fields for. Max number of accounts is 1000.
+                  type: array
+                  items:
+                    type: integer
+                    format: int32
+                  example: [3456732, 125932, 3323451]
+                fields:
+                  description: Array of account-fields to return. If not specifued, then all fields will be included.
+                  type: array
+                  items:
+                    type: string
+                  example: ['login_token', 'scholarship_eligible_count']
+              required:
+                - accounts
+      responses:
+        '200':
+          description: Array of accounts and its fields
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  data:
+                    type: object
+                    additionalProperties:
+                      type: string
+                    example:
+                      3456732: {"login_token": "1562280007f00537eb7a", "scholarship_eligible_count": 25}
+                      3323451: {"login_token": "1574a78183f27a0a8c61", "scholarship_eligible_count": 42}
+
+        '400':
+          description: Bad request.
+        '401':
+          description: Unauthorized. Invalid API key.
+    get:
+      tags:
+        - Account-fields
+      summary: Get list of available account-fields
+      operationId: account-fields.list
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: Array of available account fields
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  data:
+                    type: array
+                    items:
+                      type: string
+                    example: ["login_token", "scholarship_eligible_count", "first_name"]
+
+
+        '401':
+          description: Unauthorized. Invalid API key.
+
+security:
+  - ApiKeyAuth: []
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-KEY
+
+  requestBodies:
+    application.file.update:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              accountFileId:
+                description: 'REQUIRED if [file] not presented. Id of already existing file.'
+                type: integer
+              file:
+                description: 'Binary file. REQUIRED if [accountFileId] not presented.'
+                type: string
+                format: binary
+            required:
+              - accountFileId
+              - file
+
+    application.essay.store:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              requirementTextId:
+                description: Requirement text id
+                type: integer
+              accountFileId:
+                description: >-
+                  REQUIRED if [file,text] not presented. Id of already existing
+                  file
+                type: integer
+              file:
+                description: 'REQUIRED if [accountFileId,text] not presented.File'
+                type: string
+                format: binary
+              text:
+                description: 'REQUIRED if [file,accountFileId] not presented.Essay text'
+                type: string
+            required:
+              - requirementTextId
+  schemas:
+
+  responses:
+

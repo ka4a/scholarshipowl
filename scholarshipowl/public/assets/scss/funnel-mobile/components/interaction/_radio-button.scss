@@ -1,0 +1,48 @@
+.radio-fm {
+  $size: 20px;
+
+  @extend %padding-reset;
+  @extend %margin-reset;
+  display: inline-flex;
+  align-items: center;
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  &__radio {
+    box-sizing: border-box;
+    width: $size;
+    height: $size;
+    display: inline-block;
+    border-radius: 50%;
+    border: solid 3px $light-darken;
+    cursor: pointer;
+    position: relative;
+
+    &:before {
+      position: absolute;
+      content: '';
+      top: 3px; left: 3px;
+      width: 0;
+      height: 8px;
+      border-radius: 50%;
+      background-color: $blue;
+      transition: all 300ms;
+    }
+  }
+
+  &__label {
+    @extend %text;
+    text-transform: capitalize;
+    padding-left: 10px;
+  }
+
+  input:checked ~ &__radio {
+    border-color: $blue;
+
+    &:before {
+      width: 8px;
+    }
+  }
+}

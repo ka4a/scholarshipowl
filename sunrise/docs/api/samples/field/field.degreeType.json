@@ -1,0 +1,22 @@
+{
+  "data": {
+    "type": "field",
+    "id": "degreeType",
+    "attributes": {
+      "name": "Degree type",
+      "type": "option",
+      "options": {
+        "1": "Undecided",
+        "2": "Certificate",
+        "3": "Associate's Degree",
+        "4": "Bachelor's Degree",
+        "5": "Graduate Certificate",
+        "6": "Master's Degree",
+        "7": "Doctoral (Ph.D.)"
+      }
+    },
+    "links": {
+      "self": "/field/degreeType"
+    }
+  }
+}

@@ -1,0 +1,93 @@
+// <768px
+.Section {
+    padding: 60px 0;
+
+    figure img {
+        width: 100%;
+        height: 100%;
+    }
+
+    &--light {
+        background-color: $brand-light-primary;
+    }
+
+    &--light-secondary {
+        background-color: $brand-light-secondary;
+    }
+
+    &--primary {
+        background-color: $brand-primary;
+
+        .Section__main-title {
+            color: $brand-light-primary;
+        }
+    }
+
+    &--primary-darker {
+        background-color: $brand-primary-darker;
+
+        .Section__main-title {
+            color: $brand-light-primary;
+        }
+    }
+
+    &--dark {
+        background-color: $brand-dark-primary;
+    }
+
+    &--border-top-contrast {
+        border-top: 4px solid $brand-light-primary;
+    }
+
+    &--no-border {
+        border: none;
+    }
+
+    &--border-bottom-none {
+        border-bottom: none;
+    }
+
+    &__main-title {
+        font-size: $font-size-base + 12;
+        padding-bottom: 20px;
+    }
+
+    &__title {
+        font-weight: bold;
+        font-size: 32px;
+    }
+
+    &--inner {
+        margin: 40px 0;
+    }
+
+    &__call {
+        font-size: 22px;
+    }
+
+    &--contrast {
+        background-color: $brand-light-primary;
+        color: $brand-light-primary;
+    }
+
+}
+
+
+// >= 768px
+@media(min-width:768px) {
+    .Section {
+        &__main-title {
+            font-size: $font-size-base + 12;
+        }
+    }
+}
+
+
+// >= 992px
+@media(min-width:992px) {
+}
+
+
+// >= 1200px
+@media(min-width:1200px) {
+}

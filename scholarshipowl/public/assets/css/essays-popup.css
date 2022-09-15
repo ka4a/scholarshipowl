@@ -1,0 +1,348 @@
+/* -- list view --*/
+
+.essay-popup-wrapper {
+    border: 10px solid #9DBBE6;
+}
+
+#essay-popup.modal.in .modal-dialog {
+    margin-top: 66px;
+}
+
+.essay-popup-wrapper.modal-dialog {
+    width: 100%;
+    margin: 0;
+}
+@media (min-width: 768px) {
+    .essay-popup-wrapper.modal-dialog {
+        width: 708px;
+        margin: 0 auto;
+    }
+}
+@media (min-width: 992px) {
+    .essay-popup-wrapper.modal-dialog {
+        width: 992px;
+    }
+}
+
+.essay-popup-wrapper .panel {
+    border: none;
+    border-radius: 0;
+    margin-bottom: 0;
+    padding: 15px;
+}
+
+.essay-popup-wrapper .panel-heading,
+.essay-popup-wrapper .panel-body {
+    background-color: #fff;
+    border: none;
+}
+
+.essay-popup-wrapper .panel-body {
+    margin-top: -20px;
+}
+
+.essay-popup-wrapper textarea {
+    min-height: 150px;
+}
+
+.essay-popup-wrapper .panel-heading-menu {
+    color: #999;
+    font-size: 11px;
+}
+
+.essay-popup-wrapper .panel-heading-menu > ul > li:nth-child(2) {
+    padding-left: 20px;
+}
+
+.essay-popup-wrapper .panel-heading-menu > ul > li:nth-child(n+2) {
+    font-size: 1.1em;
+}
+
+.essay-popup-wrapper .panel-heading-menu > ul > li:nth-child(n+2) > a {
+    display: inline-block;
+    padding: 5px;
+}
+
+.essay-popup-wrapper .panel-heading-menu > ul > li > a:active,
+.essay-popup-wrapper .panel-heading-menu > ul > li > a:focus {
+    background-color: #4e8eec;
+    border-radius: 3px;
+    color: #fff;
+}
+
+.essay-popup-wrapper .panel-body p {
+    font-size: .8em;
+    color: #4a5d77;
+    margin-bottom: 15px;
+}
+
+.essay-popup-wrapper .panel-body p#essay-description {
+	font-size:0.95em;
+}
+
+.essay-popup-wrapper .panel h4 {
+    color: #7fadf2;
+    font-weight: 400;
+    font-size: 28px;
+}
+
+.essay-popup-wrapper .panel a:hover,
+.essay-popup-wrapper .panel a:active,
+.essay-popup-wrapper .panel a:focus,
+.essay-popup-wrapper .panel a:visited {
+    text-decoration: none;
+}
+
+.essay-popup-wrapper .panel .subtitle {
+    font: 300 13px/1.2 'Open Sans', 'OpenSansLight';
+    color: #7FADF2;
+    margin-top: 5px;
+    margin-bottom: -5px;
+}
+
+.deadline {
+    margin-top: 15px;
+}
+
+.words-count {
+    text-align: right;
+    float: right;
+}
+
+@media screen and (max-width: 768px) {
+    .deadline, .words-count {
+        text-align: left;
+    }
+    .words-count {
+        float: left;
+    }
+
+}
+
+    /* Write / Upload */
+
+.essay-popup-wrapper .write-upload {
+    color: #999;
+    font-size: 1.1em;
+    margin-top: 5px;
+}
+
+.essay-popup-wrapper .write-upload .glyphicon {
+    color: #7fadf2;
+}
+
+.essay-popup-wrapper .write-upload ul {
+    margin-bottom: 0;
+}
+
+.essay-popup-wrapper .write-upload .goals {
+    font-size: .9em;
+    margin-top: 19px;
+}
+@media (min-width: 768px) {
+    .essay-popup-wrapper .write-upload .goals {
+        font-size: 1.1em;
+    }
+}
+
+.essay-popup-wrapper .write-upload .write-upload-buttons {
+    margin-top: 15px;
+}
+
+.essay-popup-wrapper .write-upload .write-upload-buttons li {
+    line-height: 2.3;
+}
+
+.essay-popup-wrapper .listView .write-upload ul {
+    color: dimgrey;
+    font: .9em/1 'Open Sans';
+}
+
+.essay-popup-wrapper .listView .list-inline {
+    padding-right: 0;
+}
+
+.essay-popup-wrapper .listView .write-upload a > ul > li:nth-child(-n+2) {
+    margin-right: 10px;
+}
+
+.essay-popup-wrapper .listView .write-upload > li > ul {
+    padding: 10px 0 10px 15px;
+}
+
+.essay-popup-wrapper .write-upload-buttons li:nth-child(-n+3) .glyphicon {
+    margin-right: 5px;
+    font-size: 1.2em;
+    position: relative;
+    top: 3px;
+}
+
+.essay-popup-wrapper .write-upload-buttons .glyphicon {
+    font-size: 2em;
+    line-height: .5em;
+    position: relative;
+    top: 10px;
+}
+
+.essay-popup-wrapper .write-upload-buttons li:first-child {
+    width: 100%;
+}
+@media (min-width: 768px) {
+    .essay-popup-wrapper .write-upload-buttons li:first-child {
+        width: auto;
+    }
+}
+
+.essay-popup-wrapper .write-upload-buttons .number {
+    color: #000;
+    font-size: 1.4em;
+    font-weight: 400;
+    line-height: 1;
+    position: relative;
+    top: 5px;
+}
+@media (min-width: 640px) {
+    .essay-popup-wrapper .write-upload-buttons .number {
+        top: 2px;
+    }
+}
+@media (min-width: 768px) {
+    .essay-popup-wrapper .write-upload-buttons .number {
+        position: static;
+    }
+}
+
+/* Dotted divider */
+
+.dot-divider {
+    width: 100%;
+    overflow: hidden;
+}
+
+.dot-divider span::before {
+    color: #cfcfcf;
+    float: left;
+    font-size: .6em;
+    letter-spacing: .2em;
+    line-height: 3;
+    width: 0;
+    white-space: nowrap;
+	content: '• • • • • • • • • • • • • • • • • • • •'
+        ' • • • • • • • • • • • • • • • • • • • •'
+        ' • • • • • • • • • • • • • • • • • • • •'
+        ' • • • • • • • • • • • • • • • • • • • •'
+        ' • • • • • • • • • • • • • • • • • • • •'
+        ' • • • • • • • • •';
+}
+
+
+/* Write footer */
+
+.essay-popup-wrapper .write-footer {
+    min-height: 50px;
+    margin-top: 20px;
+}
+
+.essay-popup-wrapper .write-footer > .col-sm-9 {
+    padding-top: 7.5px;
+}
+
+.essay-popup-wrapper .write-footer > .col-sm-9 > .row > .col-sm-9 {
+    padding-top: 7px;
+}
+
+.essay-popup-wrapper .write-footer ul {
+    margin-bottom: 0;
+    line-height: 1;
+    font-size: .8em;
+}
+
+.essay-popup-wrapper .done .glyphicon {
+    color: dimgray;
+    border: solid 3px #b0d0ff;
+    padding: 2px;
+    margin-left: 5px;
+}
+
+.essayFinishedLab {
+	margin-top:10px;
+}
+
+.saveSubmitBtns div {
+    margin-bottom:10px;
+}
+
+#essay-button button {
+	padding:2px 51px;
+}
+
+#submitEssayNow button {
+	padding:2px 41px;
+}
+
+.wordCountLabel {
+    margin-bottom: 10px;
+    overflow: auto;
+    float: left;
+}
+
+.saveSubmitBtns {
+    float: right;
+}
+
+#essay-button {
+    margin-right: 20px;
+}
+
+.uploadVsWrite {
+    margin-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #4e8eec;
+}
+.uploadVsWrite button {
+    padding: 0 10px;
+}
+
+.addGrid .uploadFile {
+    margin-top: 0;
+}
+
+.uploadVsWrite input[type=radio] {
+    margin-left: 0;
+    cursor: pointer;
+}
+
+.hideThis {
+    display: none;
+}
+.top-row-upload {
+    margin-bottom: 20px;
+}
+.top-row-upload input[type=text] {
+    height: 32px;
+    border-width: 2px;
+    background-color: #fbfcfd;
+}
+
+.pushDown20 {
+    margin-bottom: 20px;
+}
+
+.chooseButtonCont {
+    float: right;
+}
+
+.AttachFileToEssay, .DetachFileFromEssay {
+    background-color: #888;
+    border: none;
+    color: #fff;
+    border-radius: 2px;
+}
+.markedFile a {
+    color:#3a3a3a;
+}
+
+.writeOrUpload {
+    margin: 3px 10px 0 10px;
+}

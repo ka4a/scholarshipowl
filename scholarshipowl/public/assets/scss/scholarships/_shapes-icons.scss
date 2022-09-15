@@ -1,0 +1,22 @@
+// toggle indicator
+.toggle-indicator {
+  display: inline-block;
+  @include angle(bottom, 5px, black);
+}
+
+// status indicator
+.status-indicator {
+  @include circle(14px, #6FA5FF);
+
+  &.s0 {
+    @include circle(14px, white, #d8d8d8);
+  }
+
+  &.s2 {
+    @include circle(14px, #F08424);//#fbbe20);
+  }
+
+  &.s3 {
+    @include circle(14px, #6FCF97);
+  }
+}

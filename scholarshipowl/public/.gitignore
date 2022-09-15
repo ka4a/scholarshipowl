@@ -1,0 +1,4 @@
+assets/css/build/*.css
+assets/css/build/*.css.map
+assets/js/build/*.js
+assets/js/build/*.js.map

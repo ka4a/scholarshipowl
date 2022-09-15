@@ -1,0 +1,16 @@
+# Use config map for not-secret configuration data
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.app }}-env-configmap
+  labels:
+    app: {{ .Values.app }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+data:
+  APP_URL: https://{{ index .Values.ingress.hosts 0 }}
+  APP_DOMAIN: {{ index .Values.ingress.hosts 0 }}
+  DB_HOST: {{ .Values.app }}-mysql
+  REDIS_HOST: {{ .Values.app }}-redis-master

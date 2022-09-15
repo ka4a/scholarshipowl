@@ -1,0 +1,39 @@
+type: object
+properties:
+  emailId:
+    type: integer
+  scholarshipId:
+    type: integer
+  subject:
+    type: string
+  description:
+    type: string
+  body:
+    type: string
+  sender:
+    type: string
+    example: BarbizonUSA@barbizonmodeling.com
+  senderName:
+    type: string
+    example: Barbizon USA
+  recipient:
+    type: string
+    example: test@gmail.com
+  date:
+    type: array
+    items:
+      $ref: "DateObject.yml"
+  folder:
+    type: string
+    enum:
+      - Inbox
+      - Sent
+  isRead:
+    type: boolean
+  messageId:
+    type: integer
+    example: <d2d8cda14a7a6b73f06e1bbb0115c398@swift.generated>
+  clearBody:
+    type: string
+
+

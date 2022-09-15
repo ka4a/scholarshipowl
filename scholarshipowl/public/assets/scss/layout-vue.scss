@@ -1,0 +1,46 @@
+// imports
+// TODO remove dependencies
+// global
+@import '../../../node_modules/breakpoint-sass/stylesheets/breakpoint';
+// @import './main/meta/reset';
+@import './main/meta/variables';
+@import './main/meta/palette';
+@import './main/meta/helpers';
+@import './icon-font';
+
+// style gide
+// @import './style-gide/buttons';
+// @import './main/controls-elements';
+
+// pages
+// @import './updated/layout/404';
+@import './LP/landing-page-bouble-promotion';
+
+// mobile registration
+// @import './funnel-mobile/meta';
+// @import './current/components/switch';
+// @import './funnel-mobile/components/interaction/radio-button';
+// @import './funnel-mobile/layout/header';
+// @import './funnel-mobile/layout/register';
+// @import './funnel-mobile/layout/registr2';
+// @import './funnel-mobile/layout/register3';
+
+// resets, tricks, etc.
+link[src*="//scholarship.go2cloud.org"],
+img[src*="//scholarship.go2cloud.org"],
+iframe[src*="https://scholarship.go2cloud.org"],
+iframe[name=google_conversion_frame] {
+  width: 0 !important;
+  height: 0 !important;
+  float: left !important;
+}
+
+// base layout for all app
+
+html, body, .app {
+  height: 100%;
+}
+
+html, body {
+  font-family: "Open Sans", sans;
+}

@@ -1,0 +1,623 @@
+table {
+    border-collapse: collapse;
+}
+
+#myAppsTable table {
+    width:100%;
+}
+
+.fixed-table-body {
+    padding-bottom: 15px;
+}
+#scholarshipLimitError.table-cell {
+    padding: 10% 0;
+}
+
+#scholarshipLimitError .note {
+    display: inline-block;
+    background-color: #4e8eec;
+    color: #fff;
+    padding: 4% 5%;
+    line-height: 1.6;
+    margin: 10% 0 25% -4%;
+    font-size: .96em;
+    width: 185%;
+}
+
+#scholarshipLimitError a {
+    display: block;
+    text-decoration: underline;
+}
+
+input[type='checkbox'] + .lbl {
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+}
+thead input[type="checkbox"],
+thead input[type='checkbox'] + .lbl {
+    position: absolute;
+    left: 0;
+}
+
+/* todo */
+.myApplications .container {
+    margin: -50px auto 10px;
+}
+
+.myApplications .bootstrap-select .caret {
+    border-top-color: #9eb7db;
+}
+
+.myApplications {
+    background-color: #d8e8ff;
+    border-bottom: 1px solid #fbfdff;
+    min-height: 45vh;
+}
+@media (min-width:768px) {
+    .myApplications {
+        min-height: 60vh;
+    }
+}
+
+/* /todo */
+
+.myApplications .reccurent-scholarship strong {
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.myApplications .recurrent-container {
+    display: inline-block;
+}
+
+.myApplications .recurrent-container .tooltip {
+    z-index: 999;
+}
+
+.myApplications .tooltip .tooltip-inner {
+    background-color: #373737;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.17);
+}
+
+.myApplications .tooltip .tooltip-arrow {
+    border-top-color: #373737;
+}
+
+.myApplications .tooltip .tooltip-inner {
+    font-weight: normal;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 8px 10px;
+    text-align: left;
+}
+
+.myApplications .recurrent-icon {
+    color: #3977bb;
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+table .linebreak {
+    display: block;
+}
+
+@-moz-document url-prefix() {
+    fieldset {
+        display: table-cell;
+    }
+}
+
+.InfoTable p {
+    margin-top: 1em;
+}
+
+/*==========  min 360 max 480  ==========*/
+
+@media (min-width: 360px) and (max-width: 480px) {
+    #scholarshipLimitError .note {
+        width: 160%;
+    }
+}
+
+/*==========  min 480  ==========*/
+
+@media (min-width: 480px) {
+    #scholarshipLimitError .note {
+        font-size: 1em;
+        margin: 3% 0 8% 17%;
+        width: 100%;
+    }
+    #scholarshipLimitError .free .note {
+        width: auto;
+        max-width: 70%;
+        padding: 1% 2%;
+        margin: 0 auto 10px;
+    }
+}
+
+/*==========  min 768  ==========*/
+
+@media (min-width: 768px) {
+    #scholarshipLimitError .free .note {
+        margin-bottom: 20px;
+    }
+}
+
+
+.table-condensed {
+    width: 100%;
+}
+
+.fixed-table-container {
+    border: none;
+}
+
+.myAppsTable {
+    margin-bottom: 20px;
+}
+
+.tableSection {
+    position: relative;
+}
+
+.tableHead-bg {
+    height: 50px;
+    left: 0;
+    right: 0;
+}
+
+.fixed-table-loading {
+    display: none;
+}
+.sortable {
+    position: relative;
+}
+.sortable .order {
+    position: absolute;
+    left: 0;
+    height: 35px;
+    top: -16px;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+}
+
+table > thead > tr > th,
+table th[class*='col-'] {
+    border-left: solid 1px #9fc5ff;
+    border-bottom: none;
+    color: #4e8eec;
+    font: 400 13px/1.2 'Open Sans', sans-serif;
+    vertical-align: middle;
+    height: 50px;
+    padding: 0;
+}
+
+.mod-th-first-child {
+    min-width: 68px;
+    padding-right: 0;
+    padding-left:0;
+}
+
+.mod-th-second-child {
+    max-width: 110px !important;
+}
+
+.mod-th-last-child {
+    border-right: 1px solid #9FC5FF;
+}
+
+table, th, td,
+.selected td {
+    font: 13px/1.2 'Open Sans', sans-serif;
+    vertical-align: middle;
+}
+
+th:nth-child(n+2),
+td:nth-child(n+2) {
+    padding: .8em 0 .2em .5em;
+}
+@media (min-width:768px) {
+    th:nth-child(n+2),
+    td:nth-child(n+2) {
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+}
+
+
+.mod-th-checkbox,
+.mod-td-checkbox {
+    position: relative;
+}
+
+@media (max-width:479px) {
+    .mod-th-toc,
+    .mod-td-toc,
+    .mod-th-essay,
+    .mod-td-essay {
+        display: none !important;
+    }
+}
+
+@media (max-width:639px) {
+    .mod-td-toc,
+    .mod-td-essay {
+        font-size: 85%;
+        padding-left: 1.2em !important;
+    }
+}
+
+.mod-td-ammount {
+    text-align: right;
+    padding-right: .8em !important;
+    padding-left: .1em;
+}
+
+.selected .table > tbody > tr > td,
+.selected td,
+.table > tbody > tr > td,
+.table-condensed > tbody > tr > td,
+.table-condensed > tbody > tr > td:active,
+.table-condensed > tbody > tr > td:focus {
+    padding: 5px !important;
+    line-height: 1.2;
+    border: 0;
+}
+
+.table > tbody > tr > td.left-padd-eq-td {
+    padding-left:12px !important;
+}
+
+table {
+    border-spacing: 0;
+}
+
+.table-hover > tbody > tr:hover {
+    background-color: #c3dbfc;
+}
+
+
+.clickable td {
+    border: 0 solid transparent;
+}
+
+.collapsed-row td {
+    color: #666;
+    background-color: #eff5fc;
+    border-top: solid 1px #9fc5ff;
+    border-right-width: 0;
+    border-right-color: transparent;
+    border-bottom: none;
+    border-left-width: 0;
+    border-left-color: transparent;
+    font-size: 95%;
+    padding: 8px;
+}
+
+table input[type='checkbox'] {
+    opacity: 0;
+    /*position: relative;*/
+}
+table input[type='checkbox'],
+table input[type=checkbox]+.lbl {
+    height: 100%;
+    line-height: 1;
+    min-height: 40px;
+    margin-top: 0;
+    width: 100%;
+    padding-top:.78em;
+    top:auto;
+}
+
+thead .bs-checkbox input[type='checkbox'] {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+tbody .bs-checkbox input[type='checkbox'] {
+    width: 100%;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(50%);
+       -moz-transform: translateY(50%);
+        -ms-transform: translateY(50%);
+         -o-transform: translateY(50%);
+            transform: translateY(50%);
+}
+
+/*==========  min 768  ==========*/
+
+@media (min-width: 768px) {
+    .sortable .order {
+        height: 50px;
+        top: -8px;
+    }
+    .table > thead > tr > th {
+        height: 50px;
+    }
+}
+
+
+/*===============================
+=            Buttons            =
+===============================*/
+
+.submit-selected-apps,
+.buttonsWrapper div {
+    border-right: solid 1px transparent;
+    border-left: solid 1px transparent;
+}
+
+.myAppsButtons .btn,
+.myAppsButtons .btn:hover,
+.myAppsButtons .btn:active,
+.myAppsButtons .btn:focus,
+.myAppsButtons .btn:active:focus,
+.myAppsButtons .btn.active:focus {
+    line-height: 1.48;
+    font-size: 64%;
+    border-radius: 5px;
+    padding: 6% 2%;
+}
+
+.myAppsButtons .checkAllWrapper .btn-block + .btn-block,
+.myAppsButtons .checkAllWrapper {
+    margin: 0 auto;
+    height: auto;
+}
+
+.submit-selected-apps button,
+.submit-selected-apps .btn,
+.submit-selected-apps .btn:hover,
+.submit-selected-apps .btn:active,
+.submit-selected-apps .btn:focus,
+.submit-selected-apps .btn:active:focus,
+.submit-selected-apps .btn.active:focus {
+    font-size: 110%;
+    line-height: 1.48;
+    padding: 4% 2%;
+}
+
+.myAppsButtons {
+    margin-bottom:25px;
+}
+
+/*==========  min 480  ==========*/
+
+@media (min-width: 480px) {
+    .myAppsButtons .btn,
+    .myAppsButtons .btn:hover,
+    .myAppsButtons .btn:active,
+    .myAppsButtons .btn:focus,
+    .myAppsButtons .btn:active:focus,
+    .myAppsButtons .btn.active:focus {
+        font-size: 100%;
+    }
+    .submit-selected-apps .btn,
+    .submit-selected-apps .btn:hover,
+    .submit-selected-apps .btn:active,
+    .submit-selected-apps .btn:focus,
+    .submit-selected-apps .btn:active:focus,
+    .submit-selected-apps .btn.active:focus {
+        line-height: 1;
+        font-size: 1.8em;
+        padding: 3%;
+    }
+}
+
+
+/*==========  max 768  ==========*/
+
+@media (max-width: 767px) {
+    .myAppsButtons [class^="col-xs"].remove-selected-apps {
+        padding-right: 0;
+    }
+    .myAppsButtons [class^="col-xs"].get-more-scholarships {
+        padding-right: 7px;
+        padding-left: 7px;
+    }
+    .myAppsButtons [class^="col-xs"].back-to-my-account {
+        padding-left: 0;
+    }
+
+    .submit-selected-apps {
+        margin: 0 auto 7px;
+    }
+
+    .submit-selected-apps button {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .myApplications .recurrent-expl {
+        width: 20px;
+        height: 20px;
+        font-size: 14px;
+        vertical-align: baseline;
+    }
+}
+
+/*==========  min 768  ==========*/
+
+@media (min-width:768px) {
+    .submit-selected-apps .linebreak {
+        display: block;
+    }
+    .submit-selected-apps,
+    .buttonsWrapper div {
+        border-right: 5px solid transparent;
+        border-left: 5px solid transparent;
+    }
+    .submit-selected-apps .btn,
+    .submit-selected-apps .btn:hover,
+    .submit-selected-apps .btn:active,
+    .submit-selected-apps .btn:focus,
+    .submit-selected-apps .btn:active:focus,
+    .submit-selected-apps .btn.active:focus {
+        padding: 6% 2%;
+        line-height: 1.48;
+        font-size: 100%;
+    }
+}
+
+/*==========  min 992  ==========*/
+
+@media (min-width: 992px) {
+    .myAppsButtons .btn,
+    .myAppsButtons .btn:hover,
+    .myAppsButtons .btn:active,
+    .myAppsButtons .btn:focus,
+    .myAppsButtons .btn:active:focus,
+    .myAppsButtons .btn.active:focus {
+        font-size: 120%;
+        padding: 6% 2%;
+    }
+}
+
+
+/*-----  End of Buttons  ------*/
+
+
+/*==========  Table Sorter  ==========*/
+
+.mod-th-title {
+    text-align: left;
+}
+
+.mod-th-title > div {
+    display: inline-block;
+}
+
+.field-title {
+    display: inline-block;
+    text-align: left;
+}
+
+.field-title-wrp {
+    text-align: left;
+    margin-left: 15px;
+}
+
+.title-center {
+}
+
+.mod-field-title {
+    height:50px;
+    position: relative;
+}
+
+.left-padd-th.title-center,
+.field-title.text-center {
+    padding:0;
+    float:inherit;
+}
+
+table.tablesorter .dropdown .caret,
+table.tablesorter .dropup .caret {
+    display:none;
+}
+
+th.tablesorter-headerAsc .dropdown .caret,
+th.tablesorter-headerDesc .dropup .caret {
+    display:inline-block;
+}
+
+th.tablesorter-headerUnSorted .dropdown span,
+th.tablesorter-headerUnSorted .dropup span {
+    display:none;
+}
+
+.tablesorter-header-inner .dropup {
+    float:left;
+}
+
+.tablesorter input[type=checkbox]:checked,
+.tablesorter input[type=radio]:checked,
+.tablesorter input[type=checkbox]:focus,
+.tablesorter input[type=radio]:focus {
+    vertical-align:initial;
+}
+
+
+table.tablesorter th {
+    cursor:pointer;
+}
+
+th:focus {
+    outline:none;
+}
+
+.blended-cb {
+    top:10px;
+}
+
+.sortDate {
+    padding:0;
+    text-align:center;
+}
+
+.applicationStatus {
+    text-align:center;
+}
+
+.amount {
+    text-align:right;
+    padding-right:0;
+}
+
+/*-----  End of Table Sorter  ------*/
+
+.tablesorter-childRow {
+    background:#f3f8ff;
+}
+.tablesorter-childRow td {
+    display: none;
+    padding:20px 19px 20px 12px;
+}
+
+.tablesorter-childRow td.expanded-row {
+    padding:20px 0;
+}
+
+#myAppsTable table thead,
+#reviewScholarshipsTable table thead {
+    border-right: 1px solid #9FC5FF;
+}
+
+.tablesorter-childRow td.expanded-row p,
+.tablesorter-childRow td.expanded-row h4 {
+    padding:0 12px;
+}
+
+.expanded-row {
+    vertical-align:top;
+}
+
+.expanded-row a,
+.expanded-row h4 {
+    font-size:14px;
+    margin-top:0;
+    word-break:break-all;
+}
+
+.text-black {
+    color: #333;
+}
+
+.padding-bottom-20 {
+    padding: 0 0px 30px 26px;
+}
+
+.tablesorter-headerUnSorted .caret {
+    display: none;
+}
+
+.tablesorter-headerAsc .caret,
+.tablesorter-headerDesc .caret {
+    display: inline-block;
+}

@@ -1,0 +1,141 @@
+.page-header {
+    padding-bottom: 20px;
+}
+#fcAdBlock #clicksnet_fc_listingResults{
+    background: #d8e8ff;
+    width: 992px;
+    font: 12px/1.428 'OpenSansRegular';
+    color: #464646;
+    margin: auto;
+}
+.clicksnet_header div{
+    min-width: 892px !important;
+}
+#fcAdBlock #rptListing_ctl01_adPanel .clicksnet_list-box, #fcAdBlock .clicksnet_fc_list_box{
+    width: 892px !important;
+}
+#fcAdBlock #clicksnet_fc_listingResults #pnlHeader > div > h3{
+    font: 18px/150% 'OpenSansSemibold' !important;
+    color: #464646;
+}
+#fcAdBlock #clicksnet_fc_listingResults .clicksnet_sp{
+    background: #428bca;
+}
+#fcAdBlock #clicksnet_fc_listingResults .clicksnet_list_item{
+    border-color: #b0d0ff;
+}
+#fcAdBlock #clicksnet_fc_listingResults .clicksnet_list_item:hover{
+    border-color: #428bca;
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(66, 139, 202, 0.75);
+    -moz-box-shadow: 0px 1px 2px 0px rgba(66, 139, 202, 0.75);
+    box-shadow: 0px 1px 2px 0px rgba(66, 139, 202, 0.75);
+    transition: border 0.3s linear 0s, box-shadow 0.3s linear 0s;
+}
+#fcAdBlock #clicksnet_fc_listingResults .clicksnet_headline{
+    font: 18px/150% 'OpenSansSemibold';
+    color: #464646;
+}
+#fcAdBlock #clicksnet_fc_listingResults .clicksnet_list_item ul,  {
+    color: #939da7;
+    font: 12px/1.428 'OpenSansRegular';
+}
+#fcAdBlock #clicksnet_fc_listingResults .clicksnet_list_item .clicksnet_cta,
+#fcAdBlock #clicksnet_fc_listingResults .clicksnet_list_item .clicksnet_cta:hover{
+    background: #f86f41;
+    border:0;
+    font-size: 150%;
+    line-height: 1.2;
+    height: auto;
+    padding: 6% 0;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'OpenSansBold';
+    color: #fff;
+    text-decoration: none;
+}
+#fcAdBlock #clicksnet_fc_listingResults .clicksnet_fc_list_box .clicksnet_fcButton,
+#fcAdBlock #clicksnet_fc_listingResults .clicksnet_fc_list_box .clicksnet_fcButton:hover{
+    background: #f86f41;
+    border:0;
+    font-size: 150%;
+    line-height: 1.2;
+    height: auto;
+    padding: 6% 0;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'OpenSansBold';
+    color: #fff;
+    text-decoration: none;
+}
+#clicksnet_fc_listingResults .clicksnet_fc_list_box .clicksnet_fc_right_box{
+    position: relative;
+}
+#clicksnet_fc_listingResults .clicksnet_fc_list_box .clicksnet_fc_right_box:after {
+    content: "More info";
+    font-size: 150%;
+    line-height: 1.2;
+    height: auto;
+    padding: 6% 0;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'OpenSansBold';
+    color: #fff;
+    text-decoration: none;
+    width: 199px;
+    left: 0;
+    position: absolute;
+}
+#fcAdBlock #clicksnet_fc_listingResults .clicksnet_box1{
+    background: #fff;
+    border:3px solid #b0d0ff;
+}
+#fcAdBlock #clicksnet_fc_listingResults .clicksnet_box1:hover{
+    border:3px solid #428bca;
+}
+ #fcAdBlock #pnlFooter{
+    font: 12px/1.428 'OpenSansRegular';
+    color: #464646;
+}
+#fcAdBlock #clicksnet_fc_listingResults .clicksnet_fc_list_box .clicksnet_fc_title_row{
+    margin-left:0px !important;
+    font: 18px/150% 'OpenSansSemibold';
+    color: #464646;
+    width:100%;
+}
+#fcAdBlock #clicksnet_fc_listingResults .clicksnet_fc_list_box .clicksnet_fc_logo_box{
+    border: 0;
+}
+#fcAdBlock #clicksnet_fc_listingResults .clicksnet_fc_list_box .clicksnet_fc_text_box ul,
+#fcAdBlock #clicksnet_fc_listingResults .clicksnet_fc_list_box:hover .clicksnet_fc_text_box ul{
+    list-style: disc;
+}
+#fcAdBlock #clicksnet_fc_listingResults .clicksnet_fc_list_box .clicksnet_fc_text_box ul li,
+#fcAdBlock #clicksnet_fc_listingResults .clicksnet_fc_list_box:hover .clicksnet_fc_text_box ul li{
+    list-style-position: outside;
+    padding: 0 10px;
+}
+#redirect-popup .modal-dialog{
+    top:50px;
+}
+#redirect-popup .modal-body{
+    background: #F2F5F9 url('../../img/mascot.png') no-repeat;
+    background-size: 30% auto;
+    background-position: 15px 60px;
+    padding-top: 10px;
+    padding-bottom: 40px;
+    min-height: 500px;
+}
+@media (max-width:767px) {
+    #redirect-popup .modal-body{
+        background: none;
+    }
+}
+#redirect-popup p{
+    margin-top: 80px;
+}
+.modal-footer{
+    text-align: center;
+}
+.footer{
+    bottom:-200px;
+}

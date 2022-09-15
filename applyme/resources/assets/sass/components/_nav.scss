@@ -1,0 +1,95 @@
+// <768px
+.navbar-fixed-top {
+    border: none;
+}
+
+.navbar-static {
+    background-color: transparent;
+}
+
+.navbar-scroll {
+    background-color: $brand-primary-darker;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid #FFF;
+}
+
+.Navbar {
+    margin-bottom: 0;
+    z-index: 100000;
+
+    .toggle-nav-menu-icon {
+        padding: 16px 0 13px 14px;
+
+        span {
+            display: block;
+            width: 24px;
+            height: 24px;
+            padding: 0;
+            border: 0;
+            background: url("/imgs/icons/nav-icon.svg") left center no-repeat;
+        }
+
+        span:hover {
+            cursor: pointer;
+        }
+    }
+
+    .logo {
+        display: inline-block;
+        padding-top: 7px;
+        padding-right: 0;
+        margin-right: 10px;
+    }
+
+    .Navbar__item {
+        a.nav-item {
+            color: $brand-light-primary;
+            font-size: $font-size-base - 4;
+
+            &:hover {
+                // background-color: $brand-primary-darker;
+                background: none;
+                color: $link-hover;
+            }
+
+            &:focus {
+                // background-color: $brand-primary-darker;
+                background: none;
+                color: $link-hover;
+            }
+        }
+    }
+
+    .nav .open > a {
+        background: none;
+        color: $link-hover;
+    }
+
+    .mm-selected a {
+        color: $brand-dark-primary;
+    }
+
+    .navbar-right {
+        padding-right: 15px;
+    }
+}
+
+.navbar > .container .navbar-brand,
+.navbar > .container-fluid .navbar-brand {
+    margin-left: 0;
+}
+
+// >= 768px
+@media(min-width:768px) {
+    .logo {
+        padding-top: 5px;
+    }
+}
+
+// >= 992px
+@media(min-width:992px) {
+}
+
+// >= 1200px
+@media(min-width:1200px) {
+}

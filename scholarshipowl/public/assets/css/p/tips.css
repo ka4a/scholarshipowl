@@ -1,0 +1,12 @@
+/*** tips ***/
+
+.section--tips-text .mod-text {
+    padding: 0 0 32px;
+}
+
+@media (min-width: 992px) {
+  .section--tips .mod-text-container {
+    width: 80%;
+    margin: 0 auto;
+  }
+}

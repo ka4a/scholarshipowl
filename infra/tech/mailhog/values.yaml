@@ -1,0 +1,5 @@
+service:
+  type: LoadBalancer
+
+env:
+  MH_HOSTNAME: mailhog.scholarshipowl.tech

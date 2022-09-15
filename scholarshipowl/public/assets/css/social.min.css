@@ -1,0 +1,3 @@
+.social{background-color:#fff;color:#ccc;font:400 12px/43px 'Open Sans';height:268px;margin-top:-134px;position:fixed;text-align:center;top:50%;box-shadow:0 0 5px rgba(0,0,0,.1);-webkit-box-shadow:0 0 5px rgba(0,0,0,.1);-moz-box-shadow:0 0 5px rgba(0,0,0,.1);width:63px;z-index:101}
+.social ul{list-style-type:none;margin:0;padding:0;width:36px;margin-left:12px}.social ul li{line-height:0;margin-bottom:5px}.social ul li a{display:inline-block;vertical-align:top;width:36px;height:40px;background:transparent url('../img/social_dots.png') repeat-x bottom left}
+.social ul li:last-child a{background-image:none}.social ul li a i{font-size:20px;color:#c2c2c2;line-height:41px}.social ul li a:hover i{color:#acacac}.social ul li a:active i{color:#959595}

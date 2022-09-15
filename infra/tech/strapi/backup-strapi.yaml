@@ -1,0 +1,63 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: strapi-database-backup
+type: Opaque
+data:
+  gcp_gcloud_auth: ewogICJ0eXBlIjogInNlcnZpY2VfYWNjb3VudCIsCiAgInByb2plY3RfaWQiOiAic293bC10ZWNoIiwKICAicHJpdmF0ZV9rZXlfaWQiOiAiYmNhZjQwNDFiZDI5ZDBhMjkxYTUwZDRmMWYzYmQzYzBjYzE4NTk5ZiIsCiAgInByaXZhdGVfa2V5IjogIi0tLS0tQkVHSU4gUFJJVkFURSBLRVktLS0tLVxuTUlJRXZBSUJBREFOQmdrcWhraUc5dzBCQVFFRkFBU0NCS1l3Z2dTaUFnRUFBb0lCQVFDMjBsOXBkZmc4MXliWlxuSlpqQWVneENSb2F2d2g3VmYrZVRZMXQ5L0pUZE93cncybzlVS0dYVGQrMUUwWG9SMHUwNFdVaU9FbmF6Y2hhQ1xudHlwRVUrNElUUXhiZXQwWjUyMEgwTDd2bkpJVXVkUFFpY01MakZZOUVIbnRkZzlOaFIyRzN0RXJSa0NuQ2VzQVxuNUNnY0lhSDlwcytBRHFSSFhjYXNCUDkrN0lHRE5sQ2ZXd08xVnlQQW5XT2kyclA3WVNodTV3dk1vbnpnaTI0bVxuajI4akp1M0piMDg5aFFoQ1drUVhTcHBnSkZqUkF2aXRWTHllczFvdXhQeUM0UUF0OGJheEZTNHkwZXU2TTc0TFxueFBtNk5nV1BMdmg1ZllYbGIxc0YvWG9BaUR4YUttSGhhQmVtc05rclgyWmNUOERLMGJQQTRLOTRyWGEzZndBYlxuZFVnOXdFaEZBZ01CQUFFQ2dnRUFVc1FUc05WWThBWkJUcDVBTktjc1JKYlVJOTZnZ2V4WlJQYit0Ujh6cjZJcVxudGxaaisrZ2NEU3ZtYlRqZWFCSlRGYWNKKzFPdGpGaVNpMVByM1NvWUFZY01HS0FiVjc1WE5Hb1Mvcndsd0I5T1xubnNLM1c5T0pPVFRyMWc2VUovYWpJdXRkeTVjTzd2QkZCVTdGUDlNVUdKYTdxdEEySEI3K3NlTERYazBvNXVMY1xuYzBvZ2FlM2dnZmhuOEpXdzVkNEFBQjVxYXoyNFczaE5nek1HdlM5NkFZUU1WRUJ2c3RpMkg0SzJreHUyWDExVFxub2dkMEFkak03Q09nNmFsRVFlTTROU0pOT0tjUEoxSis1RFU5RXdJRmlCRzY5cWJjaEdNbXh5UE9TUytJRlJYd1xudWRrVGNUWUVUTkQ2SDRkcStYTTRNTjVuT3dma2ZJUzlBU2ZIVWpkdU13S0JnUURpSElhM1hnenpERDZwenE1ZVxuQ3d6UlNZdFQrRjJXT0xjdHdUa3RFalZKQVJmYUp1ODhjSHY0dVFGb1g0UkN2ZzRuZ3AvZ09wMWkrY0VUbEVEYVxuaHRKUDcxdHBFVUJGUUxOSE1zTEU0cDZFNzRPY1ZvRHNrTXRMNG9OQWkwSlVCOXdJMFN0aUU1T0tPVFVSMHNlZlxuSTlpNDg4a1UyL21mc3RJc0RDM1YydGtOdHdLQmdRRE8vUE5XU3hocS9adkpGRjRGdmVGUkJlZDU0VnR5TmFLalxuY2dkcXJJTU5UWG9xbWQ5WE5wc0YvNXFNSDRuVFBPV3UwWVhRZGFuYW1zQ09aWEQybzhRejYyYVVweVdkcTUwOFxuOHc1OXBYa1ZMSEIxT3FKalB1aW5SWmJNU1pmckJGRnlkb0hBU3YrdXhqZjBlUmNMSHM1cENuN05qZ0REQ1NKUlxuRGthWHdwL1o0d0tCZ0dZdDNmTWZYVnE0UGRrZXZVMWlVUGlDODZPT3FUd3BoUjM0STQ1cW5BblJwS1hBMG52TlxubVRoYzRuWDROQnkxSmxCVWgwc2RNZUo0V3ZndUZ1Q3A3SUNTK2d3UTc2cGNBcWc2R0NwQS9zRzBPeFY3UWVlbFxueHprVHM1eUhVZ0lIU3pmd3psb1QzcWlvRVlOc2JTbE5XYks2K0RPazlMbG1aZlBoelJUSFFTOGhBb0dBZWV5dVxuT2NxS1c1dC94SFptMitMNWNneVVTVXJoM3VpUklNM3VhSHV0eG93NHhoZFZZNzRhbXZIeFMxRFlrc0Z3V2dXNVxuV1EyMk83cWthangreWdtMWJRL2dvUGZFUkpmdVN4U3hHSG44Vk9pVVpibGdKaTNNUlp2TU5CRzFsdzQ0RzhDS1xudFlaNERhOWREbmkxaGl0alVxU0lCUFQ4cGVZZmZMZDRCYlR6REJrQ2dZQmhNTG9qUGpHYUdEcExBek5oNUlxQlxuZmVPOXE2cjU4NmZSYkttQVRkSVhsTzRTSFpITHhkVnI1R2g1Y25haTFpejdrNUlYNkJYVDFpZFZGaGZsQ0dhYVxuTkcxeGNGa2xIaFE2bzBVaFBBbnNTSHlwblI4R0ZYTTJMdGNpTXVsUGFnaGNBQktKWGtZNk1uOXNqcmUxRkpGNFxuYlRPWUsrSzN3VWZ1NFF2bzhPRkVLdz09XG4tLS0tLUVORCBQUklWQVRFIEtFWS0tLS0tXG4iLAogICJjbGllbnRfZW1haWwiOiAiamVua2lucy1uZXdAc293bC10ZWNoLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwKICAiY2xpZW50X2lkIjogIjExNTQ3MjIxNzkyODIwMDcyNTgxOCIsCiAgImF1dGhfdXJpIjogImh0dHBzOi8vYWNjb3VudHMuZ29vZ2xlLmNvbS9vL29hdXRoMi9hdXRoIiwKICAidG9rZW5fdXJpIjogImh0dHBzOi8vb2F1dGgyLmdvb2dsZWFwaXMuY29tL3Rva2VuIiwKICAiYXV0aF9wcm92aWRlcl94NTA5X2NlcnRfdXJsIjogImh0dHBzOi8vd3d3Lmdvb2dsZWFwaXMuY29tL29hdXRoMi92MS9jZXJ0cyIsCiAgImNsaWVudF94NTA5X2NlcnRfdXJsIjogImh0dHBzOi8vd3d3Lmdvb2dsZWFwaXMuY29tL3JvYm90L3YxL21ldGFkYXRhL3g1MDkvamVua2lucy1uZXclNDBzb3dsLXRlY2guaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iCn0=
+  database_password: aVBBTllrUzhnZg==
+  slack_webhook_url: none
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: strapi-database-backup
+spec:
+  schedule: "0 01 * * *"
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: strapi-database-backup
+            image: gcr.io/sowl-tech/sowl-dev/k8s-mysql-backup:1.0.0-alpine3.11
+            imagePullPolicy: Always
+            env:
+              - name: GCP_GCLOUD_AUTH
+                valueFrom:
+                   secretKeyRef:
+                     name: strapi-database-backup
+                     key: gcp_gcloud_auth
+              - name: BACKUP_PROVIDER
+                value: "gcp"
+              - name: GCP_BUCKET_NAME
+                value: "sowl_backups"                
+              - name: GCP_BUCKET_BACKUP_PATH
+                value: "strapi"
+              - name: TARGET_DATABASE_HOST
+                value: "mysql-strapi"
+              - name: TARGET_DATABASE_PORT
+                value: "3306"
+              - name: TARGET_DATABASE_NAMES
+                value: "strapi"
+              - name: TARGET_DATABASE_USER
+                value: "root"
+              - name: TARGET_DATABASE_PASSWORD
+                valueFrom:
+                   secretKeyRef:
+                     name: strapi-database-backup
+                     key: database_password
+              - name: BACKUP_TIMESTAMP
+                value: "_%Y_%m_%d"
+              - name: SLACK_ENABLED
+                value: "false"
+              - name: SLACK_CHANNEL
+                value: "#chatops"
+              - name: SLACK_WEBHOOK_URL
+                valueFrom:
+                   secretKeyRef:
+                     name: strapi-database-backup
+                     key: slack_webhook_url
+          restartPolicy: Never

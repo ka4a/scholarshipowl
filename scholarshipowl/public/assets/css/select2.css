@@ -1,0 +1,84 @@
+.select2-container--default .select2-selection--multiple, .select2-container--default .select2-selection--single {
+	padding: 8px 0px 9px;
+	border-radius:3px;
+	border-color:#b5c2d5;
+}
+
+.select2-container .select2-search--inline {
+	width:100%;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+	border-color:#b5c2d5;
+}  
+
+.select2-dropdown {
+    background-color: white;
+    border: 1px solid #b5c2d5;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+	color: #000;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+	background-color: #d8e8ff;
+	border: 1px solid #94abce;
+	color: #94abce;
+	font-size: 12px;
+	border-radius:2px;
+}
+
+.select2-container .select2-selection--single {
+    height: 50px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 11px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+	border-color: #9eb7db transparent transparent transparent;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+	background-color: #eff5fc;
+	border: 1px solid #b8ceee;
+	border-top-color: #9bb4d9;
+	color: #000;
+	height: 30px;
+	line-height: 20px;
+	padding:4px 6px;
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    padding-left: 6px;
+    margin-top: 1px;
+}
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 3px;
+	-webkit-box-shadow: inset 0 0 2px rgba(0,0,0,.3);
+	background-color: #94abce;
+}
+
+ul.dropdown-menu.inner {
+	overflow-x:hidden;
+}

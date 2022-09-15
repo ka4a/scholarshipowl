@@ -1,0 +1,21 @@
+// @import '~/quill/dist/quill.core.css';
+// @import '~/quill/dist/quill.snow.css';
+
+/**
+ * Toolbar fix for font size
+ */
+$ql-sizes: (10, 12, 14, 16, 18, 20, 24, 30, 32, 36);
+
+@each $ql-size in $ql-sizes {
+  $ql-size: $ql-size + "px";
+  .ql-picker-item, .ql-picker-label {
+    &#{"[data-value='" + $ql-size + "'"}]::before {
+      content: $ql-size !important;
+    }
+  }
+  .ql-picker-item {
+    &#{"[data-value='" + $ql-size + "'"}]::before {
+      font-size: unquote($ql-size);
+    }
+  }
+}

@@ -1,0 +1,48 @@
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: cron
+spec:
+  schedule: "*/5 * * * *"
+  concurrencyPolicy: Replace
+  successfulJobsHistoryLimit: 5
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - image: redis:5.0.6-alpine3.10
+            name: redis
+            ports:
+            - containerPort: 6379
+          - image: {{ CONTAINER_RELEASE_IMAGE }}
+            name: cron
+            env:
+            - name: CONTAINER_ROLE
+              value: "scheduler"
+            - name: SRV_ENV
+              value: "init"
+            volumeMounts:
+            - name: sowl-env-prod # place of env file
+              mountPath: /.env.kubernetes
+              subPath: .env.kubernetes
+            - name: sowl-db-prod # place of env file
+              mountPath: /database.php
+              subPath: database.php
+            imagePullPolicy: Always
+          restartPolicy: OnFailure
+          volumes:
+          - name: sowl-env-prod
+            configMap:
+              name: sowl-env-prod
+              items:
+                - key: .env.kubernetes
+                  path: .env.kubernetes
+          - name: sowl-db-prod
+            configMap:
+              name: sowl-db-prod
+              items:
+                - key: database.php
+                  path: database.php

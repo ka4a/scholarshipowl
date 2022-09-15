@@ -1,0 +1,106 @@
+type: object
+properties:
+  scholarshipId:
+    type: integer
+  url:
+    type: string
+  isFavorite:
+    type: integer
+    default: 0
+  isSent:
+    type: integer
+    default: 0
+  derivedStatus:
+    type: string
+    default: SENT
+    description:
+      SENT - sent to scholarship provider (or Sunrise);
+      RECEIVED - Sunrise has received an application;
+      UNDER REVIEW - application is beeing reviewed by a provider;
+      DECLINED - application rejected by a provider;
+      ACCEPTED - application accepted by a provider;
+      DRAW CLOSED - on a deadline for non-Sunrise scholarships;
+      CHOOSING WINNER - Sunrise (or provider) choosing a winner;
+      WON - winner choosen, but they need to ptovide extra info (for winner);
+      MISSED - winner has not provided extra info (for winner);
+      WINNER CHOSEN - winner has provided their info (for others);
+      AWARDED - winner has provided their info (for winner);
+    enum:
+      - SENT
+      - RECEIVED
+      - UNDER REVIEW
+      - DECLINED
+      - ACCEPTED
+      - DRAW CLOSED
+      - CHOOSING WINNER
+      - WON
+      - MISSED
+      - WINNER CHOSEN
+      - AWARDED
+
+  logo:
+    type: string
+  title:
+    type: string
+  description:
+    type: string
+  externalUrl:
+    type: string
+  TOSUrl:
+    type: string
+  PPUrl:
+    type: string
+  amount:
+    type: integer
+  timezoneAbbr:
+    type: string
+    default: PST
+    example: PST
+  timezone:
+    type: string
+    default: US/Pacific
+    example: US/Pacific
+  expirationDate:
+    $ref: "DateObject.yml"
+  isRecurrent:
+    type: boolean
+  image:
+    type: string
+    example: "https://storage.googleapis.com/storage.dev.scholarshipowl.com/scholarship/image/52.jpg"
+  winnerFormUrl:
+    type: string
+    example: 'https://sunrising.io/some-path-here'
+    description: Has non-empty value only along with derivedStatus = WON
+  requirements:
+    type: object
+    properties:
+      texts:
+        type: array
+        items:
+          $ref: "RequirementText.yml"
+      files:
+        type: array
+        items:
+          $ref: "RequirementFile.yml"
+      images:
+        type: array
+        items:
+          $ref: "RequirementImage.yml"
+      inputs:
+        type: array
+        items:
+          $ref: "RequirementInput.yml"
+      specialEligibility:
+        type: array
+        items:
+          $ref: "RequirementSpecialEligibility.yml"
+      survey:
+        type: array
+        items:
+          $ref: "RequirementSurvey.yml"
+
+
+
+
+
+

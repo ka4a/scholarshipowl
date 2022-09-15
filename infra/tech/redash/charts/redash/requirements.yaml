@@ -1,0 +1,10 @@
+dependencies:
+  - name: redis
+    version: 4.0.1
+    repository: https://kubernetes-charts.storage.googleapis.com/
+  - name: postgresql 
+    version: 0.18.0
+    repository: https://kubernetes-charts.storage.googleapis.com/
+  - name: gcloud-sqlproxy 
+    version: 0.6.0
+    repository: https://kubernetes-charts.storage.googleapis.com/

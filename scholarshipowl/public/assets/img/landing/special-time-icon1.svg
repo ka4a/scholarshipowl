@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="166px" height="165px" viewBox="0 0 166 165" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M81.146231,162.171668 C36.3503163,162.171668 0.0363216627,125.86889 0.0363216627,81.0866788 C0.0363216627,36.3055941 36.3503163,0 81.146231,0 C125.939893,0 162.25614,36.3055941 162.25614,81.0866788 C162.25614,125.86889 125.939893,162.171668 81.146231,162.171668 Z" id="path-1"></path>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-3">
+            <feGaussianBlur stdDeviation="1" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.31640625 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Version-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD-v1" transform="translate(-590.000000, -354.000000)">
+            <g id="BODY1-" transform="translate(0.000000, 60.000000)">
+                <g id="OFFERS" transform="translate(562.000000, 295.500000)">
+                    <g id="1">
+                        <g id="Icon" transform="translate(29.800678, 0.000000)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <g id="Mask">
+                                <use fill="#4E8EEC" fill-rule="evenodd" xlink:href="#path-1"></use>
+                                <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
+                                <use stroke="#FFFFFF" stroke-width="2" xlink:href="#path-1"></use>
+                            </g>
+                            <g mask="url(#mask-2)">
+                                <g transform="translate(24.576454, 24.956772)">
+                                    <path d="M42.232486,91.9334092 C41.0925591,96.5580567 39.9543176,101.182704 38.8143908,105.808467 L70.7160509,105.808467 C69.576124,101.182704 68.4356353,96.5580567 67.2985175,91.9334092 L42.232486,91.9334092" id="Fill-703" fill="#8FC4D7"></path>
+                                    <path d="M72.687467,105.562481 L36.8429746,105.562481 C35.9317072,105.562481 35.1923559,106.424827 35.1923559,107.485188 L35.1923559,108.205854 L74.3364002,108.205854 L74.3364002,107.485188 C74.3364002,106.424827 73.5964871,105.562481 72.687467,105.562481" id="Fill-704" fill="#FFFFFF"></path>
+                                    <path d="M0.862522369,86.5339895 L0.862522369,94.1807502 C0.862522369,95.6522037 2.06144005,96.8436458 3.54744626,96.8436458 L105.98131,96.8436458 C107.463383,96.8436458 108.666234,95.6522037 108.666234,94.1807502 L108.666234,86.5339895 L0.862522369,86.5339895" id="Fill-705" fill="#FFFFFF"></path>
+                                    <path d="M108.666234,86.5339895 L108.666234,21.7900394 C108.666234,20.3163548 107.463383,19.1232393 105.98131,19.1232393 L3.54744626,19.1232393 C2.06144005,19.1232393 0.862522369,20.3163548 0.862522369,21.7900394 L0.862522369,86.5339895 L108.666234,86.5339895" id="Fill-706" fill="#103754"></path>
+                                    <polygon id="Fill-707" fill="#F9D6BD" points="5.28009019 23.2860356 104.250913 23.2860356 104.250913 82.1146092 5.28009019 82.1146092"></polygon>
+                                    <polyline id="Fill-708" fill="#DDB097" points="5.28009019 82.1146092 104.250913 23.2860356 104.250913 82.1146092 5.28009019 82.1146092"></polyline>
+                                    <path d="M21.1160286,82.1146092 L87.0947046,82.1146092 L87.0947046,82.2585193 L21.1160286,82.2585193 L21.1160286,82.1146092 Z M21.1160286,19.1366263 L87.0947046,19.1366263 L87.0947046,23.2860356 L21.1160286,23.2860356 L21.1160286,19.1366263 Z" id="Fill-709" fill="#0F324D"></path>
+                                    <polyline id="Fill-712" fill="#FFFFFF" points="84.9446306 82.2579615 84.9446306 16.1697344 69.017116 0.357467053 24.5846874 0.357467053 24.5846874 82.2579615 84.9446306 82.2579615"></polyline>
+                                    <polyline id="Fill-713" fill="#14B0BF" points="69.017116 16.1697344 84.9446306 16.1697344 69.017116 0.357467053 69.017116 16.1697344"></polyline>
+                                    <polyline id="Fill-714" fill="#A6DAE9" points="84.9446306 16.17085 69.017116 16.17085 84.9446306 31.9842329 84.9446306 16.17085"></polyline>
+                                    <polygon id="Fill-715" fill="#14B0BF" points="36.0148562 19.1115257 54.4834695 19.1115257 54.4834695 20.6080797 36.0148562 20.6080797"></polygon>
+                                    <polygon id="Fill-716" fill="#A6DAE9" points="36.0148562 26.4771596 73.5155854 26.4771596 73.5155854 27.9748292 36.0148562 27.9748292"></polygon>
+                                    <polygon id="Fill-717" fill="#A6DAE9" points="36.0148562 31.1798979 73.5155854 31.1798979 73.5155854 32.6764519 36.0148562 32.6764519"></polygon>
+                                    <polygon id="Fill-718" fill="#A6DAE9" points="36.0148562 35.8820785 73.5155854 35.8820785 73.5155854 37.3786325 36.0148562 37.3786325"></polygon>
+                                    <polygon id="Fill-719" fill="#A6DAE9" points="36.0148562 40.5853746 73.5155854 40.5853746 73.5155854 42.0819286 36.0148562 42.0819286"></polygon>
+                                    <polygon id="Fill-720" fill="#A6DAE9" points="36.0148562 45.2858817 73.5155854 45.2858817 73.5155854 46.7841091 36.0148562 46.7841091"></polygon>
+                                    <polygon id="Fill-721" fill="#A6DAE9" points="36.0148562 49.9891779 73.5155854 49.9891779 73.5155854 51.487963 36.0148562 51.487963"></polygon>
+                                    <polygon id="Fill-722" fill="#A6DAE9" points="36.0148562 54.692474 73.5155854 54.692474 73.5155854 56.1895858 36.0148562 56.1895858"></polygon>
+                                    <polyline id="Fill-728" fill="#FFFFFF" points="109.747732 36.3439296 88.2503624 29.4083528 95.236558 50.7516785 99.0125307 43.4524218 104.751492 49.1502598 108.134193 45.7917984 102.39467 40.0939604 109.747732 36.3439296"></polyline>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

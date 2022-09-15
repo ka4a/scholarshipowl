@@ -1,0 +1,116 @@
+// html structure
+// <div class="switch">
+//   <label>
+//     Off
+//     <input type="checkbox">
+//     <span class="lever"></span>
+//     On
+//   </label>
+// </div>
+
+@mixin switch($font-o: null, $size-block-o: null, $size-point-o: null, $appearance-o: null) {
+
+  $font: (family: 'Open Sans', size: 16px, weight: bold, color: #4e8eec);
+  $size-block: (width: 56px, height: 26px);
+  $size-point: (width: 22px, height: 22px);
+  $appearance: (blockColor: #a3c3f1, pointColor: #F1F1F1, pointBorder: 1px solid #7ca7e4);
+
+  @if(type-of($font-o) == 'map') {
+    $font: map-merge($font-o, $font);
+  }
+
+  @if(type-of($size-block-o) == 'map') {
+    $size-block: map-merge($size-block, $size-block-o);
+  }
+
+  @if(type-of($size-point-o) == 'map') {
+    $size-point: map-merge($size-point, $size-point-o);
+  }
+
+  @if(type-of($appearance-o) == 'map') {
+    $appearance: map-merge($appearance, $appearance-o);
+  }
+
+  // @debug $appearance;
+
+  font-family: map-get($font, family) !important;
+  font-size: map-get($font, size) !important;
+  font-weight: map-get($font, weight) !important;
+  color: map-get($font, color) !important;
+  cursor: pointer !important;
+  position: relative;
+
+  &_enabled &__state_true,
+  &_disabled &__state_false {
+    color: #fff;
+  }
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    box-sizing: border-box;
+    padding: 0;
+    display: none;
+  }
+
+  input:active + &__lever {
+    &:after {
+      box-shadow: 0 1px 3px 1px rgba(0,0,0,0.4), 0 0 0 15px rgba(78,142,236,0.15);
+    }
+  }
+
+  input:checked + &__lever {
+    &:after {
+      right: 32px;
+    }
+  }
+
+  &__state {
+    color: hsl(0, 0%, 38%);
+    position: absolute;
+    top: 6px;
+    font-size: 10px;
+    font-weight: 100;
+
+    &_true {
+      left: 9px;
+    }
+    &_false {
+      right: 5px;
+    }
+  }
+
+  &__lever {
+    content: "";
+    display: inline-block;
+    position: relative;
+    width: map-get($size-block, width);
+    height: map-get($size-block, height);
+    background-color: map-get($appearance, blockColor);
+    @if(map-has-key($appearance, "blockShadow")) {
+      box-shadow: map-get($appearance, blockShadow);
+    }
+    border-radius: 13px;
+    margin-right: 10px;
+    transition: background 0.3s ease;
+    vertical-align: middle;
+    margin: 0 16px;
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: inline-block;
+      width: map-get($size-point, width);
+      height: map-get($size-point, height);
+      background-color: map-get($appearance, "pointColor");
+      border-radius: map-get($size-point, width);
+      @if(map-has-key($appearance, "pointBorder")) {
+        border: map-get($appearance, pointBorder);
+      }
+      right: 1px;
+      top: 2px;
+      transition: right 0.3s ease, background .3s ease, box-shadow 0.1s ease;
+    }
+  }
+}

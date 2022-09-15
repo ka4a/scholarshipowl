@@ -1,0 +1,38 @@
+h2 {
+    font-size: 46px;
+}
+
+.payment-subtitle {
+    font-size: 18px;
+    margin-top: 6px;
+}
+
+.payment-packages {
+    margin: 30px 81px 42px;
+}
+
+.register-payment-cont {
+    background-color: #d8e8ff;
+}
+
+.to-my-account {
+    margin-top: 40px;
+}
+
+.packages-intro {
+    margin-bottom: 30px;
+}
+
+@media (min-width: 768px) {
+    .text, .text-container {
+        padding: 2px 0 16px;
+    }
+}
+
+.list-group {
+    margin-bottom: 0;
+}
+
+#refer-friend-call, .zopim {
+    display: none;
+}

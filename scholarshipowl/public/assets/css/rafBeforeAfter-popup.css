@@ -1,0 +1,224 @@
+#package-exit-popup .modal-dialog .modal-content, #raf-exit-popup .modal-dialog .modal-content {
+    border: 10px solid #9dbbe6;
+	border-radius:0;
+}
+
+#raf-exit-popup .modal-header {
+	padding: 0;min-height: 0;
+}
+
+#raf-exit-popup .modal-dialog {
+margin-top: 15px !important;}
+
+#raf-exit-popup .modal-dialog .modal-content {
+	border-color: #d8e8ff;
+}
+
+#raf-exit-popup .modal-body {
+    background: #f2f5f9 url('../img/mascot.png') no-repeat 10% center;
+    background-size: auto 412px;
+    padding: 90px 50px;
+}
+
+#raf-exit-popup .close {
+	right: -20px;
+	top: -20px;
+}
+
+#raf-exit-popup .social-widget {
+	border: none;
+}
+	
+#raf-exit-popup .social-widget a, #raf-exit-popup .social-widget iframe {
+	display: block;
+	margin: 10px 0;
+}
+
+#raf-exit-popup .social-widget iframe {
+	height: 48px;
+}
+
+#raf-exit-popup .social-widget:nth-of-type(4) a, #raf-exit-popup .social-widget:last-of-type a {
+	border-right: 0 !important;
+}
+
+#package-exit-popup .modal-body #missionExitRafTab {
+    background: #f2f5f9 url('../img/mascot.png') no-repeat 10% center;
+    background-size: contain;
+	padding: 0 50px 110px 50px;
+}
+
+@media (min-width: 768px) {
+	#package-exit-popup .modal-dialog {
+		width:720px;
+	}
+
+	#raf-exit-popup .modal-dialog {
+		width: 750px;
+	}
+}
+
+@media (min-width: 992px) {
+	#package-exit-popup .modal-dialog, #raf-exit-popup .modal-dialog {
+		width:960px;
+	}
+}
+
+#package-exit-wizard ul.nav {
+	display:none;
+}
+
+#raf-exit-popup p {
+	font-size: 20px;
+	font-weight: 700;
+	max-width: 400px;
+}
+
+#raf-exit-popup .social-container {
+	margin: 60px 0 0;
+	padding: 10px 0;
+	border-top: 1px solid #e0e3e9;
+	border-bottom: 1px solid #e0e3e9;
+}
+
+#raf-exit-popup .social-widget {
+	padding: 3px;
+}
+
+#package-exit-popup .modal-footer {
+	padding:0;
+}
+
+#package-exit-popup .modal-title {
+	margin: 0;
+}
+
+#package-exit-popup .modal-title h3 {
+	font-weight:700;
+	font-size:17px;
+}
+
+@media (min-width: 768px) {
+	.PackageDiv.package {
+		margin-bottom:60px;
+	}
+}
+
+@media (max-width: 991px) {
+	#raf-exit-popup .modal-body {
+		padding: 65px 20px;
+		background-size: auto 315px;
+	}
+
+	#raf-exit-popup .social-container {
+		padding: 8px 0;
+		margin-top: 60px;
+	}
+
+	#raf-exit-popup h3 {
+		font-size: 30px;
+	}
+
+	#raf-exit-popup p {
+		font-size: 18px;
+	}
+}
+
+@media (max-width: 767px) {
+
+	#raf-exit-popup .modal-body {
+	    background-size: 33.33% auto;
+
+	}
+
+	#raf-exit-popup .col-sm-7 {
+		width: 58.88%;
+		float: right;
+	}
+	.social-widget img {
+		max-width: 100%;
+	}
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+	#raf-exit-popup .modal-body {
+	    background-size: 33.33% auto;
+
+	}
+
+	#raf-exit-popup .social-container {
+		padding: 10px 0;
+	}
+
+	#raf-exit-popup .col-sm-7 {
+		width: 58.88% !important;
+	}
+}
+
+@media (max-width: 480px) {
+
+	#raf-exit-popup .modal-dialog {
+	    max-width: 300px;
+    	margin: auto;
+	}
+
+	#raf-exit-popup .social-container {
+		margin-top: 30px;
+		padding: 0;
+		border-bottom: 0;
+	}
+	#raf-exit-popup .modal-header {
+		height: 144px;
+		border-bottom: 1px solid #dddddd;
+	    background: #f2f5f9 url('../img/mascot.png') no-repeat top 15px center;
+	    background-size: 144px auto;		
+	}
+
+	#raf-exit-popup .close {
+	    right: 8px;
+	    top: 10px;
+	    width: 32px;
+	    height: 32px;
+	}
+
+	#raf-exit-popup .modal-body {
+		padding: 0px 20px 22px;
+		background: none;
+	}
+
+	#raf-exit-popup .col-sm-7 {
+		width: 100%;
+		float: none;
+	}
+
+	#raf-exit-popup h3, #raf-exit-popup p {
+		text-align: center;
+	}
+	
+	#raf-exit-popup h3 {
+		font-size: 19px;
+	}
+
+	#raf-exit-popup p {
+		font-size: 13px;
+	}
+
+	#raf-exit-popup .social-widget {
+		width: 33.33%;
+		border-bottom: 1px solid #ddd !important;
+	}
+
+	#raf-exit-popup .social-widget iframe {
+		border-right: 1px solid #ddd !important;		
+	}
+	
+	#raf-exit-popup .social-widget:nth-of-type(3) a, #raf-exit-popup .social-widget:last-of-type a {
+		border-right: 0 !important;
+	}
+		
+	#raf-exit-popup .social-widget iframe {
+		height: 48px;
+	}
+	
+}
+

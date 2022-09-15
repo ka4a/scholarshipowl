@@ -1,0 +1,24 @@
+type: object
+properties:
+  id:
+    type: integer
+  path:
+    type: string
+    example: "/account-files/2178926/other/essay.test.pdf"
+  filename:
+    type: string
+    example: "essay.test.pdf"
+  accountId:
+    type: integer
+  category:
+    type: string
+    enum:
+      - Other
+      - Essay
+      - Grade transcript
+      - Bio
+      - CV
+      - Profile picture
+  publicUrl:
+    type: string
+

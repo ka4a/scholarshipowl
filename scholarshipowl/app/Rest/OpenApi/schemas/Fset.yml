@@ -1,0 +1,117 @@
+type: object
+properties:
+  id:
+    type: integer
+    description: Fset id
+    example: 1
+  name:
+    type: string
+    description: Fset name
+    example: Default
+  desktopPaymentSet:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: Payment set id
+        example: 1
+      popupTitle:
+        type: string
+      showNames:
+        type: boolean
+      paymentMethod:
+        type: object
+        properties:
+          id:
+            type: integer
+            description: Payment method id
+            example: 3
+          name:
+            type: string
+            description: Payment method name
+            example: Braintree
+      packages:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: integer
+              example: 1
+  mobilePaymentSet:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: Payment set id
+        example: 1
+      popupTitle:
+        type: string
+      showNames:
+        type: boolean
+      paymentMethod:
+        type: object
+        properties:
+          id:
+            type: integer
+            description: Payment method id
+            example: 3
+          name:
+            type: string
+            description: Payment method name
+            example: Braintree
+      packages:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: integer
+              example: 1
+  contentSet:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: Content set id
+        example: 1
+      name:
+        type: string
+        description: Content set name
+        example: Home page defaul
+      homepageHeader:
+        type: string
+      registerHeader:
+        type: string
+      registerHeadingText:
+        type: string
+      registerSubheadingText:
+        type: string
+      registerHideFooter:
+        type: boolean
+      registerCtaText:
+        type: string
+      register3Header:
+        type: string
+      selectApplyNow:
+        type: string
+      applicationSentTitle:
+        type: string
+      applicationSentDescription:
+        type: string
+      applicationSentContent:
+        type: string
+      noCreditsTitle:
+        type: string
+      noCreditsDescription:
+        type: string
+      noCreditsContent:
+        type: string
+      upgradeBlockText:
+        type: string
+      upgradeBlockLinkUpgrade:
+        type: string
+      upgradeBlockLinkVip:
+        type: string
+
+

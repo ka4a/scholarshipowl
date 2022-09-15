@@ -1,0 +1,30 @@
+@function sqrt($r) {
+  $x0: 1px;
+  $x1: $x0;
+
+  @for $i from 1 through 10 {
+    $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+    $x0: $x1;
+  }
+
+  @return $x1;
+}
+
+@function lhem($lh, $fz) {
+	@return ($lh / $fz)+em;
+}
+
+//TODO finish this function
+@function based-representation($base-color, $dependend-color, $new-color) {
+  @debug 12deg - 34deg;
+
+  $hue-diff: hue($dependend-color) - hue($base-color);
+  $saturation-diff: saturation($dependend-color) - saturation($base-color);
+  $lightness-diff: lightness($dependend-color) - lightness($base-color);
+
+  @return hsl(
+    hue($new-color) + $hue-diff,
+    saturation($new-color) + $saturation-diff,
+    lightness($new-color) + $lightness-diff
+  );
+}

@@ -1,0 +1,14 @@
+type: object
+properties:
+  id:
+    type: integer
+    enum:
+      - '1'
+      - '2'
+      - '3'
+  name:
+    type: string
+    enum:
+      - U.S. Citizen
+      - U.S. Legal Permanent Resident
+      - U.S. Legal Temporary Resident (International Students)

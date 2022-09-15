@@ -1,0 +1,1 @@
+ScholarshipOwl is a personalized scholarship matching service and management tool. It does not guarantee the receipt of any scholarship. Upgrading to premium membership does not increase your chances of winning a specific scholarship.

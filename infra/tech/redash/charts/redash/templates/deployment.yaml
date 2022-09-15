@@ -1,0 +1,100 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ template "redash.fullname" . }}
+  labels:
+    app: {{ template "redash.name" . }}
+    chart: {{ template "redash.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "redash.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "redash.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Values.containers.nginx.name }}
+          image: "{{ .Values.containers.nginx.image.repository }}:{{ .Values.containers.nginx.image.tag }}"
+          imagePullPolicy: {{ .Values.containers.nginx.image.pullPolicy }}
+          ports:
+          - name: http
+            protocol: TCP
+            containerPort: {{ .Values.containers.nginx.port }}
+        - name: {{ .Values.containers.redash.name }}
+          image: "{{ .Values.containers.redash.image.repository }}:{{ .Values.containers.redash.image.tag }}"
+          imagePullPolicy: {{ .Values.containers.redash.image.pullPolicy }}
+          ports:
+          - containerPort: {{ .Values.containers.redash.port }}
+          env:
+          - name: REDASH_REDIS_URL
+            value: {{ .Values.env.REDASH_REDIS_URL }}
+          - name: REDASH_DATABASE_URL
+            value: {{ .Values.env.REDASH_DATABASE_URL }}
+          - name: REDASH_MAIL_USE_TLS
+            value: {{ .Values.env.REDASH_MAIL_TLS | quote }}
+          - name: REDASH_MAIL_USE_SSL
+            value: {{ .Values.env.REDASH_MAIL_SSL | quote}}
+          - name: REDASH_HOST
+            value: {{ .Values.env.REDASH_HOST | quote }}
+          - name: REDASH_MAIL_DEFAULT_SENDER
+            value: {{ .Values.env.REDASH_MAIL_DEFAULT_SENDER | quote }}
+          - name: REDASH_MAIL_PORT
+            value: {{ .Values.env.REDASH_MAIL_PORT | quote }}
+          - name: REDASH_ENFORCE_HTTPS
+            value: {{ .Values.env.REDASH_ENFORCE_HTTPS | quote }}
+          - name: WORKERS_COUNT
+            value: {{ .Values.env.WORKERS_COUNT | quote }}
+          - name: REDASH_WEB_WORKERS
+            value: {{ .Values.env.REDASH_WEB_WORKERS | quote }}
+          - name: QUEUES
+            value: {{ .Values.env.QUEUES | quote }}
+          - name: REDASH_LOG_LEVEL
+            value: {{ .Values.env.REDASH_LOG_LEVEL | quote }}
+          - name: REDASH_GOOGLE_CLIENT_ID
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.secretName | quote }}
+                key: g_client_id
+          - name: REDASH_GOOGLE_CLIENT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.secretName | quote }}
+                key: g_client_secret
+          - name: REDASH_MAIL_SERVER
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.secretName | quote }}
+                key: host
+          - name: REDASH_MAIL_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.secretName | quote }}
+                key: user
+          - name: REDASH_MAIL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.secretName | quote }}
+                key: password
+          resources:
+            requests:
+              memory: "1.5Gi"
+              cpu: "100m"
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}

@@ -1,0 +1,251 @@
+.section--all-for-you-heading {
+    font-size: 37px;
+}
+
+.text-container .mod-subhead a {
+    text-decoration: none;
+    background-image: url('../../img/whoweare/dots.png');
+    background-repeat: repeat-x;
+    background-position: bottom left;
+    color: #fff;
+}
+
+/* SPRITES */
+
+/* who we are sprite */
+
+
+/* about us sprite */
+
+.sprite-responsive--icon-amusing-mascot,
+.sprite-responsive--icon-better-org,
+.sprite-responsive--icon-decreased-stress,
+.sprite-responsive--icon-expert-advice,
+.sprite-responsive--icon-friendly-service,
+.sprite-responsive--icon-improved-security,
+.sprite-responsive--icon-less-work,
+.sprite-responsive--icon-more-money,
+.sprite-responsive--icon-similar-awards,
+.sprite-responsive--icon-spam-protection {
+    max-width: 100%;
+    background-size: 100%;
+    background-image: url('../../img/aboutus/about-us-sprite.png');
+}
+
+.sprite-responsive--icon-amusing-mascot {
+    background-position: 0 0;
+    background-size: 100%;
+}
+.sprite-responsive--icon-better-org {
+    background-position: 0 8.306709%;
+    background-size: 100%;
+}
+.sprite-responsive--icon-decreased-stress {
+    background-position: 0 16.613419%;
+    background-size: 100%;
+}
+.sprite-responsive--icon-expert-advice {
+    background-position: 0 24.920128%;
+    background-size: 100%;
+}
+.sprite-responsive--icon-friendly-service {
+    background-position: 0 33.226837%;
+    background-size: 100%;
+}
+.sprite-responsive--icon-improved-security {
+    background-position: 0 41.533546%;
+    background-size: 100%;
+}
+.sprite-responsive--icon-less-work {
+    background-position: 0 49.840256%;
+    background-size: 100%;
+}
+.sprite-responsive--icon-more-money {
+    background-position: 0 58.146965%;
+    background-size: 100%;
+}
+.sprite-responsive--icon-similar-awards {
+    background-position: 0 66.453674%;
+    background-size: 100%;
+}
+.sprite-responsive--icon-spam-protection {
+    background-position: 0 74.760383%;
+    background-size: 100%;
+}
+
+
+/*==========  min 480  ==========*/
+
+/*==========  min 768 max 992  ==========*/
+
+/*==========  min 768  ==========*/
+
+/*==========  min 992  ==========*/
+
+
+/*==========  WHO BEHIND THE HOO  ==========*/
+
+.services {
+    max-width: 80%;
+}
+
+/*==========  min 480px  ==========*/
+
+@media (min-width: 480px) and (max-width: 991px) {
+    .services {
+        width: 390px;
+    }
+}
+
+/*==========  min 768  ==========*/
+
+/*==========  min 768 max 992  ==========*/
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .services figure {
+        float: left;
+    }
+}
+
+/*==========  min 992  ==========*/
+/*
+#who-we-are-services .merit figure {
+    background: url('../img/whoweare/new-pictogram.png') no-repeat left top;
+}
+
+#who-we-are-services .no-essay-sch figure {
+    background: url('../img/whoweare/new-pictogram.png') no-repeat left top;
+}
+
+#who-we-are-services .need-based figure {
+    background: url('../img/whoweare/new-pictogram.png') no-repeat left top;
+}
+
+#who-we-are-services .athletic figure {
+    background: url('../img/whoweare/new-pictogram.png') no-repeat left top;
+}
+
+#who-we-are-services .minority figure {
+    background: url('../img/whoweare/new-pictogram.png') no-repeat left top;
+}
+
+#who-we-are-services .artistic figure {
+    background: url('../img/whoweare/new-pictogram.png') no-repeat left top;
+}
+
+#who-we-are-services .international-student figure {
+    background: url('../img/whoweare/new-pictogram.png') no-repeat left top;
+}
+
+#who-we-are-services .unusual figure {
+    background: url('../img/whoweare/new-pictogram.png') no-repeat left top;
+}
+*/
+/*
+#who-we-are-services .item:last-child {
+    padding-left: 0;
+}
+*/
+/*
+#who-we-are-services .item:last-child h3.title {
+    color: #464646;
+    font: 700 22px/150% 'Open Sans';
+}
+    */
+
+/*
+#who-we-are-services .item:last-child p {
+    color: #464646;
+    font: 400 18px/150% 'Open Sans';
+}
+    */
+
+/*==========  min 480  ==========*/
+
+
+/*==========  min 768  ==========*/
+
+.section--ebook-header,
+.scholarship-listing-tips-header,
+.section--who-we-are-services-header,
+.section--top-10-reasons-header {
+    margin: 0 auto 5em;
+}
+
+.section--who-we-are-services .item,
+.section--who-we-are-services .item,
+.section--top-10-reasons .item {
+    margin: 0 0 20px;
+}
+
+.section--snippets-text {
+    margin-bottom: 2em;
+}
+
+
+/* what people say about scholarshipowl */
+
+    .section--we-care-what-you-say p {
+        margin: 0 .5em 2em;
+    }
+
+    .section--we-care-what-you-say .mod-list {
+        margin: 0 auto 2em;
+    }
+        @media (min-width:480px) {
+            .section--we-care-what-you-say .mod-list {
+                width: 75%;
+            }
+        }
+
+/* ebook */
+
+    .section--download-your-copy p.mod-text {
+        margin-top: .6em;
+        margin-bottom: 1em;
+    }
+
+    .section--download-your-copy .button-wrapper {
+        padding: 0;
+    }
+
+    .section--how-to-get-paid .button-wrapper {
+        padding-top: 1.6em;
+        padding-bottom: 0;
+    }
+
+
+/* International scholarships */
+
+.section--your-scholarship-our-database p.mod-text {
+    padding-top: .5em;
+    margin-bottom: 0;
+}
+
+.section--your-scholarship-our-database .mod-text-container {
+    padding-bottom: 2.5em;
+}
+
+@media (min-width:480px) and (max-width: 767px) {
+    .section--scholarship-listing-tips .col-xs-4.mod-col-xs {
+        width: 25%;
+    }
+}
+
+@media (min-width:768px) {
+    .section--ebook h4.mod-heading {
+        font-size: 1.6em;
+    }
+}
+
+@media (min-width:992px) {
+    .section--what-is-schowl .mod-text-container,
+    .section--learn-more-about-us .mod-text-container {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+.section--testimonials .text-container {
+    padding-bottom: 10px;
+}

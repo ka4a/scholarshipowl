@@ -1,0 +1,19 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: blog.scholarship.app
+  namespace: sunrise
+spec:
+  secretName: blog.scholarship.app
+  issuerRef:
+    name: sowl-tech-prod
+    kind: ClusterIssuer
+  commonName: 'blog.scholarship.app'
+  dnsNames:
+    - 'blog.scholarship.app'
+  acme:
+    config:
+    - dns01:
+        provider: prod-dns
+      domains:
+      - 'blog.scholarship.app'

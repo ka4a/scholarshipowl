@@ -1,0 +1,179 @@
+.eligibility-section h2 {
+		font: 800 29px/29px 'Raleway';
+		padding-top: 13px;
+		color: #354c6d;
+		letter-spacing: 5px;
+		text-transform: uppercase;
+		display: block;
+        line-height: 40px;
+        padding-top: 22px;
+		margin:0;
+    }
+	.eligibility-section h3 {
+		font: 18px/16px 'Raleway';
+		padding-top: 25px;
+		color: #354c6d;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		display: inline-block;
+		vertical-align: top;
+		margin:0;
+		font-weight: normal;
+    }
+
+	h3.from-top {
+		padding-top:48px;
+	}
+
+@media (min-width: 640px) {
+.eligibility-section h2 {
+        font-size: 56px;
+    }
+	.eligibility-section h3 {
+        font-size: 22px;
+    }
+
+	h3.from-top {
+		padding-top:48px;
+	}
+}
+
+.bluebadge-text, .bluebadge-text h2 {
+	margin:0;
+}
+
+#elgb.bluebadge {
+  height: inherit;
+}
+
+.bluebadge {
+	padding:81px;
+}
+
+.section--testimonials h3 {
+	font:30px/41px 'Open Sans', sans-serif;
+	margin:0;
+	padding:0;
+}
+
+.sign-up-now-wrapper h2 {
+	margin:0;
+}
+
+.big-orange-button .arrow {
+  top: 32px;
+  position:absolute;
+  left:30px;
+}
+
+#all-for-you h2, #all-for-you h3 {
+	margin:0;
+}
+
+#all-for-you h2 {
+	font: 35px/120% 'Open Sans', sans-serif;
+	padding-top: 33px;
+}
+
+#all-for-you h3 {
+	font: 18px/150% 'Open Sans', sans-serif;
+	padding: 36px 0 0;
+}
+
+#additional-services #our-services figure {
+  background: url('../img/additionalservices/icon1.png') no-repeat left top;
+}
+
+/*==============Header==============*/
+@media (min-width: 361px) {
+	.menu-user .open .dropdown-menu {
+	  top: 0;
+	}
+	.menu-user .open a.dropdown-toggle, .menu-user .open a.dropdown-toggle:focus {
+	  top: -43px;
+	}
+	.navbar-right {
+	  float: right !important;
+	}
+}
+
+@media (min-width: 768px) {
+	.menu-user .open a.dropdown-toggle, .menu-user .open a.dropdown-toggle:focus {
+	  top: 0;
+	}
+}
+
+@media (min-width: 992px) {
+	.menu-user .open a.dropdown-toggle, .menu-user .open a.dropdown-toggle:focus {
+	  top: 0;
+	}
+	.menu-user .open .dropdown-menu {
+	  margin: 43px 15px 0 -15px;
+	}
+}
+/*-------------Header-------------*/
+
+@media (min-width: 768px) {
+    .description {
+        font: 18px/25px 'Open Sans';
+    }
+}
+
+/*==============Apply page==============*/
+.applyHead {
+  padding: 0;
+}
+
+.applyHead h2 {
+  font: 400 22px/120% 'Open Sans';
+  color: #fff;
+  background-color: #4e8eec;
+  text-align: center;
+  padding: 40px 15px;
+  font-variant: small-caps;
+  margin:0;
+}
+
+@media (min-width: 480px) {
+	.applyHead h2 {
+	  font: 400 35px/120% 'Open Sans';
+	  font-variant: small-caps;
+	}
+}
+
+@media (min-width: 768px) {
+	.applyHead h2 {
+	  font: 400 42px/120% 'Open Sans';
+	  font-variant: small-caps;
+	}
+}
+/*-------------Apply page-------------*/
+
+/*==============My Applications page==============*/
+.register-step3-header {
+  padding: 0;
+}
+
+.register-step3-header h2 {
+  font: 22px/120% 'Open Sans';
+  color: #fff;
+  background-color: #4e8eec;
+  text-align: center;
+  padding: 40px 15px;
+  font-variant: small-caps;
+}
+
+@media (min-width: 480px) {
+.register-step3-header h2 {
+  font: 35px/120% 'Open Sans';
+  font-variant: small-caps;
+}
+}
+
+@media (min-width: 768px) {
+.register-step3-header h2 {
+  font: 42px/120% 'Open Sans';
+  font-variant: small-caps;
+}
+}
+/*-------------My Applications page-------------*/

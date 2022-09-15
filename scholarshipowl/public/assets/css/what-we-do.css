@@ -1,0 +1,153 @@
+/* casousel 4 steps */
+
+.carousel_4_steps {
+    margin-top: 47px;
+    position: relative;
+    width: 90%;
+}
+
+.carousel_4_steps .carousel-inner {
+    position: relative;
+    z-index: 9;
+    margin: 0 auto;
+    margin-top: 47px;
+    height: 100%;
+    padding: 0 15px;
+}
+
+.carousel_4_steps .item {
+    -webkit-transition: opacity .5s;
+       -moz-transition: opacity .5s;
+        -ms-transition: opacity .5s;
+         -o-transition: opacity .5s;
+            transition: opacity .5s;
+}
+
+.carousel_4_steps .carousel-inner > .next.left,
+.carousel_4_steps .carousel-inner > .prev.right {
+    left: 0;
+    padding: 0 15px;
+}
+
+.carousel_4_steps .active.left,
+.carousel_4_steps .active.right {
+    left: 0;
+    opacity: 0;
+    z-index: 2;
+}
+.carousel_4_steps .next {
+    left: 0;
+    opacity: 1;
+    z-index: 1;
+    padding: 0 15px;
+}
+
+.carousel_4_steps .carousel-caption {
+    left: 0;
+    right: 0;
+    text-shadow: none;
+    color: #333;
+    padding: 40px 0 0;
+    position: relative;
+    text-align: center;
+    line-height: 1.6;
+    color: #686f7a;
+    height: 100%;
+}
+
+.carousel_4_steps figure {
+    width: 100%;
+}
+
+.carousel_4_steps img {
+    margin: 0 auto;
+}
+
+.carousel_4_steps .carousel-indicators {
+    width: 90%;
+    height: 28px;
+    margin: 0 auto;
+    position: relative;
+    top: 0;
+    left: -10px;
+}
+
+.carousel_4_steps .indicator {
+    width: 28px;
+    height: 28px;
+            border-radius: 100px;
+    -webkit-border-radius: 100px;
+    background-color: #aebbce;
+    color: #fff;
+    font: 700 12px/28px 'Open Sans';
+    text-indent: 0;
+    border: none;
+    display: block;
+    left: 100%;
+    position: relative;
+    margin-left: -6%;
+}
+
+.carousel_4_steps .carousel-indicators li {
+    background: url('../img/whatwedo/slider_dots.png') repeat-x 0 14px transparent;
+    width: 32%;
+    height: 28px;
+            border-radius: 0;
+    -webkit-border-radius: 0;
+    border: none;
+    padding: 0;
+    margin: 0;
+    float: left;
+}
+
+.carousel_4_steps .carousel-indicators li:first-child {
+    width: 0;
+}
+
+.carousel_4_steps .carousel-indicators .active .indicator {
+    background-color: #4e8eec;
+    cursor: pointer;
+}
+
+/*==========  max 360  ==========*/
+
+@media (max-width: 360px) {
+    .carousel_4_steps .item {
+        min-height: 490px;
+    }
+}
+
+/*==========  min 360 max 480  ==========*/
+
+@media (min-width: 360px) and (max-width: 480px) {
+    .carousel_4_steps .item {
+        min-height: 410px;
+    }
+}
+
+/*==========  min 640  ==========*/
+
+@media (min-width: 640px) {
+    .carousel_4_steps {
+        width: 640px;
+        margin-bottom: 5em;
+    }
+    .carousel_4_steps .carousel-caption {
+        text-align: left;
+    }
+    .carousel_4_steps figure {
+        float: left;
+        margin: 0;
+        width: auto;
+    }
+}
+
+/*==========  min 768  ==========*/
+
+@media (min-width: 768px) {
+    .carousel_4_steps .carousel-indicators {
+        margin: 0 auto;
+        width: 100%;
+        left: 0;
+    }
+}

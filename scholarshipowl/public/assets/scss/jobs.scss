@@ -1,0 +1,232 @@
+// breakpoint sass lib
+// http://breakpoint-sass.com/
+@import '../../../node_modules/breakpoint-sass/stylesheets/breakpoint';
+
+//variables
+@import 'main/meta/variables';
+@import 'main/meta/palette';
+@import 'main/meta/typography.scss';
+@import 'main/meta/helpers.scss';
+
+$dark: #323436;
+$grey: #f1f5f8;
+
+$xs: 640px;
+$l: 992px;
+
+// styles
+.jobs {
+  overflow: hidden;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  max-width: 992px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+
+  @include breakpoint($xs) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  @include breakpoint(801px $l - 1px) {
+    margin-bottom: 175px;
+  }
+
+  .jobs-banner {
+    display: block;
+    width: 300px;
+    height: 250px;
+    overflow: hidden;
+
+    @include breakpoint(max-width $xs) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @include breakpoint($xs $l) {
+      float: left;
+    }
+  }
+
+  .jobs-banner + .jobs-banner {
+    margin-top: 15px;
+
+    @include breakpoint($xs $l - 1px) {
+      margin-top: 0;
+      margin-left: 10px;
+    }
+  }
+
+  .jobs-left {
+    width: 100%;
+
+    @include breakpoint($l) {
+      float: left;
+      width: 630px;
+    }
+  }
+
+  .jobs-right {
+    width: 100%;
+    max-width: 610px;
+
+    @include breakpoint($xs $l) {
+      overflow: hidden;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @include breakpoint($l) {
+      float: right;
+      width: 300px;
+    }
+  }
+
+  // modal window
+  #zs_modal_dialog {
+    margin-top: 75px;
+
+    .zs_search_box {
+      border-color: #a3c3f1;
+    }
+  }
+
+  // custom styles for zip search
+  .zr_widget {
+    position: relative;
+
+    // parent container
+    #zs_search_container {
+      border: none;
+      background-color: $grey;
+    }
+
+    @include breakpoint($xs + 1px) {
+      #zs_search_container {
+        padding-bottom: 80px;
+      }
+    }
+
+    // input container
+    .zs_search_container {
+
+      @include breakpoint(max-width $xs) {
+        width: 100%;
+        max-width: none;
+      }
+
+      // input
+      .zs_search_box {
+
+        @include breakpoint(max-width $xs) {
+          width: 100%;
+          max-width: none;
+        }
+
+        border-radius: 0 !important;
+        border-color: darken($grey, 20);
+        height: 45px;
+      }
+    }
+
+    // submit button
+    #zs_submit {
+      @include breakpoint(max-width $xs) {
+        width: 100%;
+        max-width: none;
+      }
+
+      @include breakpoint($xs + 1px) {
+        width: 150px;
+        max-width: 200px;
+        margin-right: 0;
+      }
+
+      background-color: #f87b4a;
+      text-transform: uppercase;
+      height: 50px;
+    }
+
+    // filter container
+    #zr_pro_widget_filter {
+
+      @include breakpoint($xs + 1px) {
+        position: absolute;
+        top: 106px;
+        left: 16px;
+      }
+
+      .filter_wrapper + .filter_wrapper {
+        margin-left: 2%;
+      }
+
+      // filter wrapper
+      @include breakpoint($xs) {
+        .filter_wrapper + .filter_wrapper {
+          margin-left: 1.5%;
+        }
+      }
+
+      .filter_wrapper {
+        @include breakpoint(max-width $xs) {
+          width: 49%;
+        }
+
+        @include breakpoint($xs) {
+          width: 200px;
+        }
+
+        color: $dark;
+        float: left;
+
+        select {
+          border-radius: 0;
+          width: 100%;
+          color: $dark;
+
+          @include breakpoint($xs) {
+            background-color: white;
+            border-color: #adc4d6;
+            height: 38px;
+          }
+        }
+
+        // drop down arrow
+        .zs_down_arrow {
+          border-top-color: $dark;
+          left: auto;
+          right: 5%;
+          z-index: 11;
+        }
+      }
+    }
+
+    select {
+      visibility: visible;
+    }
+
+    #zr_attributed {
+      margin-bottom: 15px;
+    }
+
+    // job title
+    .zr_job_link {
+      color: #8fa7eb;
+    }
+
+    // paragraph
+    .zr_job_desc {
+      line-height: 1.6em;
+    }
+
+
+  }
+
+  &_wide {
+    .jobs-left {
+      width: 100%;
+    }
+  }
+}

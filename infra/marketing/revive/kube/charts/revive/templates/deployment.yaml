@@ -1,0 +1,48 @@
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: {{ template "fullname" . }}
+  labels:
+    app: {{ template "fullname" . }}
+spec:
+  selector:
+   matchLabels:
+    app: {{ template "fullname" . }}
+  replicas: {{ .Values.containers.nginx.replicaCount }}
+  updateStrategy:
+    type: {{ .Values.updateStrategy.type }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "fullname" . }}
+    spec:
+      containers:
+      - name: {{ .Values.containers.nginx.name }}
+        image: "{{ .Values.containers.nginx.image.repository }}:{{ .Values.containers.nginx.image.tag }}"
+        imagePullPolicy: {{ .Values.containers.nginx.image.pullPolicy }}
+        ports:
+          - containerPort: {{ .Values.containers.nginx.port }}
+        livenessProbe:
+{{ toYaml .Values.livenessProbe | indent 10 }}
+        readinessProbe:
+{{ toYaml .Values.readinessProbe | indent 10 }}
+        volumeMounts:
+        - name: {{ .Values.volume.revive.name }}
+          mountPath: {{ .Values.volume.revive.path }}
+      - name: {{ .Values.containers.phpfpm.name }}
+        image: "{{ .Values.containers.phpfpm.image.repository }}:{{ .Values.containers.phpfpm.image.tag }}"
+        imagePullPolicy: {{ .Values.containers.phpfpm.image.pullPolicy }}
+        ports:
+          - containerPort: {{ .Values.containers.phpfpm.port }}
+        volumeMounts:
+        - name: {{ .Values.volume.revive.name }}
+          mountPath: {{ .Values.volume.revive.path }}
+  volumeClaimTemplates:
+  - metadata:
+      name: {{ .Values.volume.revive.name }}
+    spec:
+      accessModes:
+      - {{ .Values.volume.revive.accessMode }}
+      resources:
+        requests:
+          storage: {{ .Values.volume.revive.size }}

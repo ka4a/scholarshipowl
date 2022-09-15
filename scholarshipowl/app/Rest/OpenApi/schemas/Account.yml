@@ -1,0 +1,44 @@
+type: object
+properties:
+  accountId:
+    type: integer
+  email:
+    type: string
+  isMember:
+    type: boolean
+  isFreemium:
+    type: boolean
+  credits:
+    type: integer
+  freemiumCredits:
+    type: integer
+  membership:
+    type: string
+    example: "Monthly [7d trial & Discount]"
+  freeTrial:
+    type: boolean
+  freeTrialEndDate:
+    type: string
+    format: date-time
+    example: "Jul 3, 2018"
+  eligibleScholarships:
+    type: integer
+    example: 25
+  username:
+    type: string
+    example: john_doe
+  socialAccount:
+    type: object
+  marketing:
+    type: object
+    properties:
+      affiliateId:
+        type: integer
+      offerId:
+        type: integer
+      transactionId:
+        type: string
+  profile:
+    type: array
+    items:
+      $ref: "Profile.yml"

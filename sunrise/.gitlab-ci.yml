@@ -1,0 +1,270 @@
+# In Gitlab CI please configure next variables:
+#
+#   GCE_JSON_KEY - Content of GCE service account json key
+#
+
+stages:
+  - build
+  - test
+  - release
+  - deploy
+
+variables:
+  DOCKER_DRIVER: overlay2
+  DOCKER_HOST: tcp://127.0.0.1:2375
+
+  # App configurations
+  APP_ENV: staging
+  APP_HOST: app.scholarship.app
+  APP_URL: https://app.scholarship.app
+
+  # Google cloud cluster configs
+  GCE_PROJECT: sowl-tech
+  GCE_CLUSTER_NAME: sowl-tech
+  GCE_ZONE: europe-west1-b
+
+  # Helm configs
+  HELM_NAME: sunrise-dev-$CI_COMMIT_REF_SLUG
+  HELM_CHART: kube/charts/sunrise-dev
+  HELM_NAMESPACE: sunrise-dev
+
+  DOCKER_REPOSITORY: gcr.io/sowl-tech/sunrise
+  DOCKER_TAG: latest
+
+  # Test images
+  DOCKER_IMAGE: $DOCKER_REPOSITORY:$CI_COMMIT_REF_SLUG
+  DOCKER_IMAGE_QUEUE: $DOCKER_REPOSITORY/queue:$CI_COMMIT_REF_SLUG
+  DOCKER_IMAGE_NGINX: $DOCKER_REPOSITORY/nginx:$CI_COMMIT_REF_SLUG
+
+  # Production images
+  DOCKER_RELEASE_IMAGE: $DOCKER_REPOSITORY:$DOCKER_TAG
+  DOCKER_RELEASE_IMAGE_QUEUE: $DOCKER_REPOSITORY/queue:$DOCKER_TAG
+  DOCKER_RELEASE_IMAGE_NGINX: $DOCKER_REPOSITORY/nginx:$DOCKER_TAG
+
+#
+# Build Sunrise docker images
+#
+Build:
+  stage: build
+  image: docker:stable
+  services:
+    - docker:dind
+  script:
+    - docker_build
+
+#
+# Test main image with PHPUnit
+#
+Test:
+  stage: test
+  image:
+    name: $DOCKER_IMAGE
+    entrypoint: [""]
+  services:
+    - mysql:5.7
+  cache:
+    key: vendor-cache
+    paths:
+      - vendor
+  variables:
+    APP_ENV: testing
+    DB_HOST: 127.0.0.1
+    DB_USERNAME: root
+    MYSQL_DATABASE: sunrise
+    MYSQL_ROOT_PASSWORD: secret
+  script:
+    - cp .env.testing .env
+    - composer install
+    - phpunit_test
+  artifacts:
+    paths:
+      # - tests/coverage
+      - tests/junit.xml
+    reports:
+      junit:
+        - tests/junit.xml
+
+#
+# Release new stable versions of images
+#
+Release:
+  stage: release
+  image: docker:stable
+  services:
+    - docker:dind
+  variables:
+    APP_ENV: production
+  script:
+    - docker_release
+  only:
+    - master
+
+Review:
+  stage: deploy
+  image: devth/helm
+  variables:
+    APP_HOST: $CI_COMMIT_REF_SLUG.app.sunrising.tech
+    DOCKER_TAG: $CI_COMMIT_REF_SLUG
+  environment:
+    name: review/$CI_COMMIT_REF_NAME
+    url: https://$APP_HOST
+    on_stop: Stop
+  script:
+    - helm_init
+    - helm_deploy
+  except:
+    - develop
+    - master
+
+Stop:
+  stage: deploy
+  image: devth/helm
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - helm_init
+    - helm_delete
+  environment:
+    name: review/$CI_COMMIT_REF_NAME
+    action: stop
+  when: manual
+  allow_failure: true
+  only:
+    kubernetes: active
+  except:
+    - develop
+    - master
+
+Staging:
+  stage: deploy
+  image: devth/helm
+  variables:
+    APP_HOST: app.sunrising.tech
+    APP_URL: https://app.sunrising.tech
+    DOCKER_TAG: $CI_COMMIT_REF_SLUG
+  environment:
+    name: staging
+    url: https://app.sunrising.tech
+  script:
+    - helm_init
+    - helm_deploy
+  only:
+    - develop
+
+Production:
+  stage: deploy
+  image: devth/helm
+  variables:
+    HELM_NAME: scholarship-app-api
+    HELM_CHART: kube/charts/sunrise
+    HELM_NAMESPACE: sunrise
+    GCE_CLUSTER_NAME: prod-cluster
+    GCE_ZONE: us-central1-a
+  environment:
+    name: staging
+    url: https://app.scholarship.app
+  script:
+    - helm_init
+    - helm_deploy
+  only:
+    - master
+
+.functions: &functions |
+  # Build all docker images
+  function docker_build() {
+    # docker login -u gitlab-ci-token -p ${CI_JOB_TOKEN} ${CI_REGISTRY}
+    docker login -u _json_key -p "${GCE_JSON_KEY}" https://gcr.io
+
+    docker pull $DOCKER_RELEASE_IMAGE_QUEUE || true
+    docker pull $DOCKER_RELEASE_IMAGE_NGINX || true
+
+    docker build --cache-from $DOCKER_RELEASE_IMAGE_NGINX --tag $DOCKER_IMAGE_NGINX kube/docker/nginx
+    docker build --cache-from $DOCKER_RELEASE_IMAGE_QUEUE --tag $DOCKER_IMAGE_QUEUE kube/docker/queue
+
+    docker push $DOCKER_IMAGE_NGINX
+    docker push $DOCKER_IMAGE_QUEUE
+
+    # Build main PHPFPM application image
+    docker pull $DOCKER_IMAGE || true
+    docker pull $DOCKER_RELEASE_IMAGE || true
+    docker build --pull --tag ${DOCKER_IMAGE} . \
+      --cache-from ${DOCKER_IMAGE} \
+      --cache-from ${DOCKER_RELEASE_IMAGE} \
+      --build-arg BUILD=staging \
+      --build-arg APP_ENV=${APP_ENV} \
+      --build-arg APP_URL=${APP_URL}
+    docker push $DOCKER_IMAGE
+  }
+  # Release "latest" docker images
+  function docker_release() {
+    mkdir -p images
+    # docker login -u gitlab-ci-token -p ${CI_JOB_TOKEN} ${CI_REGISTRY}
+    docker login -u _json_key -p "${GCE_JSON_KEY}" https://gcr.io
+
+    docker pull $DOCKER_IMAGE_QUEUE
+    docker pull $DOCKER_IMAGE_NGINX
+    docker pull $DOCKER_IMAGE
+
+    # Tag images as latest
+    docker tag $DOCKER_IMAGE_QUEUE $DOCKER_RELEASE_IMAGE_QUEUE
+    docker tag $DOCKER_IMAGE_NGINX $DOCKER_RELEASE_IMAGE_NGINX
+
+    # Build production build
+    docker build --pull --tag $DOCKER_RELEASE_IMAGE . \
+      --cache-from $DOCKER_IMAGE \
+      --cache-from $DOCKER_RELEASE_IMAGE \
+      --build-arg BUILD=production \
+      --build-arg APP_ENV=$APP_ENV \
+      --build-arg APP_URL=$APP_URL
+
+    # Push release images
+    docker push $DOCKER_RELEASE_IMAGE_QUEUE
+    docker push $DOCKER_RELEASE_IMAGE_NGINX
+    docker push $DOCKER_RELEASE_IMAGE
+  }
+  # Init google cloud authentication to k8s cluster and run helm init
+  function helm_init() {
+    mkdir -p /etc/deploy
+    echo ${GCE_JSON_KEY} > /etc/deploy/sa.json
+    gcloud auth activate-service-account --key-file /etc/deploy/sa.json
+    gcloud container clusters get-credentials ${GCE_CLUSTER_NAME} --zone ${GCE_ZONE} --project ${GCE_PROJECT}
+    helm init --wait --upgrade
+  }
+  # Deploy release using helm
+  function helm_deploy() {
+    helm upgrade --install --wait --force --timeout 300 ${HELM_NAME} ${HELM_CHART} \
+      --namespace ${HELM_NAMESPACE} \
+      --set app="${HELM_NAME}" \
+      --set ingress.hosts[0]="${APP_HOST}" \
+      --set containers.phpfpm.repository="${DOCKER_REPOSITORY}" \
+      --set containers.phpfpm.tag="${DOCKER_TAG}" \
+      --set containers.nginx.repository="${DOCKER_REPOSITORY}/nginx" \
+      --set containers.nginx.tag="${DOCKER_TAG}" \
+      --set containers.queue.repository="${DOCKER_REPOSITORY}/queue" \
+      --set containers.queue.tag="${DOCKER_TAG}" \
+      --set volume.name="${HELM_NAME}" \
+      --set volume.size="10Gi"
+  }
+  # Remove helm release
+  function helm_delete() {
+      helm delete --purge ${HELM_NAME}
+  }
+  # Run PHPUnit tests
+  function phpunit_test() {
+    php artisan view:clear
+    php artisan config:clear
+    php artisan route:clear
+    php artisan doctrine:migration:migrate --force
+    php artisan passport:install
+    php artisan barn:client
+    php artisan sowl:client
+    php artisan sunrise:setup
+    php vendor/bin/phpunit \
+      --configuration phpunit.xml \
+      --log-junit=tests/junit.xml
+
+    # --coverage-html=tests/coverage
+  }
+
+before_script:
+  - *functions

@@ -1,0 +1,59 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Values.app }}-app
+  labels:
+    app: {{ .Values.app }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  selector:
+   matchLabels:
+    app: {{ .Values.app }}
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    type: {{ .Values.updateStrategy.type }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.app }}
+        release: {{ .Release.Name }}
+    spec:
+      initContainers:
+      - name: init-mysql-database
+        image: "gcr.io/sowl-tech/busybox-with-mysql:v1.2"
+        command: ["sh", "-c", "until mysql --connect-timeout=5 -h @DBHOST -uscholarship_owl -pCs6ZQuaxwDLkhwL; 
+          do echo waiting for database; sleep 2; done; echo success; exit 0;"]
+      containers:
+      - name: {{ .Values.containers.nginx.name | quote }}
+        image: "{{ .Values.containers.nginx.repository }}:{{ .Values.containers.nginx.tag }}"
+        imagePullPolicy: {{ .Values.containers.nginx.pullPolicy | quote }}
+        ports:
+          - containerPort: {{ .Values.containers.nginx.httpPort }}
+        volumeMounts:
+        - name: {{ .Values.volume.name }}
+          mountPath: {{ .Values.volume.path }}
+      - name: {{ .Values.containers.phpfpm.name | quote }}
+        image: "{{ .Values.containers.phpfpm.repository }}:{{ .Values.containers.phpfpm.tag }}"
+        imagePullPolicy: {{ .Values.containers.phpfpm.pullPolicy | quote }}
+        securityContext:
+        capabilities:
+            add:
+            - SYS_PTRACE
+        ports:
+          - containerPort: {{ .Values.containers.phpfpm.port }}
+        livenessProbe:
+{{ toYaml .Values.livenessProbe | indent 10 }}
+        readinessProbe:
+{{ toYaml .Values.readinessProbe | indent 10 }}
+        volumeMounts:
+        - name: {{ .Values.volume.name }}
+          mountPath: {{ .Values.volume.path }}
+      volumes:
+      - name: {{ .Values.volume.name }}
+        emptyDir: {}
+{{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+{{- end }}

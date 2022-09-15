@@ -1,0 +1,8 @@
+FROM php:7.2.19-fpm-alpine3.10
+RUN apk add --no-cache --virtual .build-dependencies $PHPIZE_DEPS libmemcached-dev libcurl curl-dev libxml2-dev && \
+	apk add --no-cache git unzip curl mysql-client  libmemcached freetype libpng libjpeg-turbo freetype-dev libpng-dev libjpeg-turbo-dev zlib-dev libzip-dev libmemcached php7-soap php7-curl php7-json php7-mbstring php7-opcache php7-xml && \
+	curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
+	docker-php-ext-install -j$(nproc) gd zip pdo pdo_mysql && \
+	pecl install -o -f redis memcached && \
+	docker-php-ext-enable redis memcached
+

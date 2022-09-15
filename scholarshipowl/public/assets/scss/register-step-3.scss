@@ -1,0 +1,266 @@
+//colors
+$white: #fff;
+$color_havelock_blue_approx: #4e8eec;
+$color_hawkes_blue_approx: #d8e8ff;
+$color_white_approx: #fbfdff;
+$color_spindle_approx: #bcd1f0;
+$color_rock_blue_approx: #9bb4d9;
+$color_jordy_blue_approx: #80b3ff;
+$color_polo_blue_approx: #94abce;
+$color_mine_shaft_approx: #333;
+
+//fonts
+$font_0: 'Open Sans';
+$font_1: 'Open Sans';
+$font_2: 'Open Sans';
+$font_3: 'Open Sans';
+
+.modal-dialog {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.register-step3-form {
+	background-color: $color_hawkes_blue_approx;
+	border-bottom: 1px solid $color_white_approx;
+	.page {
+		padding-top: 54px;
+	}
+	.form-wrapper {
+		padding: 0;
+		max-width: 300px;
+	}
+	.input-group {
+		margin: 0;
+		width: 100%;
+	}
+	.form-group {
+		margin: 0;
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	.checkboxes {
+		text-align: center;
+	}
+	.col {
+		margin: 0;
+		height: 286px;
+		label {
+			position: relative;
+			&:first-child {
+				padding: 0;
+			}
+		}
+		&:first-child {
+			margin-left: 0;
+		}
+		input[type=text] {
+			position: relative;
+		}
+		.bootstrap-select {
+			position: relative;
+		}
+		textarea {
+			position: relative;
+			top: -22px !important;
+			padding-right: 0;
+			margin-right: 15px;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			//Instead of the line below you could use @include box-sizing($bs)
+			box-sizing: border-box;
+			overflow: auto;
+			resize: none;
+		}
+		&.colmiddle label {
+			top: -24px;
+		}
+	}
+	.colleft {
+		width: 289px !important;
+		border-right: 1px solid $color_spindle_approx;
+	}
+	.colright {
+		margin-top: 21px;
+	}
+	.colmiddle {
+		margin: -21px 45px 0 37px;
+	}
+	input[type=text] {
+		border: 1px solid $color_spindle_approx;
+		border-top-color: $color_rock_blue_approx;
+		&:focus {
+			border-color: $color_jordy_blue_approx;
+		}
+	}
+	input[type=number] {
+		border: 1px solid $color_spindle_approx;
+		border-top-color: $color_rock_blue_approx;
+		&:focus {
+			border-color: $color_jordy_blue_approx;
+		}
+	}
+	input[type=tel] {
+		border: 1px solid $color_spindle_approx;
+		border-top-color: $color_rock_blue_approx;
+		&:focus {
+			border-color: $color_jordy_blue_approx;
+		}
+	}
+	input[type=email] {
+		border: 1px solid $color_spindle_approx;
+		border-top-color: $color_rock_blue_approx;
+		&:focus {
+			border-color: $color_jordy_blue_approx;
+		}
+	}
+	label {
+		font: 400 12px/120% $font_3;
+		color: $color_polo_blue_approx;
+		text-align: left;
+		width: 100%;
+		padding-left: 5px;
+		&.parent-container {
+			text-align: center;
+		}
+	}
+	textarea {
+		height: 300px;
+		border-color: $color_rock_blue_approx $color_spindle_approx $color_spindle_approx;
+	}
+	.bootstrap-select .caret {
+		border-top-color: $color_rock_blue_approx;
+	}
+}
+.register-step3-header {
+	font: 400 22px/120% $font_2;
+	color: $white;
+	background-color: $color_havelock_blue_approx;
+	text-align: center;
+	padding: 20px 15px;
+	font-variant: small-caps;
+}
+.reg-step3-form {
+	margin: 15px auto 60px;
+	max-width: 100%;
+	padding: 0 15px;
+	.form-group {
+		height: 100%;
+	}
+	.help-block {
+		float: left;
+	}
+	.has-error textarea.form-control {
+		&:focus {
+			border-color: $color_rock_blue_approx $color_spindle_approx $color_spindle_approx !important;
+			color: $color_mine_shaft_approx;
+		}
+		&:active {
+			border-color: $color_rock_blue_approx $color_spindle_approx $color_spindle_approx !important;
+			color: $color_mine_shaft_approx;
+		}
+	}
+}
+@media(min-width: 480px) {
+	.register-step3-header {
+		font: 400 35px/120% $font_0;
+		font-variant: small-caps;
+	}
+}
+@media(min-width: 640px) {
+	.reg-step3-form {
+		margin: 30px auto 60px;
+		padding: 0;
+		max-width: 100%;
+	}
+	#registration-form-step-3 .container {
+		padding: 20px 50px 10px;
+	}
+}
+@media(min-width: 768px) {
+	.register-step3-header {
+		font: 400 42px/120% $font_1;
+		font-variant: small-caps;
+	}
+	.register-step3-form .form-wrapper {
+		max-width: 670px;
+	}
+}
+@media(min-width: 992px) {
+	.reg-step3-form {
+		max-width: 100%;
+	}
+}
+#refer-friend-call {
+	display: none;
+}
+.berecruited {
+	width: 114px;
+	margin: 0 auto;
+}
+img {
+	&.berecruited {
+		width: auto;
+		margin-bottom: 10px;
+	}
+	&.cappex {
+		vertical-align: bottom;
+		margin-right: 5px;
+	}
+}
+.cappex {
+	span p {
+		margin-left: 32px;
+		text-align: left;
+	}
+	input[type=checkbox] + .lbl.padding-12.mod-checkbox:before {
+		margin-top: 12px;
+	}
+}
+.checkbox-reg-3 {
+	margin-top: 20px;
+	label {
+		text-align: center;
+	}
+}
+.register-final label:first-child {
+	padding: 0;
+}
+
+// style gide components
+@import './style-gide/buttons';
+
+// inline coreg checkboxes
+.birddog-sms {
+	input {
+		cursor: pointer;
+    top: -8px;
+    width: 22px;
+    height: 22px;
+    left: 5px;
+    margin-top: 0;
+  }
+}
+
+.style-checkbox-coreg {
+	height: 20px; width: 20px;
+	border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	background-color: #fafafa;
+  color: #2091cf;
+  position: relative;
+  display: inline-block;
+  font: 400 26px/.85 fontello;
+  cursor: pointer;
+
+	&:before {
+		content: '\e808';
+		position: absolute;
+		left: 0;
+	}
+
+	// checked state
+	input:checked + span &:before {
+		content: '\e807';
+	}
+}

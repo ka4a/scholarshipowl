@@ -1,0 +1,265 @@
+# v.1.0.6
+# apiVersion: v1
+# kind: Namespace
+# metadata:
+#   name: {{ KUBE_NAMESPACE }}
+# ---
+# apiVersion: v1
+# data:
+#   .dockerconfigjson: {{ REGISTRY_ACCESS_SECRET }}
+# kind: Secret
+# metadata:
+#   name: regcred-{{ CI_PROJECT_NAME }}-{{ BRANCH }}
+#   # namespace: {{ KUBE_NAMESPACE }}
+# type: kubernetes.io/dockerconfigjson
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: sowl-{{ BRANCH }}
+  # namespace: {{ KUBE_NAMESPACE }}
+spec:
+  selector:
+    app: sowl-{{ BRANCH }}
+  ports:
+  - name: "nginx"
+    protocol: TCP
+    port: 80
+  - name: "php-fpm"
+    protocol: TCP
+    port: 9000
+#  type: LoadBalancer # You may want to replace LoadBalancer with Ingress: just comment this line and uncomment Ingress definition below 
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+ annotations:
+   kubernetes.io/ingress.class: nginx-sowl
+   nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+   nginx.ingress.kubernetes.io/ssl-redirect: 'true'
+#   nginx.ingress.kubernetes.io/lb-method: round_robin
+#   nginx.ingress.kubernetes.io/websocket-services: {{ CI_PROJECT_NAME }}-{{ BRANCH }}
+ name: sowl-{{ BRANCH }}
+ # namespace: {{ KUBE_NAMESPACE }}
+spec:
+ tls:
+   - secretName: {{ KUBE_INGRESS_HTTPS_SECRET_NAME }}
+ rules:
+   - host: {{ CI_COMMIT_REF_SLUG }}.{{ KUBE_INGRESS_DOMAIN }} # Replace with correct cluster FQDN
+     http:
+       paths:
+         - path: /
+           backend:
+             serviceName: sowl-{{ BRANCH }}
+             servicePort: 80
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: sowl-{{ BRANCH }}
+  # namespace: {{ KUBE_NAMESPACE }}
+spec:
+  replicas: {{ REPLICAS_COUNT }}
+  template:
+    metadata:
+      labels:
+        app: sowl-{{ BRANCH }}
+    spec:
+      volumes:
+      - name: sowl-dev-{{ BRANCH }}
+        emptyDir: {} 
+      - name: sowl-env-{{ BRANCH }}
+        configMap:
+          name: sowl-env-{{ BRANCH }}
+          items:
+            - key: .env.kubernetes
+              path: .env.kubernetes
+      - name: sowl-db-{{ BRANCH }}
+        configMap:
+          name: sowl-db-{{ BRANCH }}
+          items:
+            - key: database.php
+              path: database.php
+      initContainers:
+      - name: init
+        image: {{ CONTAINER_RELEASE_IMAGE }}
+        env:
+        - name: CONTAINER_ROLE
+          value: "init"
+        - name: SRV_ENV
+          value: "init"
+        volumeMounts:
+        - name: sowl-dev-{{ BRANCH }}
+          mountPath: /var/www/html
+        - name: sowl-env-{{ BRANCH }} # place of env file
+          mountPath: /.env.kubernetes
+          subPath: .env.kubernetes
+          readOnly: true
+        - name: sowl-db-{{ BRANCH }} # place of env file
+          mountPath: /database.php
+          subPath: database.php
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      containers:
+###############################################################---sowl-php-fpm---######################################################
+      - name: php-fpm
+        image: {{ CONTAINER_RELEASE_IMAGE }}
+        env:
+        - name: CONTAINER_ROLE
+          value: "dev"
+        ports:
+        - containerPort: 9000
+        volumeMounts:
+        - name: sowl-dev-{{ BRANCH }}
+          mountPath: /var/www/html
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+###############################################################---sowl-queue---######################################################
+      - name: queue
+        image: {{ CONTAINER_RELEASE_IMAGE }}
+        env:
+        - name: CONTAINER_ROLE
+          value: "queue"
+        - name: SRV_ENV
+          value: "sidecar"
+        volumeMounts:
+        - name: sowl-dev-{{ BRANCH }}
+          mountPath: /var/www/html
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File   
+###############################################################---sowl-nginx---######################################################
+      - name: nginx
+        image: gcr.io/sowl-tech/sowl-nginx/nginx:v8.3
+        command: ["nginx"]
+        args: ["-g", "daemon off;"]
+        #env:
+        # - name: SOME_VAR
+        #   value: SOME_VALUE
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: sowl-dev-{{ BRANCH }}
+          mountPath: /var/www/html
+###############################################################---redis---######################################################
+      - name: redis
+        image: redis:5.0.6-alpine3.10
+        ports:
+        - containerPort: 6379
+###############################################################---memcached---######################################################
+      - name: memcached
+        image: memcached:1.5.19-alpine
+        ports:
+        - containerPort: 11211
+      restartPolicy: Always
+---
+###############################################################---env file---######################################################
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sowl-env-{{ BRANCH }}
+  # namespace: {{ KUBE_NAMESPACE }}
+data:
+  .env.kubernetes: |
+    APP_SRV=jenkins
+    APP_ENV=kubernetes
+    APP_DEBUG=true
+    PHP_DEBUG_BAR=false
+    APP_S3BUCKET='scholarship-dev'
+
+    REDIS_AUTH=null
+    REDIS_QUEUE_AUTH=null
+    REDIS_SHARED_HOST=127.0.0.1
+    REDIS_SHARED_PORT=6379
+    REDIS_SHARED_AUTH=null
+
+    DB_HOST={{ MYSQL_DEV }}
+    DB_HOST_MASTER={{ MYSQL_DEV }}
+    DB_HOST_REPLICA={{ MYSQL_DEV }}
+    DB_USERNAME={{ DBNAME }}
+    DB_DATABASE={{ DBNAME }}
+    DB_PASSWORD={{ MYSQL_UNPRIVILEGED_USER_PASSWORD }}
+    {{ STAGING_GITLAB_ENVS }}
+
+---
+###############################################################---env-db file---#####################################################
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sowl-db-{{ BRANCH }}
+  # namespace: {{ KUBE_NAMESPACE }}
+data:
+  database.php: |
+    <?php
+    return [
+        'fetch' => PDO::FETCH_CLASS,
+        'default' => env('DB_CONNECTION', 'mysql'),
+        'connections' => [
+
+            'sqlite' => [
+                'driver'   => 'sqlite',
+                'database' => storage_path().'/database.sqlite',
+                'prefix'   => '',
+            ],
+
+            'mysql' => [
+                'driver'    => 'mysql',
+                'write'     => [
+                    'host' => env('DB_HOST_MASTER', '{{ MYSQL_DEV }}')
+                ],
+                'read' => [
+                    [
+                        'host' => env('DB_HOST_REPLICA', '{{ MYSQL_DEV }}')
+                    ],
+                ],
+                'database'  => env('DB_DATABASE', '{{ DBNAME }}'),
+                'username'  => env('DB_USERNAME', '{{ DBNAME }}'),
+                'password'  => env('DB_PASSWORD', '{{ MYSQL_UNPRIVILEGED_USER_PASSWORD }}'),
+                'charset'   => 'utf8',
+                'collation' => 'utf8_general_ci',
+                'prefix'    => '',
+                'strict'    => false,
+            ],
+
+            'migration_db' => [
+                'driver'    => 'mysql',
+                'host'      => env('DB_HOST', '{{ MYSQL_DEV }}'),
+                'database'  => env('DB_DATABASE', '{{ DBNAME }}'),
+                'username'  => env('DB_USERNAME', '{{ DBNAME }}'),
+                'password'  => env('DB_PASSWORD', '{{ MYSQL_UNPRIVILEGED_USER_PASSWORD }}'),
+                'charset'   => 'utf8',
+                'collation' => 'utf8_general_ci',
+                'prefix'    => '',
+                'strict'    => false,
+            ],
+
+        ],
+        'migrations' => 'migrations',
+        'redis' => [
+
+            'cluster' => false,
+
+            'default' => [
+                'host'     => env("REDIS_HOST", "127.0.0.1"),
+                'port'     => 6379,
+                'database' => 0,
+                'password' => env('REDIS_AUTH', 'Ctf7BBPW3rzhEEGe'),
+            ],
+
+            'shared' => [
+                'host'     => env('REDIS_SHARED_HOST'),
+                'port'     => env('REDIS_SHARED_PORT'),
+                'database' => 0,
+                'password' => env('REDIS_SHARED_AUTH', null)
+            ],
+
+            'queue' => [
+                'host'     => env('REDIS_QUEUE_HOST', '127.0.0.1'),
+                'port'     => env('REDIS_QUEUE_PORT', 6379),
+                'database' => 0,
+                'password' => env('REDIS_QUEUE_AUTH', 'Ctf7BBPW3rzhEEGe')
+            ],
+
+        ],
+
+    ];
+

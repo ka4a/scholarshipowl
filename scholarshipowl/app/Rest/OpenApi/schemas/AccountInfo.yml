@@ -1,0 +1,138 @@
+type: object
+properties:
+  scholarship:
+    type: object
+    properties:
+      eligibleCount:
+        type: integer
+        description: Count of eligible scholarships
+        example: 195
+      eligibleAmount:
+        type: integer
+        description: Amount (total sum in $) of eligible scholarships
+        example: 150000
+  application:
+    type: object
+    properties:
+      total:
+        type: integer
+        description: Total count of applications
+        example: 40
+  mailbox:
+    type: object
+    properties:
+      inbox:
+        type: object
+        properties:
+          read:
+            type: integer
+            description: Count of read emails
+            example: 5
+          unread:
+            type: integer
+            description: Count of unread emails
+            example: 15
+          total:
+            type: integer
+            description: Total count of emails in the Inbox
+            example: 20
+      sent:
+        type: object
+        properties:
+          read:
+            type: integer
+            description: Count of read emails
+            example: 5
+          unread:
+            type: integer
+            description: Count of unread emails
+            example: 15
+          total:
+            type: integer
+            description: Total count of emails in the Sent box
+            example: 20
+  account:
+    type: object
+    properties:
+      accountId:
+        type: integer
+      username:
+        type: string
+      email:
+        type: string
+      avatar:
+        type: string
+        example: http://scholarshipowl.com/assets/img/my-account/male-user-avatar.png
+  profile:
+    $ref: 'Profile.yml'
+  socialAccount:
+    type: object
+    properties:
+      accountId:
+        type: integer
+      userProviderId:
+        type: integer
+      provider:
+        type: string
+        example: facebook
+      token:
+        type: string
+        example: EAADUcnuygmEBAJ0uQeErBmgoXUiZAYgX3bFeJ5pL1iPMMN77pFvzUdmu9rZBQOMjtUOKLtyPE1prRTry8hyYHvCq6WNY36JuYQXw8xZCZCA8ragFswpUQhKkqQO6RaSphMaP44rpoQzp7Ha7QQYmYFZCCqmeM5tvH9pz2KaGr8SRZAFZARyNRXpLiN01wlrhSdZCJAZCrtCv42qokDC7040FA5dOGE6omSlzSaFTasKNcRQZDZD
+  marketing:
+    type: object
+    properties:
+      affiliateId:
+        type: integer
+      offerId:
+        type: integer
+      transactionId:
+        type: string
+  membership:
+    type: object
+    properties:
+      subscriptionId:
+        type: integer
+        example: 272369
+      name:
+        type: string
+        example: MonthlyNT
+      isMember:
+        type: boolean
+      isFreemium:
+        type: boolean
+      freemiumCredits:
+        type: integer
+      credits:
+        type: integer
+      packagePrice:
+        type: string
+        example: 20.00
+      freeTrial:
+        type: boolean
+      freeTrialEndDate:
+        type: string
+        example: 22/05/2019
+      startDate:
+        type: string
+        example: 22/04/2019
+        description: not null for recurrent subscriptions
+      endDate:
+        type: string
+        example: 22/05/2019
+        description: not null for recurrent subscriptions
+      renewalDate:
+        type: string
+        example: 22/05/2019
+        description: subscription next billing (renewal) date
+      activeUntil:
+        type: string
+        example: 22/05/2019
+        description: not null if subscription canceled but still active
+      expirationPeriodType:
+        type: string
+        example: month
+        description: 'Can be one of:  day, week, month, year'
+      packageAlias:
+        type: string
+        example: freemium-mvp
+        description: 'User's package alias'

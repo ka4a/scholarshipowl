@@ -1,0 +1,149 @@
+.zuusa-form .page {
+    padding-top: 54px;
+}
+
+.zuusa-form .form-wrapper {
+    padding: 20px 0;
+    max-width: 300px;
+}
+
+.zuusa-form .input-group,
+.zuusa-form .form-group {
+    margin: 0;
+    width: 100%;
+}
+.zuusa-form .form-group {
+    margin-bottom: 10px;
+}
+
+
+.zuusa-form {
+    background-color: #d8e8ff;
+    border-bottom: 1px solid #fbfdff;
+}
+
+
+.zuusa-form .form-group {
+    height: 100%;
+}
+
+.zuusa-form .col {
+    margin: 0;
+    height: 286px;
+}
+
+.zuusa-form .colleft {
+    width: 289px !important;
+    border-right: 1px solid #bcd1f0;
+}
+
+.zuusa-form .colright {
+    margin-top: 21px;
+}
+
+.zuusa-form .colmiddle {
+    margin: -21px 45px 0 37px;
+}
+
+.zuusa-form .col label:first-child{
+    padding: 0;
+}
+
+.zuusa-form input[type=text],
+.zuusa-form input[type=number],
+.zuusa-form input[type=tel],
+.zuusa-form input[type=email] {
+    border: 1px solid #b8ceee;
+    border-top-color: #9bb4d9;
+    width: 100%;
+}
+
+.zuusa-form input[type=text]:focus,
+.zuusa-form input[type=number]:focus,
+.zuusa-form input[type=tel]:focus,
+.zuusa-form input[type=email]:focus {
+    border-color: #80b3ff;
+}
+
+.zuusa-form .col:first-child {
+    margin-left: 0;
+}
+
+.zuusa-form .col input[type=text],
+.zuusa-form .col .bootstrap-select,
+.zuusa-form .col label {
+    position: relative;
+}
+
+.zuusa-form .col.colmiddle label {
+    top: -24px;
+}
+
+.zuusa-form .bootstrap-select .caret {
+    border-top-color: #9eb7db;
+}
+
+.zuusa-form label {
+    font: 400 12px/120% 'Open Sans';
+    color: #94abce;
+    text-align: left;
+    padding-left: 5px;
+    white-space: normal;
+    line-height: 50px;
+}
+
+.zuusa-form .btn-lg button{
+    padding:0;
+}
+
+.zuusa-form input[type=checkbox] + .lbl,
+.zuusa-form input[type=radio] + .lbl {
+    padding-left: 32px;
+}
+
+input[type=checkbox] + .lbl.padding-16:before,
+input[type=radio] + .lbl.padding-16:before {
+    margin-right: 16px;
+}
+
+input[type=checkbox]+.lbl.padding-12:before,
+input[type=radio]+.lbl.padding-12:before {
+    margin-right: 12px;
+}
+
+.zuusa-form input[type=checkbox]+.lbl.padding-12:before,
+.zuusa-form input[type=radio]+.lbl.padding-12:before {
+    position: absolute;
+    top:0;
+    left:0;
+}
+.zuusa-form .btn-gray{
+    max-width: 200px;
+    color: #AAA;
+}
+.zuusa-form .col textarea {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    overflow: auto;
+    resize: none;
+}
+
+/*==========  min 768  ==========*/
+
+@media (min-width: 768px) {
+    .zuusa-form .form-wrapper {
+        max-width: 670px;
+    }
+}
+
+/*==========  min 992  ==========*/
+
+.zuusa-form label.parent-container {
+    text-align: center;
+}
+@media (max-width: 768px) {
+    .zuusa-form label {
+        text-align: center;
+    }
+}

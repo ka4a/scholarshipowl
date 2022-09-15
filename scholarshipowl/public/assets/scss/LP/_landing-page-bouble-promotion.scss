@@ -1,0 +1,1643 @@
+@import './meta';
+
+// landing page global styles
+.lp {
+  .white-more-darker {
+    color: $white-more-darker;
+  }
+  .dark-light {
+    color: $dark-light;
+  }
+  .dark-lighter {
+    color: $dark-lighter;
+  }
+  .blue-lighter {
+    color: $blue-lighter;
+  }
+
+  h2 {
+    line-height: 1em;
+  }
+}
+
+.lp-dys {
+  // titles
+.title-bouble {
+  @extend %white-35-primary;
+}
+
+.title {
+  @extend %white-35-primary;
+  text-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  @include breakpoint($mobile) {
+    font-size: 50px;
+    font-weight: 800;
+    line-height: 1.2em;
+  }
+}
+
+.title-sub { // paragraph
+  font-family: $font-family-primary;
+  color: $white;
+  font-size: 20px;
+  font-weight: 500;
+  text-shadow: 0 4px 11px rgba(0, 0, 0, 0.3);
+}
+
+.title-form {
+  font-family: $font-family-secondary;
+  font-size: 30px;
+  color: $white-darker;
+  text-transform: capitalize;
+}
+
+.title-how-work {
+  font-family: $font-family-primary;
+  font-size: 50px;
+  font-weight: 900;
+  color: $blue-more-lighter;
+
+  @include breakpoint($tablet $desktop) {
+    span {
+      display: block;
+    }
+  }
+}
+
+.title-step {
+  font-family: $font-family-primary;
+  color: $blue-more-lighter;
+  font-weight: 900;
+  font-size: 100px;
+  line-height: 1em;
+
+  @include breakpoint($mobile) {
+    font-size: 120px;
+  }
+}
+
+.title-step-sub {
+  font-family: $font-family-primary;
+  font-size: 21px;
+  font-weight: bold;
+  color: $blue-lighter;
+  text-transform: uppercase;
+  line-height: 1.1em;
+
+  &_facebook-lp {
+    font-weight: 400;
+  }
+}
+
+// paragraph
+
+.paragraph {
+  font-family: $font-family-secondary;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25em;
+  color: $white;
+  text-shadow: 0 4px 11px rgba(0, 0, 0, 0.3);
+}
+
+.paragraph-bouble {
+  @extend %white-more-darker-20-secondary;
+  @extend .center-margin;
+  line-height: 1.2em;
+  font-weight: 300;
+
+  @include breakpoint($mobile) {
+    width: 470px;
+  }
+
+  @include breakpoint($tablet) {
+    width: 490px;
+  }
+}
+
+.paragraph-details {
+  font-family: $font-family-secondary;
+  font-size: 13px;
+  font-weight: 300;
+  color: $white;
+  max-width: 900px;
+  line-height: 1.2em;
+  @extend .center-margin;
+
+  a {
+    color: $white;
+  }
+}
+
+.paragraph-form {
+  @extend %20-secondary;
+  font-weight: 300;
+  color: $white-dark;
+}
+
+.paragraph-policy {
+  font-family: $font-family-secondary;
+  color: $white-more-darker;
+  font-size: 12px;
+  font-weight: 300;
+  text-align: center;
+  line-height: 1.4em;
+  @extend .center-margin;
+
+  a {
+    color: #f5653a;
+  }
+
+  width: 290px;
+
+  @include breakpoint($mobile) {
+    width: 320px;
+  }
+
+  @include breakpoint($tablet) {
+    width: 360px;
+    line-height: 1.2em;
+  }
+}
+
+.checkbox-text {
+  @extend %white-more-darker-10;
+  font-family: $font-family-secondary;
+  font-weight: 300;
+}
+
+.paragraph-step {
+  @extend %14-secondary;
+  color: $white-darker;
+  line-height: 1.2em;
+}
+
+.link-step {
+  @extend %14-secondary;
+  text-transform: capitalize;
+  color: $blue-light;
+}
+
+.paragraph-step {
+  font-family: $font-family-secondary;
+  color: $white-dark;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.paragraph-member {
+  font-family: $font-family-secondary;
+  font-size: 14px;
+  color: $white-dark;
+}
+
+.link-member {
+  color: $blue-lighter;
+  cursor: pointer;
+}
+
+.quote {
+  font-family: $font-family-quaternary;
+  font-size: 15px;
+  line-height: 2.27;
+  color: $dark-lighter;
+
+  @include breakpoint($mobile) {
+    font-size: 24px;
+  }
+}
+
+.link-footer-light {
+  font-family: $font-family-tertiary;
+  font-size: 14px;
+  color: $white-more-darker;
+}
+
+.copyright {
+  @extend %white-more-darker-10;
+  font-family: $font-family-tertiary;
+}
+
+// buttons
+%button {
+  @extend %20-secondary;
+  @extend %transition;
+  font-size: 25px;
+  color: $white;
+  font-weight: bold;
+  text-align: center;
+  line-height: 60px;
+  text-transform: uppercase;
+
+  width: 100%;
+  max-width: 290px;
+  height: 60px;
+  border-radius: 2px;
+  box-shadow: 0 7px 11px 0 rgba(172, 86, 117, 0.35);
+
+  @include breakpoint($mobile) {
+    max-width: 340px;
+    height: 70px;
+  }
+
+  @include breakpoint($tablet) {
+    max-width: 360px;
+  }
+}
+
+.btn-orange {
+  // font
+  @extend %button;
+  background-color: $orange-darker;
+
+  &:hover {
+    background-color: darken($orange-darker, 10%);;
+  }
+
+  &:active {
+    background-color: darken($orange-darker, 20%);
+  }
+}
+
+.btn-blue {
+  @extend %button;
+  background-color: $blue-lighter;
+
+  &:hover {
+    background-color: darken($blue-lighter, 10%);;
+  }
+
+  &:active {
+    background-color: darken($blue-lighter, 20%);
+  }
+}
+
+// layout
+.bp {
+  &-l {
+    &-wrp {
+      max-width: 1134px;
+      padding-left: 15px;
+      padding-right: 15px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+
+      @include breakpoint($mobile) {
+        padding-left: 25px;
+        padding-right: 25px;
+      }
+    }
+
+    &__header {
+      box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.33);
+      @extend .z2;
+    }
+
+    &__phone {
+      @include breakpoint(max-width $mobile - 1px) {
+        border-bottom: 1px solid $dark-more-lighter;
+        border-top: 1px solid $dark-more-lighter;
+      }
+
+      @include breakpoint($mobile) {
+        position: absolute;
+        z-index: 3;
+        top: 0; right: 11%;
+      }
+
+      @include breakpoint($desktop) {
+        top: -60px;
+      }
+    }
+  }
+}
+
+.phone_facebook-lp {
+  display: none;
+
+  @include breakpoint($mobile) {
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 10%;
+  }
+}
+
+.top {
+  background: #3dbdb6; /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #3dbdb6 0%, #0089ce 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #3dbdb6 0%,#0089ce 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #3dbdb6 0%,#0089ce 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3dbdb6', endColorstr='#0089ce',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+  &__wrp {
+    @include breakpoint($desktop) {
+      max-width: 1134px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+    }
+  }
+}
+
+// top block
+.top-block {
+  $mobile: 480px;
+
+  background-color: $blue-more-darker;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  background: url("../img/LPs/LP-facebook-m.jpg");
+
+  @include breakpoint($mobile) {
+    height: 775px;
+    background: url("../img/LPs/LP-facebook-d.jpg") center center no-repeat;
+    background-size: cover;
+  }
+
+  .fb-login {
+    @extend %bc-modal;
+    box-sizing: border-box;
+    padding: 64px 15px 30px;
+    @extend .center-margin;
+    height: 630px;
+
+    @include breakpoint(max-width $mobile) {
+      margin-left: 5px !important;
+      margin-right: 5px !important;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      padding: 40px 10px 90px;
+      height: auto;
+    }
+
+    &__wrp {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 290px;
+
+      @include breakpoint($mobile) {
+        max-width: 400px;
+      }
+    }
+
+    &-title {
+      text-align: center;
+
+      &__line-1 {
+        font-size: 36px;
+        display: block;
+        text-transform: uppercase;
+        font-weight: 800;
+        color: $dark-light;
+        letter-spacing: 2.2px;
+
+        @include breakpoint($mobile) {
+          font-size: 52px;
+        }
+
+      }
+
+      &__line-2 {
+        font-size: 36px;
+        display: block;
+        color: $blue-lighter;
+        font-weight: 800;
+        text-transform: uppercase;
+        @include breakpoint($mobile) {
+          font-size: 52px;
+        }
+      }
+
+      &__line-3 {
+        display: block;
+        font-size: 19px;
+        color: $dark-light;
+        font-weight: 300;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+        @include breakpoint($mobile) {
+          font-size: 28px;
+        }
+      }
+    }
+
+    .delimeter-line {
+      @include delimeter-line(60px, 2px, $dark-light, 25px, 25px);
+
+      @include breakpoint($mobile) {
+        @include delimeter-line(60px, 2px, $dark-light, 30px, 35px);
+      }
+    }
+
+    @at-root {
+      .btn_facebook-lp {
+        @include breakpoint(max-width $mobile - 1px) {
+          font-size: 13px !important;
+          max-width: 290px;
+        }
+      }
+    }
+
+    &__btn-email {
+      @include breakpoint(max-width $mobile - 1px) {
+        font-size: 13px;
+      }
+    }
+
+    &__footer {
+      @extend .text-center;
+      border-radius: 0 0 5px 5px;
+      height: 65px;
+      line-height: 65px;
+      background-color: #f5f9ff;
+      position: absolute;
+      bottom: 0; left: 0;
+      margin: 0;
+      width: 100%;
+      font-size: 12px;
+
+      @include breakpoint($mobile) {
+        height: 72px;
+        line-height: 72px;
+
+        span, a {
+          font-size: 13px;
+          text-transform: uppercase;
+        }
+      }
+
+      span, a {
+        font-family: $open-sans;
+        font-weight: bold;
+        text-align: center;
+        color: #7f7f7f;
+      }
+
+      a {
+        color: #7990e7;
+      }
+    }
+  }
+
+  &__facebook {
+    margin-top: 4%;
+  }
+}
+
+.greeting {
+  padding-top: 1px;
+
+  @include breakpoint(max-width $mobile - 1px) {
+    text-align: center;
+    position: relative;
+  }
+
+  @include breakpoint($mobile) {
+    height: 684px;
+    overflow: hidden;
+  }
+
+  &-img {
+    max-width: 653px;
+    position: relative;
+    width: 130%;
+
+    @include breakpoint(max-width $mobile - 1px) {
+      left: -15%;
+      bottom: -60px;
+      margin-top: -80px;
+    }
+
+    @include breakpoint($mobile) {
+      bottom: 160px;
+      left: -3%;
+    }
+
+    @include breakpoint($mini-tablet) {
+      bottom: 240px;
+      left: 14%;
+    }
+
+    @include breakpoint($desktop) {
+      left: 20%
+    }
+  }
+
+  &__wrp {
+    overflow: hidden;
+  }
+
+  &__title {
+    margin-top: 30px;
+
+    @include breakpoint($mobile) {
+      margin-top: 45px;
+    }
+  }
+
+  &__title-sub {
+    margin-top: 20px;
+
+    @include breakpoint($mobile) {
+      margin-top: 35px;
+    }
+  }
+
+  &__paragraph {
+    margin-top: 20px;
+
+    @include breakpoint($mobile) {
+      margin-top: 30px;
+      line-height: 1.25em;
+    }
+  }
+
+  &__scroll-to-form {
+    position: absolute;
+    bottom: 30px; left: 0; width: 100%;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    @extend .debounce-anim;
+    @extend .icon;
+    @extend .icon-arrow-double;
+
+    @include breakpoint($mobile) {
+      display: none;
+    }
+  }
+}
+
+// form block
+.form {
+  padding-top: 35px;
+  padding-bottom: 45px;
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.07);
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: $white;
+
+  @include breakpoint($mobile) {
+    position: absolute;
+    right: 10px; top: 60px;
+    min-width: 200px;
+    width: 29%; max-width: 290px;
+    z-index: 1;
+  }
+
+  @include breakpoint($desktop) {
+    top: 0;
+  }
+
+  &__title {
+    @extend .text-center;
+  }
+
+  &__paragraph {
+    @extend .text-center;
+    margin-top: 10px;
+    margin-bottom: 35px;
+  }
+
+  @at-root {
+    .form__field {
+      & + & {
+        margin-top: 15px;
+      }
+    }
+  }
+
+  &__error-label {
+    font-family: $font-family-secondary;
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+    color: $orange;
+    position: absolute;
+    top: 5px;
+    left: 17px;
+  }
+  // input fields
+  @at-root {
+    .filed {
+      &__input {
+        @include input($dark-more-lighter, $dark-more-lighter, $dark-more-lighter, $open-sans);
+      }
+    }
+  }
+
+  // checkbox
+  &__checkbox {
+    margin-top: 25px;
+  }
+  @at-root {
+    .vue-checkbox-lp {
+      @include checkbox($dark-more-lighter, $dark-more-lighter, 14px);
+
+      &__item {
+        &:before {
+          font-size: 27px;
+          top: -7px; left: -6px;
+          color: $green;
+          font-weight: 900 !important;
+        }
+      }
+
+      &__text {
+        margin-left: 25px;
+        a {
+          color: lighten($blue-light, 5);
+        }
+      }
+
+      input:checked + label {
+        .vue-checkbox-lp__item {
+          &:before {
+            width: 30px;
+          }
+        }
+      }
+    }
+  }
+
+  @at-root {
+    .delimeter-grey {
+      @include delimeter-line(200px, 2px, lighten($dark-more-lighter, 20%), 15px, 15px);
+    }
+  }
+}
+
+// terms agree notification
+.notification-agree-terms {
+  position: absolute;
+  left: 0; right: 0;
+  z-index: 1;
+  background-color: $blue-light;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+
+  &:before {
+    position: absolute;
+    content: '';
+    left: 15px;
+    top: -8px;
+
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 8px 8px 8px;
+    border-color: transparent transparent $blue-light transparent;
+  }
+
+  &__icon {
+    font-size: 24px;
+    color: white;
+    margin-right: 10px;
+  }
+
+  &__text {
+    font-family: $font-family-secondary;
+    font-size: 14px;
+    line-height: 1.35;
+    letter-spacing: 0.5px;
+    color: $white;
+  }
+}
+
+// phone block
+.phone {
+  //@extend %phone; TODO move to one instace of phone
+  $primary-color: $blue-lighter;
+  $secondary-color: $dark;
+
+  text-align: center;
+  height: 60px;
+  line-height: 60px;
+  background-color: $white;
+
+  & .icon {
+    color: $primary-color;
+    padding: 0px 5px 1px 2px;
+    font-size: 20px;
+    margin-right: 3px;
+
+    &:before {
+      vertical-align: bottom;
+    }
+  }
+
+  &__value {
+    padding-left: 10px;
+    font-weight: 300;
+    font-size: 12px;
+    font-family: 'Open Sans';
+    color: $dark-light;
+  }
+}
+
+// how work
+.how-work {
+  padding-top: 70px;
+  padding-bottom: 60px;
+  position: relative;
+
+  @include breakpoint(max-width 480px) {
+    background-color: $green-light;
+  }
+
+  .filled-bg {
+    position: absolute;
+    width: 100%;
+    height: 650px;
+    background-color: $green-light;
+    left: 0;
+    margin: 150px 0;
+    bottom: -90px;
+
+    &:before,
+    &:after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 180px;
+      background-color: $green-light;
+      transform: skewY(7deg);
+
+      @include breakpoint($desktop) {
+        transform: skewY(5deg);
+        height: 200px;
+      }
+    }
+
+    &:before {
+      top: -80px;
+    }
+
+    &:after {
+      bottom: -80px;
+    }
+  }
+
+  .path-bg {
+    @include breakpoint($mobile $mini-tablet) {
+      background: url('../img/svg/steps-s.svg') center 270px no-repeat;
+    }
+
+    @include breakpoint($mini-tablet $tablet) {
+      background: url('../img/svg/steps-m.svg') center 205px no-repeat;
+    }
+
+    @include breakpoint($tablet) {
+      background: url('../img/svg/steps-l.svg') center 345px no-repeat;
+    }
+
+    @include breakpoint($desktop) {
+      background-position: center 305px;
+    }
+  }
+
+  .path-bg-f {
+    @include breakpoint($mini-tablet) {
+      background-size: 80% !important;
+    }
+
+    @include breakpoint($mobile $mini-tablet) {
+      background: url('../img/LPs/step-line-facebook-lp.png') center 215px no-repeat;
+      background-size: 98%;
+    }
+
+    @include breakpoint($mini-tablet $tablet) {
+      background: url('../img/LPs/step-line-facebook-lp.png') center 305px no-repeat;
+    }
+
+    @include breakpoint($tablet) {
+      background: url('../img/LPs/step-line-facebook-lp.png') center 345px no-repeat;
+    }
+
+    @include breakpoint($desktop) {
+      background-position: 20% 260px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    text-align: center;
+
+    @include breakpoint($mini-tablet $desktop) {
+      span {
+        display: block;
+      }
+    }
+  }
+
+  @at-root {
+    .delimeter-orange {
+      @include delimeter-line(32px, 3px, $orange-lighter, 0, 0);
+
+      @include breakpoint($mobile $mini-tablet) {
+        margin-left: 0;
+      }
+    }
+  }
+
+  @at-root {
+    .step {
+      position: relative;
+
+      @include breakpoint(max-width $mini-tablet - 1px) {
+        text-align: center;
+      }
+
+      @include breakpoint(max-width $mobile - 1px) {
+        margin-top: 100px;
+      }
+
+      @include breakpoint($mobile $mini-tablet) {
+        margin-top: 130px;
+      }
+
+      &_1 {
+        @include breakpoint($mini-tablet) {
+          margin-top: 100px;
+
+          .step-illustration {
+            left: 23%;
+          }
+
+          .step-text-set {
+            top: -160px;
+          }
+        }
+
+        @include breakpoint($tablet) {
+          margin-top: 90px;
+        }
+
+        @include breakpoint($desktop) {
+          .step-text-set {
+            top: -10px;
+          }
+        }
+      }
+
+      &_1-facebook {
+        @include breakpoint($desktop) {
+          .step-illustration {
+            top: 10px;
+          }
+        }
+      }
+
+      &_2 {
+        @include breakpoint($mini-tablet) {
+          .step-illustration {
+            left: 62%;
+            top: -72px;
+          }
+
+          .step-text-set {
+            top: -330px;
+          }
+        }
+
+        @include breakpoint($desktop) {
+          .step-text-set {
+            top: -60px;
+          }
+        }
+      }
+
+      &_2-facebook {
+        @include breakpoint($tablet) {
+          .step-illustration {
+            left: 59%;
+            top: -20px;
+          }
+
+          .step-text-set {
+            top: 60px;
+          }
+        }
+
+        @include breakpoint($mobile) {
+          .step-text-set {
+            top: 155px;
+          }
+        }
+
+        @include breakpoint($mobile $mini-tablet) {
+          .step-illustration {
+            left: 15%;
+            top: -20px;
+          }
+          .step-text-set {
+            top: 130px;
+          }
+        }
+      }
+
+      &_3 {
+        @include breakpoint($mini-tablet) {
+          .step-illustration {
+            left: 20%;
+            top: -35px;
+          }
+
+          .step-text-set {
+            top: 70px;
+          }
+        }
+      }
+
+      &_3-facebook {
+        @include breakpoint($tablet) {
+          .step-illustration {
+            left: 30%;
+          }
+          .step-text-set {
+            top: 120px;
+            left: 0%;
+          }
+        }
+
+        @include breakpoint($mini-tablet $tablet) {
+          .step-illustration {
+            left: 35%;
+            top: -70px;
+          }
+        }
+
+        @include breakpoint($mobile $mini-tablet) {
+          .step-illustration {
+            top: -60px;
+          }
+          .step-text-set {
+            top: 55px;
+          }
+        }
+      }
+
+      &_4 {
+        @include breakpoint($mini-tablet) {
+          .step-illustration {
+            left: 60%;
+            top: -60px;
+          }
+
+          .step-text-set {
+            top: 60px;
+          }
+        }
+
+        @include breakpoint($desktop) {
+          .step-text-set {
+            top: 50px;
+          }
+        }
+      }
+
+      &-illustration {
+        @extend .dib;
+        width: 190px;
+        height: 190px;
+        background-color: $white;
+        border: solid 6px $dfa;
+        border-radius: 50%;
+        position: relative;
+
+        @include breakpoint($tablet) {
+          width: 225px;
+          height: 225px;
+        }
+
+        @at-root {
+          [class*=step-illustration__img] {
+            background-repeat: no-repeat;
+            position: absolute;
+            width: 230px;
+            height: 230px;
+            @extend .db;
+
+            @include breakpoint($tablet) {
+              width: 280px;
+              height: 253px;
+            }
+          }
+        }
+
+        &__img {
+          &_1 {
+            background-image: url('../img/svg/step-1.svg');
+            background-size: 90%;
+            top: -40px;
+            left: 15px;
+
+            @include breakpoint($tablet) {
+              top: -60px;
+              left: 20px;
+            }
+          }
+
+          &_2 {
+            background-image: url('../img/svg/step-2.svg');
+            background-size: 100%;
+
+            &_f {
+              background-image: url('../img/svg/step-2-f.svg');
+            }
+          }
+
+          &_3 {
+            background-image: url('../img/svg/step-3.svg');
+            background-size: 100%;
+            bottom: 4px;
+            left: -24px;
+          }
+
+          &_4 {
+            background-image: url('../img/svg/step-4.svg');
+            background-size: 100%;
+            left: -34px;
+            top: -49px;
+
+            @include breakpoint($desktop) {
+              width: 360px;
+              height: 320px;
+              left: -100px;
+              top: -120px;
+            }
+          }
+
+          &_2-f {
+            background-image: url('../img/svg/step-2-f.svg');
+            background-size: 96%;
+            bottom: 4px;
+            left: -24px;
+          }
+
+          &_3-f {
+            background-image: url('../img/svg/step-3-f.svg');
+            background-size: 90%;
+            bottom: 4px;
+            left: -24px;
+          }
+        }
+      }
+
+      &-text-set {
+
+        $basic-indent: 10px;
+
+        @include breakpoint($mobile) {
+          position: absolute;
+          top: 0;
+          text-align: left;
+
+          &.even {
+            right: 0;
+            text-align: right;
+          }
+        }
+
+        &__title {
+          @include breakpoint(max-width $mini-tablet - 1px) {
+            margin-top: 40px;
+          }
+        }
+
+        &__action {
+          margin-top: 10px;
+        }
+
+        &__paragraph {
+          margin-top: 20px;
+          font-size: font-size-persent(15px);
+
+          @include breakpoint($mobile) {
+            margin-top: 30px;
+          }
+        }
+      }
+
+      &-text-set_facebook {
+        $basic-font-size: 20px;
+
+        .step-text-set {
+          @include breakpoint($mobile $mini-tablet) {
+            &__title {
+              font-size: font-size-persent(120px, $basic-font-size);
+              margin-top: 0;
+            }
+            &__action {
+              font-size: font-size-persent(21px, $basic-font-size);
+              margin-top: 0;
+            }
+            &__paragraph {
+              font-size: font-size-persent(15px, $basic-font-size);
+              margin-top: 10px;
+            }
+          }
+        }
+      }
+    }
+
+    @include breakpoint($mobile $mini-tablet) {
+      .step_1-facebook,
+      .step_2-facebook,
+      .step_3-facebook {
+        margin-top: 50px;
+
+        .step-illustration {
+          width: 150px;
+          height: 150px;
+        }
+
+        [class*=step-illustration__img] {
+          width: 200px;
+          height: 200px;
+        }
+      }
+    }
+  }
+
+  &__btn {
+    margin-top: 70px;
+    margin-bottom: 20px;
+    @extend .center-margin;
+  }
+
+  &__btn-f {
+    margin-top: 190px;
+    margin-bottom: 20px;
+    max-width: 280px;
+    @extend .center-margin;
+
+    @include breakpoint(480px) {
+      max-width: 400px;
+    }
+  }
+}
+
+// mission block
+.mission {
+  padding-top: 60px;
+  @extend .text-center;
+  overflow-x: hidden;
+  background: url('../img/svg/floor.svg') center bottom no-repeat;
+
+  @include breakpoint(max-width $mobile - 1px) {
+    background-size: 940px;
+  }
+
+  @include breakpoint($tablet) {
+    background-size: 2000px;
+  }
+
+  &__logo {
+    @extend .dib;
+    width: 75px;
+    height: 75px;
+    background: url('../img/svg/mission.svg') no-repeat;
+    background-size: 100%;
+  }
+
+  &__delimeter {
+    margin-bottom: 30px;
+
+    @include breakpoint(max-width $mobile) {
+      display: none !important;
+    }
+  }
+}
+
+// play ground
+.play-ground {
+  @extend .text-center;
+  @extend .relative;
+  height: 480px;
+  width: 100%;
+
+  max-width: 1230px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include breakpoint($mobile) {
+    height: 590px;
+  }
+
+  @include breakpoint($desktop) {
+    height: 385px;
+  }
+
+  @at-root {
+    .owl {
+      @extend .dib;
+      @extend .absolute;
+      @extend .center-margin;
+      left: 0; right: 0;
+      bottom: 30px;
+      z-index: 1;
+      width: 290px;
+      height: 360px;
+      background: url('../img/svg/owl.svg') center top no-repeat;
+      background-size: 100%;
+
+      @include breakpoint($mobile) {
+        width: 400px;
+        height: 505px;
+      }
+
+      @include breakpoint($desktop) {
+        right: auto;
+        bottom: 100px;
+      }
+    }
+
+    .floor {
+      @extend .absolute;
+      width: 100%;
+      height: 105px;
+      bottom: 0;
+      background-color: $floor;
+    }
+
+    .cloud {
+      background: url('../img/svg/cloud.svg');
+      background-size: 100%;
+      @extend .absolute;
+
+      &_xs {
+        width: 66px;
+        height: 44px;
+      }
+
+      &_s {
+        width: 80px;
+        height: 53px;
+      }
+
+      &_m {
+        width: 95px;
+        height: 65px;
+      }
+
+      &_l {
+        width: 118px;
+        height: 80px;
+      }
+
+      &_1 {
+        left: 20px;
+        bottom: 150px;
+
+        @include breakpoint($mobile) {
+          left: 750px;
+          bottom: 150px;
+        }
+
+        @include breakpoint($desktop) {
+          left: 75%;
+          bottom: 545px;
+        }
+      }
+
+      &_2 {
+        right: 20px;
+        bottom: 360px;
+
+        @include breakpoint($mobile) {
+          right: 600px;
+          bottom: 220px;
+        }
+
+        @include breakpoint($mini-tablet) {
+          left: 180px;
+        }
+
+        @include breakpoint($desktop) {
+          width: 70px;
+          height: 45px;
+
+          left: -9%;
+          top: -270px;
+        }
+      }
+
+      &_3 {
+        display: none;
+
+        @include breakpoint($mobile) {
+          left: 20px;
+          top: -105px;
+          display: block;
+        }
+
+        @include breakpoint($mini-tablet) {
+          left: 115px;
+        }
+
+        @include breakpoint($desktop) {
+          left: 18%;
+          top: -375px;
+        }
+      }
+
+      &_4 {
+        display: none;
+
+        @include breakpoint($mobile) {
+          right: 75px;
+          top: 20;
+          display: block;
+        }
+
+        @include breakpoint($desktop) {
+          right: -10%;
+          top: -118px;
+        }
+      }
+
+      &_5 {
+        display: none;
+
+        @include breakpoint($mini-tablet) {
+          display: block;
+          left: 50px;
+          top: 150px;
+        }
+
+        @include breakpoint($desktop) {
+          left: 86%;
+          top: 60px;
+        }
+      }
+
+      &_6 {
+        display: none;
+
+        @include breakpoint($desktop) {
+          display: block;
+
+          left: 35%;
+          top: 35px;
+        }
+      }
+    }
+  }
+}
+
+// testimonials
+@import './components/testimonial';
+
+.pull-quote {
+  font-family: $font-family-quaternary;
+  font-size: 15px;
+  line-height: 2.25;
+  color: $dark-light;
+  position: relative;
+
+  @include breakpoint(max-width $mobile - 1px) {
+    text-align: center;
+  }
+
+  @include breakpoint($mobile) {
+    font-size: 24px;
+    line-height: 1.4em;
+    padding-left: 110px;
+  }
+
+  &:before {
+    @extend .absolute;
+    content: '“';
+    z-index: -1;
+    line-height: 0.75em;
+    font-size: 230px;
+    color: #e6edef;
+
+    @include breakpoint(max-width $mobile - 1px) {
+      left: 50%;
+      margin-left: -60px;
+      top: -35px;
+    }
+
+    @include breakpoint($mobile) {
+      left: 0;
+      top: -15px;
+    }
+  }
+}
+
+// video block facebook Lading page version
+.video {
+  background-color: #423859;
+  padding: 50px 0;
+
+  @include breakpoint($mobile) {
+    padding: 100px 0 60px 0;
+  }
+
+  &__frame {
+    max-width: 854px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+
+    @include breakpoint($mobile) {
+      height: 480px;
+    }
+  }
+}
+
+// double now
+.double-now {
+  @extend .text-center;
+  padding-top: 70px;
+  padding-bottom: 60px;
+  background-color: $blue-more-darker;
+
+  &__title {
+    margin-bottom: 25px;
+  }
+
+  &__text {
+    margin-top: 40px;
+  }
+
+  &__btn {
+    margin-top: 60px;
+  }
+}
+
+// disclaimer block
+.disclaimer {
+  @extend .text-center;
+  background-color: $disclaimer-bg;
+  padding-top: 30px;
+  padding-bottom: 35px;
+}
+
+// footer navigation
+.nav-footer-light {
+  $mobile: 600px;
+
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  @include breakpoint($mobile) {
+    height: 75px;
+  }
+
+  &_second {
+    @include breakpoint(max-width $mobile - 1px) {
+      border-bottom: 1px solid $dark-more-lighter;
+    }
+
+    @include breakpoint($mobile) {
+      margin-left: 60px;
+    }
+
+    @include breakpoint($tablet) {
+      margin-left: 40px;
+    }
+
+    justify-content: center;
+  }
+
+  &__item {
+    & + & {
+      margin-left: 60px;
+
+      @include breakpoint($tablet) {
+        margin-left: 40px;
+      }
+    }
+  }
+}
+
+// social
+.social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+
+  @include breakpoint(max-width 600px) {
+    height: 110px;
+    border-top: 1px solid $dark-more-lighter;
+    border-bottom: 1px solid $dark-more-lighter;
+  }
+
+  &__item {
+    &+& {
+      margin-left: 15px;
+    }
+  }
+  &__link {
+    color: $white-more-darker;
+    font-size: 35px;
+  }
+}
+
+// footer copyright
+.footer-light {
+  $mobile: 600px;
+
+  &__wrp {
+    @include breakpoint($tablet) {
+      max-width: 1134px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      padding-left: 25px;
+      padding-right: 25px;
+      overflow: hidden;
+    }
+  }
+
+  &__nav {
+    @include breakpoint($mobile) {
+      display: flex;
+      justify-content: center;
+    }
+
+    @include breakpoint($mobile $tablet) {
+      border-bottom: 1px solid $dark-more-lighter;
+    }
+
+    @include breakpoint($tablet) {
+      position: absolute;
+      width: 100%;
+      top: 10px;
+      z-index: 1;
+    }
+  }
+
+  &__logo {
+    position: relative;
+
+    @include breakpoint($mobile $tablet) {
+      border-bottom: 1px solid $dark-more-lighter;
+    }
+
+    @include breakpoint($tablet) {
+      height: 100px;
+    }
+
+    .logo_footer {
+      @include breakpoint($tablet) {
+        position: absolute;
+      }
+    }
+  }
+
+  &__social {
+    @include breakpoint($mobile) {
+      position: absolute;
+      right: 15px;
+      top: 30px;
+    }
+
+    @include breakpoint($tablet) {
+      right: 0;
+    }
+  }
+
+  &__bottom {
+    background-color: $footer-copyright;
+    padding: 20px 15px 25px 15px;
+  }
+
+  &__disclaimer {
+    color: $white-more-darker;
+    font-size: 12px;
+    line-height: 1.2em;
+    @extend .tac;
+
+    padding-left: 15px;
+    padding-right: 15px;
+
+    @include breakpoint(max-width $desktop) {
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__copyright {
+    @extend .top-10;
+    @extend .text-center;
+
+    @include breakpoint($desktop) {
+      font-size: 12px;
+    }
+  }
+}
+}

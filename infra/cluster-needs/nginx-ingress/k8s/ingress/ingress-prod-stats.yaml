@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: stats-ingress
+  namespace: ingress-nginx
+  annotations:
+     kubernetes.io/ingress.allow-http: "false"
+spec:
+  tls:
+  - secretName: sowl-tech-nginx-stats-cert.tls
+  rules:
+  - host: sowl-tech.ingress.stats.scholarshipowl.tech
+    http:
+      paths:
+      - path: /nginx_status
+        backend:
+          serviceName: nginx-ingress-controller-stats
+          servicePort: 18080

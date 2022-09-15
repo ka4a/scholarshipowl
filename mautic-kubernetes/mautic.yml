@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sowl-mautic 
+  labels:
+    app: sowl-mautic 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sowl-mautic 
+  template:
+    metadata:
+      labels:
+        app: sowl-mautic 
+    spec:
+      containers:
+        - image: mautic/mautic 
+          name: sowl-mautic
+          env:
+          - name: MAUTIC_DB_HOST
+            value: mysql8-mautic.sowl-mautic.svc.cluster.local:3306
+          - name: MAUTIC_DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mysql8-mautic
+                key: mysql-root-password
+          ports:
+            - containerPort: 80
+              name: sowl-mautic

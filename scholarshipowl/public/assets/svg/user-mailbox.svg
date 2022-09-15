@@ -1,0 +1,22 @@
+<svg width="18" height="20" viewBox="0 0 18 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>Icon Mailbox</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-2100 4896)">
+<g id="Icon Mailbox">
+<use xlink:href="#path0_fill" transform="translate(2100 -4896)" fill="#C2C2C2"/>
+<use xlink:href="#path1_fill" transform="translate(2100 -4896)" fill="#C2C2C2"/>
+<use xlink:href="#path2_fill" transform="translate(2100 -4896)" fill="#C2C2C2"/>
+<use xlink:href="#path3_fill" transform="translate(2100 -4896)" fill="#C2C2C2"/>
+<use xlink:href="#path4_fill" transform="translate(2100 -4896)" fill="#C2C2C2"/>
+<use xlink:href="#path5_fill" transform="translate(2100 -4896)" fill="#C2C2C2"/>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 6.32125 13.5996L 8.99995 16.1109L 11.6786 13.5996L 17.2489 20L 0.750956 20L 6.32125 13.5996Z"/>
+<path id="path1_fill" d="M 5.51334 12.8421L 0 19.177L 0 7.67334L 5.51334 12.8421Z"/>
+<path id="path2_fill" d="M 18 7.67334L 18 19.177L 12.4866 12.8421L 18 7.67334Z"/>
+<path id="path3_fill" d="M 2.90189 0L 15.0981 0L 15.0981 8.86059L 8.99999 14.5776L 2.90186 8.86059L 2.90189 0ZM 5.93689 8.67562L 12.0631 8.67562L 12.0631 7.50375L 5.93689 7.50375L 5.93689 8.67562ZM 5.93689 5.87332L 12.0631 5.87332L 12.0631 4.70145L 5.93689 4.70145L 5.93689 5.87332ZM 5.93689 3.07102L 12.0631 3.07102L 12.0631 1.89914L 5.93689 1.89914L 5.93689 3.07102Z"/>
+<path id="path4_fill" d="M 17.4726 6.63456L 16.1528 7.87187L 16.1528 5.39722L 17.4726 6.63456Z"/>
+<path id="path5_fill" d="M 1.84714 5.39722L 1.84714 7.87187L 0.527309 6.63456L 1.84714 5.39722Z"/>
+</defs>
+</svg>

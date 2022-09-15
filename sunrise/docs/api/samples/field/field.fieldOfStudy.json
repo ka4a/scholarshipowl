@@ -1,0 +1,52 @@
+{
+    "data": {
+        "type": "field",
+        "id": "fieldOfStudy",
+        "attributes": {
+            "name": "Field of study",
+            "type": "option",
+            "options": {
+                "1": "Agriculture and Related Sciences",
+                "2": "Architecture and Related Services",
+                "3": "Area, Ethnic, Cultural and Gender Studies",
+                "4": "Biological and Biomedical Sciences",
+                "5": "Business, Management and Marketing",
+                "6": "Communication and Journalism",
+                "7": "Computer and Information Sciences",
+                "8": "Construction Trades",
+                "9": "Education",
+                "10": "Engineering",
+                "11": "English Language and Literature",
+                "12": "Family and Consumer Sciences",
+                "13": "Foreign Languages, Literature and Linguistics",
+                "14": "Health Professions and Clinical Sciences",
+                "15": "History",
+                "16": "Legal Professions and Law Studies",
+                "17": "Liberal Arts / General Studies",
+                "18": "Library Science",
+                "19": "Mathematics and Statistics",
+                "20": "Mechanic and Repair Tech / Technicians",
+                "21": "Military Technologies",
+                "22": "Multi / Interdisciplinary Studies",
+                "23": "Natural Resources and Conservation",
+                "24": "Parks, Recreation, and Fitness Studies",
+                "25": "Personal and Culinary Services",
+                "26": "Philosophy and Religious Studies",
+                "27": "Physical Sciences",
+                "28": "Precision Production",
+                "29": "Psychology",
+                "30": "Public Administration and Social Service",
+                "31": "Security and Protective Services",
+                "32": "Social Sciences",
+                "33": "Technology Education / Industrial Arts",
+                "34": "Theology and Religious Vocations",
+                "35": "Transportation and Materials Moving",
+                "36": "Visual and Performing Arts",
+                "37": "Not Listed / Other"
+            }
+        },
+        "links": {
+            "self": "/field/fieldOfStudy"
+        }
+    }
+}

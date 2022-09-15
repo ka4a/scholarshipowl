@@ -1,0 +1,14 @@
+%input-style-basic {
+  border-radius: 1px;
+  padding: 14px 15px;
+  border: 1px solid #e8e8e8;
+  background: $white;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+%input-style-basic_focus {
+  outline: none;
+  border-color: $havelock-blue;
+}

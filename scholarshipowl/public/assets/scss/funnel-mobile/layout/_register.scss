@@ -1,0 +1,242 @@
+body.root-mobile {
+  overflow-x: hidden;
+}
+
+.reg1-mob {
+  &__container {
+    max-width: 310px;
+    @extend .center-margin;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  &__bottom {
+    background-color: $blue-light;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    @extend .top-20;
+  }
+
+  .multiselect {
+    &__input {
+      height: 30px;
+      padding-bottom: 8px;
+    }
+
+    &__tags {
+      padding: 8px 30px 0px 8px;
+      border: none;
+    }
+
+    &__select {
+      height: 39px;
+    }
+
+    &__content-wrapper {
+      max-height: 120px !important;
+    }
+  }
+
+  .phone-input-wrp {
+    margin-top: 5px;
+  }
+}
+
+.interaction-item {
+  @extend .top-15;
+  background-color: #fff;
+
+  &__wrp {
+    position: relative;
+
+    // over rided styles
+    padding: 0 !important;
+  }
+
+  &__error {
+    @extend %error-notification-font;
+    position: absolute;
+    top: 4px;
+    left: 12px;
+    z-index: 1;
+  }
+
+  &__title {
+    @extend %interaction-title-font;
+    @extend .db;
+    @extend .bottom-5;
+
+    // over rided styles: ;
+    color: #2f2f2f !important;
+    padding-left: 0 !important;
+  }
+
+  &__input {
+    // font
+    @extend %input-font;
+    @extend %input;
+
+    &:hover {
+      @extend %input-hover;
+    }
+
+    &:focus {
+      @extend %active-cover;
+      outline: none;
+    }
+
+    // errors in input
+    &_error,
+    &_error:focus {
+      @extend %error-cover;
+    }
+
+    & + & {
+      margin-top: 14px;
+    }
+  }
+}
+
+.switch {
+  @include switch();
+  display: inline-block;
+
+  label {
+    display: inline-block;
+    @extend %margin-reset;
+  }
+
+  input:checked + &__lever {
+    &:after {
+      right: 23px;
+    }
+  }
+
+  &__state {
+    top: 8px;
+
+    &_true {
+      left: 7px;
+    }
+    &_false {
+      right: 6px;
+    }
+  }
+
+  &__lever {
+    width: 50px !important;
+    background-color: $light !important;
+    box-shadow: inset 0px 2px 7px 0 rgba(0, 0%, 0%, 0.2);
+    margin: 0 !important;
+
+    &:after {
+      background-color: hsl(224, 71%, 67%) !important;
+      border-color: hsl(224, 71%, 67%) !important;
+    }
+  }
+}
+
+.root-mobile .switch input:checked + .switch__lever:after {
+  right: 27px !important;
+}
+
+// switch container
+.interaction-item_study-usa {
+  overflow: hidden;
+
+  .switch-title {
+    @extend .fl;
+    padding: 0.6em 0;
+  }
+
+  .switch {
+    @extend .fr;
+  }
+}
+
+.switch-title {
+  @extend %margin-reset;
+  @extend %padding-reset;
+  @extend %interaction-title-font;
+}
+
+// coreg input
+.coreg-input {
+  .vue-checkbox {
+    margin-bottom: 15px;
+  }
+
+  &_bottom {
+    margin-top: 30px;
+  }
+}
+// checkboxes
+.vue-checkbox {
+  overflow: hidden;
+
+  // TODO will remove this after refactoring
+  // main styles
+  label {
+    font: 400 14px 'Open Sans' !important;
+  }
+
+  &__item {
+    width: 22px !important;
+    background-color: $light;
+    float: left;
+  }
+
+  &_new-line-indent {
+    > span {
+      @extend %checkbox-text;
+      float: left;
+      width: 89%;
+      margin-left: 3%;
+
+      a {
+        color: hsl(230, 98%, 23%);
+      }
+    }
+  }
+}
+
+// buttons
+.btn-orange-l {
+  border: none !important;
+}
+
+.small-blue {
+  @extend %checkbox-text;
+  font-size: 10px;
+  text-align: center;
+}
+
+// terms error
+.terms-error-mobile-funnel {
+  line-height: 1em;
+  top: -15px;
+}
+
+/* Dropdown Default Transition */
+.expand-enter-active,
+.expand-leave-active {
+  @extend %transition;
+  overflow: hidden;
+}
+.expand-enter,
+.expand-leave-to {
+  max-height: 0;
+}
+.expand-enter-to,
+.expand-leave {
+  max-height: 200px;
+}
+
+// state for mirrored rotated element
+.rotated {
+  transform: rotate(-180deg);
+}
+
+.text-definition-fm {
+  @extend %checkbox-text;
+}

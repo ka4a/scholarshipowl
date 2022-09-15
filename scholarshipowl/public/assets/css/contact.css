@@ -1,0 +1,100 @@
+.contact-form {
+    background-color: #eff5fc;
+    /*border-bottom: 5px solid #bad6ff;*/
+}
+
+.contact-left-wrapper .form-control {
+            border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+.contact-submit {
+    padding-top: 22px;
+    text-align: right;
+}
+
+.contact-submit input[type=submit] {
+    box-shadow: none;
+    font-size: 16px;
+    line-height: 1.2;
+    height: 56px;
+    border: thin solid;
+}
+
+#contact .input-group {
+    width: 100%;
+    margin: 0 auto 9px;
+}
+
+#contact textarea {
+    height: 300px;
+    border-color: #9bb4d9 #b8ceee #b8ceee;
+}
+
+#contact label {
+    font: 400 12px/120% 'Open Sans';
+    color: #94abce;
+    text-align: left;
+    width: 100%;
+    padding-left: 5px;
+}
+
+.sas-partner h3 {
+    letter-spacing: -2px;
+}
+
+/*==========  min 480  ==========*/
+
+@media (min-width: 480px) {
+    #contact-us .text2 {
+        width: 100%;
+    }
+}
+
+/*==========  min 640  ==========*/
+
+@media (min-width: 640px) {
+    #contact .container {
+        padding: 0 50px;
+    }
+    #contact-us h2.text1 {
+        font: 300 60px/45px 'Open Sans';
+    }
+}
+
+/*==========  min 640 max 992  ==========*/
+
+@media (min-width: 640px) and (max-width: 992px) {
+    .contact-submit {
+        width: 250px;
+        margin: 0 auto;
+    }
+    #contact .input-group.name {
+        width: 100%;
+        float: none;
+    }
+
+    #contact .input-group.email {
+        margin-right: 8%;
+    }
+}
+
+
+/*==========  min 992  ==========*/
+
+@media (min-width: 992px) {
+	.section--quick-faqs .container {
+		padding: 0 81px 0 63px;
+	}
+}
+
+@media (min-width: 768px) {
+	.section--quick-faqs .text-container {
+		padding: 0;
+		padding-bottom: 40px;
+	}
+}
+
+.section--quick-faqs .button-wrapper {
+	padding-top: 50px;
+}

@@ -1,0 +1,30 @@
+// <768px
+footer {
+    background: $brand-primary-darker;
+
+    h2 {
+        color: $brand-light-primary;
+    }
+
+    .copyrights {
+        color: $brand-light-primary;
+        font-size: 12px;
+    }
+
+    .footer-nav a {
+        font-size: 14px;
+        color: $brand-secondary;
+    }
+}
+
+// >= 768px
+@media(min-width:768px) {
+}
+
+// >= 992px
+@media(min-width:992px) {
+}
+
+// >= 1200px
+@media(min-width:1200px) {
+}

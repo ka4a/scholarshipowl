@@ -1,0 +1,139 @@
+// <768px
+.Util {
+
+    // Spacers
+    &--spacer-trans-medium {
+        border-top: none;
+        margin: 40px 0;
+    }
+
+    &--spacer-trans-small {
+        border-top: none;
+        margin: 20px 0;
+    }
+
+    &--spacer-trans-micro {
+        border-top: none;
+        margin: 10px 0;
+    }
+    // -------------------------------------------------------------------------
+
+
+    // Padding, Margin, Border
+    &--padding-none {
+        padding: 0 !important;
+    }
+
+    &--padding-top-none {
+        padding-top: 0 !important;
+    }
+
+    &--padding-bottom-none {
+        padding-bottom: 0 !important;
+    }
+
+    &--padding-left-none {
+        padding-left: 0 !important;
+    }
+
+    &--padding-left-small {
+        padding-left: 20px !important;
+    }
+
+    &--padding-large {
+        padding: 40px !important;
+    }
+
+    &--margin-none {
+        margin: 0 !important;
+    }
+
+    &--margin-bottom-none {
+        margin-bottom: 0 !important;
+    }
+
+    &--border-none {
+        border: none !important;
+    }
+    // -------------------------------------------------------------------------
+
+
+    // Colors
+    &--text-primary {
+        color: $brand-primary;
+    }
+
+    &--text-secondary {
+        color: $brand-secondary;
+    }
+
+    &--text-dark-secondary {
+        color: $brand-dark-secondary;
+    }
+
+    &--text-light-primary {
+        color: $brand-light-primary;
+    }
+
+    &--text-light-secondary {
+        color: #D2B8FF;
+    }
+    // -------------------------------------------------------------------------
+
+
+    // Alignement
+    &--align-middle {
+        vertical-align: middle !important;
+    }
+    // -------------------------------------------------------------------------
+
+
+    // Links
+    &--link-underlined {
+        text-decoration: underline;
+    }
+
+    &--link-light {
+        color: #D2B8FF;
+
+        &:hover {
+            color: white;
+        }
+    }
+
+    &--link-blue {
+        color: #5DC6F1;
+
+        &:hover {
+            color: white;
+        }
+    }
+    // -------------------------------------------------------------------------
+
+
+    // Display
+    &--block {
+        display: block !important;
+    }
+    // -------------------------------------------------------------------------
+
+
+    // Wrappers
+    &--icon-wrapper {
+        min-height: 70px;
+    }
+    // -------------------------------------------------------------------------
+
+}
+
+// >= 768px
+@media(min-width:768px) {
+}
+
+// >= 992px
+@media(min-width:992px) {
+}
+
+// >= 1200px
+@media(min-width:1200px) {
+}

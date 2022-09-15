@@ -1,0 +1,93 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Values.app }}-app
+  labels:
+    app: {{ .Values.app }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  selector:
+   matchLabels:
+    app: {{ .Values.app }}
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    type: {{ .Values.updateStrategy.type }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.app }}
+        release: {{ .Release.Name }}
+    spec:
+      imagePullSecrets:
+      - name: gitlab-registry
+      initContainers:
+      - name: init-mysql-database
+        image: "gcr.io/sowl-tech/busybox-with-mysql:v1.2"
+        command: ["sh", "-c", "until mysql --connect-timeout=5 -h {{ .Values.app }}-mysql -usunrise -psecret;
+          do echo waiting for database; sleep 2; done; echo success; exit 0;"]
+      containers:
+      - name: {{ .Values.containers.queue.name | quote }}
+        image: "{{ .Values.containers.queue.repository  }}:{{ .Values.containers.queue.tag }}"
+        imagePullPolicy: {{ .Values.containers.queue.pullPolicy | quote }}
+        envFrom:
+          - configMapRef:
+              name: {{ .Values.app }}-env-configmap
+        volumeMounts:
+        - name: {{ .Values.volume.name }}
+          mountPath: {{ .Values.volume.path }}
+      - name: {{ .Values.containers.nginx.name | quote }}
+        image: "{{ .Values.containers.nginx.repository  }}:{{ .Values.containers.nginx.tag }}"
+        imagePullPolicy: {{ .Values.containers.nginx.pullPolicy | quote }}
+        envFrom:
+          - configMapRef:
+              name: {{ .Values.app }}-env-configmap
+        ports:
+          - containerPort: {{ .Values.containers.nginx.port }}
+        volumeMounts:
+        - name: {{ .Values.volume.name }}
+          mountPath: {{ .Values.volume.path }}
+      - name: {{ .Values.containers.phpfpm.name | quote }}
+        image: "{{ .Values.containers.phpfpm.repository  }}:{{ .Values.containers.phpfpm.tag }}"
+        imagePullPolicy: {{ .Values.containers.phpfpm.pullPolicy | quote }}
+        envFrom:
+          - configMapRef:
+              name: {{ .Values.app }}-env-configmap
+        ports:
+          - containerPort: {{ .Values.containers.phpfpm.port }}
+        livenessProbe:
+{{ toYaml .Values.livenessProbe | indent 10 }}
+        readinessProbe:
+{{ toYaml .Values.readinessProbe | indent 10 }}
+        volumeMounts:
+        - name: {{ .Values.volume.name }}
+          mountPath: {{ .Values.volume.path }}
+        - name: {{ .Values.app }}-keys
+          mountPath: {{ .Values.secretKeysNamePath }}
+          readOnly: true
+        - name: {{ .Values.app }}-sa-key
+          mountPath: {{ .Values.secretServiceAccountNamePath }}
+          readOnly: true
+        - name: {{ .Values.app }}-gc-sa-key
+          mountPath: {{ .Values.secretServiceAccountGCNamePath }}
+          readOnly: true
+{{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+{{- end }}
+      volumes:
+      - name: {{ .Values.volume.name }}
+        emptyDir: {}
+      - name: {{ .Values.app }}-keys
+        secret:
+          secretName: {{ .Values.secretKeysName }}
+          defaultMode: 256
+      - name: {{ .Values.app }}-sa-key
+        secret:
+          secretName: {{ .Values.secretServiceAccountName }}
+          defaultMode: 256
+      - name: {{ .Values.app }}-gc-sa-key
+        secret:
+          secretName: {{ .Values.secretServiceAccountGCName }}
+          defaultMode: 256

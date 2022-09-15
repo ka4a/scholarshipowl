@@ -1,0 +1,38 @@
+#scholarship-description p#scholarship-disclaimer {
+    padding-top: 150px;
+}
+
+#scholarship-description p#scholarship-disclaimer small {
+    font-size: 9px;
+    line-height: 3px;
+    font-style: italic;
+}
+
+#scholarship-description .tooltip {
+    margin-top: -3px;
+    z-index: 5001;
+}
+
+#scholarship-description .tooltip .tooltip-inner {
+    background-color: #373737;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.17);
+}
+
+#scholarship-description .tooltip .tooltip-arrow {
+    border-top-color: #373737;
+}
+
+#scholarship-description .tooltip .tooltip-inner {
+    font-weight: normal;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 8px 10px;
+    text-align: left;
+}
+
+#scholarship-description .recurrent-icon {
+    font-size: 18px;
+    margin-right: 10px;
+    color: #4A4A4A;
+}

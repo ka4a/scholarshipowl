@@ -1,0 +1,20 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: wildcard.app.sunrising.tech
+  namespace: sunrise-dev
+spec:
+  secretName: wildcard.app.sunrising.tech
+  issuerRef:
+    name: sowl-tech-prod
+    kind: ClusterIssuer
+  commonName: '*.app.sunrising.tech'
+  dnsNames:
+  - '*.app.sunrising.tech'
+  acme:
+    config:
+    - dns01:
+        provider: prod-dns
+      domains:
+      - '*.app.sunrising.tech'
+

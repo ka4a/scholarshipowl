@@ -1,0 +1,70 @@
+$font-color: #283a5a;
+
+.application {
+  //TODO move it to layout element styles
+  margin-bottom: 20px;
+
+  @include breakpoint($mini-tablet) {
+    display: inline-block;
+  }
+
+  &__text {
+    color: $font-color;
+    font-size: 10px;
+    text-align: center;
+
+    @include breakpoint($mini-tablet) {
+      float: left;
+      font-size: 15px;
+    }
+  }
+  &__value {
+
+  }
+}
+
+.application-counter {
+  position: relative;
+  display: inline-block;
+  color: $font-color;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 8px;
+
+  @include breakpoint($mini-tablet) {
+    margin-left: 50px;
+  }
+
+  &__digit {
+    position: relative;
+    z-index: 1;
+    padding-left: 3.935px;
+  }
+
+  &__bg,
+  &:before,
+  &:after {
+    content: '';
+    height: 1.38em;
+    position: absolute;
+    background-image: url(../img/bg/counter.png);
+    background-position: left top;
+    -webkit-background-size: contain;
+    background-size: contain;
+  }
+
+  &:before {
+    width: 17px;
+  }
+
+  &__bg {
+    width: 51px;
+    left: 29.56px;
+  }
+
+  &:after {
+    right: 4.4px;
+    width: 51px;
+    top: 0;
+  }
+}

@@ -1,0 +1,151 @@
+.modal-confirm {
+  .modal-dialog {
+    .modal-header {
+      h4.header-title {
+        text-align: center;
+        text-transform: uppercase;
+        color: #5482f9;
+        font-weight: 400;
+      }
+    }
+    .modal-content {
+      border: 10px solid #9dbbe6;
+      border-radius:0;
+      
+      p {
+        color: #78797a;
+        padding: 10px 100px;
+
+        &:nth-child(2) {
+          padding: 0 50px;
+        }
+      }
+    }
+    .modal-footer {
+      text-align: center;
+
+      .keep-active {
+        width: 100%;
+        border-radius: 5px;
+      }
+
+      .cancel-subscription {
+        margin-top: 20px;
+        display: block;
+        text-decoration: underline;
+      }
+    }
+    .btn {
+      border-radius: 0;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.modal-confirm {
+  .vertical-alignment-helper {
+    display: table;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    padding: 0 10px;
+    /* This makes sure that we can still click outside of the modal to close it */
+  }
+  
+  .vertical-align-center {
+    /* To center vertically */
+    display: table-cell;
+    vertical-align: middle;
+    pointer-events: none;
+  }
+
+  .modal-dialog .modal-content {
+    /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+    max-width: 600px;
+    height: inherit;
+    /* To center horizontally */
+    margin: 0 auto;
+    pointer-events: all;
+    border: 10px solid #9dbbe6;
+    border-radius: 0;
+    background: #ffffff;
+    box-shadow: none;
+  }
+
+  &.fade.in {
+    padding-left: 0px !important;
+  }
+}
+
+@media (max-width: 640px) and (max-height: 360px) {
+  .modal-confirm {
+    .vertical-alignment-helper {
+      .modal-dialog {
+        .modal-header {
+          padding: 0px;
+        }
+
+        .modal-footer {
+          padding: 20px 16px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) and (height: 480px) {
+  .modal-confirm {
+    .vertical-alignment-helper {
+      .modal-dialog {
+        .modal-header {
+          padding: 0px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 568px) and (height: 320px) {
+  .modal-confirm {
+    .vertical-alignment-helper {
+      .modal-dialog {
+        .modal-header {
+          padding: 5px;
+        }
+
+        .modal-content {
+          p {
+            padding: 0 10px;
+          }
+        }
+
+        .modal-footer {
+          padding: 10px 16px;
+          
+          .cancel-subscription {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-confirm {
+    .modal-dialog {
+      .modal-content {
+        p {
+          padding: 10px 10px;
+
+          &:nth-child(2) {
+            padding: 0 10px;
+          }
+        }
+      }
+      .modal-footer {
+        padding: 30px 16px;
+      }
+    }
+  }
+}

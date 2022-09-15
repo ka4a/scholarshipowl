@@ -1,0 +1,21 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: apply.me
+  namespace: applyme
+spec:
+  secretName: apply.me
+  issuerRef:
+    name: sowl-marketing-prod
+    kind: ClusterIssuer
+  commonName: '*.apply.me'
+  dnsNames:
+    - '*.apply.me'
+    - apply.me
+  acme:
+    config:
+    - dns01:
+        provider: prod-dns
+      domains:
+      - '*.apply.me'
+      - apply.me

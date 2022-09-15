@@ -1,0 +1,18 @@
+type: object
+properties:
+  id:
+    type: integer
+  accountId:
+    type: integer
+  requirementId:
+    type: integer
+  answers:
+    type: array
+    example: [{"type": "radio", "options": ["2"], "question": "Your favorite color "}, {"type": "checkbox", "options": ["2", "5"], "question": "Favorite days of week"}]
+  createdAt:
+    $ref: "DateObject.yml"
+  updatedAt:
+    $ref: "DateObject.yml"
+  scholarshipId:
+    type: integer
+

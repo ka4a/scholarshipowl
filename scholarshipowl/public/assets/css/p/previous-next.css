@@ -1,0 +1,103 @@
+.continue {
+    background-color: #eff5fc;
+    min-height: 215px;
+    text-align: center;
+    position: relative;
+}
+
+
+.continue input[type=submit] {
+    border: 0;
+    background: transparent;
+            box-shadow: none;
+       -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    color: #fff;
+    display: inline-block;
+    vertical-align: top;
+    font: 700 21px/65px 'Raleway';
+    height: 65px;
+    margin-top: 0;
+    padding-left: 0;
+    padding-right: 60px;
+    text-align: left;
+    text-transform: uppercase;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    z-index: 55;
+    text-align: center;
+}
+
+
+/*==========  min 480  ==========*/
+
+@media (min-width: 480px) {
+    .continue {
+        min-height: 175px;
+    }
+}
+
+/*==========  min 640  ==========*/
+@media (min-width: 768px) {
+    .continue input[type=submit] {
+        padding-right: 82px;
+        padding-left: 0;
+        font: 700 28px/120% 'Raleway';
+        height:85px;
+    }
+}
+
+
+/*==========  Previos & Next arrow buttons  ==========*/
+
+#next .arrow-btn {
+    right: 0;
+}
+
+/*#registration-form-step-3*/
+
+/*==========  max 479  ==========*/
+
+/*==========  min 480  ==========*/
+
+/*==========  min 768px  ==========*/
+
+/*
+.register-back {
+    display: inline-block;
+    vertical-align: top;
+    width: 91px;
+    height: 20px;
+    background: url('../img/back_btn.png') no-repeat 0 0;
+    position: absolute;
+    top: 164px;
+    left: 33%;
+    text-indent: -999999em;
+}
+@media (min-width: 480px) {
+    .register-back {
+        top: 71px;
+        left: 0;
+    }
+}
+
+.register-back:hover {
+    background-position: 0 -20px;
+}
+
+
+
+.register-back:active {
+    background-position: 0 -40px;
+}
+*/
+
+
+/*==========  Fixed Apply button  ==========*/
+
+/*---------- END of Fixed Apply button  ----------*/
+
+/*==========  Floating Apply button  ==========*/
+
+/*---------- END of Floating Apply button  ----------*/

@@ -1,0 +1,35 @@
+/* min 480px */
+    /* min 768px */
+    /* min 992px */
+/* close button */
+
+.modal .close {
+    background-color: #4e8eec;
+    color: #fff;
+    line-height: 1.45;
+    opacity: 1;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: -18px;
+    right: -20px;
+    z-index: 15;
+}
+
+.modal .close:hover {
+    background-color: #4381e8;
+}
+
+.modal .close:focus {
+    outline: none;
+}
+
+.modal .close span {
+    line-height: 1.7em;
+}
+
+/* modal footer */
+
+/* Refer a Friend surveys popup */
+
+/* Refer a Friend monitor your Friends popup */

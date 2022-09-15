@@ -1,0 +1,206 @@
+.modal-content {
+	border-radius: 0;
+}
+
+.upgrade-modal-in {
+	margin:0 111px;
+	color:#4a5d77;
+	padding:0;
+}
+
+.back-modal-pay h4 {
+	font-size:15px;
+	font-family: 'Open Sans', sans-serif;
+	color:#4a5d77;
+	margin:26px 0;
+}
+
+.back-modal-pay {
+	background:#eff5fc;
+	border: 8px solid #9dbbe6;
+	border: 8px solid rgba(157, 187, 230, 1);	
+}
+
+#upgradeAccountPopup .paleBlue-bg {
+	background-color:inherit;
+}
+
+
+.inner-payment {
+	margin: 4px 111px 10px;
+}
+
+@media (min-width: 768px) {
+	.package {
+	  margin: 29px 0 1px;
+	}
+}
+
+#upgradeAccountPopup .priceType {
+  font-size: 1.0714286em;
+}
+
+#upgradeAccountPopup .ammount {
+	font-size:1.35em;
+}
+
+.priceDescription {
+	font-size: 9px;
+	font-family: 'open sans', serif;
+	margin-top:26px;
+	font-weight:600;
+}
+
+.priceAmmount .priceDescription {
+	font-weight:500;
+	font-style:italic;
+}
+
+#upgradeAccountPopup .price {
+	background-color: #fff;
+	color: #3b7fe2;
+	border-color:#b0d0ff;
+	border-top:8px solid #b0d0ff;
+	padding: 21px 0;  
+}
+
+#upgradeAccountPopup .price.basic-memb {
+	border-right:none;
+}
+
+#upgradeAccountPopup .selectButton button {
+	font: 1em/1 'Open Sans', sans-serif;
+	padding: 19px 13px;
+	font-weight: 600;
+	min-width:128px;
+}
+
+
+#upgradeAccountPopup .selectButton {
+	height: inherit;
+	background-color:#fff;	
+}
+
+#upgradeAccountPopup #selectPayment .row.active .price {
+	background-color: #fff;
+	border-left: none;
+	border-right: none;
+}
+
+#upgradeAccountPopup .active .price {
+	border-top: 8px solid #3b7fe2;
+}
+
+.biggie-ita {
+	font-size:30px;
+	line-height:30px;
+	font-weight:bold;
+	font-style:italic;
+	color:#b0d0ff;
+	padding-right:10px;
+	border-right:1px dotted #a2a4a6;
+}
+
+.two-rows {
+	padding-left:10px;
+	font-style:italic;
+	font-weight:600;
+}
+
+
+.two-rows, .biggie-ita {
+    float: left;
+}
+
+#upgradeAccountPopup #selectPayment .list-group li:nth-child(even) {
+  background-color: #e7edf5;
+}
+
+#upgradeAccountPopup .list-group-item {
+  background-color: #eff5fc;
+}
+
+#upgradeAccountPopup #selectPayment ul {
+	border-top: 4px solid #b0d0ff;
+	border-left: 1px solid #b0d0ff;
+	border-bottom: 4px solid #b0d0ff;
+	font-size:10px;
+}
+
+#upgradeAccountPopup #selectPayment .active ul {
+	border-left:none;
+	border-color:#609cf3;
+}
+
+#upgradeAccountPopup #selectPayment ul.lastone {
+	border-right: 1px solid #b0d0ff;
+}
+
+#previous .arrow.reverse {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    -ms-filter: fliph; /*IE*/
+    filter: fliph; /*IE*/
+}
+
+.upgrade-footer {
+	background-color:#d8e8ff;
+	padding:20px 40px;
+	color:#4a5d77;
+	font-size:12px;
+}
+
+.back-close-modal {
+  position: relative;
+}
+
+.back-close-modal .arrow span {
+  background-color: #94abce;
+}
+
+.back-close-modalBtn .arrow {
+  top: 10px;
+}
+
+.back-close-modal .arrow-btn {
+  position: absolute;
+}
+
+.back-close-modal a {
+  color: #94abce;
+}
+
+figure#payment-finish-testimonial {
+  padding: 5% 0;
+}
+
+figure#payment-finish-testimonial img {
+  position: relative;
+  left: 20px;
+}
+
+figure#payment-finish-testimonial figcaption {
+  background: url('../img/register_slider_title.png') no-repeat 15px 5px;
+  padding: 4% 4% 4% 60px;
+  font: 16px/1.44 'Open Sans';
+  display: block;
+}
+
+@media (min-width: 640px) {
+figure#payment-finish-testimonial figcaption {
+  background-position: 0 20px;
+  padding-left: 50px;
+  font-size: 20px;
+  float: right;
+  width: 63%;
+}
+}
+
+@media (min-width: 992px){
+figure#payment-finish-testimonial figcaption {
+  width: 70%;
+  background-position: 0 26px;
+}
+}

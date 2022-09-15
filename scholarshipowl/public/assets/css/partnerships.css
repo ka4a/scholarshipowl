@@ -1,0 +1,155 @@
+/* press */
+
+.section--press-inquires p {
+	font-size: 1em;
+	padding-top: 0px;
+}
+
+.section--press-inquires .download-links {
+	margin-top: 1em;
+}
+
+.section--press-inquires .text-bold.mod-heading {
+	font-size: 1.7143em;
+	margin: 0;
+}
+
+.section--press-inquires .text-blue.mod-heading {
+	font-size: 1.4em;
+	line-height: 1.2;
+	margin-top: 30px;
+	margin-bottom: 0;
+}
+
+.section--in-the-news .text-blue {
+	margin-top: 0;
+}
+
+/* partnerships */
+
+.section--in-the-news .text-bold,
+.section--in-the-news .text-blue {
+	margin-top: 0;
+}
+
+.services-we-offer p.mod-first-child {
+	margin-top:0;
+	padding-top: 10px;
+}
+
+.section--services-we-offer ul {
+	line-height: 1.6;
+	padding: 5% 11% 0 13%;
+}
+
+.section--services-we-offer li {
+	padding-bottom: 2%;
+}
+
+.section--become-scholarshipowl-partner .text-bold.mod-heading {
+	font-size: 1.8em;
+	line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+	.section--become-scholarshipowl-partner .text-bold.mod-heading {
+		font-size: 3em;
+	}
+}
+
+.become-partner .form-wrapper {
+	padding: 5% 0;
+}
+
+.become-partner .mod-btn-wrapper {
+	margin-top: 3%;
+	margin-bottom: 3%;
+}
+
+
+/* resources and education center */
+
+.section--helpful-guides .h3.mod-text-size {
+	margin-top: .6em;
+	margin-bottom: 0;
+}
+
+.section--helpful-guides p {
+	padding-top: 15px;
+}
+
+.section--helpful-guides .button-wrapper {
+	padding: 50px 0;
+}
+
+.section--helpful-guides .label {
+	float: none;
+	text-align: center;
+	margin: 3% auto;
+	font-size: 1.2em;
+	display: block;
+	white-space: pre-wrap;
+}
+
+.yt-containers {
+	margin: 2em auto 1em;
+	background: url('../plugins/lazyloadxt/loading.gif') center center no-repeat;
+}
+
+.section--helpful-guides .embed-responsive.mod-first-child {
+	margin-top: 0;
+}
+
+.section--scholarship-tips-for-international-students .text-bold.mod-text-size,
+.section--online-resources-for-international-students .text-bold.mod-text-size,
+.section--helpful-online-resources .text-bold.mod-text-size {
+	margin-top: .5em;
+}
+
+.section--online-resources-for-international-students .lead {
+	margin-bottom: 3em;
+}
+
+.section--helpful-online-resources {
+	padding-bottom: 4em;
+}
+
+.animated {
+	-webkit-animation-duration: 300ms;
+	        animation-duration: 300ms;
+	-webkit-animation-fill-mode: both;
+	        animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, -100%, 0);
+		        transform: translate3d(0, -100%, 0);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: none;
+		        transform: none;
+	}
+}
+
+@keyframes fadeInDown {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, -100%, 0);
+		        transform: translate3d(0, -100%, 0);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: none;
+		        transform: none;
+	}
+}
+
+.fadeInDown {
+	-webkit-animation-name: fadeInDown;
+	        animation-name: fadeInDown;
+}

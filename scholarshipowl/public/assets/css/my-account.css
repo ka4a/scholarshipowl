@@ -1,0 +1,1498 @@
+#myPageAlert {
+    background-color: #fffdd2;
+    border-bottom: solid 1px #f4eeb2;
+}
+
+#myPageAlert .close {
+    background-color: rgba(0,0,0,.2);
+            border-radius: 0 0 6px 6px;
+    -webkit-border-radius: 0 0 6px 6px;
+    padding: 0 10px 3px;
+}
+
+#myPageAlert .close span {
+    font: 60%/150% 'Raleway';
+    text-transform: uppercase;
+}
+
+#myPageAlert p {
+    padding: 40px 20px 40px 15px;
+    margin: 0;
+    color: #b2a45d;
+    font: 400 12px/150% 'Open Sans';
+}
+
+#userProfile {
+    margin: 20px 0 0;
+}
+
+#userProfile #usersTab a {
+    font-size: 16px;
+}
+
+.userNameAge {
+    padding-left: 15px;
+}
+
+.userinfo,
+.userschool,
+.member-upgrade {
+    height: 60px;
+}
+
+.userinfo {
+    margin-top: 20px;
+}
+
+.userschool,
+.member-upgrade {
+    margin-top: 10px;
+}
+
+.note-dedicated-email {
+    display: none;
+    background-color: #b0d0ff;
+    border-bottom: 1px solid #fbfdff;
+    font-size: 12px;
+    color: #337ab7;
+    padding: 20px 0;
+}
+
+.note-dedicated-email p {
+    margin-bottom: 0;
+    display: inline-block;
+}
+
+.note-dedicated-email .close-notification {
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    padding-left: 30px;
+    font-size: 30px;
+    color: #f2f2f2;
+    vertical-align: middle;
+    line-height: 1;
+}
+
+.note-dedicated-email .close-notification:hover {
+    text-decoration: none;
+    color: #337ab7;
+}
+
+.userinfo h3 {
+    font: 600 18px/150% 'Open Sans';
+    color: #464646;
+    margin: 7px 0 0;
+}
+
+.userinfo .age,
+.userschool {
+    font: 600 10px/140% 'Open Sans';
+    color: #888;
+}
+
+.userschool {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    overflow: auto;
+}
+
+.userschool > div {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.userschool .state {
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.member-upgrade .subscription-name {
+    float: left;
+    width: 220px;
+    text-align: left;
+}
+
+.member-upgrade .subscription-name > h3 {
+    margin: 0;
+    height: 2em;
+    display: table;
+}
+
+.member-upgrade .subscription-name > h3 .user-name {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.member-upgrade h2 {
+    display: inline-block;
+    font-size: 1.5em;
+    font-weight: 300;
+    line-height: 1;
+    margin-right: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.member-upgrade .freetrial-title,
+.member-upgrade .freetrial-date {
+    color: #F86F41;
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+.member-upgrade .freetrial-date {
+    font-size: 12px;
+}
+
+.member-upgrade small {
+    display: inline-block;
+    font-size: 1em;
+    line-height: 1;
+    position: relative;
+    top: -1px;
+}
+
+.member-upgrade .subscription-cancel {
+    margin-top: 10px;
+}
+
+.member-upgrade a {
+    display: block;
+    color: #f86f41;
+    text-decoration: underline;
+}
+.member-upgrade a:hover {
+    color: #428bca;
+}
+
+
+#userInfo .progress {
+    background-color: #ebeff2;
+    height: 5px;
+            border-radius: 0;
+    -webkit-border-radius: 0;
+    position: relative;
+    overflow: visible;
+}
+
+#userInfo .progress span {
+    position: absolute;
+    right: 0;
+    color: #333;
+    top: -20px;
+    display: inline-block;
+    vertical-align: top;
+    font: 400 10px/150% 'Open Sans';
+    text-transform: uppercase;
+}
+
+#userInfo .progress-bar {
+    background-color: #99d595;
+}
+
+#userData {
+    background-color: #d8e8ff;
+}
+
+.myAccount .form-group label {
+    color: #94abce;
+    line-height: 1;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.myAccount .padBot40 {
+    padding: 0 0 40px 0;
+    position: relative;
+}
+
+.myAccount .nav-tabs {
+    border-bottom: none;
+}
+
+.myAccount {
+    background-color: #d8e8ff;
+    border-bottom: 1px solid #fbfdff;
+    position: relative;
+}
+
+.myAccount .tabsBg {
+    background-color: #f3f8ff;
+    padding-top: 40px;
+}
+
+.myAccount .form-group .input-group,
+.myAccount .form-inline .input-group,
+.myAccount .btn-group {
+    width: 100%;
+}
+
+#usersTab li a {
+    color: #d8e8ff;
+    background-color: #b0d0ff; /*#f5f9ff;*/
+    border-color: #d8e8ff #d8e8ff transparent #d8e8ff;
+    font: 600 1.1em/3.3 'Open Sans';
+    margin-right: 0;
+    padding: 0;
+}
+
+#usersTab li .linebreak{
+    display: block;
+}
+
+#usersTab li a:hover {
+    border-color: #b0d0ff #b0d0ff transparent #b0d0ff;
+    border-width: none;
+}
+
+#usersTab li.active a {
+    color: rgba(0,0,0,.7);
+    border-color: #b0d0ff #b0d0ff transparent #b0d0ff;
+    background-color: #d8e8ff;
+}
+
+.fake-tab span {
+    cursor: default;
+}
+@media (min-width: 768px) {
+    .fake-tab span {
+        display: none;
+    }
+}
+
+
+#usersTab .tab-content {
+    min-height: 342px;
+    padding: 0 0 150px;
+}
+
+.tab-content .checkbox {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.tab-content .checkboxes {
+    margin-left: 8px;
+}
+
+.tab-content .chkbox {
+    min-width: 20%;
+    margin: 12px 0;
+}
+
+.tab-content .chkbox label {
+    margin-right: 6px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.tab-content .chkbox input {
+    border: solid thin red;
+    box-shadow: none;
+    display: inline-block;
+    margin: 0;
+    height: 23px;
+    outline: none;
+    vertical-align: top;
+    width: 23px;
+    z-index: 666666;
+}
+
+.tab-content .btn-month{
+    width: 40%;
+}
+
+.tab-content .btn-year{
+    width: 60%;
+}
+
+.bottomBorder {
+    border-bottom: 1px solid #b0d0ff; /*#b0d0ff;*/
+}
+
+#summaryUserPackage {
+    border-bottom: 1px solid #cae0ff;
+    margin-bottom: 30px;
+}
+
+#summaryUserInfo h3 {
+    margin: 0;
+    line-height: 2;
+}
+
+#summaryUserInfo .package {
+    display: inline-block;
+    font: 400 110%/2 'Open Sans';
+    text-transform: uppercase;
+    margin: 0;
+    padding-top: 4px;
+    border-bottom: none;
+}
+
+#summaryProgress.progress {
+    height: 7px;
+            border-radius: 0;
+       -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    background-color: #f0f2f5;
+}
+
+.summaryText {
+    color: #939da7;
+    font: 400 12px/1.428 'Open Sans';
+}
+
+#totalApps {
+    background-color: #f2f7ff;
+    border-radius: 6px;
+    padding: 20px 10px;
+    margin-bottom: 17px;
+}
+
+#eligibility-info p {
+    margin-bottom: 15px;
+}
+
+#upgrade-btn [class*='col-']:first-child {
+    margin-bottom:15px;
+}
+
+.btn.mod-user-profile-btn {
+    font-size: 1.4em;
+    line-height: 2.4;
+}
+/*
+#userProfile .selectpicker.btn {
+    font-size: 100%;
+    width: 100%;
+    height: 50px;
+}
+*/
+
+.totalApps {
+    color: #f86f41;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.summary-icon {
+    max-width: 120px;
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    background-color: #d8e8ff;
+}
+
+.summary-icon .badge {
+  border-radius: 50%;
+  bottom: 5px;
+  font-size: 1em;
+  font-weight: 600;
+  right: 5px;
+  line-height: 44px;
+  min-width: 44px;
+  padding: 0;
+  position: absolute;
+}
+
+#totalApps a {
+    display: block;
+    font-size: 1.4em;
+}
+
+#totalApps .summary-icon a .badge small {
+	font-size:0.7em;
+}
+#totalApps .summary-icon a .badge big {
+    font-size: 85%;
+}
+
+.count {
+    font: 400 50px/1 'Open Sans';
+}
+
+.from {
+    font: 400 25px/1 'Open Sans';
+    padding-top: 6px;
+}
+
+#eligibleFor.summaryText {
+    margin-bottom: 10px;
+}
+#eligibleFor.summaryText span {
+    color: #f86f41;
+    font: 600 120% 'Open Sans';
+}
+
+#MyAccount .tabPaneTextarea {
+    max-width: 550px;
+    width: 100%;
+}
+
+#MyAccount .tabPaneTextarea textarea {
+    width: 100% !important;
+    height: 296px;
+    float: none;
+    display: block;
+}
+
+#userProfile .tab-content footer {
+    border-top: 1px dashed #BEBFC1;
+    margin: 30px auto 20px;
+    padding-top: 25px;
+}
+
+/*==========  min 360  ==========*/
+
+@media (min-width: 360px) {
+    #usersTab .breakpoint {
+        display: block;
+    }
+    .btn.mod-user-profile-btn {
+        font-size: 1em;
+        line-height: 2.4;
+    }
+}
+
+/*==========  max 479  ==========*/
+/*
+@media (max-width: 479px) {
+        #usersTab li:last-child a {
+        margin-right: 0;
+        padding: 7px 5px;
+        line-height: 1;
+    }
+}
+*/
+/*==========  max 479  ==========*/
+
+@media (max-width: 479px) {
+    #totalApplicationsSubmitted {
+        padding: 0;
+    }
+    #totalApps .col-xs-4 {
+        padding: 0 5px;
+    }
+    #totalApps .count {
+        font-size: 30px;
+    }
+    #totalApps .from {
+        font-size: 15px;
+        padding-top: 2px;
+    }
+    #totalApps .summaryText {
+        font-size: 10px;
+    }
+}
+
+/*==========  min 480  ==========*/
+
+@media (min-width: 480px) {
+    #usersTab li .linebreak {
+        display: inline;
+    }
+    #userProfile {
+        margin: 40px 60px 0;
+    }
+    .summary-icon {
+        max-width: 130px;
+    }
+    #eligibility-info .summaryText.text-center {
+        text-align: left;
+    }
+}
+
+/*==========  min 640  ==========*/
+
+@media (min-width: 640px) {
+    #usersTab li a {
+        padding:0;
+        font-size: 1.1em;
+    }
+    #totalApps {
+        margin-bottom: 20px;
+        padding: 40px;
+    }
+    .btn.mod-user-profile-btn,
+    .btn.mod-user-profile-btn:active:focus {
+        font-size: 1.5em;
+        line-height: 2.4;
+    }
+    .saveProfileChanges {
+        padding-top: 20px;
+        padding-bottom: 40px;
+    }
+}
+
+/*==========  max 767  ==========*/
+
+@media (max-width: 767px) {
+    #userInfo img {
+        width: 60px;
+        height: auto;
+    }
+    #userInfo .divider-dotted-horizontal {
+        background-position: 15px;
+    }
+    .member-upgrade big {
+        margin-left: 15px;
+    }
+    .member-upgrade.text-center {
+        text-align: left;
+    }
+    #userInfo .progress {
+        margin-top: 30px;
+    }
+
+    #totalApps [class*='col-']:nth-child(-n+2) {
+        margin-bottom: 20px;
+    }
+    .myAccount .nav-tabs.no-gutter {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    #usersTab li a {
+        border-radius: 0;
+    }
+    .note-dedicated-email .close-notification {
+        position: absolute;
+        top: 0;
+        right: 20px;
+    }
+    #userInfo .member-upgrade .subscription-name h3 {
+        font-size: 18px;
+    }
+    #userInfo .member-upgrade .subscription-name {
+        width: 200px;
+    }
+    #userInfo .member-upgrade .subscription-cancel {
+        margin-top: 11px;
+    }
+}
+
+/*==========  min 768  ==========*/
+
+@media (min-width: 768px) {
+    #userProfile {
+        margin: 50px 0 0;
+    }
+    .member-upgrade.divider-dotted-horizontal {
+        background-image: none;
+    }
+    .userinfo,
+    .userschool,
+    .member-upgrade {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        height: 80px;
+    }
+    .userinfo h3 {
+        margin: 15px 0 5px;
+    }
+    #totalApplicationsSubmitted {
+        border-left: solid 1px #ddd;
+        border-right: solid 1px #ddd;
+    }
+    #totalApps .btn {
+        width: 100%;
+    }
+    #buyPackagesBtn {
+        margin-bottom: 10px;
+    }
+/*    .tab-content .form-group {
+        height: 90px;
+    }
+*/    #userProfile .tab-content footer {
+        padding-top: 35px;
+    }
+    #totalApps [class*='col-sm']:nth-child(2) p.summaryText,
+    #userProfile .tab-content footer [class*='col-']:nth-child(2) {
+        border-width: 0 1px;
+        border-style: dashed;
+        border-color: transparent #bebfc1;
+    }
+}
+
+/*==========  min 922  ==========*/
+
+@media (min-width: 992px) {
+    #userProfile {
+        margin: 40px 0;
+    }
+    .userschool > div {
+        padding: 0 0 0 5px;
+    }
+    #totalApps {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 960px) and (min-height: 600px) {
+    .note-dedicated-email .close-notification {
+        position: absolute;
+        top: 0;
+        right: 20px;
+    }
+}
+
+@media (max-width: 320px) and (min-height: 480px) {
+    #userInfo .member-upgrade .subscription-name {
+        width: 50%;
+    }
+}
+
+@media (max-width: 360px) and (min-height: 640px) {
+    .note-dedicated-email .close-notification {
+        top: -10px;
+    }
+}
+
+@media (max-width: 414px) and (min-height: 640px) {
+    .note-dedicated-email .close-notification {
+        top: -10px;
+    }
+}
+
+@media (max-width: 568px) and (min-height: 320px) {
+    .note-dedicated-email .close-notification {
+        top: -10px;
+    }
+}
+
+@media (max-width: 600px) and (min-height: 1024px) {
+    #userInfo .member-upgrade .subscription-name {
+        width: 220px;
+    }
+}
+
+@media (max-width: 768px) and (min-height: 1024px) {
+    .note-dedicated-email .close-notification {
+        position: absolute;
+        top: -10px;
+        right: 20px;
+    }
+}
+
+@media (max-width: 800px) and (min-height: 1280px) {
+    .note-dedicated-email .close-notification {
+        position: absolute;
+        top: 0;
+        right: 20px;
+    }
+    #userInfo .member-upgrade .subscription-name h2 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 1280px) {
+    #userInfo .member-upgrade .subscription-name h2 {
+        font-size: 20px;
+    }
+}
+
+
+.blueBg.top-banner-ad-wrapper {
+	background-color:#b0d0ff;
+}#myPageAlert {
+    background-color: #fffdd2;
+    border-bottom: solid 1px #f4eeb2;
+}
+
+#myPageAlert .close {
+    background-color: rgba(0,0,0,.2);
+            border-radius: 0 0 6px 6px;
+    -webkit-border-radius: 0 0 6px 6px;
+    padding: 0 10px 3px;
+}
+
+#myPageAlert .close span {
+    font: 60%/150% 'Raleway';
+    text-transform: uppercase;
+}
+
+#myPageAlert p {
+    padding: 40px 20px 40px 15px;
+    margin: 0;
+    color: #b2a45d;
+    font: 400 12px/150% 'Open Sans';
+}
+
+#userProfile {
+    margin: 20px 0 0;
+}
+
+#userProfile #usersTab a,
+#userProfile #usersTab h3 {
+    font-size: 16px;
+}
+
+.userNameAge {
+    padding-left: 15px;
+}
+
+.userinfo,
+.userschool,
+.member-upgrade {
+    height: 60px;
+}
+
+.userinfo {
+    margin-top: 20px;
+}
+
+.userschool,
+.member-upgrade {
+    margin-top: 10px;
+}
+
+.userinfo h2 {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #464646;
+    margin: 7px 0 0;
+}
+
+.userinfo .age,
+.userschool {
+    font: 600 10px/140% 'Open Sans';
+    color: #888;
+}
+
+.userschool {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    overflow: auto;
+}
+
+.userschool > div {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.userschool .state {
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.member-upgrade big {
+    display: inline-block;
+    font-size: 2.4em;
+    font-weight: 300;
+    line-height: 1;
+    margin-right: 10px;
+}
+
+.member-upgrade small {
+    font-size: 1em;
+    line-height: 1;
+    float: right;
+    text-align: left;
+    margin-top: 4px;
+}
+
+.member-upgrade a {
+    display: block;
+    color: #f86f41;
+    text-decoration: underline;
+}
+.member-upgrade a:hover {
+    color: #428bca;
+}
+
+
+#userInfo .progress {
+    background-color: #ebeff2;
+    height: 5px;
+            border-radius: 0;
+    -webkit-border-radius: 0;
+    position: relative;
+    overflow: visible;
+}
+
+#userInfo .progress span {
+    position: absolute;
+    right: 0;
+    color: #333;
+    top: -20px;
+    display: inline-block;
+    vertical-align: top;
+    font: 400 10px/150% 'Open Sans';
+    text-transform: uppercase;
+}
+
+#userInfo .progress-bar {
+    background-color: #99d595;
+}
+
+#userData {
+    background-color: #d8e8ff;
+}
+
+.myAccount .form-group label {
+    color: #94abce;
+    line-height: 1;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.myAccount .padBot40 {
+    padding: 0 0 40px 0;
+    position: relative;
+}
+
+.myAccount .nav-tabs {
+    border-bottom: none;
+}
+
+.myAccount {
+    background-color: #d8e8ff;
+    border-bottom: 1px solid #fbfdff;
+    position: relative;
+}
+
+.myAccount .tabs-container {
+    background-color: #f3f8ff;
+    border-bottom: 1px solid #b0d0ff; /*#b0d0ff;*/
+    padding-top: 40px;
+}
+
+.myAccount .form-group .input-group,
+.myAccount .form-inline .input-group,
+.myAccount .btn-group {
+    width: 100%;
+}
+
+#usersTab li a {
+    color: #d8e8ff;
+    background-color: #b0d0ff; /*#f5f9ff;*/
+    border-color: #d8e8ff #d8e8ff transparent #d8e8ff;
+    margin-right: 0;
+    padding: 0;
+}
+
+.membership .panel.panel-default{
+    border: 0;
+}
+.membership h4{
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+.membership .panel-default>.panel-heading{
+    background: #4e8eec;
+    color: #fff;
+    font-size: 16px;
+}
+.membership .panel-default>.panel-heading h3{
+    line-height: 30px;
+}
+.membership .panel-default hr{
+    margin: 0 -15px;
+    padding: 0;
+    border-top: 1px solid #d8e8ff;
+}
+.membership .panel-default .panel-body{
+    padding:0 15px;
+}
+.membership .panel-default .panel-body p{
+    line-height: 50px;
+    padding: 0;
+}
+.membership .free-trial-info {
+  line-height: 30px;
+  margin-left: 5px;
+  font-size: small;
+}
+@media (min-width:768px) and (max-width:991px) {
+
+    #usersTab .col-sm-1 {
+        width: 14.2857142857%;
+    }
+}
+@media (min-width:992px) {
+    #usersTab .col-md-1 {
+        width: 9.3333333333%;
+    }
+    #usersTab .col-md-2 {
+        width: 11.3333333333%;
+    }
+}
+
+
+#usersTab a,
+#usersTab h3 {
+    font-size: 1.1em;
+    line-height: 3.3;
+    margin-top:0;
+    margin-bottom: 0;
+}
+
+#usersTab li .linebreak{
+    display: block;
+}
+
+#usersTab li a:hover {
+    border-color: #b0d0ff #b0d0ff transparent #b0d0ff;
+    border-width: none;
+}
+
+#usersTab li.active a {
+    color: rgba(0,0,0,.7);
+    border-color: #b0d0ff #b0d0ff transparent #b0d0ff;
+    background-color: #d8e8ff;
+}
+
+.fake-tab span {
+    cursor: default;
+}
+@media (min-width: 768px) {
+    .fake-tab span {
+        display: none;
+    }
+}
+
+
+#usersTab .tab-content {
+    min-height: 342px;
+    padding: 0 0 150px;
+}
+
+.tab-content .checkbox {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.tab-content .checkboxes {
+    margin-left: 8px;
+}
+
+.tab-content .chkbox {
+    min-width: 20%;
+    margin: 12px 0;
+}
+
+.tab-content .chkbox label {
+    margin-right: 6px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.tab-content .chkbox input {
+    border: solid thin red;
+    box-shadow: none;
+    display: inline-block;
+    margin: 0;
+    height: 23px;
+    outline: none;
+    vertical-align: top;
+    width: 23px;
+    z-index: 666666;
+}
+
+.tab-content .btn-month{
+    width: 40%;
+}
+
+.tab-content .btn-year{
+    width: 60%;
+}
+
+#summaryUserPackage {
+    border-bottom: 1px solid #cae0ff;
+    margin-bottom: 30px;
+}
+
+#summaryUserInfo h3 {
+    margin: 0;
+    line-height: 2;
+}
+
+#summaryUserInfo .package {
+    display: inline-block;
+    font: 400 110%/2 'Open Sans';
+    text-transform: uppercase;
+    margin: 0;
+    padding-top: 4px;
+    border-bottom: none;
+}
+
+#summaryProgress.progress {
+    height: 7px;
+            border-radius: 0;
+       -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    background-color: #f0f2f5;
+}
+
+.summaryText {
+    color: #939da7;
+    font: 400 12px/1.428 'Open Sans';
+}
+
+#totalApps {
+    background-color: #f2f7ff;
+    border-radius: 6px;
+    padding: 20px 10px;
+    margin-bottom: 17px;
+}
+
+#eligibility-info p {
+    margin-bottom: 15px;
+}
+
+#upgrade-btn [class*='col-']:first-child {
+    margin-bottom:15px;
+}
+
+.btn.mod-user-profile-btn,
+.btn.mod-user-profile-btn:focus {
+    font-size: 1.4em;
+    line-height: 2.4;
+}
+/*
+#userProfile .selectpicker.btn {
+    font-size: 100%;
+    width: 100%;
+    height: 50px;
+}
+*/
+
+.totalApps {
+    color: #f86f41;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.summary-icon {
+    max-width: 120px;
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    background-color: #d8e8ff;
+}
+
+.summary-icon .badge {
+  border-radius: 50%;
+  bottom: 5px;
+  font-size: 1em;
+  font-weight: 600;
+  right: 5px;
+  line-height: 44px;
+  min-width: 44px;
+  padding: 0;
+  position: absolute;
+}
+
+#totalApps a {
+    display: block;
+    font-size: 1.4em;
+}
+
+#totalApps .summary-icon a .badge small {
+	font-size:0.7em;
+}
+#totalApps .summary-icon a .badge big {
+    font-size: 85%;
+}
+
+.count {
+    font: 400 50px/1 'Open Sans';
+}
+
+.from {
+    font: 400 25px/1 'Open Sans';
+    padding-top: 6px;
+}
+
+#eligibleFor.summaryText {
+    margin-bottom: 10px;
+}
+#eligibleFor.summaryText span {
+    color: #f86f41;
+    font: 600 120% 'Open Sans';
+}
+
+#MyAccount .tabPaneTextarea {
+    max-width: 550px;
+    width: 100%;
+}
+
+#MyAccount .tabPaneTextarea textarea {
+    width: 100% !important;
+    height: 296px;
+    float: none;
+    display: block;
+}
+
+#userProfile .tab-content footer {
+    border-top: 1px dashed #BEBFC1;
+    margin: 30px auto 20px;
+    padding-top: 25px;
+}
+
+#userProfile #recurrence.tab-pane {
+    margin-bottom: 30px;
+}
+
+#userProfile #recurrence.tab-pane h4 {
+    color: #4988F7;
+    font-size: 27px;
+    font-weight: normal;
+
+
+}
+
+@media screen and (min-width: 480px) {
+  #userProfile #recurrence.tab-pane h4 {
+    font-size: 29px;
+  }
+}
+
+#userProfile #recurrence.tab-pane .recurrent-icon {
+    font-size: 21px;
+}
+
+#userProfile #recurrence.tab-pane .recurrent-container .tooltip {
+    z-index: 999;
+}
+
+#userProfile #recurrence.tab-pane .tooltip .tooltip-inner {
+    background-color: #373737;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.17);
+}
+
+#userProfile #recurrence.tab-pane .tooltip .tooltip-arrow {
+    border-top-color: #373737;
+}
+
+#userProfile #recurrence.tab-pane .tooltip .tooltip-inner {
+    font-weight: normal;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 8px 10px;
+    text-align: left;
+}
+
+#userProfile #recurrence.tab-pane .reccurence-inf {
+    margin: 30px 0;
+    color: #4A4A4A;
+}
+
+.recurring-application-settings label {
+    margin-bottom: 12px;
+}
+
+.recurring-application-settings .reccuring-footer {
+    border-top: 1px solid #4A4A4A;
+    margin-top: 30px;
+    margin-left: 15px;
+    padding-top: 10px;
+    padding-left: 0;
+    opacity: .6;
+}
+
+.recurring-application-settings .reccuring-footer p {
+    font-size: 11px;
+    color: #4A4A4A;
+}
+
+.ad_units {
+    margin-right: 0;
+}
+
+.ad_units .ads_text {
+    padding-top: 5px;
+}
+
+.ads_banners {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.ads_banners .ads_banner {
+    padding: 4px 4px 0 4px;
+    background: white;
+}
+
+.tab-content #account footer {
+    border-top: 1px solid #a2c2ee;
+    margin: 30px auto 20px;
+    padding-top: 25px;
+}
+.tab-content #account footer h4{
+    color: #839bc2;
+    font-weight: 600;
+}
+.tab-content #account footer p {
+    color: #232323;
+    margin: 0 0 27px;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -ms-align-items: center;
+    align-items: center;
+}
+
+.tab-content #account footer p a {
+    margin-left: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+a.facebook-button:hover, a.facebook-button:active{
+    text-decoration: none;
+}
+.facebook-button-bg {
+    display: block;
+    object-fit: contain;
+    border-radius: 3px;
+    background-color: #3d5b94;
+    color: #fff;
+    text-transform: uppercase;
+    font: 700 1.4em/140% 'Open Sans';
+    height: 62px;
+    line-height: 62px;
+}
+.facebook-f {
+    width: 30px;
+    height: 42px;
+    object-fit: contain;
+    margin:10px 15px;
+}
+.facebook-logo-blue {
+    margin:0 15px 0 0;
+}
+
+/*==========  min 360  ==========*/
+
+@media (min-width: 360px) {
+    #usersTab .breakpoint {
+        display: block;
+    }
+    .btn.mod-user-profile-btn,
+    .btn.mod-user-profile-btn:focus {
+        font-size: 1em;
+        line-height: 2.4;
+    }
+}
+
+/*==========  max 479  ==========*/
+/*
+@media (max-width: 479px) {
+        #usersTab li:last-child a {
+        margin-right: 0;
+        padding: 7px 5px;
+        line-height: 1;
+    }
+}
+*/
+/*==========  max 479  ==========*/
+
+@media (max-width: 479px) {
+    #totalApplicationsSubmitted {
+        padding: 0;
+    }
+    #totalApps .col-xs-4 {
+        padding: 0 5px;
+    }
+    #totalApps .count {
+        font-size: 30px;
+    }
+    #totalApps .from {
+        font-size: 15px;
+        padding-top: 2px;
+    }
+    #totalApps .summaryText {
+        font-size: 10px;
+    }
+    .facebook-button-bg{
+        line-height: 3.8;
+    }
+}
+
+/*==========  min 480  ==========*/
+
+@media (min-width: 480px) {
+    #usersTab li .linebreak {
+        display: inline;
+    }
+    #userProfile {
+        margin: 40px 60px 0;
+    }
+    .summary-icon {
+        max-width: 130px;
+    }
+    #eligibility-info .summaryText.text-center {
+        text-align: left;
+    }
+}
+
+/*==========  min 640  ==========*/
+
+@media (min-width: 640px) {
+    #usersTab li a {
+        padding:0;
+        font-size: 1.1em;
+    }
+    #totalApps {
+        margin-bottom: 20px;
+        padding: 40px;
+    }
+    .btn.mod-user-profile-btn,
+    .btn.mod-user-profile-btn:focus {
+        font-size: 1.5em;
+    }
+    .saveProfileChanges {
+        padding-top: 20px;
+        padding-bottom: 40px;
+    }
+}
+
+/*==========  max 767  ==========*/
+
+@media (max-width: 767px) {
+    #userInfo img {
+        width: 60px;
+        height: auto;
+    }
+    #userInfo .divider-dotted-horizontal {
+        background-position: 15px;
+    }
+    .member-upgrade big {
+        margin-left: 15px;
+    }
+    .member-upgrade.text-center {
+        margin-bottom: 20px;
+        padding-left: 20px;
+    }
+    .member-upgrade .subscription-name {
+        width: 210px;
+    }
+    #userInfo .progress {
+        margin-top: 30px;
+    }
+
+    #totalApps [class*='col-']:nth-child(-n+2) {
+        margin-bottom: 20px;
+    }
+    .myAccount .nav-tabs.no-gutter {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    #usersTab li a {
+        border-radius: 0;
+    }
+    .facebook-button-bg{
+        text-align: center;
+        font-size: 1em;
+        height: auto;
+    }
+    .facebook-f {
+        width: 30px;
+        height: 26px;
+        object-fit: contain;
+        margin: 6px 15px;
+    }
+}
+
+/*==========  min 768  ==========*/
+
+@media (min-width: 768px) {
+    #userProfile {
+        margin: 50px 0 0;
+    }
+    .ads_banners .ads_banner {
+        width:468px;
+    }
+    .member-upgrade.divider-dotted-horizontal {
+        background-image: none;
+    }
+    .userinfo,
+    .userschool {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        height: 80px;
+    }
+    .member-upgrade {
+        margin-top: 40px;
+    }
+    .userinfo h3 {
+        margin: 15px 0 5px;
+    }
+    #totalApplicationsSubmitted {
+        border-left: solid 1px #ddd;
+        border-right: solid 1px #ddd;
+    }
+    #totalApps .btn {
+        width: 100%;
+    }
+    #buyPackagesBtn {
+        margin-bottom: 10px;
+    }
+/*    .tab-content .form-group {
+        height: 90px;
+    }
+*/    #userProfile .tab-content footer {
+        padding-top: 35px;
+    }
+    #totalApps [class*='col-sm']:nth-child(2) p.summaryText,
+    #userProfile .tab-content footer [class*='col-']:nth-child(2) {
+        border-width: 0 1px;
+        border-style: dashed;
+        border-color: transparent #bebfc1;
+    }
+
+	.tab-row {
+		padding-left:15px;
+	}
+}
+
+/*==========  min 922  ==========*/
+
+@media (min-width: 992px) {
+    #userProfile {
+        margin: 40px 0;
+    }
+    .userschool > div {
+        padding: 0 0 0 5px;
+    }
+    #totalApps {
+        margin-bottom: 15px;
+    }
+}
+
+
+.blueBg.top-banner-ad-wrapper {
+	background-color:#b0d0ff;
+}
+
+.select2-container--default
+.select2-selection--multiple
+.select2-selection__choice {
+    white-space: normal;
+}
+
+/* Nexus 10 and Nexus 7 Portrait mode member-upgrade block fixes */
+@media (max-width: 992px) and (max-height: 1280px) {
+  .member-upgrade .subscription-name {
+      width: 140px;
+  }
+  .member-upgrade .subscription-name h3 {
+      font-size: 2em;
+  }
+}
+
+@media (min-width: 960px) {
+    .ads_banners .ads_banner {
+        width: 768px;
+    }
+}
+
+/* cityzenship length fix 6 items */
+.my-account__citizenship .dropdown-menu {
+  max-height: 150px !important;
+}

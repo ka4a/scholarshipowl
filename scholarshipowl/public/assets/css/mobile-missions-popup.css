@@ -1,0 +1,18 @@
+#payment-popup.modal.in .modal-dialog {
+	border: none;
+	width: 100%;
+	padding: 0;
+	max-width: 100% !important;
+	margin-top: 37px;
+	border-top: 70px solid #D8E8FF;
+}
+
+.modal .close {
+    left: 0;
+    margin-left: 49%;
+	top:-48px;
+}
+
+.payment-popups .prevNext {
+	display:none;
+}

@@ -1,0 +1,8 @@
+type: object
+properties:
+  memberships.active_text:
+    type: string
+    example: "<div>If you need assistance&nbsp;learning how to use ScholarshipOwl, or have other quesdsadsadtions regarding your account, please call us toll free at 1-800-494-4908.</div>"
+  "memberships.cancelled_text":
+    type: string
+    example: "Thank you. Your cancelation is being processed.<br \/><br \/>You will not be charged any future subscription payments and your membership access will expire on [[expirationDate]]."

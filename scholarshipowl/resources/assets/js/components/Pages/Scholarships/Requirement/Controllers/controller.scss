@@ -1,0 +1,41 @@
+@import 'main/meta/flex-box';
+
+$blue: #708FE7;
+$blue-light: #F3F8FF;
+$black: #2F2F2F;
+
+.ctrl-wrp {
+  color: $blue;
+  font-size: 10px;
+  line-height: 1.35em;
+  text-align: center;
+  @include flexbox();
+  @include flex-flow(column);
+  margin-left: 20px;
+  cursor: pointer;
+
+  @include breakpoint($s) {
+    margin-left: 30px;
+  }
+
+  @include breakpoint($m) {
+    margin-left: 40px;
+  }
+
+  .icon {
+    color: $blue;
+    font-size: 14px;
+    margin-bottom: 3px;
+
+    @include breakpoint($s) {
+      font-size: 16px;
+    }
+  }
+
+  .icon-download,
+  .icon-eye {
+    font-size: 23px;
+  }
+}
+
+

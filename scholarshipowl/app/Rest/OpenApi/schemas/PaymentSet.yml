@@ -1,0 +1,83 @@
+type: object
+properties:
+  packages:
+    type: object
+    properties:
+      package_id:
+        type: integer
+        description: Package id
+        example: 1
+      name:
+        type: string
+      alias:
+        type: string
+      braintree_plan:
+        type: string
+      recurly_plan:
+        type: string
+      stripe_plan:
+        type: string
+      stripe_discount_id:
+        type: integer
+      price:
+        type: integer
+      price_cents:
+        type: integer
+      price_per_month:
+        type: integer
+      discount_price:
+        type: integer
+      description:
+        type: string
+      scholarships_count:
+        type: string
+      is_scholarships_unlimited:
+        type: boolean
+      expiration_type:
+        type: string
+        example: recurrent
+      free_trial:
+        type: boolean
+      free_trial_period_type:
+        type: string
+      free_trial_period_value:
+        type: string
+      expiration_period_type:
+        type: string
+        example: month
+      expiration_period_value:
+        type: integer
+      is_active:
+        type: boolean
+      is_marked:
+        type: boolean
+      is_marked_mobile:
+        type: boolean
+      is_automatic:
+        type: boolean
+      priority:
+        type: integer
+      success_message:
+        type: string
+      success_title:
+        type: string
+  payment_set:
+    type: object
+    properties:
+      package_common_option:
+        type: object
+        properties:
+          text:
+            type: string
+            description: Payment set setting
+            example: test
+          status:
+            type: array
+            description: List of setting for each package. key in array id of package, value - disable/enable ouputiong for this setting
+            items:
+              type: integer
+              example: 1 => 0, 2 => 1, 3 => 0, 4 => 0
+
+
+
+

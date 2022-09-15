@@ -1,0 +1,52 @@
+.applications-remove-header button.close{
+    border-radius: 18px;
+    display: inline-block;
+    vertical-align: top;
+    width: 20px;
+    height: 20px;
+    /*    background: url('../img/close-btn.png') no-repeat 0px 0px;*/
+    background: #4e8eec;
+    position: relative;
+    top: -42px;
+    right: -58px;
+    opacity: 1;
+    color: #fff;
+    text-shadow: none;
+    z-index: 5555;
+}
+@media (max-width: 360px) {
+    .applications-remove-header button.close {
+        right: -21px;
+        top: -21px;
+    }
+}
+.applications-remove-dialog{
+    font: 11px/70% 'Open Sans', sans-serif;
+    line-height: normal;
+    padding: 30px 46px;
+    border: 5px solid #d8e8ff;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    background-color: #f2f5f9;
+    width: 382px;
+    margin: 120px auto 0;
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+}
+@media (max-width: 360px) {
+    .applications-remove-dialog {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        width: 100%;
+        padding: 20px;
+        margin: 90px 0 0 0;
+    }
+}
+.applications-remove-content .modal-body{
+    padding:15px 0;
+}
+.applications-remove-content .input-group{
+    padding:15px 0 0;
+}

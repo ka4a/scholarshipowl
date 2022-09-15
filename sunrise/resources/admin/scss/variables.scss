@@ -1,0 +1,49 @@
+$red: #FF3F3F;
+$black: #172135;
+$blue: #1A5EE2;
+$white: white;
+$blue-darker: #024AD6;
+$yellow: #FFB217;
+$yellow-darker: #ECA10A;
+
+$grey-darker: #121212;
+$grey-light: #828282;
+$grey-lighter: #B6BECA;
+$grey-background: #F4F4F4;
+$grey: #656565;
+
+$radius: 4px;
+$blue-light: #CCD6E6;
+
+$pagination-border-color: #CCD6E6;
+$pagination-disabled-border-color: #CCD6E6;
+
+$modal-background: rgba(14, 29, 52, 0.4);
+
+/**
+ * Layout variables
+ */
+$sidebar-width: 250px;
+$header-height: 60px;
+
+$radius-rounded: 90px;
+
+
+$control-height: 40px;
+
+/**
+ * New Design 2.0 styles
+ */
+$body-color: #61676F;
+
+$success: #75BE78;
+
+$family-sans: "Catamaran", sans-serif;
+$family-primary: $family-sans;
+
+$primary-lighter: #F8DEDE;
+$primary: #D9374C;
+
+$link-hover: $primary;
+
+@import "node_modules/bulma/sass/utilities/_all";

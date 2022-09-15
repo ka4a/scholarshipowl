@@ -1,0 +1,152 @@
+// imports
+@import '../../../node_modules/breakpoint-sass/stylesheets/breakpoint';
+@import './../../main/meta/variables';
+@import './../../main/meta/helpers';
+
+// variables
+$monochromatic-dark: #000;
+$monochromatic-light: #646464;
+$orange-light: #f5a623;
+
+$font-primary: 'Helvetica Neue', 'Roboto', sans-serif;
+$font-secondary: 'Lato', sans-serif;
+
+// meta classes
+%20-secondary {
+  font-family: $font-primary;
+  font-size: 20px;
+}
+
+.title-testimonials {
+  @extend %20-secondary;
+  color: $monochromatic-light;
+}
+
+.title-testimonials-sub {
+  font-family: $font-secondary;
+  font-size: 17px;
+  font-weight: 300;
+  color: $orange-light;
+}
+
+.testimonials {
+  padding-top: 60px;
+  padding-bottom: 70px;
+
+  .VueCarousel-slide {
+    @include breakpoint($tablet) {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+
+  @at-root {
+    .VueCarousel {
+      width: 100%;
+    }
+  }
+
+  &__avatar {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: url('/assets/img/sprites/sprite-testimonials.4e62de43c87e3ba27873.jpg');
+    @extend .center-margin;
+
+    &_0 {
+      background-position: 0 2080px;
+      background-size: 100%;
+    }
+
+    &_1 {
+      background-position: 0 1171px;
+      background-size: 100%;
+    }
+
+    &_2 {
+      background-position: 0 1951px;
+      background-size: 100%;
+    }
+
+    &_3 {
+      background-position: 0 1821px;
+      background-size: 100%;
+    }
+
+    &_4 {
+      background-position: 0 1691px;
+      background-size: 100%;
+    }
+
+    &_5 {
+      background-position: 0 1561px;
+      background-size: 100%;
+    }
+
+    &_6 {
+      background-position: 0 1431px;
+      background-size: 100%;
+    }
+
+    &_7 {
+      background-position: 0 1301px;
+      background-size: 100%;
+    }
+
+    &_8 {
+      background-position: 0 0;
+      background-size: 100%;
+    }
+  }
+
+  &__name {
+    @extend %20-secondary;
+    @extend .tu;
+    text-align: center;
+    color: $monochromatic-light;
+    margin-top: 20px;
+
+    @include breakpoint($mobile) {
+      margin-top: 40px;
+    }
+
+    @include breakpoint($mini-tablet) {
+      margin-top: 50px;
+    }
+  }
+
+  &__sub-text {
+    @extend .tu;
+    font-family: Lato;
+    font-size: 17px;
+    font-weight: 300;
+    text-align: center;
+    color: $orange-light;
+    margin-top: 10px;
+
+    span:nth-child(3) {
+      @include breakpoint(max-width $mobile - 1px) {
+        display: block;
+      }
+    }
+
+    span:first-child {
+      @include breakpoint($tablet) {
+        display: block;
+      }
+    }
+  }
+
+  &__text {
+    margin-top: 115px;
+    max-width: 745px;
+
+    @include breakpoint($mobile) {
+      margin-top: 60px;
+    }
+
+    @include breakpoint($mini-tablet) {
+      margin-top: 65px;
+    }
+  }
+}

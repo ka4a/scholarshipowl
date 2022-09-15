@@ -1,0 +1,15 @@
+// helpers
+
+// breakpoint sass lib
+// http://breakpoint-sass.com/
+@import '../../../node_modules/breakpoint-sass/stylesheets/breakpoint';
+
+//variables
+@import 'main/meta/variables';
+
+// blocks
+@import 'updated/layout/modal';
+
+body.no-footer {
+  padding-bottom: 0;
+}

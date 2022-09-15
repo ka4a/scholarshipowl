@@ -1,0 +1,194 @@
+h1.h2.deserveIt {
+	font-size:45px;
+	margin-top:30px;
+}
+
+.text-large {
+	font-size:120px;
+	font-weight:700;
+	line-height:1;
+}
+
+.fourteenPlus {
+	font-size:16px;
+	margin:10px 0 30px;
+	padding: 0 15px;
+}
+
+.girl-thumb-up img {
+	max-width:100%;
+	margin-top:-50px;
+}
+
+.congratulations .lead {
+	margin-bottom:0;
+}
+
+.congratulations.mod-text-container {
+	padding: 0;
+}
+
+.congratulations .text-large {
+	font-size: 80px;
+	padding: 15px 0;
+}
+
+.towards {
+	font-size:12px;
+}
+
+.additional-inf {
+	font-size: 10px;
+    padding-bottom: 10px;
+}
+
+.table-frame {
+    margin: 80px auto 0;
+}
+
+.table-frame > div {
+	padding: 30px 0;
+}
+
+section#sweepsTakesPage {
+    padding: 0 0 60px;
+}
+
+section#sweepsTakesPage th, section#sweepsTakesPage td {
+    vertical-align: top;
+    padding: 15px 20px 15px;
+    border: 1px solid #000;
+}
+
+section#sweepsTakesPage td > div {
+    padding-bottom: 15px;
+}
+
+section#sweepsTakesPage td p {
+}
+
+section#sweepsTakesPage td:first-of-type, section#sweepsTakesPage tr:first-of-type {
+    width: 25%;
+}
+
+.you-deserve-it .register-btn-txt{
+    padding:0;
+    font: 700 24px/65px 'Raleway';
+    height: 65px;
+}
+.you-deserve-it.cta .btn.btn-warning {
+    width: 285px;
+}
+.you-deserve-it.cta .button-wrapper{
+    max-width: 470px;
+    text-align: center;
+}
+.you-deserve-it .button-wrapper span{
+    width: 36%;
+}
+
+@media screen and (max-width: 800px) {
+	.girl-thumb-up {
+		padding-top: 60px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.register-step1-form button, .you-deserve-it .register-btn-txt {
+		font-size: 18px !important;
+	}
+    .you-deserve-it .btn.btn-warning{
+        margin-bottom: 20px;
+    }
+    .you-deserve-it .button-wrapper span{
+        display: block;
+        width: 100%;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+	.fourteenPlus {
+		padding: 0 15px;
+	}
+	section#sweepsTakesPage {
+		padding: 0 0 30px;
+	}
+
+	h2.h2.deserveIt {
+		font-size: 40px;
+	}
+
+	.congratulations .lead {
+		display: inline;
+	}
+    .you-deserve-it.cta .btn.btn-warning {
+        width: 78%;
+    }
+    .you-deserve-it .button-wrapper{
+        width:100%;
+    }
+    .button-wrapper span{
+        width: 100%;
+    }
+}
+
+.aWinners {
+	color: #fff;
+	text-decoration: underline;
+}
+
+.row-height {
+  display: table;
+  table-layout: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .col-md-height {
+    display: table-cell;
+    float: none;
+    height: 100%;
+  }
+}
+
+.col-xs-12 {
+  width: 100% !important;
+}
+
+@media (min-width: 768px) {
+  .col-sm-6 {
+      width: 50% !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .col-md-5 {
+    width: 41.66666667% !important;
+  }
+
+  .col-md-3 {
+     width: 25% !important;
+  }
+
+  .col-md-6 {
+    width: 50% !important;
+  }
+
+  .col-md-8 {
+    width: 66.66666667% !important;
+  }
+}
+
+.text-right {
+  text-align: right;
+}
+
+.col-bottom {
+    vertical-align: bottom;
+}
+
+.col-md-5 {
+    width: 41.66666667%;
+}

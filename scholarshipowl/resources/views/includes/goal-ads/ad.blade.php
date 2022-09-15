@@ -1,0 +1,1 @@
+<div id='{!! $adId !!}' style='height:250px; width:250px;'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('{!! $adId !!}'); });</script></div>

@@ -1,0 +1,294 @@
+body {
+    background-color: $body-bg;
+    font-family: $font-family-default;
+    font-size: $font-size-base-mobile;
+    color: $brand-dark-primary;
+    line-height: $line-height-base;
+    width: 100%;
+    height: 100%;
+}
+
+#page-wrapper {
+}
+
+ul, ul li {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+a {
+    color: $link-primary;
+
+    /* unvisited link */
+    &:link {
+    }
+
+    /* mouse over link */
+    &:hover {
+        text-decoration: underline;
+    }
+
+    /* selected link */
+    &:active {
+    }
+
+    /* focused link */
+    &:focus {
+    }
+
+    /* visited link */
+    &:visited {
+    }
+}
+
+.breadcrumb {
+    padding: 8px 15px 10px;
+    margin-bottom: 0;
+}
+
+.btn-am-default {
+    background: $brand-secondary !important;
+    border-color: $brand-secondary !important;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.25);
+    color: $brand-light-primary !important;
+}
+
+.btn-am-default-light {
+    background: none;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.25);
+    color: $brand-light-primary !important;
+
+    &:active {
+        background: none;
+        box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.25);
+        color: $brand-light-primary !important;
+    }
+
+    &:hover, &:focus {
+        background: $brand-secondary !important;
+        border-color: $brand-secondary !important;
+        color: $brand-light-primary !important;
+    }
+}
+
+.btn-am-buy {
+    background: none;
+    border-radius: 2px;
+    border-color: $brand-secondary !important;
+    color: $brand-secondary !important;
+
+    &:hover {
+        background: $brand-secondary;
+        color: $brand-light-primary !important;
+    }
+}
+
+.btn-am-buy-highlighted {
+    background: $brand-secondary;
+    color: $brand-light-primary !important;
+}
+
+.Schedule-free-call {
+    border-bottom: 1px solid;
+}
+
+.Package__item {
+    background: #fff;
+    padding: 5px 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+
+    h3 {
+        font-size: 18px;
+        color: #4A4A4A;
+    }
+
+    .value {
+        color: #AD90E0;
+        font-size: 14px;
+    }
+
+    .price {
+        font-size: 36px;
+        font-weight: bold;
+        color: #4E2D89;
+    }
+}
+
+.Package__item-highlighted {
+    background-color: #4E2D89;
+
+    h3 {
+        color: $brand-light-primary;
+    }
+
+    .value {
+        color: #D8C2FF;
+    }
+
+    .price {
+        color: $brand-light-secondary;
+    }
+}
+
+.Package__description {
+    padding-top: 20px;
+    font-size: 14px;
+
+    li {
+        color: #775BA8;
+        padding-bottom: 10px;
+    }
+}
+
+.Standalone-price-mobile {
+    .Standalone-price__item.odd {
+        background-color: #F7F4FA;
+        padding: 20px 0;
+    }
+
+    .Standalone-price__item {
+        h3 {
+            font-size: 18px;
+            color: #775BA8;
+            margin: 0;
+        }
+
+        .price {
+            color: #4E2D89;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .value {
+            color: #000;
+            font-size: 12px;
+        }
+    }
+}
+
+.Standalone-price {
+    tbody > tr:nth-of-type(odd) {
+        background-color: #F7F4FA;
+    }
+
+    .Standalone-price__item {
+        h3 {
+            font-size: 18px;
+            color: #775BA8;
+            margin: 0;
+        }
+
+        .price {
+            color: #4E2D89;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .value {
+            color: #000;
+            font-size: 12px;
+        }
+    }
+}
+
+.Discover-more-features {
+    border-top: 1px solid rgba(246, 242, 254, 1.0);
+
+    a {
+        color: $brand-secondary;
+        font-size: 14px;
+    }
+}
+
+.How-can-we-help {
+    a {
+        color: $brand-secondary;
+        font-size: 14px;
+    }
+}
+
+.Testimonials {
+    background-color: #F4FAFA;
+
+    h3 {
+        font-size: 20px;
+    }
+}
+
+.panel-default {
+    border: 1px solid #D2B8FF;
+}
+
+.panel-default > .panel-heading {
+    background-color: #FCFAFF;
+}
+
+.Why-how {
+    background: linear-gradient(270deg, #D3BAFF 0%, #FFF 60%);
+}
+
+.College-preparation-program {
+    border-color: #E5E5E5;
+
+    .panel-heading {
+        background-color: #6C4FA0;
+    }
+
+    .panel-footer {
+        background-color: #FFF;
+        border-top: none;
+    }
+}
+
+.Scholarships-101 {
+    border-color: #E5E5E5;
+
+    .panel-heading {
+        background-color: #3CC7BF;
+    }
+
+    .panel-footer {
+        background-color: #FFF;
+        border-top: none;
+    }
+}
+
+.College-planning-for-parents {
+    border-color: #E5E5E5;
+
+    .panel-heading {
+        background-color: #4DA9EB;
+    }
+
+    .panel-footer {
+        background-color: #FFF;
+        border-top: none;
+    }
+}
+
+.social-icons {
+    a {
+        color: #D8C2FF;
+
+        &:hover {
+            color: #775BA8;
+        }
+    }
+}
+
+// >= 768px
+@media(min-width:768px) {
+    body {
+        font-size: $font-size-base;
+    }
+}
+
+// >= 992px
+@media(min-width:992px) {
+}
+
+// >= 1200px
+@media(min-width:1200px) {
+}

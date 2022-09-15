@@ -1,0 +1,82 @@
+#step2A {
+	margin:40px auto;
+}
+
+#MissionOptionsContainer {
+    max-width: 870px;
+    margin: auto;
+}
+
+.missionTable {
+	overflow-y:hidden;
+}
+
+.missionTable th {
+	text-align:center;
+}
+
+th.MissionMission  {
+	text-align:left;
+	width:86%;
+}
+
+.MissionGoalsTable tr {
+	border-bottom:1px solid #9dbbe6;
+}
+
+.MissionGoalsTable tr p {
+	margin:10px 0;
+}
+
+tr.missionHeader {
+	border-bottom:none;
+	background-color:#9dbbe6;
+	color:#fff;
+}
+
+tr.missionHeader p {
+	margin:10px 5px;
+}
+
+.missionTable input[type=checkbox] + .lbl, input[type=radio] + .lbl {
+	text-align:center;
+}
+
+.missionTable input[type=checkbox], input[type=radio] {
+  margin-top: 0;
+  margin-left: 16px;
+}
+
+.MissionGoalsTable td.center-cell {
+	text-align:center;
+}
+
+.MissionGoalsTable td.center-cell .glyphicon.glyphicon-remove {
+	padding: 2px;
+	background-color: #fff;
+	border-radius: 5px;
+	border: 2px solid #2091cf;
+	color: #f00;
+	margin-right: 5px;	
+}
+
+.missionTable td .glyphicon-ok, .missionTable td .glyphicon-info-sign {
+	color:#80c432;
+	font-size:20px;
+}
+.missionTable td .glyphicon-info-sign {
+	color:#9dbbe6;
+}
+
+.MissionGoalsTable tr td:nth-child(2) a {
+	text-decoration:underline;
+}
+
+table.MissionGoalsTable > thead > tr > th, table.MissionGoalsTable th[class*='col-'] {
+	color:#fff;
+	font-weight:bold;
+}
+
+.table.MissionGoalsTable > tbody > tr > td {
+  padding: 8px !important;
+}

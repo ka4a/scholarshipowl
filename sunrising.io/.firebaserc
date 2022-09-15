@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "sowl-marketing",
+    "scholarshipapp": "sowl-marketing"
+  },
+  "targets": {
+    "sowl-marketing": {
+      "hosting": {
+        "scholarshipapp-hp": [
+          "scholarshipapp-d9cda"
+        ]
+      }
+    }
+  }
+}

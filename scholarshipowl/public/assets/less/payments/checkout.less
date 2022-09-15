@@ -1,0 +1,342 @@
+@import "../common/keyframes";
+
+@invalid-color: red;
+@placeholder-color: darkgrey;
+
+.sowl-checkout {
+  margin-top: 50px;
+  margin-bottom: 10px;
+  color: #454545;
+
+  &.mobile-checkout {
+    margin: 0 10px;
+  }
+
+  ul.payment-tabs {
+    background-color: #ddd;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border: none;
+    margin-bottom: 0 !important;
+
+    li {
+      cursor: pointer;
+      text-align: center;
+      height: 80px !important;
+
+      &.active {
+        border: 1px solid #ddd;
+        border-bottom: none;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        background-color: #ffffff;
+      }
+
+      &.tab-creditcard {
+        h3 {
+          margin: 10px 0;
+          font-size: 26px;
+          font-weight: normal;
+        }
+      }
+
+      &.tab-paypal {
+        float: right;
+        background-image: url('../img/paypal-logo.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        text-indent: -50000em;
+        display: block;
+        box-shadow: none;
+      }
+    }
+  }
+
+  .payments-content {
+    background-color: #ffffff;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding-bottom: 20px;
+
+    .tab-credit-card {
+      text-align: left;
+
+      input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0 0 0 10px;
+        border: none;
+        background-color: transparent;
+
+        font-size: 18px;
+        font-weight: normal;
+
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+
+        border-bottom: 1px solid #ddd;
+        border-radius: 0 !important;
+        .placeholder(@placeholder-color);
+        &:focus {
+          border-bottom-color: @placeholder-color;
+        }
+      }
+
+      .btn-group.bootstrap-select {
+        width: 90px;
+
+        button {
+          margin-top: 0;
+          height: 40px;
+          background: none;
+          color: #454545;
+          border: none;
+          border-radius: 0;
+          border-bottom: 1px solid #ddd;
+          padding: 0;
+          line-height: 40px;
+
+          font-size: 18px;
+          font-weight: normal;
+
+          .filter-option {
+            border: none;
+            text-align: center;
+            color: #454545;
+          }
+
+          &:focus {
+            border-bottom-color: @placeholder-color;
+          }
+
+          &.invalid-input {
+            border-bottom: none;
+          }
+
+          // Placeholder
+          &[title="MM"] .filter-option,
+          &[title="YY"] .filter-option {
+            color: @placeholder-color;
+          }
+        }
+
+        .dropdown-menu {
+          border: none;
+          box-shadow: none;
+
+          li {
+            a {
+              text-align: center;
+              font-size: 18px;
+              font-weight: normal;
+              &:hover {
+                text-decoration: none;
+                background-color: #eee;
+                color: #454545;
+              }
+            }
+
+            &.selected a {
+              background-color: #d3d3d3;
+              color: #454545;
+            }
+          }
+
+        }
+      }
+
+      label {
+        color: #707070;
+        margin: 0;
+        padding-left: 5px;
+        font-size: 16px;
+      }
+
+      .input-wrapper {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        .expiration-wrapper,
+        .cvv-wrapper {
+          padding: 0;
+        }
+
+        .expiration-month .recurly-hosted-field,
+        .expiration-year .recurly-hosted-field {
+          width: 60px
+        }
+
+        .recurly-hosted-field {
+          height: 40px;
+
+          border-bottom: 1px solid #ddd;
+          border-radius: 0 !important;
+
+          input {
+            background-color: red !important;
+          }
+        }
+
+        .recurly-hosted-field-focus {
+          border-bottom-color: @placeholder-color;
+        }
+      }
+
+      .bt-input {
+        position: relative;
+        padding: 0 5px;
+        height: 40px;
+
+        /*
+        &::after {
+          content: " ";
+          display: none;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          background-color: @invalid-color;
+          width: 100%;
+          height: 1px;
+        }
+        */
+      }
+
+      .StripeElement {
+        padding-top: 10px !important;
+        padding-left: 10px !important;
+        padding-bottom: 5px !important;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .StripeElement--focus {
+        border-bottom-color: @placeholder-color;
+      }
+
+      .StripeElement--invalid {
+        border-bottom-color: red;
+      }
+
+      .bt-input-container.invalid-input {
+        position: relative;
+
+        .invalid-input-border {
+          display: block;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          background-color: @invalid-color;
+          width: 100%;
+          height: 1px;
+        }
+        input {
+          //.animation(shake 0.82s cubic-bezier(.36,.07,.19,.97) both);
+        }
+        .bt-input {
+          border-bottom: none;
+        }
+        label {
+          color: @invalid-color;
+        }
+      }
+
+      .slash {
+        font-size: 25px;
+        line-height: 40px;
+        padding-left: 4px;
+        color: @placeholder-color;
+      }
+
+      .cvv-explain {
+        font-size: 13px;
+        width: 100%;
+        max-width: 200px;
+
+        .title-explain {
+          display: block;
+          font-weight: bolder;
+          margin-bottom: 5px;
+
+          small {
+            font-size: smaller;
+            font-weight: normal;
+            color: #c4c4c4;
+          }
+        }
+
+        img {
+          float: left;
+          margin: 5px 10px;
+        }
+      }
+
+      .secure-badge {
+        display: block;
+        margin: 10px 0;
+        height: 60px;
+      }
+
+      .bt-error {
+        color: red;
+      }
+
+      .btn-continue {
+        position: relative;
+        margin: 10px auto;
+        padding: 0;
+        display: block;
+        width: 100%;
+        max-width: none;
+
+        font-size: 30px;
+        text-transform: uppercase;
+        line-height: 60px;
+        height: 60px;
+
+        i.glyphicon-lock {
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          display: block;
+          width: 60px;
+          line-height: 60px;
+          font-size: 0.6em;
+          background-color: #f1562f;
+          border-top-left-radius: 3px;
+          border-bottom-left-radius: 3px;
+        }
+
+        .loading {
+          display: none;
+          i {
+            margin-right: 10px;
+          }
+        }
+
+        &[disabled] {
+          .message {
+            display: none;
+          }
+          .loading {
+            display: block;
+          }
+        }
+
+        @media (max-width: 767px) {
+          font-size: 25px;
+        }
+      }
+    }
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #9c9c9c;
+  }
+}

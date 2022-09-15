@@ -1,0 +1,33 @@
+@Library("jenkins-lib@feature/add_simple_pipeline") _
+
+def AppName     = "sunrise-mautic"
+def Namespace   = "sunrise-mautic"
+def Chart       = "sunrise-mautic"
+def Cluster     = "prod-cluster"
+def Zone        = "us-central1-a"
+
+simplePipeline {
+    node                             = "docker"
+    cluster                          = "${Cluster}"
+    appName                          = "${AppName}"
+    zone                             = "${Zone}"
+    project                          = "sowl-tech"
+    namespace                        = "${Namespace}"
+    chartName                        = "${Chart}"
+    probeStaging                     = false
+    clusterDiffThenProject           = true
+    helmParams                       = [
+                                            "gcloud-sqlproxy.serviceAccountKey" : "#UserServiceAccountKey"
+                                       ]
+    serviceAccount                   = "jenkins-new@sowl-tech.iam.gserviceaccount.com"
+    service_account_key_id           = "sowl-tech-jenkins2"
+    userServiceAccount               = true
+    user_service_account_key_id      = "sql-proxy-access"
+    waitTime                         = "1m"
+    slack                            = false
+    slackChannel                     = "#sunrise"
+    slackMsg                         = ":sowl: MAUTIC STARTED:"
+    slackSuccessProdMsg              = ":sowl: Deployed to https://engage.sunrising.io/"
+    slackSuccessDevMsg               = ":sowl: Deployed to https://engage.sunrising.io/"
+    slackFailedMsg                   = ":sowl: MAUTIC FAILED: \n#BUILD_URL"
+}

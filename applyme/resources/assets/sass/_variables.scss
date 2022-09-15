@@ -1,0 +1,21 @@
+// Body
+$body-bg: rgba(255, 255, 255, 1.0);
+
+// Brand
+$brand-primary: rgba(94, 70, 153, 1.0);
+$brand-primary-darker: rgba(61, 42, 106, 1.0);
+$brand-secondary: rgba(95, 208, 168, 1.0);
+$brand-dark-primary: #000;
+$brand-dark-secondary: rgba(103, 102, 104, 1.0);
+$brand-light-primary: rgba(255, 255, 255, 1.0);
+$brand-light-secondary: rgba(252, 250, 255, 1.0);
+
+// Typography
+$font-size-base: 18px;
+$font-size-base-mobile: $font-size-base;
+$line-height-base: 1.6;
+$font-family-default: 'Open Sans', sans-serif;
+
+// Links
+$link-primary: $brand-primary;
+$link-hover: $brand-secondary;

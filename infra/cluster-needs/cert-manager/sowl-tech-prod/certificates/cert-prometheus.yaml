@@ -1,0 +1,10 @@
+apiVersion: "stable.k8s.psg.io/v1"
+kind: "Certificate"
+metadata:
+  name: "prometheus-cert"
+  labels:
+    stable.k8s.psg.io/kcm.class: "default"
+spec:
+  domain: "sowl-tech.prometheus.scholarshipowl.tech"
+  email: "ilyaf@scholarshipowl.com"
+  provider: "googlecloud"

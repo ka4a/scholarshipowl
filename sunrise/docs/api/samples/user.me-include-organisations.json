@@ -1,0 +1,48 @@
+{
+    "data": {
+        "type": "user",
+        "id": "89328",
+        "attributes": {
+            "name": "Your Name",
+            "email": "me@email.com",
+            "picture": "https://example.com/avatar.jpg"
+        },
+        "links": {
+            "self": "/user/89328"
+        },
+        "relationships": {
+            "organisations": {
+                "links": {
+                    "self": "/user/89328/relationships/organisations",
+                    "related": "/user/89328/organisations"
+                },
+                "data": [
+                    {
+                        "type": "organisation",
+                        "id": "1"
+                    },
+                ]
+            }
+        }
+    },
+    "included": [
+        {
+            "type": "organisation",
+            "id": "1",
+            "attributes": {
+                "name": "Test name",
+                "businessName": "Test LTD",
+                "city": "New Yourk",
+                "address": "",
+                "address2": "",
+                "zip": "",
+                "website": "http://test.com",
+                "phone": "",
+                "email": "test@example.com"
+            },
+            "links": {
+                "self": "/organisation/1"
+            }
+        },
+    ]
+}

@@ -1,0 +1,30 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: ClusterIssuer
+metadata:
+  name: sowl-tech-staging
+spec:
+  acme:
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    email: andreyt@scholarshipowl.com
+    # Name of a secret used to store the ACME account private key
+    privateKeySecretRef:
+      name: sowl-tech-staging
+    http01:
+      ingressClass: nginx
+    dns01:
+      providers:
+      - name: stage-dns
+        clouddns:
+          # A secretKeyRef to a google cloud json service account
+          serviceAccountSecretRef:
+            name: sowl-tech-key
+            key: sowl-tech-1ebd33f004f5.json
+          project: sowl-tech
+      - name: stage-dns-scholarshipowl-1244
+        clouddns:
+          # A secretKeyRef to a google cloud json service account
+          serviceAccountSecretRef:
+            name: jenkins-gcsu
+            key: scholarshipowl-1244-0f3ee9eed7b9.json
+          project: scholarshipowl-1244
+          

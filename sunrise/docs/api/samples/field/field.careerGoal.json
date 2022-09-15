@@ -1,0 +1,25 @@
+{
+    "data": {
+        "type": "field",
+        "id": "careerGoal",
+        "attributes": {
+            "name": "Career Goal",
+            "type": "option",
+            "options": {
+                "1": "Art, Design or Fashion",
+                "2": "Beauty or Cosmetology",
+                "3": "Business / Marketing / Management",
+                "4": "Computers / IT / Technology",
+                "5": "Culinary Arts",
+                "6": "Health Care / Nursing",
+                "7": "Law / Criminal Justice",
+                "8": "Teaching / Education",
+                "9": "Vocational / Technical",
+                "10": "Other"
+            }
+        },
+        "links": {
+            "self": "/field/careerGoal"
+        }
+    }
+}

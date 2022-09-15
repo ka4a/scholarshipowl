@@ -1,0 +1,22 @@
+type: object
+properties:
+  id:
+    type: integer
+  scholarshipId:
+    type: integer
+  name:
+    type: string
+    enum: [
+      "Video link",
+      "Link"
+    ]
+  type:
+    type: string
+    default: input
+  title:
+    type: string
+  description:
+    type: string
+  isOptional:
+    type: boolean
+    default: false

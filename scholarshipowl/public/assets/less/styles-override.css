@@ -1,0 +1,571 @@
+@-moz-keyframes shake {
+  10%,
+  90% {
+    transform: translate(-1px, 0);
+  }
+  20%,
+  80% {
+    transform: translate(2px, 0);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translate(-4px, 0);
+  }
+  40%,
+  60% {
+    transform: translate(4px, 0);
+  }
+}
+@-webkit-keyframes shake {
+  10%,
+  90% {
+    transform: translate(-1px, 0);
+  }
+  20%,
+  80% {
+    transform: translate(2px, 0);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translate(-4px, 0);
+  }
+  40%,
+  60% {
+    transform: translate(4px, 0);
+  }
+}
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate(-1px, 0);
+  }
+  20%,
+  80% {
+    transform: translate(2px, 0);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translate(-4px, 0);
+  }
+  40%,
+  60% {
+    transform: translate(4px, 0);
+  }
+}
+@-moz-keyframes spin {
+  from {
+    transform: scale(1) rotate(0deg);
+  }
+  to {
+    transform: scale(1) rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  from {
+    transform: scale(1) rotate(0deg);
+  }
+  to {
+    transform: scale(1) rotate(360deg);
+  }
+}
+@keyframes spin {
+  from {
+    transform: scale(1) rotate(0deg);
+  }
+  to {
+    transform: scale(1) rotate(360deg);
+  }
+}
+@-moz-keyframes invalid-border {
+  0% {
+    height: 1px;
+  }
+  50% {
+    height: 3px;
+  }
+  100% {
+    height: 1px;
+  }
+}
+@-webkit-keyframes invalid-border {
+  0% {
+    height: 1px;
+  }
+  50% {
+    height: 3px;
+  }
+  100% {
+    height: 1px;
+  }
+}
+@keyframes invalid-border {
+  0% {
+    height: 1px;
+  }
+  50% {
+    height: 3px;
+  }
+  100% {
+    height: 1px;
+  }
+}
+.glyphicon-refresh-animate {
+  -webkit-animation: spin 0.7s infinite linear;
+  -moz-animation: spin 0.7s infinite linear;
+  animation: spin 0.7s infinite linear;
+}
+.sowl-checkout {
+  margin-top: 50px;
+  margin-bottom: 10px;
+  color: #454545;
+}
+.sowl-checkout.mobile-checkout {
+  margin: 0 10px;
+}
+.sowl-checkout ul.payment-tabs {
+  background-color: #ddd;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border: none;
+  margin-bottom: 0 !important;
+}
+.sowl-checkout ul.payment-tabs li {
+  cursor: pointer;
+  text-align: center;
+  height: 80px !important;
+}
+.sowl-checkout ul.payment-tabs li.active {
+  border: 1px solid #ddd;
+  border-bottom: none;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background-color: #ffffff;
+}
+.sowl-checkout ul.payment-tabs li.tab-creditcard h3 {
+  margin: 10px 0;
+  font-size: 26px;
+  font-weight: normal;
+}
+.sowl-checkout ul.payment-tabs li.tab-paypal {
+  float: right;
+  background-image: url('../img/paypal-logo.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  text-indent: -50000em;
+  display: block;
+  box-shadow: none;
+}
+.sowl-checkout .payments-content {
+  background-color: #ffffff;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding-bottom: 20px;
+}
+.sowl-checkout .payments-content .tab-credit-card {
+  text-align: left;
+}
+.sowl-checkout .payments-content .tab-credit-card input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0 0 0 10px;
+  border: none;
+  background-color: transparent;
+  font-size: 18px;
+  font-weight: normal;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ddd;
+  border-radius: 0 !important;
+}
+.sowl-checkout .payments-content .tab-credit-card input::-moz-placeholder,
+.sowl-checkout .payments-content .tab-credit-card input:-moz-placeholder {
+  color: darkgrey;
+  opacity: 1;
+}
+.sowl-checkout .payments-content .tab-credit-card input:-ms-input-placeholder {
+  color: darkgrey;
+}
+.sowl-checkout .payments-content .tab-credit-card input::-webkit-input-placeholder {
+  color: darkgrey;
+}
+.sowl-checkout .payments-content .tab-credit-card input:focus {
+  border-bottom-color: darkgrey;
+}
+.sowl-checkout .payments-content .tab-credit-card .btn-group.bootstrap-select {
+  width: 90px;
+}
+.sowl-checkout .payments-content .tab-credit-card .btn-group.bootstrap-select button {
+  margin-top: 0;
+  height: 40px;
+  background: none;
+  color: #454545;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #ddd;
+  padding: 0;
+  line-height: 40px;
+  font-size: 18px;
+  font-weight: normal;
+}
+.sowl-checkout .payments-content .tab-credit-card .btn-group.bootstrap-select button .filter-option {
+  border: none;
+  text-align: center;
+  color: #454545;
+}
+.sowl-checkout .payments-content .tab-credit-card .btn-group.bootstrap-select button:focus {
+  border-bottom-color: darkgrey;
+}
+.sowl-checkout .payments-content .tab-credit-card .btn-group.bootstrap-select button.invalid-input {
+  border-bottom: none;
+}
+.sowl-checkout .payments-content .tab-credit-card .btn-group.bootstrap-select button[title="MM"] .filter-option,
+.sowl-checkout .payments-content .tab-credit-card .btn-group.bootstrap-select button[title="YY"] .filter-option {
+  color: darkgrey;
+}
+.sowl-checkout .payments-content .tab-credit-card .btn-group.bootstrap-select .dropdown-menu {
+  border: none;
+  box-shadow: none;
+}
+.sowl-checkout .payments-content .tab-credit-card .btn-group.bootstrap-select .dropdown-menu li a {
+  text-align: center;
+  font-size: 18px;
+  font-weight: normal;
+}
+.sowl-checkout .payments-content .tab-credit-card .btn-group.bootstrap-select .dropdown-menu li a:hover {
+  text-decoration: none;
+  background-color: #eee;
+  color: #454545;
+}
+.sowl-checkout .payments-content .tab-credit-card .btn-group.bootstrap-select .dropdown-menu li.selected a {
+  background-color: #d3d3d3;
+  color: #454545;
+}
+.sowl-checkout .payments-content .tab-credit-card label {
+  color: #707070;
+  margin: 0;
+  padding-left: 5px;
+  font-size: 16px;
+}
+.sowl-checkout .payments-content .tab-credit-card .input-wrapper {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.sowl-checkout .payments-content .tab-credit-card .input-wrapper .expiration-wrapper,
+.sowl-checkout .payments-content .tab-credit-card .input-wrapper .cvv-wrapper {
+  padding: 0;
+}
+.sowl-checkout .payments-content .tab-credit-card .input-wrapper .expiration-month .recurly-hosted-field,
+.sowl-checkout .payments-content .tab-credit-card .input-wrapper .expiration-year .recurly-hosted-field {
+  width: 60px;
+}
+.sowl-checkout .payments-content .tab-credit-card .input-wrapper .recurly-hosted-field {
+  height: 40px;
+  border-bottom: 1px solid #ddd;
+  border-radius: 0 !important;
+}
+.sowl-checkout .payments-content .tab-credit-card .input-wrapper .recurly-hosted-field input {
+  background-color: red !important;
+}
+.sowl-checkout .payments-content .tab-credit-card .input-wrapper .recurly-hosted-field-focus {
+  border-bottom-color: darkgrey;
+}
+.sowl-checkout .payments-content .tab-credit-card .bt-input {
+  position: relative;
+  padding: 0 5px;
+  height: 40px;
+  /*
+        &::after {
+          content: " ";
+          display: none;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          background-color: @invalid-color;
+          width: 100%;
+          height: 1px;
+        }
+        */
+}
+.sowl-checkout .payments-content .tab-credit-card .StripeElement {
+  padding-top: 10px !important;
+  padding-left: 10px !important;
+  padding-bottom: 5px !important;
+  border-bottom: 1px solid #ddd;
+}
+.sowl-checkout .payments-content .tab-credit-card .StripeElement--focus {
+  border-bottom-color: darkgrey;
+}
+.sowl-checkout .payments-content .tab-credit-card .StripeElement--invalid {
+  border-bottom-color: red;
+}
+.sowl-checkout .payments-content .tab-credit-card .bt-input-container.invalid-input {
+  position: relative;
+}
+.sowl-checkout .payments-content .tab-credit-card .bt-input-container.invalid-input .invalid-input-border {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: red;
+  width: 100%;
+  height: 1px;
+}
+.sowl-checkout .payments-content .tab-credit-card .bt-input-container.invalid-input .bt-input {
+  border-bottom: none;
+}
+.sowl-checkout .payments-content .tab-credit-card .bt-input-container.invalid-input label {
+  color: red;
+}
+.sowl-checkout .payments-content .tab-credit-card .slash {
+  font-size: 25px;
+  line-height: 40px;
+  padding-left: 4px;
+  color: darkgrey;
+}
+.sowl-checkout .payments-content .tab-credit-card .cvv-explain {
+  font-size: 13px;
+  width: 100%;
+  max-width: 200px;
+}
+.sowl-checkout .payments-content .tab-credit-card .cvv-explain .title-explain {
+  display: block;
+  font-weight: bolder;
+  margin-bottom: 5px;
+}
+.sowl-checkout .payments-content .tab-credit-card .cvv-explain .title-explain small {
+  font-size: smaller;
+  font-weight: normal;
+  color: #c4c4c4;
+}
+.sowl-checkout .payments-content .tab-credit-card .cvv-explain img {
+  float: left;
+  margin: 5px 10px;
+}
+.sowl-checkout .payments-content .tab-credit-card .secure-badge {
+  display: block;
+  margin: 10px 0;
+  height: 60px;
+}
+.sowl-checkout .payments-content .tab-credit-card .bt-error {
+  color: red;
+}
+.sowl-checkout .payments-content .tab-credit-card .btn-continue {
+  position: relative;
+  margin: 10px auto;
+  padding: 0;
+  display: block;
+  width: 100%;
+  max-width: none;
+  font-size: 30px;
+  text-transform: uppercase;
+  line-height: 60px;
+  height: 60px;
+}
+.sowl-checkout .payments-content .tab-credit-card .btn-continue i.glyphicon-lock {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: block;
+  width: 60px;
+  line-height: 60px;
+  font-size: 0.6em;
+  background-color: #f1562f;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.sowl-checkout .payments-content .tab-credit-card .btn-continue .loading {
+  display: none;
+}
+.sowl-checkout .payments-content .tab-credit-card .btn-continue .loading i {
+  margin-right: 10px;
+}
+.sowl-checkout .payments-content .tab-credit-card .btn-continue[disabled] .message {
+  display: none;
+}
+.sowl-checkout .payments-content .tab-credit-card .btn-continue[disabled] .loading {
+  display: block;
+}
+@media (max-width: 767px) {
+  .sowl-checkout .payments-content .tab-credit-card .btn-continue {
+    font-size: 25px;
+  }
+}
+.sowl-checkout ::-webkit-scrollbar-thumb {
+  background-color: #9c9c9c;
+}
+.congratulations-popup .vertical-alignment-helper {
+  display: table;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  /* This makes sure that we can still click outside of the modal to close it */
+}
+.congratulations-popup .vertical-align-center {
+  /* To center vertically */
+  display: table-cell;
+  vertical-align: middle;
+  pointer-events: none;
+}
+.congratulations-popup .modal-dialog .modal-content {
+  /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+  width: 400px;
+  height: inherit;
+  /* To center horizontally */
+  margin: 0 auto;
+  pointer-events: all;
+  border: 10px solid #9dbbe6;
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: none;
+}
+.congratulations-popup .modal-dialog img {
+  margin-top: 50px;
+}
+.congratulations-popup .modal-dialog h3 {
+  font-size: 30px;
+  color: #4988F7;
+}
+.congratulations-popup .modal-dialog h4 {
+  font-size: 15px;
+  color: #4A4A4A;
+  margin: 20px 30px 30px;
+  line-height: 20px;
+}
+.congratulations-popup.fade.in {
+  padding-left: 0px !important;
+}
+@media (min-width: 500px) and (max-width: 768px) {
+  .congratulations-popup .modal-dialog .modal-content {
+    width: 435px;
+  }
+}
+@media (max-width: 500px) {
+  .congratulations-popup .modal-dialog .modal-content {
+    width: 330px;
+  }
+}
+@media (max-width: 320px) {
+  .congratulations-popup .modal-dialog .modal-content {
+    width: 300px;
+  }
+}
+@media (max-width: 568px) and (height: 320px) {
+  .congratulations-popup .modal-dialog .modal-content {
+    width: 430px;
+  }
+  .congratulations-popup .modal-dialog img {
+    margin-top: 20px;
+  }
+}
+.modal-confirm .modal-dialog .modal-header h4.header-title {
+  text-align: center;
+  text-transform: uppercase;
+  color: #5482f9;
+  font-weight: 400;
+}
+.modal-confirm .modal-dialog .modal-content {
+  border: 10px solid #9dbbe6;
+  border-radius: 0;
+}
+.modal-confirm .modal-dialog .modal-content p {
+  color: #78797a;
+  padding: 10px 100px;
+}
+.modal-confirm .modal-dialog .modal-content p:nth-child(2) {
+  padding: 0 50px;
+}
+.modal-confirm .modal-dialog .modal-footer {
+  text-align: center;
+}
+.modal-confirm .modal-dialog .modal-footer .keep-active {
+  width: 100%;
+  border-radius: 5px;
+}
+.modal-confirm .modal-dialog .modal-footer .cancel-subscription {
+  margin-top: 20px;
+  display: block;
+  text-decoration: underline;
+}
+.modal-confirm .modal-dialog .btn {
+  border-radius: 0;
+  text-transform: uppercase;
+}
+.modal-confirm .vertical-alignment-helper {
+  display: table;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  padding: 0 10px;
+  /* This makes sure that we can still click outside of the modal to close it */
+}
+.modal-confirm .vertical-align-center {
+  /* To center vertically */
+  display: table-cell;
+  vertical-align: middle;
+  pointer-events: none;
+}
+.modal-confirm .modal-dialog .modal-content {
+  /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+  max-width: 600px;
+  height: inherit;
+  /* To center horizontally */
+  margin: 0 auto;
+  pointer-events: all;
+  border: 10px solid #9dbbe6;
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: none;
+}
+.modal-confirm.fade.in {
+  padding-left: 0px !important;
+}
+@media (max-width: 640px) and (max-height: 360px) {
+  .modal-confirm .vertical-alignment-helper .modal-dialog .modal-header {
+    padding: 0px;
+  }
+  .modal-confirm .vertical-alignment-helper .modal-dialog .modal-footer {
+    padding: 20px 16px;
+  }
+}
+@media (max-width: 320px) and (height: 480px) {
+  .modal-confirm .vertical-alignment-helper .modal-dialog .modal-header {
+    padding: 0px;
+  }
+}
+@media (max-width: 568px) and (height: 320px) {
+  .modal-confirm .vertical-alignment-helper .modal-dialog .modal-header {
+    padding: 5px;
+  }
+  .modal-confirm .vertical-alignment-helper .modal-dialog .modal-content p {
+    padding: 0 10px;
+  }
+  .modal-confirm .vertical-alignment-helper .modal-dialog .modal-footer {
+    padding: 10px 16px;
+  }
+  .modal-confirm .vertical-alignment-helper .modal-dialog .modal-footer .cancel-subscription {
+    margin-top: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .modal-confirm .modal-dialog .modal-content p {
+    padding: 10px 10px;
+  }
+  .modal-confirm .modal-dialog .modal-content p:nth-child(2) {
+    padding: 0 10px;
+  }
+  .modal-confirm .modal-dialog .modal-footer {
+    padding: 30px 16px;
+  }
+}

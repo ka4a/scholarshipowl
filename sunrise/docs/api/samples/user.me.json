@@ -1,0 +1,14 @@
+{
+    "data": {
+        "type": "user",
+        "id": "89328",
+        "attributes": {
+            "name": "Your Name",
+            "email": "me@email.com",
+            "picture": "https://example.com/avatar.jpg"
+        },
+        "links": {
+            "self": "/user/56"
+        }
+    }
+}

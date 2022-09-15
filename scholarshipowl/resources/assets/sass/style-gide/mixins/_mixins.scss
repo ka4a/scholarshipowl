@@ -1,0 +1,156 @@
+// loader
+@mixin loader-lines($size: 6px, $color: white, $line-width: 0.7em, $line-indent: 1em) {
+  &,
+  &:before,
+  &:after {
+    background: $color;
+    -webkit-animation: load1 1s infinite ease-in-out;
+    animation: load1 1s infinite ease-in-out;
+    width: $line-width;
+    height: 30px;
+  }
+  & {
+    color: $color;
+    text-indent: -9999em;
+    position: relative;
+    font-size: $size;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+  }
+  &:before,
+  &:after {
+    position: absolute;
+    top: 0;
+    content: '';
+  }
+  &:before {
+    left: - $line-indent;
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+  }
+  &:after {
+    left: $line-indent;
+  }
+  @-webkit-keyframes load1 {
+    0%,
+    80%,
+    100% {
+      box-shadow: 0 0;
+      height: 4em;
+    }
+    40% {
+      box-shadow: 0 -2em;
+      height: 5em;
+    }
+  }
+  @keyframes load1 {
+    0%,
+    80%,
+    100% {
+      box-shadow: 0 0;
+      height: 4em;
+    }
+    40% {
+      box-shadow: 0 -2em;
+      height: 5em;
+    }
+  }
+}
+
+// angle
+@mixin angle($direction: right, $size: 5px, $color: black){
+    display: inline-block;
+    height: 0;
+    width: 0;
+
+    @if $direction == 'top' {
+        border-left: $size solid transparent;
+      border-right: $size solid transparent;
+      border-bottom: $size solid $color;
+    } @else if $direction == 'right' {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+      border-left: $size solid $color;
+    } @else if $direction == 'bottom' {
+        border-top: $size solid $color;
+        border-right: $size solid transparent;
+        border-left: $size solid transparent;
+    } @else if $direction == 'left' {
+        border-top: $size solid transparent;
+      border-right: $size solid $color;
+      border-bottom: $size solid transparent;
+    } @else if $direction == 'top-left' {
+        border-top: $size solid $color;
+        border-right: $size solid transparent;
+    } @else if $direction == 'top-right' {
+        border-top: $size solid $color;
+        border-left: $size solid transparent;
+    } @else if $direction == 'bottom-left' {
+        border-bottom: $size solid $color;
+        border-right: $size solid transparent;
+    } @else if $direction == 'bottom-right' {
+        border-bottom: $size solid $color;
+        border-left: $size solid transparent;
+    }
+}
+
+// angle bracket
+@mixin angle-bracket($direction: right, $size: 20px, $weight: 1px, $color: white) {
+  position: relative;
+  width: $size; height: $size;
+  display: inline-block;
+  border-top: $weight solid $color;
+  @if $direction == left {
+    border-left: $weight solid $color;
+    transform: rotate(-45deg);
+  } @else if $direction == right {
+    border-right: $weight solid $color;
+    transform: rotate(45deg);
+  } @else if $direction == bottom {
+    border-right: $weight solid $color;
+    transform: rotate(135deg);
+  } @else {
+    border-right: $weight solid $color;
+    transform: rotate(315deg);
+  }
+}
+
+@mixin check-mark($color: $turquoise, $width: 9px, $height: 16px, $weight: 3px) {
+  width: $width;
+  height: $height;
+  border: solid $color;
+  transform: rotate(45deg);
+  border-width: 0 $weight $weight 0;
+  content: "";
+  display: block;
+}
+
+@mixin cross-mark($color: $turquoise, $size: 9px, $weight: 3px) {
+  display: block;
+  width: $size;
+  height: $size;
+  min-width: $size;
+  min-height: $size;
+  position: relative;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    height: $weight;
+    width: $size;
+    background-color: $color;
+    top: 38%;
+  }
+
+  &:before {
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    transform: rotate(135deg);
+  }
+}

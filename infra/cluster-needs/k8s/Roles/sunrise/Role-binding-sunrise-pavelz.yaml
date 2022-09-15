@@ -1,0 +1,13 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: barn-role-binding
+  namespace: barn
+subjects:
+  - kind: ServiceAccount
+    name: pavelz
+    namespace: barn
+roleRef:
+  kind: Role
+  name: barn
+  apiGroup: rbac.authorization.k8s.io

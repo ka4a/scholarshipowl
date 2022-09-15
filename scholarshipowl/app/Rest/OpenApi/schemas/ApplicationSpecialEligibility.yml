@@ -1,0 +1,19 @@
+type: object
+properties:
+  id:
+    type: integer
+  accountId:
+    type: integer
+  requirementId:
+    type: integer
+  val:
+    type: integer
+    default: 0
+    description: checkbox value, 1 if checked otherwise 0
+  createdAt:
+    $ref: "DateObject.yml"
+  updatedAt:
+    $ref: "DateObject.yml"
+  scholarshipId:
+    type: integer
+

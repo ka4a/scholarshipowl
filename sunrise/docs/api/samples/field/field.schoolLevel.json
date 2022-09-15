@@ -1,0 +1,25 @@
+{
+    "data": {
+        "type": "field",
+        "id": "schoolLevel",
+        "attributes": {
+            "name": "School Level",
+            "type": "option",
+            "options": {
+                "1": "High school freshman",
+                "2": "High school sophomore",
+                "3": "High school junior",
+                "4": "High school senior",
+                "5": "College 1st year",
+                "6": "College 2nd year",
+                "7": "College 3rd year",
+                "8": "College 4th year",
+                "9": "Graduate student",
+                "10": "Adult/Non-traditional Student"
+            }
+        },
+        "links": {
+            "self": "/field/schoolLevel"
+        }
+    }
+}

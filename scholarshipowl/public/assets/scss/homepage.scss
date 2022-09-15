@@ -1,0 +1,93 @@
+// helpers
+
+// breakpoint sass lib
+// http://breakpoint-sass.com/
+@import '../../../node_modules/breakpoint-sass/stylesheets/breakpoint';
+
+//variables
+@import 'main/meta/variables';
+
+// blocks
+@import 'current/components/speech-bubble';
+@import 'current/components/counter';
+@import 'current/components/_disclaimers';
+@import 'style-gide/mixins';
+
+// eligibility form block
+// TODO move to independent block after refactoring
+// hole page
+#birth-date {
+  position: relative;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+.bootstrap-select {
+  &.year,
+  &.month,
+  &.day {
+    position: static;
+  }
+
+  &.year {
+    .error-message {
+      z-index: 2;
+      background-color: #ecf4ff;
+    }
+  }
+
+  &.month {
+    .error-message {
+      z-index: 1;
+      background-color: #ecf4ff;
+    }
+  }
+}
+.eligibility .form-group {
+  overflow: visible;
+}
+
+.error .dropdown-toggle.bs-placeholder {
+  color: #ff6a6a;
+  border-color: #ff6a6a;
+  background-color: #fff;
+  z-index: 2;
+}
+
+.has-error {
+  position: relative;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.error-message {
+  height: 20px;
+  font: 400 11px/20px 'Open Sans';
+  color: #ff6a6a;
+  display: block;
+  margin: 0 5px;
+  overflow: hidden;
+  text-align: left;
+  line-height: 1.2em;
+  position: absolute;
+  bottom: -20px; left: 0;
+  width: 100%;
+}
+
+.button-loader {
+  position: absolute;
+  right: -40px;
+  top: 31px;
+  display: none;
+  @include loader-lines(
+    $size: 6px,
+    $color: white,
+    $line-width: 0.5em,
+    $line-indent: 1em
+  );
+}

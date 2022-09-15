@@ -1,0 +1,124 @@
+
+variables:
+  GIT_STRATEGY: fetch
+  DOCKER_DRIVER: overlay2 
+  DOCKER_HOST: tcp://127.0.0.1:2375/
+  CONTAINER_RELEASE_IMAGE: gcr.io/sowl-tech/scholarship-app:$CI_PIPELINE_ID
+  CONTAINER_LATEST_IMAGE: gcr.io/sowl-tech/scholarship-app:latest
+
+stages:
+  - build
+  - deploy
+
+Build image:
+  stage: build
+  retry: 2
+  image: docker:stable
+  services:
+    - docker:dind
+  script:
+    - docker info
+    - docker login -u _json_key -p "${GCE_JSON_KEY}" https://gcr.io
+    - docker pull $CONTAINER_LATEST_IMAGE || true
+    - docker build -t $CONTAINER_RELEASE_IMAGE -f Dockerfile . --cache-from $CONTAINER_LATEST_IMAGE
+
+  after_script:
+    - docker push $CONTAINER_RELEASE_IMAGE
+    - docker tag $CONTAINER_RELEASE_IMAGE $CONTAINER_LATEST_IMAGE
+    - docker push $CONTAINER_LATEST_IMAGE
+  only:
+  - branches
+  - master
+
+Deploy:
+  variables:
+    SUNRISE_URL: https://app.sunrising.tech
+    KUBE_INGRESS_DOMAIN: sunrising.tech
+    KUBE_INGRESS_HTTPS_SECRET_NAME: wildcard.sunrising.tech
+    KUBE_NAMESPACE: sunrise-dev
+    GCE_PROJECT: sowl-tech
+    GCE_CLUSTER_NAME: sowl-tech
+    GCE_ZONE: europe-west1-b
+  stage: deploy
+  environment:
+    name: develop/$CI_COMMIT_REF_NAME
+    url: https://$CI_BUILD_REF_SLUG.$KUBE_INGRESS_DOMAIN
+    on_stop: Undeploy
+  only:
+    - branches
+  except:
+    - master
+  image: gcr.io/sowl-tech/sowl-dev/kubectl:v.1.0.2-alpine
+
+  before_script:
+    - export BRANCH="$(echo "${CI_BUILD_REF_NAME}" | tr A-Z a-z | sed -e 's/\//-/g')"
+    - echo "$GCE_JSON_KEY" > ${HOME}/gcloud-service-key.json
+    - gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
+    - gcloud container clusters get-credentials ${GCE_CLUSTER_NAME} --zone ${GCE_ZONE} --project ${GCE_PROJECT}
+    - j2 --format=env ./manifests/$CI_PROJECT_NAME-k8s.j2 -o $CI_PROJECT_NAME-k8s-$CI_PIPELINE_ID.yaml
+
+  script:
+    - kubectl apply -n $KUBE_NAMESPACE -f $CI_PROJECT_NAME-k8s-$CI_PIPELINE_ID.yaml
+
+  artifacts:
+    when: always
+    paths:
+    - $CI_PROJECT_NAME-k8s-$CI_PIPELINE_ID.yaml
+    expire_in: 3 month
+
+Undeploy:
+  image: gcr.io/sowl-tech/sowl-dev/kubectl:v.1.0.2-alpine
+  stage: deploy
+  only:
+    - branches
+  except:
+    - master
+
+  before_script:
+    - export BRANCH="$(echo "${CI_BUILD_REF_NAME}" | tr A-Z a-z | sed -e 's/\//-/g')"
+    - mkdir -p /etc/deploy
+    - echo "$GCE_JSON_KEY" > ${HOME}/gcloud-service-key.json
+    - gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
+    - gcloud container clusters get-credentials ${GCE_CLUSTER_NAME} --zone ${GCE_ZONE} --project ${GCE_PROJECT}
+    - j2 --format=env ./manifests/$CI_PROJECT_NAME-k8s.j2 -o $CI_PROJECT_NAME-k8s-$CI_PIPELINE_ID.yaml
+
+  script:
+    - kubectl delete -n $KUBE_NAMESPACE -f $CI_PROJECT_NAME-k8s-$CI_PIPELINE_ID.yaml
+  when: manual
+  environment:
+    name: develop/$CI_COMMIT_REF_NAME
+    action: stop
+
+Deploy_prod:
+  variables:
+    SUNRISE_URL: https://app.scholarship.app
+    KUBE_INGRESS_DOMAIN: scholarship.app
+    KUBE_INGRESS_HTTPS_SECRET_NAME: scholarship.app
+    KUBE_NAMESPACE: sunrise
+    GCE_PROJECT: sowl-tech
+    GCE_CLUSTER_NAME: prod-cluster
+    GCE_ZONE: us-central1-a
+  stage: deploy
+  environment:
+    name: master/$CI_COMMIT_REF_NAME
+    url: https://$KUBE_INGRESS_DOMAIN
+  only:
+    - master
+  image: gcr.io/sowl-tech/sowl-dev/kubectl:v.1.0.2-alpine
+
+  before_script:
+    - export BRANCH="$(echo "${CI_BUILD_REF_NAME}" | tr A-Z a-z | sed -e 's/\//-/g')"
+    - mkdir -p /etc/deploy
+    - echo "$GCE_JSON_KEY" > ${HOME}/gcloud-service-key.json
+    - gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
+    - gcloud container clusters get-credentials ${GCE_CLUSTER_NAME} --zone ${GCE_ZONE} --project ${GCE_PROJECT}
+    - j2 --format=env ./manifests/$CI_PROJECT_NAME-k8s-prod.j2 -o $CI_PROJECT_NAME-k8s-$CI_PIPELINE_ID-prod.yaml
+
+  script:
+    - kubectl apply -n $KUBE_NAMESPACE -f $CI_PROJECT_NAME-k8s-$CI_PIPELINE_ID-prod.yaml
+
+  artifacts:
+    when: always
+    paths:
+    - $CI_PROJECT_NAME-k8s-$CI_PIPELINE_ID-prod.yaml
+    expire_in: 3 month

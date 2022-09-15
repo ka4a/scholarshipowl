@@ -1,0 +1,21 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: app.scholarship.app
+  namespace: sunrise
+spec:
+  secretName: app.scholarship.app
+  issuerRef:
+    name: sowl-tech-prod
+    kind: ClusterIssuer
+  commonName: 'app.scholarship.app'
+  dnsNames:
+      - app.scholarship.app
+      - scholarship.app
+  acme:
+    config:
+    - dns01:
+        provider: stage-dns
+      domains:
+      - app.scholarship.app
+      - scholarship.app

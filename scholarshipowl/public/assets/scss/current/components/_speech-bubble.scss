@@ -1,0 +1,92 @@
+// Import animation
+// https://github.com/geoffgraham/animate.scss
+// Daniel Eden port.
+@import '../../../public/vendor/animatewithsass/properties';
+@import '../../../public/vendor/animatewithsass/_zooming-entrances/zoomIn';
+@import '../../../node_modules/breakpoint-sass/stylesheets/breakpoint';
+@import '../../main/meta/variables.scss';
+
+
+// variables
+$primary-color:#717171;
+$secondary-color:#545454;
+$accent-color: #f2562e;
+$blue: #4e8eec;
+
+$width: 253px;
+$height: 188px;
+
+// redefine mobile width variable
+$mobile: 600px;
+
+%margin-reset {
+  margin: 0;
+}
+
+.bubble {
+  width: $width;
+  height: $height;
+  text-align: center;
+  display: none;
+  padding-top: 28px;
+  background: url(../img/speech-bubble/bg.png) left top no-repeat transparent;
+
+  position: absolute;
+  top: 5px;
+  left: 175px;
+  background-size: 100%;
+  z-index: 16;
+
+  @include breakpoint(max-width $desktop - 1px) {
+    display: none !important;
+  }
+
+  &__saying {
+    @extend %margin-reset;
+
+    color: $accent-color;
+    font-size: 13px;
+    font-weight: 700;
+    font-style: italic;
+  }
+  &__promise {
+    @extend %margin-reset;
+
+    color: $secondary-color;
+    font-size: 20px;
+    font-style: italic;
+    span {
+      display: block;
+    }
+  }
+  &__sign {
+    @extend %margin-reset;
+
+    color: $primary-color;
+    font-size: 13px;
+    font-style: italic;
+    margin-top: 5px;
+  }
+
+  &__link {
+    font-size: 12px;
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: 0.2px;
+    color: $blue;
+    float: right;
+    margin-top: 10px;
+    margin-right: 33px;
+    display: none;
+
+    @include breakpoint($desktop) {
+      display: none;
+    }
+  }
+
+
+  // set animation mixin to class names
+  &_zoom-in {
+    @include zoomIn();
+  }
+}

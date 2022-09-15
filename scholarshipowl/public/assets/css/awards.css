@@ -1,0 +1,190 @@
+#awards .text {
+    /*padding: 54px 0;*/
+}
+@media (min-width: 640px) {
+    #awards .text {
+        padding: 64px 0 84px;
+    }
+}
+
+#awards .overhead {
+    letter-spacing: 3px;
+    font: 400 20px/120% 'Raleway';
+    color: #1356b8;
+    text-shadow: 1px 1px 1px #609aee;
+    text-transform: uppercase;
+}
+@media (min-width: 768px) {
+    #awards .overhead {
+        font-size: 30px;
+    }
+}
+
+#awards h2.title {
+    letter-spacing: 3px;
+    padding-top: 9px;
+    margin: 0;
+}
+
+    @media (min-width: 768px){
+        #awards h2.title {
+            line-height: 120%;
+        }
+    }
+
+
+#everyone-is-eligible {
+    position: relative;
+}
+
+#everyone-is-eligible .container {
+    position: relative;
+}
+
+#everyone-is-eligible .left {
+    background: url('../img/awards/bg-left.png') no-repeat right top;
+    font: 400 13px/25px 'Open Sans';
+    position: relative;
+    padding: 42px 10% 120px;
+    margin-right: 42px;
+}
+@media (min-width: 480px) {
+    #everyone-is-eligible .left {
+        font: 400 14px/25px 'Open Sans';
+        padding: 82px 40px 120px;
+        margin-right: 66px;
+    }
+}
+@media (min-width: 640px) {
+    #everyone-is-eligible .left {
+        padding: 82px 60px 120px 20%;
+        margin-right: 96px;
+    }
+}
+@media (min-width: 992px) {
+    #everyone-is-eligible .left {
+        padding: 82px 50px 120px;
+        min-height: 540px;
+        float: left;
+        width: 54%;
+        margin-right: 0;
+    }
+}
+
+
+#everyone-is-eligible .right {
+    background: url('../img/awards/bg-right.png') no-repeat left top;
+    width: 392px;
+    padding: 40px 50px;
+    position: relative;
+    width: 46%;
+    float: right;
+}
+
+
+#everyone-is-eligible h2.title {
+    position: absolute;
+    width: 253px;
+    height: 42px;
+    top: -17px;
+    background: url('../img/awards/badge-xs.png') no-repeat;
+    color: #fff;
+    font: 700 12px/35px 'Raleway';
+    padding-left: 22px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    z-index: 5;
+    right: 20px;
+}
+@media (min-width: 480px) {
+    #everyone-is-eligible h2.title {
+        background: url('../img/awards/badge.png') no-repeat;
+        font: 700 20px/63px 'Raleway';
+        right: 23px;
+        height: 82px;
+        padding-left: 62px;
+        width: 402px;
+        top: -33px;
+    }
+}
+@media (min-width: 640px) {
+    #everyone-is-eligible h2.title {
+        right: 53px;
+    }
+}
+@media (min-width: 992px) {
+    #everyone-is-eligible h2.title {
+        right: 413px;
+    }
+}
+
+
+#everyone-is-eligible ul {
+    margin-left: 15px;
+    padding-left: 0;
+}
+    @media (min-width: 768px){
+        #everyone-is-eligible ul {
+            padding-left: 15px;
+        }
+    }
+
+#everyone-is-eligible .left li,
+#everyone-is-eligible .right li {
+    color: #6398e5;
+    list-style-position: outside;
+    margin-bottom: 15px;
+    padding: 0 10px;
+}
+
+#everyone-is-eligible .left li > span,
+#everyone-is-eligible .right li > span {
+    color: #686f7a;
+    font-size: 12px;
+    line-height: 25px;
+}
+
+@media (max-width: 360px) {
+    #everyone-is-eligible .visible-xs-block {
+        margin-right: -40px;
+    }
+}
+
+#everyone-is-eligible .dots {
+    background: url('../img/awards/dots.png') repeat-x;
+    margin: 30px auto 15px;
+    height: 1px;
+}
+
+#everyone-is-eligible .requirements .bold {
+    color: #6398e5;
+    font-size: 16px;
+    line-height: 50px;
+}
+
+#everyone-is-eligible .notes {
+    font: 400 10px/14px 'Open Sans';
+    color: #686f7a;
+    padding: 0 30px 0 20px;
+    text-indent: -10px;
+}
+
+#everyone-is-eligible .blue {
+    color: #4e8eec;
+}
+
+#everyone-is-eligible .button-wrapper {
+    width: 100%;
+    padding-right: 40px;
+}
+@media (min-width: 480px) {
+    #everyone-is-eligible .button-wrapper {
+        padding-right: 0;
+    }
+}
+@media (min-width: 768px) {
+    #everyone-is-eligible .button-wrapper {
+        width: 360px;
+        margin-left: 0;
+    }
+}

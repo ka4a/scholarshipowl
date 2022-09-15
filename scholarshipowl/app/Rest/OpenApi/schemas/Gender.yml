@@ -1,0 +1,9 @@
+type: object
+properties:
+  gender:
+    type: string
+    enum:
+      - female
+      - male
+      - other
+

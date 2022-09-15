@@ -1,0 +1,630 @@
+{
+  "buildPath": "assets/build/",
+  "css": {
+    "bundle1": [
+      "assets/fonts/fontello/css/fontello.css",
+      "assets/css/icon-font.css",
+      "assets/css/p/bootstrap.min.css",
+      "assets/css/p/payment.css",
+      "assets/css/p/previous-next.css",
+      "assets/css/p/apply-apps.css",
+      "assets/css/p/modals.css",
+      "assets/css/p/refer.css",
+      "assets/css/p/refer-tab.css",
+      "assets/css/p/missions.css",
+      "assets/css/p/vue-multiselect.min.css",
+      "assets/css/p/styles-override.css",
+      "assets/css/p/style.css",
+      "assets/css/p/social.css"
+    ],
+    "bundle2": [
+      "assets/css/p/styles_.css"
+    ],
+    "bundle3": [
+      "assets/css/landing/font-awesome.min.css",
+      "assets/plugins/bootstrap/css/bootstrap.min.css",
+      "assets/css/landing/style-ext.css",
+      "assets/css/landing/style.css",
+      "assets/css/landing/fontello.css",
+      "assets/css/landing/override.css",
+      "assets/css/landing/testimonials-landing.css",
+      "assets/css/landing/bootstrap-checkbox.css",
+      "assets/css/footer.css",
+      "assets/css/styles_.css"
+    ],
+    "bundle4": [
+      "assets/plugins/bootstrap-select/css/bootstrap-select.min.css",
+      "assets/css/p/style.css",
+      "assets/css/p/hp.css",
+      "assets/css/p/testimonials-carousel.css",
+      "assets/css/p/homepage.css"
+    ],
+    "bundle5": [
+      "assets/css/layout-vue.css"
+    ],
+    "resetCSS": [
+      "assets/css/reset.css"
+    ],
+    "bundle6": [
+      "assets/css/style.css",
+      "assets/css/register-steps.css",
+      "assets/css/register-step-1.css",
+      "assets/css/testimonials-carousel.css",
+      "assets/css/social.css"
+    ],
+    "bundle7": [
+      "assets/plugins/select2/dist/css/select2.css",
+      "assets/plugins/bootstrap-select/css/bootstrap-select.min.css",
+      "assets/css/style.css",
+      "assets/css/my-account.css",
+      "assets/css/upsale.css",
+      "assets/css/missions.css",
+      "assets/css/refer-tab.css",
+      "assets/css/missions-tab.css",
+      "assets/css/payment.css",
+      "assets/css/select2.css",
+      "assets/css/uploadFile.css",
+      "assets/css/education.css",
+      "assets/css/icon-font.css"
+    ],
+    "bundle8": [
+      "assets/css/icon-font.css",
+      "assets/css/style.css",
+      "assets/css/tables.css",
+      "assets/css/apply.css",
+      "assets/css/essays-popup.css",
+      "assets/css/testimonials-carousel.css"
+    ],
+    "bundle9": [
+      "assets/css/style.css",
+      "assets/css/essays.css",
+      "assets/css/essays-popup.css"
+    ],
+    "bundle10": [
+      "assets/plugins/bootstrap-select/css/bootstrap-select.min.css",
+      "assets/css/style.css",
+      "assets/css/my-account.css",
+      "assets/css/pinboard.css"
+    ],
+    "bundle11": [
+      "assets/css/icon-font.css",
+      "assets/css/style.css",
+      "assets/css/social.css",
+      "assets/css/upsale.css",
+      "assets/css/register-steps.css",
+      "assets/css/register-step-1.css",
+      "assets/css/winner.css",
+      "assets/css/scholarship-page.css"
+    ],
+    "bundle12": [
+      "assets/css/style.css",
+      "assets/css/register-steps.css",
+      "assets/css/register-step-1.css",
+      "assets/css/testimonials-carousel.css",
+      "assets/css/social.css",
+      "assets/css/you-deserve-it.css"
+    ],
+    "bundle13": [
+      "assets/css/congratulations.css",
+      "assets/css/register-final.css",
+      "assets/css/testimonials-carousel.css"
+    ],
+    "bundle14": [
+      "assets/plugins/bootstrap-select/css/bootstrap-select.min.css",
+      "assets/css/style.css",
+      "assets/css/register-steps.css",
+      "assets/css/register-step-3.css",
+      "assets/css/testimonials-carousel.css",
+      "assets/css/previous-next.css"
+    ],
+    "bundle15": [
+      "assets/css/mobile-registration.css"
+    ],
+    "bundle16": [
+      "assets/plugins/bootstrap-select/css/bootstrap-select.min.css",
+      "assets/css/style.css",
+      "assets/css/register-steps.css",
+      "assets/css/register-step-3.css",
+      "assets/css/testimonials-carousel.css",
+      "assets/css/previous-next.css",
+      "assets/css/select2.css",
+      "assets/css/education.css",
+      "assets/css/mobile-registration.css"
+    ],
+    "bundle17": [
+      "assets/plugins/bootstrap-select/css/bootstrap-select.min.css",
+      "assets/css/style.css",
+      "assets/css/register-steps.css",
+      "assets/css/register-step-2.css",
+      "assets/css/upsale.css",
+      "assets/css/testimonials-carousel.css",
+      "assets/css/previous-next.css",
+      "assets/css/select2.css",
+      "assets/css/education.css"
+    ],
+    "bundle19": [
+      "assets/css/style.css",
+      "assets/css/essays-popup.css",
+      "assets/css/payment-register.css"
+    ],
+    "bundle20": [
+      "assets/css/opensans.css",
+      "assets/plugins/bootstrap/css/bootstrap.min.css",
+      "assets/css/style.css",
+      "assets/css/clicks/override.css",
+      "assets/css/apply-apps.css"
+    ],
+    "bundle21": [
+      "assets/css/bootstrap/bootstrap.css",
+      "assets/css/style.css",
+      "assets/css/clicks/override.css"
+    ],
+    "bundle22": [
+      "assets/css/style.css",
+      "assets/css/congratulations.css",
+      "assets/css/payment.css",
+      "assets/css/upsale.css"
+    ],
+    "bundle23": [
+      "assets/css/style.css",
+      "assets/css/payment.css",
+      "assets/css/upsale.css"
+    ],
+    "bundle24": [
+      "assets/css/style.css",
+      "assets/css/payment.css"
+    ],
+    "bundle25": [
+      "assets/css/style.css",
+      "assets/css/congratulations.css",
+      "assets/css/upsale.css",
+      "assets/css/payment-mobile.css",
+      "assets/css/missions-tab.css",
+      "assets/css/modals.css",
+      "assets/css/mobile-missions-popup.css",
+      "assets/css/upgrade-mobile.css"
+    ],
+    "bundle26": [
+      "assets/css/style.css",
+      "assets/css/congratulations.css",
+      "assets/css/upsale.css",
+      "assets/css/payment-mobile.css"
+    ],
+    "bundle28": [
+      "assets/css/p/who-we-are.css"
+    ],
+    "bundle29": [
+      "assets/css/style.css",
+      "assets/css/testimonials-carousel.css",
+      "assets/css/faq.css",
+      "assets/css/social.css"
+    ],
+    "bundle30": [
+      "assets/css/landing/opensans.css",
+      "assets/css/landing/font-awesome.min.css",
+      "assets/css/landing/bootstrap/bootstrap.css",
+      "assets/css/landing/style-ext.css",
+      "assets/css/landing/style.css",
+      "assets/css/landing/fontello.css",
+      "assets/css/landing/override.css",
+      "assets/css/landing/testimonials-landing.css",
+      "assets/css/landing/bootstrap-checkbox.css"
+    ],
+    "bundle31": [
+      "assets/css/apply-apps.css",
+      "assets/css/payment.css",
+      "assets/less/styles-override.css",
+      "assets/css/previous-next.css",
+      "assets/plugins/bootstrap-select/css/bootstrap-select.min.css"
+    ],
+    "bundle32": [
+      "assets/css/apply-apps.css",
+      "assets/css/payment.css",
+      "assets/less/styles-override.css",
+      "assets/css/previous-next.css",
+      "assets/plugins/bootstrap-select/css/bootstrap-select.min.css"
+    ],
+    "bundle33": [
+      "assets/css/landing/get-scholarships.css",
+      "assets/css/landing/get-paid.css"
+    ],
+    "bundle34": [
+      "assets/css/style.css",
+      "assets/css/testimonials-carousel.css",
+      "assets/css/select2.css",
+      "assets/css/zuusa.css"
+    ],
+    "bundle35": [
+      "assets/css/reset.css",
+      "assets/css/icon-font.css",
+      "assets/css/external/vue-multiselect.min.css"
+    ],
+    "ie7shim": [
+      "assets/fonts/fontello/css/fontello-ie7.css",
+      "assets/css/style-ie7.css"
+    ],
+    "ie7shim2": [
+      "assets/fonts/fontello/css/fontello-ie7.css"
+    ],
+    "iconFont": [
+      "assets/css/icon-font.css"
+    ],
+    "mainStyle": [
+      "assets/css/style.css"
+    ],
+    "clicksOverride": [
+      "assets/css/clicks/override.css"
+    ],
+    "social": [
+      "assets/css/social.css"
+    ],
+    "partnerships": [
+      "assets/css/p/partnerships.css"
+    ],
+    "jobs": [
+      "assets/css/p/jobs.css"
+    ],
+    "international": [
+      "assets/css/international.css"
+    ],
+    "carousel4steps": [
+      "assets/css/p/carousel-4-steps.css"
+    ],
+    "testimonialsCarousel": [
+      "assets/css/p/testimonials-carousel.css"
+    ],
+    "advertise": [
+      "assets/css/advertise.css"
+    ],
+    "tips": [
+      "assets/css/p/tips.css"
+    ],
+    "toolTips": [
+      "assets/css/tool-tips.css"
+    ],
+    "affiliates": [
+      "assets/css/p/affiliates.css"
+    ],
+    "additionalServices": [
+      "assets/css/p/additional-services.css"
+    ],
+    "ebook": [
+      "assets/css/ebook.css"
+    ],
+    "faq": [
+      "assets/css/p/faq.css"
+    ],
+    "contact": [
+      "assets/css/p/contact.css"
+    ],
+    "awards": [
+      "assets/css/awards.css"
+    ],
+    "upgradeMobile": [
+      "assets/css/p/upgrade-mobile.css"
+    ],
+    "landingGetScholarships": [
+      "assets/css/landing/get-scholarships.css"
+    ],
+    "paymentPopUp": [
+      "assets/css/payment-popup-extracted.css"
+    ],
+    "select2": [
+      "assets/css/select2.css"
+    ],
+    "danemedia": [
+      "assets/css/danemedia.css"
+    ],
+    "reset": [
+      "assets/css/reset.css"
+    ],
+    "admin1": [
+      "admin/plugins/bootstrap/bootstrap.css",
+      "admin/plugins/fancybox/jquery.fancybox.css",
+      "admin/plugins/fullcalendar/fullcalendar.css",
+      "admin/plugins/select2/select2.css",
+      "admin/css/style.css"
+    ]
+  },
+  "js": {
+    "bundle1": [
+      "assets/plugins/jquery/jquery.min.js",
+      "assets/plugins/bootstrap/js/bootstrap.min.js",
+      "assets/plugins/bootstrap-select/js/bootstrap-select.min.js",
+      "vendor/jquery.payment/lib/jquery.payment.min.js",
+      "vendor/jquery-ui/ui/effect.js",
+      "vendor/jquery-ui/ui/effects/effect-shake.js"
+    ],
+    "bundle2": [
+      "common/js/core.js",
+      "common/js/configs.js",
+      "assets/js/theme.js",
+      "assets/js/classes/common.js",
+      "vendor/braintree-web/dist/braintree.js",
+      "assets/js/classes/checkout.js",
+      "assets/js/classes/payment.js",
+      "vendor/jquery.actual/jquery.actual.min.js",
+      "assets/js/classes/gmail-import.js",
+      "assets/js/jquery_file_upload/js/jquery.ui.widget.js",
+      "assets/js/jquery_file_upload/js/jquery.iframe-transport.js",
+      "assets/js/jquery_file_upload/js/jquery.fileupload.js",
+      "assets/js/underscore-min.js"
+    ],
+    "bundle3": [
+      "assets/js/classes/register.js",
+      "assets/js/classes/login.js",
+      "assets/js/countUp.min.js",
+      "assets/js/classes/main.js",
+      "assets/js/testimonials.js",
+      "assets/js/eligibility-form-validation.js"
+    ],
+    "bundle4": [
+      "assets/plugins/inputmask/jquery.inputmask.bundle.js",
+      "assets/js/phone-input.js",
+      "assets/js/classes/register.js",
+      "assets/js/classes/register2.js",
+      "assets/js/classes/login.js",
+      "assets/js/classes/main.js",
+      "assets/plugins/select2/dist/js/select2.js"
+    ],
+    "bundle5": [
+      "assets/plugins/notify/notify.js",
+      "assets/plugins/inputmask/jquery.inputmask.bundle.js",
+      "assets/plugins/bootstrap-filestyle/bootstrap-filestyle.js",
+      "assets/plugins/zeroclipboard/ZeroClipboard.js",
+      "assets/plugins/select2/dist/js/select2.js",
+      "assets/plugins/custom-scrollbar-plugin/jquery.mCustomScrollbar.js"
+    ],
+    "bundle6": [
+      "assets/js/mCustomScrollbar.js",
+      "assets/js/phone-input.js",
+      "assets/js/classes/register.js",
+      "assets/js/classes/register2.js",
+      "assets/js/classes/main.js",
+      "assets/js/files.js"
+    ],
+    "bundle7": [
+      "assets/js/sorter.js",
+      "assets/js/classes/main.js",
+      "assets/js/classes/apply.js",
+      "assets/js/select.js",
+      "assets/plugins/scrollmagic/minified/ScrollMagic.min.js",
+      "assets/js/scrollmagic.js"
+    ],
+    "bundle8": [
+      "assets/js/mCustomScrollbar.js",
+      "assets/js/classes/main.js",
+      "assets/js/pinboard.js"
+    ],
+    "bundle9": [
+      "assets/js/classes/login.js",
+      "assets/js/classes/main.js"
+    ],
+    "bundle10": [
+      "assets/plugins/inputmask/jquery.inputmask.bundle.js",
+      "assets/js/phone-input.js",
+      "assets/js/classes/register.js",
+      "assets/js/classes/register2.js",
+      "assets/js/classes/login.js",
+      "assets/js/classes/main.js",
+      "assets/plugins/select2/dist/js/select2.js"
+    ],
+    "bundle11": [
+      "assets/plugins/custom-scrollbar-plugin/jquery.mCustomScrollbar.js",
+      "assets/plugins/mousewheel/jquery.mousewheel.js",
+      "assets/plugins/inputmask/jquery.inputmask.bundle.js"
+    ],
+    "bundle12": [
+      "assets/js/mCustomScrollbar.js",
+      "assets/js/classes/register.js",
+      "assets/js/classes/register2.js",
+      "assets/js/classes/login.js",
+      "assets/js/classes/main.js",
+      "assets/plugins/select2/dist/js/select2.js"
+    ],
+    "bundle13": [
+      "assets/js/mCustomScrollbar.js",
+      "assets/js/classes/register.js",
+      "assets/js/classes/register2.js",
+      "assets/js/classes/login.js",
+      "assets/js/classes/main.js",
+      "assets/plugins/select2/dist/js/select2.js"
+    ],
+    "bundle14": [
+      "assets/plugins/select2/dist/js/select2.js",
+      "assets/plugins/custom-scrollbar-plugin/jquery.mCustomScrollbar.js"
+    ],
+    "bundle15": [
+      "assets/js/mCustomScrollbar.js",
+      "assets/js/classes/register.js",
+      "assets/js/classes/register2.js",
+      "assets/js/classes/login.js",
+      "assets/js/classes/main.js"
+    ],
+    "bundle16": [
+      "assets/js/phone-input.js",
+      "assets/js/intlTelInput.min.js",
+      "assets/plugins/inputmask/jquery.inputmask.bundle.js",
+      "assets/js/classes/register.js",
+      "assets/js/classes/register2.js",
+      "assets/js/classes/login.js",
+      "assets/js/classes/main.js",
+      "assets/plugins/select2/dist/js/select2.js"
+    ],
+    "bundle17": [
+      "assets/js/sorter.js",
+      "assets/js/classes/apply.js",
+      "assets/js/classes/main.js",
+      "assets/js/select.js",
+      "assets/plugins/scrollmagic/minified/ScrollMagic.min.js",
+      "assets/js/scrollmagic.js",
+      "vendor/jquery.actual/jquery.actual.min.js"
+    ],
+    "bundle18": [
+      "assets/plugins/inputmask/jquery.inputmask.bundle.min.js",
+      "assets/js/phone-input.js",
+      "assets/js/scroll-to.js",
+      "assets/js/classes/register.js"
+    ],
+    "bundle19": [
+      "/assets/js/inputmask.js",
+      "/assets/js/jquery.inputmask.js",
+      "/assets/js/inputmask.phone.extensions.js",
+      "/assets/js/user.js",
+      "/common/js/core.js",
+      "/assets/js/classes/common.js",
+      "/assets/js/bootstrap-checkbox.js",
+      "/assets/js/landing/default.js",
+      "/assets/js/landing/application.js"
+    ],
+    "bundle20": [
+      "assets/js/jquery.mCustomScrollbar.min.js",
+      "assets/js/jquery.mousewheel.min.js",
+      "assets/js/user.js",
+      "common/js/core.js",
+      "assets/js/classes/common.js",
+      "assets/js/landing/default.js"
+    ],
+    "bundle22": [
+      "assets/js/inputmask.js",
+      "assets/js/jquery.inputmask.js",
+      "assets/js/inputmask.phone.extensions.js",
+      "assets/js/jquery.checkboxes.min.js",
+      "assets/js/user.js",
+      "common/js/core.js",
+      "assets/js/classes/common.js",
+      "assets/js/bootstrap-checkbox.js",
+      "assets/js/landing/default.js",
+      "assets/js/landing/application.js"
+    ],
+    "bundle23": [
+      "/assets/js/phone-input.js",
+      "/assets/js/classes/coreg.js"
+    ],
+    "bundle24": [
+      "/assets/js/classes/coreg/Register3Loan.js"
+    ],
+    "bundle25": [
+      "/common/js/core.js",
+      "/assets/js/landing/default.js",
+      "/assets/js/classes/common.js",
+      "/vendor/braintree-web/dist/braintree.js",
+      "/assets/plugins/bootstrap-select/js/bootstrap-select.js",
+      "/vendor/jquery.payment/lib/jquery.payment.min.js",
+      "/vendor/jquery-ui/ui/effect.js",
+      "/vendor/jquery-ui/ui/effects/effect-shake.js",
+      "/assets/js/classes/checkout.js",
+      "/assets/js/landing/application.js",
+      "/assets/js/classes/payment.js",
+      "/assets/js/landing/login.js",
+      "/assets/js/classes/main.js",
+      "/assets/js/scroll-to.js",
+      "/assets/js/classes/user.js"
+    ],
+    "bundle26": [
+      "/assets/js/jquery.mCustomScrollbar.min.js",
+      "/assets/js/jquery.mousewheel.min.js",
+      "/assets/js/user.js",
+      "/common/js/core.js",
+      "/assets/js/classes/common.js",
+      "/assets/js/landing/default.js"
+    ],
+    "bundle27": [
+      "/common/js/core.js",
+      "/assets/js/landing/default.js",
+      "/assets/js/classes/common.js",
+      "/vendor/braintree-web/dist/braintree.js",
+      "/assets/plugins/bootstrap-select/js/bootstrap-select.js",
+      "/vendor/jquery.payment/lib/jquery.payment.min.js",
+      "/vendor/jquery-ui/ui/effect.js",
+      "/vendor/jquery-ui/ui/effects/effect-shake.js",
+      "/assets/js/classes/checkout.js",
+      "/assets/js/landing/application.js",
+      "/assets/js/classes/payment.js",
+      "/assets/js/landing/login.js",
+      "/assets/js/classes/main.js"
+    ],
+    "bundleExternal": [
+      "/js/external-components.js"
+    ],
+    "bundleApp": [
+      "/js/app.js"
+    ],
+    "bundleAccountMobile": [
+      "/js/account-mobile.js"
+    ],
+    "bundle28": [
+      "/assets/plugins/jquery/jquery.min.js",
+      "/vendor/jquery.payment/lib/jquery.payment.min.js",
+      "/vendor/jquery.actual/jquery.actual.min.js",
+      "/vendor/jquery-ui/ui/effect.js",
+      "/vendor/jquery-ui/ui/effects/effect-shake.js",
+      "/assets/plugins/bootstrap/js/bootstrap.js",
+      "/assets/plugins/bootstrap-select/js/bootstrap-select.js",
+      "/common/js/core.js",
+      "/common/js/configs.js",
+      "/assets/js/classes/common.js",
+      "/vendor/braintree-web/dist/braintree.js",
+      "/assets/js/classes/checkout.js",
+      "/assets/js/classes/payment.js",
+      "/assets/js/classes/main.js"
+    ],
+    "login": [
+      "assets/js/classes/login.js"
+    ],
+    "user": [
+      "assets/js/classes/user.js"
+    ],
+    "main": [
+      "assets/js/classes/main.js"
+    ],
+    "register": [
+      "assets/js/classes/register.js"
+    ],
+    "calcButton": [
+      "assets/js/calcButton.js"
+    ],
+    "testimonials": [
+      "assets/js/testimonials.js"
+    ],
+    "offerWall": [
+      "assets/js/pages/offer-wall.js"
+    ],
+    "vendorBraintree": [
+      "vendor/braintree-web/dist/braintree.js"
+    ],
+    "scrollTo": [
+      "assets/js/scroll-to.js"
+    ],
+    "select2": [
+      "assets/plugins/select2/dist/js/select2.js"
+    ],
+    "zuusa": [
+      "assets/js/classes/coreg/zuusa.js"
+    ],
+    "danemedia": [
+      "assets/js/classes/coreg/danemedia.js"
+    ],
+    "admin1": [
+      "common/js/core.js",
+      "admin/js/theme.js",
+      "admin/js/classes/common.js",
+      "admin/js/classes/accounts.js",
+      "admin/js/classes/scholarships.js",
+      "admin/js/classes/packages.js",
+      "admin/js/classes/popup.js",
+      "admin/js/classes/missions.js",
+      "admin/js/classes/marketing.js",
+      "admin/js/classes/referrals.js",
+      "admin/js/classes/website.js",
+      "admin/js/classes/cms.js",
+      "admin/js/classes/acl.js",
+      "admin/js/classes/subscriptions.js",
+      "admin/js/classes/statistics.js",
+      "admin/js/classes/logs.js",
+      "admin/js/classes/main.js",
+      "admin/js/classes/features.js",
+      "admin/plugins/select2/select2.js"
+    ]
+  }
+}

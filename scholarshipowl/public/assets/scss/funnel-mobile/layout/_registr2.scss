@@ -1,0 +1,184 @@
+// reset existing styles
+$green: #00bc9f;
+$red: #fa3b52;
+
+body.root-mobile {
+   .fm-accordion {
+      h2, p {
+        @extend %margin-reset;
+      }
+      i {
+        line-height: 1em;
+      }
+      ul, li {
+        list-style: none;
+      }
+   }
+}
+
+.fm-accordion {
+  padding: 15px 15px 24px 15px;
+  background-color: $blue-light;
+
+  &-item {
+    padding: 20px 15px;
+    background-color: $light;
+    @extend .relative;
+
+    & + & {
+      margin-top: 2px;
+    }
+  }
+
+  &-title {
+    @extend %interaction-title-font;
+  }
+
+  // dependecies from icon-font
+  &-indicator {
+    @extend .icon;
+    @extend .icon-arrow-up;
+    @extend .absolute;
+    @extend %transition;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+    color: $blue-light;
+  }
+
+  // TODO define like independent block
+  &-not {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+
+    &__icon {
+      @extend .icon;
+      font-size: 30px;
+      padding-right: 10px;
+    }
+
+    &__text {
+      @extend %text;
+    }
+
+    // error state
+    @at-root {
+      .fm-accordion-not.err {
+        .fm-accordion-not__icon {
+          @extend .icon-err;
+          color: $red;
+        }
+        .fm-accordion-not__text {
+          color: $red;
+        }
+      }
+
+      // approved state
+      .fm-accordion-not.ok {
+        .fm-accordion-not__icon {
+          @extend .icon-ok;
+          font-size: 32px;
+          color: $green;
+        }
+      }
+    }
+  }
+
+  &__not {
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+
+  // intraction label
+  .interaction-label-fm {
+    @extend %text;
+    text-transform: capitalize;
+  }
+}
+
+// radio button list
+.radio-list-fm {
+  @extend %padding-reset;
+  @extend %margin-reset;
+  padding-top: 25px;
+  padding-left: 20px;
+
+  &_horizontal {
+    overflow: hidden;
+
+    .radio-list-fm__item {
+      float: left;
+    }
+
+    .radio-list-fm__item +
+    .radio-list-fm__item  {
+        margin-left: 20px;
+    }
+  }
+
+  &__item {
+    margin-bottom: 10px;
+  }
+}
+
+.multiselect-set-fm {
+  $root-name: &;
+  @extend %group;
+
+  &_three {
+    #{$root-name}__item {
+      & {
+        float: left;
+        width: 40%;
+        margin-left: -1px;
+        box-sizing: border-box;
+      }
+
+      &_month,
+      &_day, {
+        width: 30%;
+      }
+    }
+  }
+
+  &_two {
+    #{$root-name}__item {
+      & {
+        float: left;
+        width: 40%;
+        margin-left: -1px;
+        box-sizing: border-box;
+      }
+
+      &_year {
+        width: 60%;
+      }
+    }
+  }
+
+  .multiselect__option,
+  .multiselect__option--highlight,
+  .multiselect__option--selected {
+    &:after {
+      content: none !important;
+      display: none !important;
+    }
+  }
+}
+
+// university Notification
+.notif-tag {
+  max-width: 122px;
+  border-radius: 2px;
+  background-color: $light-dark;
+  display: inline-block;
+  font-size: 15px;
+  padding: 0.5em 1em;
+  color: $grey;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-left: 5px;
+  margin-top: 3px;
+}

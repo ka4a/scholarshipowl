@@ -1,0 +1,112 @@
+.winner {
+    width: 133px;
+    height: 133px;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.winner.ashley-c-8 {
+    background: url('../img/sprites/winners-sprite-C4JhtyVddHYVQhB.png') no-repeat;
+    background-position: 0px -0px;
+    background-size: 133px;
+}
+.winner.ashley-p-1 {
+    background: url('../img/sprites/winners-sprite-C4JhtyVddHYVQhB.png') no-repeat;
+    background-position: 0px -133px;
+    background-size: 133px;
+}
+.winner.bradee-b-19 {
+    background: url('../img/sprites/winners-sprite-C4JhtyVddHYVQhB.png') no-repeat;
+    background-position: 0px -266px;
+    background-size: 133px;
+}
+.winner.daniel-v-18 {
+    background: url('../img/sprites/winners-sprite-C4JhtyVddHYVQhB.png') no-repeat;
+    background-position: 0px -399px;
+    background-size: 133px;
+}
+.winner.eshe-b-3 {
+    background: url('../img/sprites/winners-sprite-C4JhtyVddHYVQhB.png') no-repeat;
+    background-position: 0px -532px;
+    background-size: 133px;
+}
+.winner.gladys-a-12 {
+    background: url('../img/sprites/winners-sprite-C4JhtyVddHYVQhB.png') no-repeat;
+    background-position: 0px -665px;
+    background-size: 133px;
+}
+.winner.isabella-m-13 {
+    background: url('../img/sprites/winners-sprite-C4JhtyVddHYVQhB.png') no-repeat;
+    background-position: 0px -798px;
+    background-size: 133px;
+}
+.winner.jacoby-g-14 {
+    background: url('../img/sprites/winners-sprite-C4JhtyVddHYVQhB.png') no-repeat;
+    background-position: 0px -931px;
+    background-size: 133px;
+}
+.winner.jordan-f-7 {
+    background: url('../img/sprites/winners-sprite-C4JhtyVddHYVQhB.png') no-repeat;
+    background-position: 0px -1064px;
+    background-size: 133px;
+}
+.winner.kasey-w-0 {
+    background: url('../img/sprites/winners-sprite-C4JhtyVddHYVQhB.png') no-repeat;
+    background-position: 0px -1197px;
+    background-size: 133px;
+}
+.winner.kayla-g-16 {
+    background: url('../img/sprites/winners-sprite-C4JhtyVddHYVQhB.png') no-repeat;
+    background-position: 0px -1330px;
+    background-size: 133px;
+}
+.winner.kehinde-b-5 {
+    background: url('../img/sprites/winners-sprite-C4JhtyVddHYVQhB.png') no-repeat;
+    background-position: 0px -1463px;
+    background-size: 133px;
+}
+.winner.leon-k-11 {
+    background: url('../img/sprites/winners-sprite-C4JhtyVddHYVQhB.png') no-repeat;
+    background-position: 0px -1596px;
+    background-size: 133px;
+}
+.winner.maria-r-15 {
+    background: url('../img/sprites/winners-sprite-C4JhtyVddHYVQhB.png') no-repeat;
+    background-position: 0px -1729px;
+    background-size: 133px;
+}
+.winner.martina-f-2 {
+    background: url('../img/sprites/winners-sprite-C4JhtyVddHYVQhB.png') no-repeat;
+    background-position: 0px -1862px;
+    background-size: 133px;
+}
+.winner.mollijoy-c-20 {
+    background: url('../img/sprites/winners-sprite-C4JhtyVddHYVQhB.png') no-repeat;
+    background-position: 0px -1995px;
+    background-size: 133px;
+}
+.winner.nashira-t-10 {
+    background: url('../img/sprites/winners-sprite-C4JhtyVddHYVQhB.png') no-repeat;
+    background-position: 0px -2128px;
+    background-size: 133px;
+}
+.winner.olivia-m-9 {
+    background: url('../img/sprites/winners-sprite-C4JhtyVddHYVQhB.png') no-repeat;
+    background-position: 0px -2261px;
+    background-size: 133px;
+}
+.winner.sasha-r-6 {
+    background: url('../img/sprites/winners-sprite-C4JhtyVddHYVQhB.png') no-repeat;
+    background-position: 0px -2394px;
+    background-size: 133px;
+}
+.winner.sheuriah-r-17 {
+    background: url('../img/sprites/winners-sprite-C4JhtyVddHYVQhB.png') no-repeat;
+    background-position: 0px -2527px;
+    background-size: 133px;
+}
+.winner.tailer-f-4 {
+    background: url('../img/sprites/winners-sprite-C4JhtyVddHYVQhB.png') no-repeat;
+    background-position: 0px -2660px;
+    background-size: 133px;
+}

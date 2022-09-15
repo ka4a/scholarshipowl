@@ -1,0 +1,207 @@
+@import './variables';
+
+@mixin sun-mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin sun-tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin only-sun-tablet {
+  @media (min-width: 768px) and (max-width: 1279px) {
+    @content;
+  }
+}
+
+@mixin sun-desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin sun-widescreen {
+  @media (min-width: 1900px) {
+    @content;
+  }
+}
+
+@mixin sun-hd {
+  @media (min-width: 2500px) {
+    @content;
+  }
+}
+
+@mixin sun-fullhd {
+  @media (min-width: 2800px) {
+    @content;
+  }
+}
+
+@mixin text {
+  @include sun-mobile {
+    font-size: $text-mobile!important;
+    line-height: 24px!important;
+  }
+
+  @include sun-desktop {
+    font-size: $text-desktop!important;
+    line-height: 21px!important;
+  }
+
+  @include sun-widescreen() {
+    font-size: $text-widescreen!important;
+    line-height: 23px!important;
+  }
+
+  @include sun-hd() {
+    font-size: $text-hd!important;
+    line-height: 33px!important;
+  }
+
+  @include sun-fullhd() {
+    font-size: $text-fullhd!important;
+    line-height: 36px!important;
+  }
+}
+
+@mixin leading-title {
+  @include sun-mobile {
+    font-size: $leading-title-mobile;
+    line-height: 42px;
+  }
+
+  @include sun-tablet {
+    font-size: $leading-title-tablet;
+    line-height: 71px;
+  }
+
+  @include sun-desktop {
+    font-size: $leading-title-desktop;
+    line-height: 118px;
+  }
+
+  @include sun-hd {
+    font-size: $leading-title-hd;
+    line-height: 128px;
+  }
+
+  @include sun-fullhd {
+    font-size: $leading-title-fullhd;
+    line-height: 116px;
+  }
+}
+
+@mixin medium-title {
+  @include sun-mobile {
+    font-size: $medium-title-mobile;
+    line-height: 33px;
+  }
+
+  @include sun-tablet {
+    font-size: $medium-title-tablet;
+    line-height: 51px;
+  }
+
+  @include sun-desktop {
+    font-size: $medium-title-desktop;
+  }
+
+  @include sun-widescreen {
+   font-size: $medium-title-hd;
+  }
+
+  @include sun-widescreen {
+    font-size: $medium-title-hd;
+   }
+}
+
+@mixin description-title {
+  @include sun-mobile {
+    font-size: $description-title-mobile;
+    line-height: 31px;
+  }
+
+  @include sun-tablet {
+    font-size: $description-title-tablet;
+    line-height: 36px;
+  }
+
+  @include sun-desktop {
+    font-size: $description-title-desktop;
+    line-height: 46px;
+  }
+
+  @include sun-hd {
+   font-size: $description-title-hd;
+   line-height: 47px;
+  }
+}
+
+@mixin feature-title {
+  @include sun-mobile {
+    font-size: $feature-title-mobile;
+    line-height: 27px;
+  }
+
+  @include sun-tablet {
+    font-size: $feature-title-tablet;
+    line-height: 32px;
+  }
+
+  @include sun-desktop {
+    font-size: $feature-title-desktop;
+    line-height: 42px;
+  }
+
+  @include sun-widescreen {
+    font-size: $feature-title-widescreen;
+    line-height: 42px;
+  }
+
+  @include sun-hd {
+   font-size: $feature-title-hd;
+   line-height: 54px;
+  }
+
+  @include sun-fullhd {
+    font-size: $feature-title-fullhd;
+    line-height: 59px;
+   }
+}
+
+@mixin feature-description {
+  @include sun-mobile {
+    font-size: $feature-description-mobile;
+    line-height: 27px;
+  }
+
+  @include sun-tablet {
+    font-size: $feature-description-tablet;
+    line-height: 27px;
+  }
+
+  @include sun-desktop {
+    font-size: $feature-description-desktop;
+    line-height: 39px;
+  }
+
+  @include sun-widescreen {
+    font-size: $feature-description-widescreen;
+    line-height: 39px;
+  }
+
+  @include sun-hd {
+   font-size: $feature-description-hd;
+   line-height: 42px;
+  }
+
+  @include sun-fullhd {
+    font-size: $feature-description-fullhd;
+    line-height: 49px;
+   }
+}

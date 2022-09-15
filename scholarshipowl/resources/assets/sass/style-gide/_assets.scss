@@ -1,0 +1,54 @@
+@mixin css-icon($name, $options) {
+
+  @if(type-of($options) != 'map') {
+    @error "$options should be map";
+  }
+
+  @if $name == 'plus' or $name == 'cross' {
+    $height: map-get($options, 'height');
+    $width: map-get($options, 'width');
+    $color: map-get($options, 'color');
+    $line-width: map-get($options, 'line-width');
+
+    height: $height;
+    width: $width;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    cursor: pointer;
+    text-align: left;
+    position: absolute;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      background-color: $color;
+    }
+
+    &:before {
+      width: $line-width;
+      height: $height;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      @if $name == 'cross' {
+        transform: rotate(45deg);
+      }
+    }
+
+    &:after {
+      height: $line-width;
+      width: $width;
+      top: 0;
+      bottom: 0;
+      margin-top: auto;
+      margin-bottom: auto;
+
+      @if $name == 'cross' {
+        transform: rotate(45deg);
+      }
+    }
+  }
+}

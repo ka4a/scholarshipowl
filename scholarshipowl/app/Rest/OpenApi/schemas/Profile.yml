@@ -1,0 +1,141 @@
+type: object
+properties:
+  accountId:
+    type: integer
+  firstName:
+    type: string
+  lastName:
+    type: string
+  fullName:
+    type: string
+  phone:
+    type: string
+  dateOfBirth:
+    type: string
+    format: date
+    example: "03/05/1991"
+  age:
+    type: integer
+  gender:
+    type: string
+    enum:
+      - female
+      - male
+  citizenship:
+    $ref: 'Citizenship.yml'
+  ethnicity:
+    $ref: 'Ethnicity.yml'
+  isSubscribed:
+    type: boolean
+  avatar:
+    type: string
+  country:
+    $ref: 'Country.yml'
+  state:
+    $ref: 'States.yml'
+  stateName:
+    type: string
+  city:
+    type: string
+  address:
+    type: string
+  zip:
+    type: string
+    exanple: "99998"
+  schoolLevel:
+    $ref: 'SchoolLevel.yml'
+  degree:
+    $ref: 'Degrees.yml'
+  degreeType:
+    $ref: 'DegreeTypes.yml'
+  enrollmentYear:
+    type: integer
+  enrollmentMonth:
+    type: integer
+  gpa:
+    type: string
+    example: '3.4'
+  careerGoal:
+    type: array
+    items:
+      $ref: 'CareerGoals.yml'
+  graduationYear:
+    type: integer
+    example: 2017
+  graduationMonth:
+    type: integer
+    example: 3
+  studyOnline:
+    type: string
+    enum:
+      - yes
+      - no
+      - maybe
+  highschool:
+    type: string
+    example: "Eufaula School - Eufaula Campus"
+  highschoolAddress1:
+    type: string
+  highschoolAddress2:
+    type: string
+  enrolled:
+    type: boolean
+  universityAddress1:
+    type: string
+  universityAddress2:
+    type: string
+  university:
+    type: string
+  university1:
+    type: string
+  university2:
+    type: string
+  university3:
+    type: string
+  university4:
+    type: string
+  universities:
+    type: array
+    items:
+      description: Names of universities
+      type: string
+  distributionChannel:
+    type: string
+    default: web_app
+  signupMethod:
+    type: string
+    default: manual
+  militaryAffiliation:
+    $ref: 'MilitaryAffiliation.yml'
+  profileType:
+    type: string
+    enum:
+      - student
+      - parent
+  recurringApplication:
+    type: integer
+    description:
+      0 - Disabled;
+      2 - Notify;
+      3 - On deadline;
+    enum:
+      - 0
+      - 2
+      - 3
+  studyCountry1:
+    type: integer
+    description: Country id
+    example: 1
+  studyCountry2:
+    type: integer
+  studyCountry3:
+    type: integer
+  studyCountry4:
+    type: integer
+  studyCountry5:
+    type: integer
+  agreeCall:
+    type: boolean
+  completeness:
+    type: integer
+    example: 75

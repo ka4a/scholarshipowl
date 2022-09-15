@@ -1,0 +1,8 @@
+type: object
+properties:
+  count:
+    type: integer
+  start:
+    type: integer
+  limit:
+    type: integer

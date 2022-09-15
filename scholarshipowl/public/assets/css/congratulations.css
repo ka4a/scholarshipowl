@@ -1,0 +1,246 @@
+
+.congratulations-head .text {
+    position: relative;
+    padding: 14px 5%;
+}
+
+.congratulations-head h2.title {
+    /*color: #1356b8;*/
+    color: #fff;
+    font: 800 26px/120% 'Raleway';
+    letter-spacing: 1px;
+    margin: 0;
+    padding-top: 9px;
+    text-shadow: 1px 1px 1px #609aee;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#payment h2.title {
+    font-weight: 400;
+    text-transform: none;
+    font-variant: small-caps;
+    line-height: 1.428;
+}
+
+#congratulations-head.register-step1-header .subtitle {
+    /*color: #1356b8;*/
+    color: #fff;
+    font: 700 18px/114% 'Raleway';
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 1px #609aee;
+    text-transform: uppercase;
+    padding: 3px 0;
+    text-align: center;
+    width: 230px;
+    margin: 6px auto 0;
+}
+
+.congratulations-head.register-step1-header .subtitle span {
+    color: #fff;
+}
+
+.congratulations-head .subtitle {
+    text-align: center;
+    padding: 30px 20px 10px;
+    font: 14px/120% 'Open Sans';
+    font-weight: 600;
+}
+
+.congratulations-head .description {
+    text-align: center;
+    line-height: 120%;
+    padding: 0 20px 20px;
+}
+
+.congratulations-head .diploma {
+    position: relative;
+    margin: 0 auto;
+    width: 213px;
+    height: 291px;
+    background: url('../img/thankyou/diploma.png') -5px top;
+}
+
+.congratulations .left {
+    vertical-align: top;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0;
+    zoom: 1; /* Fix for IE7 */
+    *display: inline; /* Fix for IE7 */
+}
+
+.congratulations .left h3.title {
+    font: 700 30px/120% 'Open Sans';
+    font-size: 30px;
+    color: #333;
+    margin: 0;
+}
+
+.congratulations .left .description {
+    line-height: 23px;
+    color: #686f7a;
+    margin-top: 30px;
+}
+
+.congratulations .left .description-1 {
+    font-family: 'Open Sans';
+    font-weight: 700;
+    line-height: 23px;
+    color: #333;
+    margin-top: 22px;
+}
+
+.congratulations .right {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 13px;
+    padding: 0 0 0 20px;
+}
+
+.congratulations .right .title {
+    font: 600 18px/34px 'Open Sans';
+    color: #4e8eec;
+}
+
+.congratulations .right .text-in {
+    line-height: 25px;
+    font-size: 13px;
+    color: #686f7a;
+    margin-top: 18px;
+    margin-bottom: 25px;
+}
+
+.congratulations .divider {
+    background: url('../img/thankyou/hdots.png') repeat-x center top;
+    padding-top: 15px;
+}
+
+.congratulations .right ul {
+    list-style-type: none;
+    margin: 20px auto;
+    padding: 0;
+    width: 185px;
+}
+
+.congratulations .right ul li {
+    border-bottom: 1px solid #e4e7ed;
+    cursor: pointer;
+    font: 400 14px/48px 'Open Sans';
+    color: #000;
+}
+
+.congratulations .right ul li img {
+    margin: 0 10px ;
+}
+
+/*==========  480  ==========*/
+
+
+@media (min-width: 480px) {
+    .congratulations-head h2.title {
+        letter-spacing: 3px;
+    }
+}
+
+/*==========  640  ==========*/
+
+@media (min-width: 640px) {
+    .congratulations-head.register-step1-header h2.title {
+        font-size: 36px;
+    }
+    .congratulations-head.register-step1-header .subtitle {
+        font-size: 18px;
+        margin-top: 14px;
+    }
+}
+
+/*==========  768  ==========*/
+
+@media (min-width: 768px) {
+    .congratulations-head .text {
+        padding: 34px 5%;
+    }
+    .congratulations-head h2.title {
+        font: 800 40px/120% 'Raleway';
+    }
+    #registration-congratulations-head.congratulations-head h2.title {
+        text-align: left;
+    }
+    .congratulations-head.register-step1-header h2.title {
+        font-size: 56px;
+        letter-spacing: .17em;
+        text-align: center;
+    }
+    .congratulations-head.register-step1-header .subtitle {
+        font: 700 28px/120% 'Raleway';
+        letter-spacing: 5px;
+        padding: 3px 0;
+        width: 100%;
+        margin-top: 0;
+    }
+    .congratulations-head .subtitle {
+        font-size: 18px;
+        padding: 30px 0 10px 10px;
+    }
+    #registration-congratulations-head.congratulations-head .subtitle {
+        text-align: left;
+    }
+    .congratulations-head .description {
+        font-size: 13px;
+        padding-left: 10px;
+    }
+    #registration-congratulations-head.congratulations-head .description {
+        text-align: left;
+    }
+    .congratulations-head .diploma {
+        background-position: left top;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        width: 217px;
+    }
+    .congratulations .container {
+        padding: 0 60px;
+    }
+    .congratulations .right {
+        padding-left: 30px;
+    }
+    .congratulations .right ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 185px;
+    }
+    .congratulations .right .left-1 {
+        width: 260px;
+        float: left;
+    }
+    .congratulations .right .right-1 {
+        width: 240px;
+        float: right;
+    }
+}
+
+/*==========  992  ==========*/
+
+@media (min-width: 992px) {
+    .congratulations-head h2.title {
+        font: 800 60px/120% 'Raleway';
+    }
+    .congratulations-head .subtitle {
+        font: 600 24px/32px 'Open Sans';
+    }
+    .congratulations-head .description {
+        font: 400 18px/32px 'Open Sans';
+        padding: 0 0 0 10px;
+    }
+    .congratulations .left {
+        vertical-align: top;
+        padding: 0 30px 0 0;
+        float: left;
+    }
+    .congratulations .left .description {
+        margin-top: 59px;
+    }
+}

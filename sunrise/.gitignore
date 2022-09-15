@@ -1,0 +1,43 @@
+/node_modules
+/public/hot
+/public/storage
+/public/fonts
+/public/images
+/public/docs
+/storage/*.key
+/storage/*.json
+/vendor
+/.idea
+/.vagrant
+.vscode
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+.env
+
+# Laravel Doctrine
+/storage/proxies
+
+
+# Main application build path
+/public/js
+
+# Vuejs example build
+/public/example
+
+
+# Barn template
+# dependencies
+barn-template/node_modules
+
+# logs
+barn-template/npm-debug.log
+
+# Nuxt build
+barn-template/.nuxt
+
+# Nuxt generate
+barn-template/dist
+storage/websites
+

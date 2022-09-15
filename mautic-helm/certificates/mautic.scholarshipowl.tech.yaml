@@ -1,0 +1,18 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: mautic.scholarshipowl.tech
+  namespace: sowl-mautic
+spec:
+  secretName: mautic.scholarshipowl.tech
+  issuerRef:
+    name: sowl-tech-prod
+    kind: ClusterIssuer
+  dnsNames:
+    - mautic.scholarshipowl.tech
+  acme:
+    config:
+    - dns01:
+         provider: stage-dns
+      domains:
+      - mautic.scholarshipowl.tech

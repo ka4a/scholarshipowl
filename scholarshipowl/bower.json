@@ -1,0 +1,25 @@
+{
+  "name": "scholarshipowl",
+  "description": "A system to streamline the process of scholarship application for US students. Built on Laravel 4, with bootstrap for front-end.",
+  "main": "none",
+  "authors": [
+    "none"
+  ],
+  "license": "none",
+  "homepage": "none",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "braintree-web": "2.24.0",
+    "jquery-ui": "jquery.ui#^1.11.4",
+    "jquery.payment": "^1.4.1",
+    "tooltipster": "https://github.com/iamceege/tooltipster.git#^4.2.3"
+  }
+}
